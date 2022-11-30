@@ -26,12 +26,12 @@ int main(void)
             printf("#");
         }
 // Print spaces between pyramids
-        while (int j < 1 || int j > 8)
+        for (int k = 0; k <= i;k++)
         {
             printf ("  ");
         }
 // Print hashes of the second pyramid
-        for (int k = 0; k <= i; k++)
+        for (int l = 0; l <= i; l++)
         {
             printf("#");
         }
