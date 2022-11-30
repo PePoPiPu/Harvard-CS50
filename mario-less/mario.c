@@ -15,6 +15,11 @@ int main(void)
 // Height
     for(int i = 0; i < n; i++)
     {
+// Printing the spaces
+        for (int j = n; j > i; j--)
+        {
+            printf(" ");
+        }
 // Printing the hashes
         for (int j = 0; j <= i; j++)
         {
