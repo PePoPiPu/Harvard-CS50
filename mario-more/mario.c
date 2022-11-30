@@ -10,9 +10,13 @@ int main(void)
     {
         n = get_int("Height: \n");
     }
-    while (n < 1 || n > 8);
 // Ask for height when n is lesser than 1 or greater than 8
+    while (n < 1 || n > 8);
 // Height of first pyramid
+    for (int = 0; n < 1; i++)
+    {
+        printf("#\n");
+    }
 // Print spaces of the first pyramid
 // Print hashes of the first pyramid
 // Print space between the two pyramids
