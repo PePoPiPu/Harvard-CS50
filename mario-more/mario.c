@@ -13,11 +13,17 @@ int main(void)
 // Ask for height when n is lesser than 1 or greater than 8
     while (n < 1 || n > 8);
 // Height of first pyramid
-    for (int = 0; n < 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("#\n");
-    }
 // Print spaces of the first pyramid
+        for (int j = n - 1; j > i; j--)
+        {
+            printf(" ");
+        }
+    }   for (int j = 0; j <= i; j++)
+        {
+            printf("#");
+        }
 // Print hashes of the first pyramid
 // Print space between the two pyramids
 // Height of second pyramid
