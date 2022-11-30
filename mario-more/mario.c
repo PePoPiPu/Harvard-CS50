@@ -25,13 +25,11 @@ int main(void)
         {
             printf("#");
         }
-// Print hashes of second pyramid
-        for (int k = 0; k <= i; k++)
-        {
-            printf("#");
-        }
-
 // Escape Sequence
     printf("\n");
+    }
+    for (int k = 0; k <= i; k++)
+    {
+        printf ("#");
     }
 }
