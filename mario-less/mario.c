@@ -12,4 +12,4 @@ int main(void)
 // While n is less than 1 OR greater than 8
     while (n < 1 || n > 8);
 }
-// Print
+// Print height
