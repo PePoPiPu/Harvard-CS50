@@ -13,17 +13,17 @@ int main(void)
     int cents;
     do
     {
-        cents = get_int("How many cents?: \n");
+        cents = get_int("Changed owed: \n");
     }
     while (cents < 0);
 
     // Calculate the number of quarters to give the customer
     int quarters = calculate_quarters(cents);
-    quarters = cents/25;
+    quarters = cents - quarters *25;
 
     // Calculate the number of dimes to give the customer
     int dimes = calculate_dimes(cents);
-    dimes = cents/10;
+    dimes = cents - dimes *10;
 
     // Calculate the number of nickels to give the customer
     int nickels = calculate_nickels(cents);
