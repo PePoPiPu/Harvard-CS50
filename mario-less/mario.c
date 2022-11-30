@@ -12,14 +12,20 @@ int main(void)
     }
 // While n is less than 1 OR greater than 8
     while (n < 1 || n > 8);
-
+// Height
     for(int i = 0; i < n; i++)
     {
-        printf ("#\n");
+// Printing the spaces
         for (int j = n; j > i; j--)
         {
-            printf("#");
+            printf(" ");
         }
+// Printing the hashes
+        for (int j = 0; j <= i; j++)
+        {
+            printf ("#");
+        }
+// Escape sequence
         printf("\n");
     }
 }
