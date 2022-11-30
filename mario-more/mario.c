@@ -20,12 +20,16 @@ int main(void)
         {
             printf(" ");
         }
-    }   for (int j = 0; j <= i; j++)
+// Print hashes of the first pyramid
+        for (int j = 0; j <= i; j++)
         {
             printf("#");
         }
-// Print hashes of the first pyramid
+// Escape Sequence
+    printf("  \n");
+    }
 // Print space between the two pyramids
+
 // Height of second pyramid
 // Print hashes of second pyramid
 }
