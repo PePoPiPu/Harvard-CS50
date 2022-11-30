@@ -9,6 +9,6 @@ int main(void)
     {
         n = get_int ("Width: \n");
     }
-    while (n < 1); while (n > 8);
+    while (n < 1, n > 8);
 }
 // Print
