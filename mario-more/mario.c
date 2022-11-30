@@ -28,8 +28,4 @@ int main(void)
 // Escape Sequence
     printf("\n");
     }
-    for (int k = 0; k <= i; k++)
-    {
-        printf ("#");
-    }
 }
