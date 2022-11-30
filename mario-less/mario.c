@@ -3,6 +3,7 @@
 
 int main(void)
 {
+// Declaration of the variable
     int n;
 // Prompt user for pyramid width
     do
