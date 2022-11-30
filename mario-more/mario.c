@@ -4,7 +4,7 @@
 int main(void)
 {
 // Declaration of the variable "n"
-   int n;
+    int n;
 // Prompt user for pyramid height
     do
     {
@@ -33,6 +33,6 @@ int main(void)
             printf("#");
         }
 // Escape Sequence
-    printf("\n");
+        printf("\n");
     }
 }
