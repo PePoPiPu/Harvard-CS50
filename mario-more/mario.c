@@ -25,6 +25,16 @@ int main(void)
         {
             printf("#");
         }
+// Print spaces between pyramids
+        for (int j = 2; j <= i;)
+        {
+            printf ("  ");
+        }
+// Print hashes of the second pyramid
+        for (int k = 0; k <= i; k++)
+        {
+            printf("#");
+        }
 // Escape Sequence
     printf("\n");
     }
