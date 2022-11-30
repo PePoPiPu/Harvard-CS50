@@ -39,8 +39,4 @@ int main(void)
 // Escape Sequence
     printf("\n");
     }
-
-
-
-
 }
