@@ -26,7 +26,7 @@ int main(void)
             printf("#");
         }
 // Print spaces between pyramids
-        for (int j = 2; j <= i;)
+        for (int j = 0; j <= i;j)
         {
             printf ("  ");
         }
