@@ -4,7 +4,7 @@
 int main(void)
 {
 // Definitions
-lastDigit
+
 // Prompt the user for credit card number
     long n = get_long("Type your credit card number: ");
 
@@ -14,7 +14,6 @@ lastDigit
     int second_last_digit(int n)
     // Remove last digit of N
     n = n / 10;
-    lastDigit = long % 10
     // Add those products digits together
     // Add the sum to the sum of the digits that weren't multipliead by 2
     // Is it valid? Total's last digit is 0
