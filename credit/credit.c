@@ -11,7 +11,7 @@ int main(void)
 //Check Sum
 // Multiply every other digit by 2, starting with second-to-last digit
     // Get second-to-last digit
-    int second_last_digit(int n);
+    long second_last_digit(long n);
     // Remove last digit of N
     n = n / 10;
     // Add those products digits together
