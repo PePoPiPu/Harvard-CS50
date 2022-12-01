@@ -11,6 +11,9 @@ lastDigit
 //Check Sum
 // Multiply every other digit by 2, starting with second-to-last digit
     // Get second-to-last digit
+    int second_last_digit(int n)
+    // Remove last digit of N
+    n = n / 10;
     lastDigit = long % 10
     // Add those products digits together
     // Add the sum to the sum of the digits that weren't multipliead by 2
@@ -19,7 +22,7 @@ lastDigit
 // Detect type of credit card
     // American Express: 15 digits. 34 or 37
     // MasterCard: 16 digits. 51, 52, 53, 54, 55
-    // Visa: 13 or 16 digits. 4
+    // Visa: 13 or 16 digits. 4 j
 
 // Print AMEX, MASTERCARD, VISA or INVALID
 }
