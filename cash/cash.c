@@ -23,7 +23,7 @@ int main(void)
 
     // Calculate the number of dimes to give the customer
     int dimes = calculate_dimes(cents);
-    dimes = quarters - cents/10;
+    dimes = cents - dimes * 10;
 
     // Calculate the number of nickels to give the customer
     int nickels = calculate_nickels(cents);
