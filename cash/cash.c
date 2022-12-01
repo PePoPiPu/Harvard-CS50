@@ -30,7 +30,6 @@ int main(void)
 
         return quarters;
     }
-    return quarters;
     // Calculate the number of dimes to give the customer
     int dimes = calculate_dimes(cents);
    cents = cents - dimes * 10;
