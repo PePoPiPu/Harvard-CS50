@@ -3,11 +3,15 @@
 
 int main(void)
 {
+// Definitions
+lastDigit
 // Prompt the user for credit card number
     long n = get_long("Type your credit card number: ");
 
 //Check Sum
-    // Multiply every other digit by 2, starting with second-to-last digit
+// Multiply every other digit by 2, starting with second-to-last digit
+    // Get second-to-last digit
+    lastDigit = long % 10
     // Add those products digits together
     // Add the sum to the sum of the digits that weren't multipliead by 2
     // Is it valid? Total's last digit is 0
