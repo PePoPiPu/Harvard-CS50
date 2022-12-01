@@ -75,33 +75,3 @@ int main(void)
     // Print total number of coins to give the customer
     printf("%i\n", coins);
 }
-
-int get_cents(void)
-{
-    // TODO
-    return 0;
-}
-
-int calculate_quarters(int cents)
-{
-    // TODO
-    return 0;
-}
-
-int calculate_dimes(int cents)
-{
-    // TODO
-    return 0;
-}
-
-int calculate_nickels(int cents)
-{
-    // TODO
-    return 0;
-}
-
-int calculate_pennies(int cents)
-{
-    // TODO
-    return 0;
-}
