@@ -4,7 +4,7 @@
 int main(void)
 {
 // Prompt the user for credit card number
-    get_long("Type your credit card number: ");
+    long n = get_long("Type your credit card number: ");
 
 //Check Sum
     // Multiply every other digit by 2, starting with second-to-last digit
