@@ -34,7 +34,7 @@ int main(void)
     // Print total number of coins to give the customer
     printf("%i\n", coins);
 }
-
+// Prompt user for change owed
 int get_cents(void)
 {
     int cents;
@@ -46,7 +46,7 @@ int get_cents(void)
     while (cents < 0);
     return cents;
 }
-
+// Calculate quarters to give
 int calculate_quarters(int cents)
 {
     int quarters = 0;
@@ -54,12 +54,13 @@ int calculate_quarters(int cents)
     while (cents >= 25)
     {
         quarters++;
+// Update the cents count in main
         cents = cents - 25;
     }
 
     return quarters;
 }
-
+// Calculate dimes to give
 int calculate_dimes(int cents)
 {
     int dimes = 0;
@@ -67,12 +68,13 @@ int calculate_dimes(int cents)
     while (cents >= 10)
     {
         dimes++;
+// Update cents count
         cents = cents - 10;
     }
 
     return dimes;
 }
-
+// Calculate nickels to give
 int calculate_nickels(int cents)
 {
     int nickels = 0;
@@ -80,12 +82,13 @@ int calculate_nickels(int cents)
     while (cents >= 5)
     {
         nickels++;
+// Update cents count
         cents = cents - 5;
     }
 
     return nickels;
 }
-
+// Calculate pennies to give
 int calculate_pennies(int cents)
 {
     int pennies = 0;
@@ -93,7 +96,8 @@ int calculate_pennies(int cents)
     while (cents >= 1)
     {
         pennies++;
-        cents = cents -1;
+// Update cents count
+        cents = cents - 1;
     }
 
     return pennies;
