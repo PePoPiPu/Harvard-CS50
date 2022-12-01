@@ -25,8 +25,9 @@ int main(void)
         while (cents >= 25)
         {
             quarters++;
-            cents - 25;
+            cents = cents - 25;
         }
+
         return quarters;
     }
     return quarters;
