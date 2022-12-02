@@ -12,8 +12,15 @@ int main(void)
 // Multiply every other digit by 2, starting with second-to-last digit
     // Get second-to-last digit
     long second_last_digit(long n);
-    // Remove last digit of N
-    n = n / 10;
+    {
+        n = n /10;
+        return n % 10;
+    }
+
+    scanf("%ld", &n);
+    printf("Second To Last Digit of %ld = %ld", n, second_last_digit(n));
+
+
     // Add those products digits together
     // Add the sum to the sum of the digits that weren't multipliead by 2
     // Is it valid? Total's last digit is 0
