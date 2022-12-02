@@ -1,24 +1,26 @@
 #include <cs50.h>
 #include <stdio.h>
-
+long second_last_digit(long n)
+{
+    n = n / 10;
+    return n % 10;
+}
 int main(void)
 {
 // Definitions
+    long n;
+    printf("Type credit card number: ");
+    scanf("%ld", &n);
 
-// Prompt the user for credit card number
-    long n = get_long("Type your credit card number: ");
+    printf("Second Last Digit of %ld = %ld", n, second_last_digit(n));
+    printf("\n");
+
 
 //Check Sum
 // Multiply every other digit by 2, starting with second-to-last digit
     // Get second-to-last digit
-    long second_last_digit(long n);
-    {
-        n = n /10;
-        return n % 10;
-    }
 
-    scanf("%ld", &n);
-    printf("Second To Last Digit of %ld = %ld", n, second_last_digit(n));
+
 
 
     // Add those products digits together
