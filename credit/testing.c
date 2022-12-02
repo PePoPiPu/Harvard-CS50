@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int second_last_digit(int n);
+int second_last_digit(int n)
 {
 n = n / 10;
 return n % 10;
