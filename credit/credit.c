@@ -7,7 +7,6 @@ long second_last_digit(long n)
 }
 int main(void)
 {
-// Definitions
     long n;
     printf("Type credit card number: ");
     scanf("%ld", &n);
