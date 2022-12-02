@@ -14,3 +14,4 @@ int main (void)
 
     printf("Second Last Digit of %d = %d", n, second_last_digit(n));
 }
+printf("\n");
