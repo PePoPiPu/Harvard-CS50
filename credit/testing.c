@@ -10,7 +10,7 @@ int main (void)
 {
     int n;
     printf("Enter a number: ");
-    scanf("%d, &n");
+    scanf("%d", &n);
 
-    printf("Second Last Digit of %d = %d", n, second_last_digit(n))
+    printf("Second Last Digit of %d = %d", n, second_last_digit(n));
 }
