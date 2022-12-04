@@ -3,6 +3,5 @@
 
 int main (void)
 {
-string answer = get_string("Name: ");
-string answer = 
+string answer = get_string("Name: " "Date of birth: " "Phone Number ");
 }
