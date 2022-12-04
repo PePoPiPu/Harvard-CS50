@@ -2,4 +2,4 @@
 
 int main (void)
 
-string = get_string("Your name: ");
+get_string("Your name: ");
