@@ -13,7 +13,7 @@ int main(void)
 
 int count_letters(string text)
 {
-    for (int i = 0, n = strlen(s); i < n; i++)
+    for (int i = 0, n < strlen(s); i++)
     {
         printf("%c", s[i]);
     }
