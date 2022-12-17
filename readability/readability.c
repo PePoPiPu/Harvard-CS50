@@ -13,8 +13,9 @@ int main(void)
 
 int count_letters(string text)
 {
-    int lenght = strlen(s)
+    int lenght = strlen(text);
+    int count = 0;
 
     for (int i = 0; 1 < length; i++)
-        if
+        if (isalpha(s[i])) count++;
 }
