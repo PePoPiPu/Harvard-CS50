@@ -38,6 +38,25 @@ int main(void)
         sentences++;
     }
     printf("%i sentences\n", sentences);
+
+    // Determining the reading grade level using the Coleman - Liau index
+    float calculation = (0.0588 * letters / words * 100) - (0.296 * sentences / words * 100) - 15.8;
+    int index = round(calculation);
+
+    if(index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (index >= 16)
+    {
+        prinf("Grade 16+\n");
+        return 0;
+    }
+    else
+    {
+        printf("Grade %i\n", index);
+    }
+
 }
 
 
