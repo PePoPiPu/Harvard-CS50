@@ -11,16 +11,17 @@ int main(void)
 
     // Counting the letters of the text
     int letters = 0;
-    // Setting the counter to 0, 
+    // Setting the counter to 0, the loop runs for the length of the string, runs through every character.
     for (int i = 0; i < strlen(text); i++)
     {
+        // If the character evaluated is a lowercase OR uppercase letter, add 1 to the 'letters' counter.
         if ((text[i] >= 'a' && text[i] <= 'z') || (text[i] >= 'A' && text[i] <= 'Z'))
         {
             letters++;
         }
     }
 
-    // Counting the number of words
+    // Counting the number of words (Number of spaces + 1)
     int words = 1;
     for (int i = 0; i < strlen(text); i++)
     {
@@ -30,7 +31,7 @@ int main(void)
         }
     }
 
-    // Counting the number of sentences
+    // Counting the number of sentences (Number of periods, exclamation and question marks)
     int sentences = 0;
     for (int i = 0; i < strlen(text); i++)
     {
