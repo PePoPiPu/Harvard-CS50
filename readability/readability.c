@@ -9,7 +9,7 @@ float l;
 int main(void)
 {
     string s = get_string("Text: ");
-    printf("%s\n", s);
+    printf("%i\n", int);
 }
 
 int count_letters(string text)
@@ -22,5 +22,5 @@ int count_letters(string text)
             l++;
         }
     }
-    return 1;
+    return l;
 }
