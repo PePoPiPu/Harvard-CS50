@@ -15,6 +15,10 @@ int count_letters(string text)
 {
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        printf("%c", text[i]);
+        if (isalpha[i])
+        {
+            l++
+        }
     }
+    return 1;
 }
