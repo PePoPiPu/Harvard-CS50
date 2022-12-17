@@ -5,7 +5,7 @@ int main(int argc, string argv[])
 {
     if(argc != 2)
     {
-        printf("Missing command line argument\n");
+        printf("Please input cipher Key\n");
         return 1;
     }
     printf("hello, %s\n", argv[1]);
