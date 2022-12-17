@@ -15,4 +15,6 @@ int main(int argc, string argv[])
 }
 
 bool only_digits(string s)
-{}
+{
+    char c = get_char()
+}
