@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-bool only_digits(string s)
+bool only_digits(string s);
 
 int main(int argc, string argv[])
 {
@@ -12,9 +12,20 @@ int main(int argc, string argv[])
         return 1;
     }
     return 0;
+
+    // Check if the Key is made up of only digits
+
+    bool only_digits(string s)
+    {
+        char c = get_char("Key: ");
+        if (isdigit(c))
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
 }
 
-bool only_digits(string s)
-{
-    char c = get_char()
-}
