@@ -17,5 +17,4 @@ int count_letters(string text)
     {
         printf("%c", text[i]);
     }
-    return int;
 }
