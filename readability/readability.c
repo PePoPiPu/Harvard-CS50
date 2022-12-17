@@ -5,6 +5,7 @@
 
 int count_letters(string text);
 
+float l;
 int main(void)
 {
     string s = get_string("Text: ");
