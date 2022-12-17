@@ -31,7 +31,7 @@ int main(void)
         }
     }
 
-    // Counting the number of sentences (Number of periods, exclamation and question marks)
+    // Counting the number of sentences (Number of periods, exclamation and question markssub)
     int sentences = 0;
     for (int i = 0; i < strlen(text); i++)
     {
