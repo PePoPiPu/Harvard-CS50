@@ -38,6 +38,6 @@ int compute_score(string word)
     // Keep track of the score
     int score = 0
 
-    for (int i = 0, len strlen(word), i < 0, i++)
+    for (int i = 0, len strlen(word); i < len; i++)
 }
 
