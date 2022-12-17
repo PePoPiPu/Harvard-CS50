@@ -9,18 +9,19 @@ float l;
 int main(void)
 {
     string s = get_string("Text: ");
-    printf("%i\n", int);
+    int letters = count_letters(s);
+    printf("%s\n");
 }
 
 int count_letters(string text)
 {
-    l = 0;
-    for (int i = 0, n = strlen(text); i < n; i++)
+    int chars = 0;
+    for(int i = 0; text[i] != '\0' ; i++)
     {
-        if (isalpha (text[i]))
+        if (isalpha[i])
         {
-            l++;
+            chars++
         }
     }
-    return l;
+    return chars;
 }
