@@ -13,6 +13,7 @@ int main(void)
 
 int count_letters(string text)
 {
+    l = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         if (isalpha[i])
