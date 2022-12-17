@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int count_letters(string text)
+int count_letters(string text);
 
 int main(void)
 {
@@ -18,6 +18,5 @@ int count_letters(string text)
         {
             words++;
         }
-        else if(str[i] == ')
     }
 }
