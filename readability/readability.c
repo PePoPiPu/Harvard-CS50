@@ -13,7 +13,7 @@ int main(void)
 
 int count_letters(string text)
 {
-    int length = strlen(text);
+    int length = strlen(string text);
     int count = 0;
 
     for (int i = 0; 1 < length; i++)
