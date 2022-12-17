@@ -15,8 +15,8 @@ int main(int argc, string argv[])
 
     // Check if the Key is made up of only digits
 
-    bool only_digits(string s)
-    {
+    bool only_digits(string s);
+
         char c = get_char("Key: ");
         if (isdigit(c))
         {
@@ -26,6 +26,6 @@ int main(int argc, string argv[])
         {
             return 1;
         }
-    }
+
 }
 
