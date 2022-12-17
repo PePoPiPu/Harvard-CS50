@@ -12,5 +12,12 @@ int main(void)
 
 int count_letters(string text)
 {
-    for
+    for(int i = 0; str[i] !='\0'; i++)
+    {
+        if(str[i] == ' ')
+        {
+            words++;
+        }
+        else if(str[i] == ')
+    }
 }
