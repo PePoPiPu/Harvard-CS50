@@ -19,6 +19,11 @@ int main(void)
     }
     printf("%i letters", letters);
     printf("\n");
+
+    // Counting the number of words
+
+    int words = 1
+    for(int i = 0; i < strlen(text); i++)
 }
 
 
