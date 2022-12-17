@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 int count_letters(string text);
 
@@ -12,7 +13,7 @@ int main(void)
 
 int count_letters(string text)
 {
-    for(int i = 0; strlen[i] !='\0'; i++)
+    for(int i = 0; str[i] !='\0'; i++)
     {
         if(str[i] == ' ')
         {
