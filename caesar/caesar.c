@@ -15,7 +15,7 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-
+    // Callling only_digits function. Takes argument vector 1 as an argument and outputs an answer.
     bool answer = only_digits(argv[1]);
     {
         if (answer == true)
@@ -25,6 +25,7 @@ int main(int argc, string argv[])
     }
 }
 
+// Function that checks if input is made up of only digits, returns boolean value
 bool only_digits(string s)
 {
     for (int i = 0, length = strlen(s);i < length; i++)
