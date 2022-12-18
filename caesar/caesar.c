@@ -21,8 +21,8 @@ int main(int argc, string argv[])
     {
         if (answer == true)
         {
-            string s = get_string("Plaintext: \n");
-            printf("%s\n");
+            string s = get_string("Plaintext: ");
+            printf("Plaintext: %s\n");
             return 0;
         }
     }
