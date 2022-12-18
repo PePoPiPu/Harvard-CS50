@@ -6,7 +6,7 @@
 
 // Function prototypes
 bool only_digits(string s);
-char rotate(char c, int n);
+char rotate(char c, int k);
 
 // Main function
 int main(int argc, string argv[])
@@ -19,7 +19,7 @@ int main(int argc, string argv[])
     }
 
     // Convert the key into an int
-    int s = atoi(argv[1]);
+    int k = atoi(argv[1]);
     // Callling only_digits function. Takes argument vector 1 as an argument and outputs an answer.
     bool answer = only_digits(argv[1]);
     {
