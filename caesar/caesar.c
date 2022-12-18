@@ -20,7 +20,7 @@ int main(int argc, string argv[])
 
     // Convert the key into an int
     int k = atoi(argv[1]);
-    // Callling only_digits function. Takes argument vector 1 as an argument and outputs an answer.
+    // Calll only_digits function. Takes argument vector 1 as an argument and outputs an answer.
     bool answer = only_digits(argv[1]);
     {
         if (answer == true)
@@ -49,4 +49,26 @@ bool only_digits(string s)
 
 // Function that takes the plaintext and rotates each character by n times.
 
+char rotate (char c, int k)
+{
+    // Check if the character is alphabetical and if so, check if is upper/lower and apply formula
+    if(isalpha(c))
+    {
+        if(isupper(c))
+        {
+            char new_c = ((c - 65 + k) % 26) + 65;
+            return new_c;
+        }
 
+        else
+        {
+            char new_c = ((c-97 + k) % 26) + 97;
+            return new_c;
+        }
+    }
+    // Return plain character without rotating it if it's not alphabetical
+    else
+    {
+        return c;
+    }
+}
