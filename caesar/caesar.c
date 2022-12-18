@@ -12,7 +12,7 @@ char rotate(char c, int k);
 int main(int argc, string argv[])
 {
     // Check if program was run with one command-line argument
-    if(argc != 2)
+    if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
         return 1;
@@ -46,7 +46,7 @@ int main(int argc, string argv[])
 // Function that checks if input is made up of only digits, returns boolean value
 bool only_digits(string s)
 {
-    for (int i = 0, length = strlen(s);i < length; i++)
+    for (int i = 0, length = strlen(s); i < length; i++)
     {
         if (!isdigit(s[i]))
         {
@@ -59,12 +59,12 @@ bool only_digits(string s)
 
 // Function that takes the plaintext and rotates each character by n times.
 
-char rotate (char c, int k)
+char rotate(char c, int k)
 {
     // Check if the character is alphabetical and if so, check if is upper/lower and apply formula
-    if(isalpha(c))
+    if (isalpha(c))
     {
-        if(isupper(c))
+        if (isupper(c))
         {
             char new_c = ((c - 65 + k) % 26) + 65;
             return new_c;
