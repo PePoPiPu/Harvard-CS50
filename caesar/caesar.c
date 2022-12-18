@@ -25,7 +25,7 @@ bool only_digits(string s)
             printf("Usage: ./caesar key\n");
             return false;
         }
-        else
+        else if (isdigit(s[i]))
         {
             printf("Success!!\n");
         }
