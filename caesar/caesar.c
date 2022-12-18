@@ -20,16 +20,3 @@ int main(int argc, string argv[])
     }
 }
 
-bool only_digits(string s)
-{
-    char c = get_char("Key :");
-    if(isdigit(c))
-    {
-        return 1;
-        printf("Usage: ./caesar key\n");
-    }
-    else
-    {
-        return 0;
-    }
-}
