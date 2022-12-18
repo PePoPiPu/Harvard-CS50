@@ -1,4 +1,5 @@
 sort1 uses: TODO
+reversed10000.txt 272 ms
 
 How do you know?: TODO
 
