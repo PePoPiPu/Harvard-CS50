@@ -1,7 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
-#include <stdlib.h>
 #include <string.h>
 
 // Function prototypes
@@ -20,18 +19,13 @@ int main(int argc, string argv[])
 
 bool only_digits(string s)
 {
-    for (int i = 0; i < strlen; i++)
+    for (int i = 0; length = strlen(s); i < length; i++)
     {
-        if (isdigit(argv[1]))
+        if (!isdigit(s[i]))
         {
-            printf("Success\n");
-            return 0;
+            return false;
         }
-        else
-        {
-            printf("Usage: ./caesar key\n");
-            return 1;
-        }
+        return true;
     }
 }
 
