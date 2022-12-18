@@ -27,7 +27,6 @@ int main(int argc, string argv[])
             return 0;
         }
     }
-    rotate()
 }
 
 // Function that checks if input is made up of only digits, returns boolean value
@@ -44,3 +43,12 @@ bool only_digits(string s)
     return true;
 }
 
+// Function that takes the plaintext and rotates each character by n times.
+
+char rotate (char c, int n)
+{
+    for (int i = 0; length= strlen(s); i < length; i++)
+    {
+
+    }
+}
