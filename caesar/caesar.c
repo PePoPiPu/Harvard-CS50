@@ -21,6 +21,8 @@ int main(int argc, string argv[])
     if (k < 0)
     {
         printf("Usage: ./caesar key\n");
+        return 1;
     }
+    // Check if 
 }
 
