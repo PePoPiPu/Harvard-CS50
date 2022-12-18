@@ -8,4 +8,4 @@ How do you know?: It's the sort that takes less time. It seems like it's the mos
 
 sort3 uses: Selection sort
 
-How do you know?: 
+How do you know?: It seems like it iterates over each of the elements of the txt file.
