@@ -21,7 +21,8 @@ int main(int argc, string argv[])
     {
         if (answer == true)
         {
-            printf("The command-line argument equals to: %i\n", atoi(argv[1]));
+            string s = get_string("Plaintext: \n");
+            printf("%s\n");
             return 0;
         }
     }
