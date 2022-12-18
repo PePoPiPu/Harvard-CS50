@@ -19,7 +19,6 @@ int main(int argc, string argv[])
     {
         if (answer == true)
         {
-            printf("Success!!\n");
             return 0;
         }
     }
