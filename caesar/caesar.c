@@ -25,9 +25,15 @@ int main(int argc, string argv[])
     {
         if (answer == true)
         {
-            string s = get_string("Plaintext: ");
-            printf("Output: %s\n", s);
-            return 0;
+            string plaintext = get_string("Plaintext: ");
+            printf("Ciphertext: ");
+
+            int length_text = strlen(plaintext);
+            for (int i = 0; i < length_text; i++)
+            {
+                printf("%c", rotate(plaintext[i], k));
+            }
+            printf("\n");
         }
     }
 
