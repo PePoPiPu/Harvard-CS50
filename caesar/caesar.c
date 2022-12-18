@@ -62,13 +62,13 @@ char rotate (char c, int k)
     {
         if(isupper(c))
         {
-            char new_c = ((c - 40 + k) % 26) + 65;
+            char new_c = ((c - 65 + k) % 26) + 65;
             return new_c;
         }
 
         else
         {
-            char new_c = ((c - 30 + k) % 26) + 97;
+            char new_c = ((c - 97 + k) % 26) + 97;
             return new_c;
         }
     }
