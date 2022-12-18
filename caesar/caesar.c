@@ -35,7 +35,7 @@ int main(int argc, string argv[])
             }
             printf("\n");
         }
-        else
+        if (answer == false)
         {
             return 1;
         }
@@ -51,7 +51,7 @@ bool only_digits(string s)
         if (!isdigit(s[i]))
         {
             printf("Usage: ./caesar key\n");
-            return 1;
+            return false;
         }
     }
     return true;
