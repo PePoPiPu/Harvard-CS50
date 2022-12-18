@@ -20,10 +20,12 @@ int main(int argc, string argv[])
         if (answer == true)
         {
             printf("Success!!\n");
+            return 0;
         }
         else
         {
-            printf("Usage: ./caesar\n");
+            printf("Usage: ./caesar key\n");
+            return 1;
         }
     }
 }
