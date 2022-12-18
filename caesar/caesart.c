@@ -7,11 +7,11 @@ int main (int argc, string argv[])
         char c = get_char("Key:");
     if(isdigit(c))
     {
-        return ;
-        printf("Usage: ./caesar key\n");
+        return 0;
     }
     else
     {
-        return 0;
+        printf("Usage: ./caesar key\n");
+        return 1;
     }
 }
