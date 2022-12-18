@@ -1,6 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+
 // Function prototypes
 bool only_digits(string s);
 
@@ -13,10 +15,12 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    // Check if the program was run with a digits only command-line argument
-    else
+    // Converting argv string to an intenger
+    int k = atoi (argv[1]);
+    // Check that the integer is possitive
+    if (k < 0)
     {
-        bool only_digits (string s);
+        printf("Usage: ./caesar key\n");
     }
 }
 
