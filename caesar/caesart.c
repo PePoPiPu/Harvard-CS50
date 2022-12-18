@@ -6,6 +6,7 @@ int main (int argc, string argv[])
 {
     if(isdigit(argc))
     {
+        printf("Key is correct\n");
         return 0;
     }
     else
