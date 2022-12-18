@@ -26,15 +26,16 @@ int main(int argc, string argv[])
     // Check if argv[1] is an integer, if not print error message and return 1
     int j = atoi(argv[1]);
 
-    if (isdigit(j), argv[1])
-    {
-        printf("Success\n");
-        return 0;
-    }
-    else
+   if (isdigit(j) == 0)
     {
         printf("Usage: ./caesar key\n");
         return 1;
+    }
+
+   else
+    {
+        puts("Success");
+        printf("%s\n", argv[1]);
     }
 }
 
