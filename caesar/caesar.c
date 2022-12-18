@@ -22,11 +22,6 @@ int main(int argc, string argv[])
             printf("Success!!\n");
             return 0;
         }
-        else
-        {
-            printf("Usage: ./caesar key\n");
-            return 1;
-        }
     }
 }
 
