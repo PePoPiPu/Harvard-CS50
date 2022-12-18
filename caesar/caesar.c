@@ -27,6 +27,7 @@ int main(int argc, string argv[])
             return 0;
         }
     }
+    rotate()
 }
 
 // Function that checks if input is made up of only digits, returns boolean value
