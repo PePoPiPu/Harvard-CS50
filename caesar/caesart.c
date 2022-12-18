@@ -4,8 +4,7 @@
 
 int main (int argc, string argv[])
 {
-        char c = get_char("Key:");
-    if(isdigit(c))
+    if(isdigit(argc))
     {
         return 0;
     }
