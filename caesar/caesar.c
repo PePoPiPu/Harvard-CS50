@@ -62,7 +62,7 @@ char rotate (char c, int k)
 
         else
         {
-            char new_c = ((c-97 + k) % 26) + 97;
+            char new_c = ((c - 97 + k) % 26) + 97;
             return new_c;
         }
     }
