@@ -6,7 +6,6 @@
 
 // Function prototypes
 bool only_digits(string s);
-int atoi(string s);
 
 // Main function
 int main(int argc, string argv[])
