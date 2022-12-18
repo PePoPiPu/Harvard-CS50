@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Function prototypes
 bool only_digits(string s);
@@ -15,17 +16,22 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    // Converting argv string to an intenger
-    int k = atoi (argv[1]);
-    // Check that the integer is possitive
-    if (k < 0)
-    {
-        printf("Usage: ./caesar key\n");
-        return 1;
-    }
-    // Check if argv[1] is an integer, if not print error message and return 1
-    int j = atoi(argv[1]);
+}
 
-    if (isdigit)
+bool only_digits(string s)
+{
+    for (int i = 0; i < strlen; i++)
+    {
+        if (isdigit(argv[1]))
+        {
+            printf("Success\n");
+            return 0;
+        }
+        else
+        {
+            printf("Usage: ./caesar key\n");
+            return 1;
+        }
+    }
 }
 
