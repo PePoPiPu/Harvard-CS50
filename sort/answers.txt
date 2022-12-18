@@ -4,8 +4,8 @@ How do you know?: It's the sort that takes longer on reversed txt files but it's
 
 sort2 uses: Merge sort
 
-How do you know?: It's the sort that takes less time. It seems like it's the most efficient.
+How do you know?: It's the sort that takes less time. When sorting through an already sorted file it takes longer than sort1 since it has to merge the arrays back together.
 
 sort3 uses: Selection sort
 
-How do you know?: It seems like it iterates over each of the elements of the txt file.
+How do you know?: It seems like it iterates over each of the elements of the txt file. When going through a sorted file it takes the longest, seeming like it iterates through everything.
