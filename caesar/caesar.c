@@ -14,6 +14,18 @@ int main(int argc, string argv[])
     {
         printf("Usage: ./caesar key\n");
     }
+
+    bool answer = only_digits(argv[1]);
+    {
+        if (answer == true)
+        {
+            printf("Success!!\n");
+        }
+        else
+        {
+            printf("Usage: ./caesar\n");
+        }
+    }
 }
 
 bool only_digits(string s)
@@ -24,10 +36,6 @@ bool only_digits(string s)
         {
             printf("Usage: ./caesar key\n");
             return false;
-        }
-        else if (isdigit(s[i]))
-        {
-            printf("Success!!\n");
         }
     }
     return true;
