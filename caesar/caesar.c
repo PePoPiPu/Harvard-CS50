@@ -17,6 +17,9 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
+
+    // Convert the key into an int
+    int s = atoi(argv[1]);
     // Callling only_digits function. Takes argument vector 1 as an argument and outputs an answer.
     bool answer = only_digits(argv[1]);
     {
@@ -27,6 +30,7 @@ int main(int argc, string argv[])
             return 0;
         }
     }
+
 }
 
 // Function that checks if input is made up of only digits, returns boolean value
@@ -45,10 +49,4 @@ bool only_digits(string s)
 
 // Function that takes the plaintext and rotates each character by n times.
 
-char rotate (char c, int n)
-{
-    for (int i = 0; length= strlen(s); i < length; i++)
-    {
 
-    }
-}
