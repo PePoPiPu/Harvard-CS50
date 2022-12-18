@@ -6,6 +6,7 @@
 
 // Function prototypes
 bool only_digits(string s);
+char rotate(char c, int n);
 
 // Main function
 int main(int argc, string argv[])
