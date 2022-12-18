@@ -21,10 +21,10 @@ int main(int argc, string argv[])
     {
         if (answer == true)
         {
+            printf("The command-line argument equals to: %i\n", atoi(argv[1]));
             return 0;
         }
     }
-    printf("argv[1] as an int equals to %i\n", atoi(argv[1]));
 }
 
 // Function that checks if input is made up of only digits, returns boolean value
