@@ -1,6 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
-
+// This is a review of arrays
 int main (void)
 {
     // Initializing the array

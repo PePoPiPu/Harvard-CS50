@@ -1,7 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
-
+// This is a review of the use of strcmp in an array
 int main (void)
 {
     string names[] = {"Bill", "Charlie", "Fred", "George", "Ginny", "Percy", "Ron"};
