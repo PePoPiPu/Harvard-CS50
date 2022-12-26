@@ -2,6 +2,20 @@
 #include <stdio.h>
 #include <string.h>
 // This is a review of structs
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Correct program but bad designed. We would have to carefully maintain each array. Bad when having a lot of data.
 int main (void)
 {
     string names[] = {"Carter", "David"};
