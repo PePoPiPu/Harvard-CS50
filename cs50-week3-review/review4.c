@@ -19,7 +19,7 @@ void draw(int n) // Defining "draw" function
         return;
     }
 
-    draw(n - 1);
+    draw(n - 1); // Calling draw to print a pyramid of size n - 1
 
     for (int i = 0; i < n; i++)
     {
