@@ -2,24 +2,58 @@
 #include <stdio.h>
 // This is a review of recursion. The ability of a function to call itself
 
-void draw (int n);
+// We can write a recursive function that calls itself to draw a smaller pyramid before adding another row
+ void draw(int n); // Prototyping "draw" function
 
-int main (void)
-{
+ int main (void)
+ {
     int height = get_int("Height: ");
 
-    draw(height);
-}
+    draw(height); // Calling "draw" function
+ }
 
-void draw (int n) // Draw function that takes an argument, n.
+void draw(int n) // Defining "draw" function
 {
-    // Uses a loop to print n rows with more and more bricks in each row.
+    if (n <= 0)
+    {
+        return;
+    }
+
+    draw(n - 1);
+
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < i + 1; j++)
-        {
-            printf("#");
-        }
-        printf("\n");
+        printf("#");
     }
+    printf("\n");
 }
+
+
+
+
+
+
+
+
+// One way to print a pyramid of n height
+//void draw (int n);
+
+//int main (void)
+//{
+//    int height = get_int("Height: ");
+//
+//    draw(height);
+//}
+
+//void draw (int n) // Draw function that takes an argument, n.
+//{
+    // Uses a loop to print n rows with more and more bricks in each row.
+//    for (int i = 0; i < n; i++)
+//    {
+//        for (int j = 0; j < i + 1; j++)
+//        {
+//            printf("#");
+//        }
+//        printf("\n");
+//    }
+//}
