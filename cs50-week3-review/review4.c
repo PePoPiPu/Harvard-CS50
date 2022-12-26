@@ -14,7 +14,7 @@
 
 void draw(int n) // Defining "draw" function
 {
-    if (n <= 0)
+    if (n <= 0) // If n is 0 or negative, we stop without printing. We make sure we stop for some base case so our function doesn't call itself over and over forever.
     {
         return;
     }
