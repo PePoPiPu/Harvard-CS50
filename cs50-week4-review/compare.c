@@ -7,7 +7,7 @@ int main (void)
     char *s = get_string ("s: ");
     char *t = get_string ("t :");
 
-    if (strcmp (s, t) == 0)
+    if (strcmp (s, t) == 0) // Using strcmp to compare characters one by one in the string array
     {
         printf("Same\n");
     }
@@ -16,15 +16,6 @@ int main (void)
         printf("Different\n");
     }
 }
-
-
-
-
-
-
-
-
-
 
 // Example of incorrect comparison between strings
 //int main (void)
