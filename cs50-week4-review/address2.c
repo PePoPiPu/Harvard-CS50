@@ -11,12 +11,6 @@ int main (void)
 }
 
 
-
-
-
-
-
-
 // Example of use of string data type, include in the CS50 library
 //int main (void)
 //{
