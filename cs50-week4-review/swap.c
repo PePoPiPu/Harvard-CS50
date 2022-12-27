@@ -14,6 +14,7 @@ int main (void)
 
 void swap (int a, int b)
 {
+    // a and b are local variables only accessed by the sorrounding function. They cannot be accessed by main and that's why we don't see a swap in x and y.
     int tmp = a;
     a = b;
     b = tmp;
