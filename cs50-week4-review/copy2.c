@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
-
+// Note that in this example we use a for loop to copy, which is correct, but inefficient to write. An easier way is to use a function called strcpy.
 int main (void)
 {
     char *s = get_string("s: ");
@@ -18,4 +18,5 @@ int main (void)
 
     printf("s: %s\n", s);
     printf("t: %s\n", t);
+// After using malloc we should always use free. This way we tell the computer that the allocated memory is free to use again, avoiding slowing down of programs or even crashing.
 }
