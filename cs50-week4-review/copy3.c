@@ -15,7 +15,7 @@ int main (void)
     }
 
     strcpy(t, s); // Copying s into t without typing a whole for loop
-//Checking if t has a lenght
+//Checking if t has a length before trying to capitalize the first character.
     if (strlen(t) > 0)
     {
     t[0] = toupper(t[0]);
