@@ -4,10 +4,10 @@
 int main (void)
 {
     string s = "HI!";
-    char c = s[0];
+    char c = s[0]; //Storing the first character of s into c
     char *p = &c;
-    printf("%p\n", s);
-    printf("%p\n", p);
+    printf("%p\n", s); //Priting out the address of the first character
+    printf("%p\n", p); // Printing out s as an address
 }
 
 
