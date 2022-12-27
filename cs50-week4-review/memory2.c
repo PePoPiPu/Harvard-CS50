@@ -7,4 +7,8 @@ int main (void)
     x[0] = 72;
     x[1] = 73;
     x[2] = 33;
+
+    free(x);
 }
+
+// VALGRIND command tells us "12 bytes in 1 blocks are definitely lost in loss record 1 of 1" if we don't free our memory.
