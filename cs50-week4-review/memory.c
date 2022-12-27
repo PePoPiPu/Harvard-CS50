@@ -13,3 +13,4 @@ int main (void)
 }
 
 //These mistakes aren't bad enough here but in a real setting, it might cause a segmentation fault.
+//Executing VALGRIND gives us: Invalid write of size for at memory.c:11 due to the indexing error. We'll fix it in memory2.c
