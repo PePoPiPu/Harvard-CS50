@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
     // Storing the Header into an array, which in itself is a data type of an unsigned integer
     uint8_t header[HEADER_SIZE];
 
-        fread (&(header[HEADER_SIZE]), 1, 1, input);
-        fwrite (&(header[HEADER_SIZE]), 1, 1, output);
+        fread (header, HEADER_SIZE, 1, input);
+        fwrite (header, HEADER_SIZE, 1, output);
 
     // TODO: Read samples from input file and write updated data to output file
     // Storing the samples into an array, which in itself is a data type of signed integer
