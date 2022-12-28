@@ -6,7 +6,7 @@
 
 // Prototypes
 size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
-size_t fwrite(void *ptr, size_t size, size_t nmemb, FILE *stream);
+size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
 
@@ -43,7 +43,9 @@ int main(int argc, char *argv[])
     for (int i = 0; i < sizeof(header[i]); i++)
     {
         fread (&(header[i]), 1, 1, input);
+        printf("File read\n");
         fwrite (&(header[i]), 1, 1, output);
+        printf("File writte\n");
     }
 
 
