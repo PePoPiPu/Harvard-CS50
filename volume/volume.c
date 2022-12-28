@@ -48,5 +48,9 @@ int main(int argc, char *argv[])
 size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
     unint8_t header[n];
-    
+
+    for (int i = 0; i < 0; i++)
+    {
+        
+    }
 }
