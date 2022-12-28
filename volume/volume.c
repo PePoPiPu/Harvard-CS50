@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 // Prototypes
-size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
+size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
 
@@ -47,10 +47,10 @@ int main(int argc, char *argv[])
 
 size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
-    unint8_t header[n];
+    uint8_t header[44];
 
-    for (int i = 0; i < 0; i++)
+    for (int i = 0; i < sizeof(header[i]); i++)
     {
-        
+        fread(&(header[i]), 1, 1, input.wav *stream);
     }
 }
