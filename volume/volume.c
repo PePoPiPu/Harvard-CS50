@@ -36,6 +36,13 @@ int main(int argc, char *argv[])
     float factor = atof(argv[3]);
 
     // TODO: Copy header from input file to output file
+    uint8_t header[44];
+    // Iterating through each element of the header array and reading it 
+    for (int i = 0; i < sizeof(header[i]); i++)
+    {
+        fread (&(header[i]), 1, 1, input);
+    }
+
 
 
     // TODO: Read samples from input file and write updated data to output file
@@ -43,14 +50,4 @@ int main(int argc, char *argv[])
     // Close files
     fclose(input);
     fclose(output);
-}
-
-size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
-{
-    uint8_t header[44];
-
-    for (int i = 0; i < sizeof(header[i]); i++)
-    {
-        fread(header + i, 1, 1, input);
-    }
 }
