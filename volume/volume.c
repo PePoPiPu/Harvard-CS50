@@ -43,9 +43,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < sizeof(header[i]); i++)
     {
         fread (&(header[i]), 1, 1, input);
-        printf("File read\n");
         fwrite (&(header[i]), 1, 1, output);
-        printf("File writte\n");
     }
 
 
