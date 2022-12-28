@@ -46,9 +46,6 @@ int main(int argc, char *argv[])
         fwrite (&(header[i]), 1, 1, output);
     }
 
-
-
-
     // TODO: Read samples from input file and write updated data to output file
 
     // Close files
