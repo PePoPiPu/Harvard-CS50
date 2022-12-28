@@ -45,12 +45,15 @@ int main(int argc, char *argv[])
 
     // TODO: Read samples from input file and write updated data to output file
     // Storing the samples into an array, which in itself is a data type of signed integer
-    int16_t samples[j]
-    for (int i = 0; i < sizeof(samples[j]); i++)
+    int16_t buffer;
+
+    while(fread(&buffer, sizeof(int16_t), 1, input))
     {
-        fread (&(header[i] + 44), 1, 1, input);
-        fwrite (&(header[i] + 44), 1, 1, output);
+        //Update the volume
+        buffer *= factor;
+        fwrite(&buffer, sizeof(int16_t), 1, output);
     }
+
     // Close files
     fclose(input);
     fclose(output);
