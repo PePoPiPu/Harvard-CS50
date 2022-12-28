@@ -51,6 +51,6 @@ size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
 
     for (int i = 0; i < sizeof(header[i]); i++)
     {
-        fread(&(header[i]), 1, 1, input.wav *stream);
+        fread(&(header[i]), 1, 1, *input);
     }
 }
