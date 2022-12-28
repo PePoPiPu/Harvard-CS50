@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Prototypes
+size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
 // Number of bytes in .wav header
 const int HEADER_SIZE = 44;
 
