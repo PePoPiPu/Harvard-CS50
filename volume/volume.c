@@ -36,12 +36,14 @@ int main(int argc, char *argv[])
     float factor = atof(argv[3]);
 
     // TODO: Copy header from input file to output file
+    // Storing the Header into an array, which in itself is a data type of an unsigned integer
     uint8_t header[44];
-    // Iterating through each element of the header array and reading it 
+    // Iterating through each element of the header array and reading it
     for (int i = 0; i < sizeof(header[i]); i++)
     {
         fread (&(header[i]), 1, 1, input);
     }
+    
 
 
 
