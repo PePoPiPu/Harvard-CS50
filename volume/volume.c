@@ -47,7 +47,9 @@ int main(int argc, char *argv[])
     }
 
     // TODO: Read samples from input file and write updated data to output file
-
+    // Storing the samples into an array, which in itself is a dara type of signed integer
+    int16_t 
+    for (int i = 0; i <size)
     // Close files
     fclose(input);
     fclose(output);
