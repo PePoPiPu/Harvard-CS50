@@ -33,9 +33,8 @@ int main(int argc, char *argv[])
         plates[idx] = malloc(0);
         strcpy(plates[idx], buffer);
         idx++;
-        free(plates[idx]);
     }
-
+    free(plates[idx]);
     for (int i = 0; i < 8; i++)
     {
         printf("%s\n", plates[i]);
