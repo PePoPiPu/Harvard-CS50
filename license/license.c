@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-char *strcpy(char *dest, char *src);
+char *strcpy (char *__restrict __dest, const char *__restrict __src);
 
 int main(int argc, char *argv[])
 {
