@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-char *strcpy (char *__restrict __dest, const char *__restrict __src);
+char *strcpy(char *__restrict __dest, const char *__restrict __src);
 void free(void *ptr);
 
 int main(int argc, char *argv[])
