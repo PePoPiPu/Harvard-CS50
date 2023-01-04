@@ -4,8 +4,10 @@
 
 char *strcpy(char *__restrict __dest, const char *__restrict __src);
 void free(void *ptr);
+int fclose(FILE *stream);
 
 int main(int argc, char *argv[])
+
 {
     // Check for command line args
     if (argc != 2)
@@ -39,4 +41,6 @@ int main(int argc, char *argv[])
     {
         printf("%s\n", plates[i]);
     }
+    // Fixes valgrind memory leak related to fopen function
+    fclose(infile);
 }
