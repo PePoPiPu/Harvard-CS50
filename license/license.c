@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-*strcpy(char *dest, char *src);
+char *strcpy(char *dest, char *src);
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         buffer[6] = '\0';
 
         // Save plate number in array
-        plates[idx] = buffer;
+        strcpy(plates[idx], buffer);
         idx++;
     }
 
