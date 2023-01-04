@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 char *strcpy (char *__restrict __dest, const char *__restrict __src);
+void free(void *ptr);
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +33,7 @@ int main(int argc, char *argv[])
         plates[idx] = malloc(8);
         strcpy(plates[idx], buffer);
         idx++;
+        free(plates[idx]);
     }
 
     for (int i = 0; i < 8; i++)
