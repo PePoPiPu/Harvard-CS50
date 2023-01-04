@@ -36,11 +36,12 @@ int main(int argc, char *argv[])
         strcpy(plates[idx], buffer);
         idx++;
     }
-    free(plates[idx]);
     for (int i = 0; i < 8; i++)
     {
         printf("%s\n", plates[i]);
     }
     // Fixes valgrind memory leak related to fopen function
     fclose(infile);
+    free(plates[idx]);
+    exit(0);
 }
