@@ -43,4 +43,5 @@ int main(int argc, char *argv[])
     }
     // Fixes valgrind memory leak related to fopen function
     fclose(infile);
+    free(plates[idx]);
 }
