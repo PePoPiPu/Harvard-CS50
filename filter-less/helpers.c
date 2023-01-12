@@ -4,9 +4,12 @@
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
+    // Initializing float rgbgray
     float rgbgray;
+    // Iterating through height pixels
     for (int i = 0; i < height; i++)
     {
+        // Iterating through width pixels
         for (int j = 0; j < width; j++)
         {
             rgbgray = round ((image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue)/3);
@@ -21,6 +24,13 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 // Convert image to sepia
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            // Use sepia's algorithm. Multiply image [i][j].rgbtBYTE by Sepia values and round up to nearest integer.
+        }
+    }
     return;
 }
 
