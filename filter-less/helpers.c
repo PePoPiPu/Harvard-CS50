@@ -34,6 +34,14 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         // Iterating through width pixels
         for (int j = 0; j < width; j++)
         {
+            // Using sepia's algorithm. Casting first values to an int so the programm doesn't run out of bits.
+            redsepia = round (( .393 * image[i][j].rgbtRed) + (.769 * image[i][j].rgbtGreen) + (.189 * image[i][j].rgbtBlue) * 1.0);
+            greensepia = round (( .349 * image[i][j].rgbtRed) + (.686 * image[i][j].rgbtGreen) + (.168 * image[i][j].rgbtBlue) * 1.0);
+            bluesepia = round (( .272 * image[i][j].rgbtRed) + (.534 * image[i][j].rgbtGreen) + (.131 * image[i][j].rgbtBlue) * 1.0);
+            // Assigning sepia values to the original pixel values
+            image[i][j].rgbtRed = redsepia;
+            image[i][j].rgbtGreen = greensepia;
+            image[i][j].rgbtBlue = bluesepia;
 
             if (redsepia > 255)
             {
@@ -49,14 +57,6 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             {
                 bluesepia = 255;
             }
-            // Using sepia's algorithm. Casting first values to an int so the programm doesn't run out of bits.
-            redsepia = round (( .393 * image[i][j].rgbtRed) + (.769 * image[i][j].rgbtGreen) + (.189 * image[i][j].rgbtBlue));
-            greensepia = round (( .349 * image[i][j].rgbtRed) + (.686 * image[i][j].rgbtGreen) + (.168 * image[i][j].rgbtBlue));
-            bluesepia = round (( .272 * image[i][j].rgbtRed) + (.534 * image[i][j].rgbtGreen) + (.131 * image[i][j].rgbtBlue));
-            // Assigning sepia values to the original pixel values
-            image[i][j].rgbtRed = redsepia;
-            image[i][j].rgbtGreen = greensepia;
-            image[i][j].rgbtBlue = bluesepia;
         }
     }
     return;
