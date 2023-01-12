@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         {
             sprintf(filename, "%03i.jpg", 2);
             FILE *img = fopen(filename, "w");
-            fwrite()
+            fwrite(nimg *ptr, 512, sizeof(card), FILE *jpeg);
         }
     }
  // Open a new JPEG file
