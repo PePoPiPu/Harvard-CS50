@@ -91,10 +91,55 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             for (int j = 0; j < width; j++)
             {
                 temp [i][j] = image[i][j];
-                for ()
             }
         }
-    // Loop throught each pixel and find negihbour pixels
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j ++)
+        {
+            int totalRed, totalBlue, totalGreen
+            totalRed = totalBlue = totalGreen = 0;
+            float counter = 0.00
 
+            // Getting the neighbouring pixels
+            for (int x = - 1; x < 2; x++)
+            {
+                for ( int y = - 1; y < 2; y++)
+                {
+                    int currentX = i + x;
+                    int currentY = j + y;
+
+                    // Checking if the neighbouring pixel is a valid pixel
+                    if (current X < 0 || currentX > (height - 1) || currentY < 0 || currentY > (width - 1))
+                    {
+                        continue;
+                    }
+
+                    // Getting the image value
+                    totalRed += image[currentX][currentY].rgbtRed;
+                    totalGreen += image[currentX][currentY].rgbtGreen;
+                    totalBlue += image[currentX][currentY].rgbtBlue;
+
+                    counter++;
+                }
+
+                // Average of the neighbouring pixels
+                temp[i][j].rgbtRed = round(totalRed / counter);
+                temp[i][j].rgbtGreen = round(totalGreen / counter);
+                temp[i][j].rgbtBlue = rond(totalBlue / counter);
+            }
+        }
+    }
+
+    // Copying values to the original image
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtRed = temp[i][j].rgbtRed;
+            image[i][j].rgbtGreen = temp[i][j].rgbtGreen;
+            image[i][j].rgbtBlue = temp[i][j].rgbtBlue;
+        }
+    }
     return;
 }
