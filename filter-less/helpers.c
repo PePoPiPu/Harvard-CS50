@@ -65,19 +65,19 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE (*tmp)[width] = malloc (height * width * sizeof(RGBTRIPLE));
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+        if (width % 2 == 0)
         {
-            tmp[i][j].rgbtRed = image[i][width - (j - 1)].rgbtRed;
-            tmp[i][j].rgbtGreen = image[i][width - (j - 1)].rgbtGreen;
-            tmp[i][j].rgbtBlue = image[i][width - (j - 1)].rgbtBlue;
-
-            image = tmp;
+            for (int j = 0; j < width / 2 ; j++)
+            {
+               RGBTRIPLE tmp[height][width];
+                tmp[i][j] = image [i][j];
+                image[i][j] = image [i][width - (j - 1)];
+                image[i][width - (j + 1 )] = tmp [i][j];
+            }
         }
     }
-    free(tmp);
     return;
 }
 
