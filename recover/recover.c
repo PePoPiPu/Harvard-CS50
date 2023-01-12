@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-// Function prototypes
-size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
-size_t fwrite(void *ptr, size_t size, size_t nmemb, FILE *stream);
 
 int main(int argc, char *argv[])
 {
@@ -13,7 +10,7 @@ int main(int argc, char *argv[])
         return 1;
     }
  // Open the memory card
-    FILE *card = fopen(arv[1], "r");
+    FILE *card = fopen(argv[1], "r");
     fread (buffer[i] *ptr, 512, sizeof(card), FILE *card);
  // Look for the beginning of a JPEG (0xff, 0xd8, 0xff)
     if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
