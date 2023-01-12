@@ -25,9 +25,9 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 void sepia(int height, int width, RGBTRIPLE image[height][width])
 {
     // Initialzing sepia floats for each pixel color
-    float redsepia;
-    float greensepia;
-    float bluesepia;
+    float redsepia = 0;
+    float greensepia = 0;
+    float bluesepia = 0;
     // Iterating through height pixels
     for (int i = 0; i < height; i++)
     {
