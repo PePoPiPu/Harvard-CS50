@@ -2,6 +2,7 @@
 #include <stdlib.h>
 // Function prototypes
 size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);
+size_t fwrite(void *ptr, size_t size, size_t nmemb, FILE *stream);
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
         {
             sprintf(filename, "%03i.jpg", 2);
             FILE *img = fopen(filename, "w");
+            fwrite()
         }
     }
  // Open a new JPEG file
