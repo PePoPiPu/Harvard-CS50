@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     FILE *card = fopen(argv[1], "r");
  // Declaring a buufer
     char buffer[512];
-    fread (&buffer, sizeof(buffer), 512, out);
+    fread (&buffer, sizeof(buffer), 512, );
  // Look for the beginning of a JPEG (0xff, 0xd8, 0xff)
     if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
     {
