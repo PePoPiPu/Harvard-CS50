@@ -5,6 +5,10 @@ int main(int argc, char *argv[])
 {
     // Ensure proper usage
     if (argc != 2)
+    {
+        printf("Usage: ./recover IMAGE\n");
+        return 1;
+    }
  // Open the memory card
  // Look for the beginning of a JPEG
  // Open a new JPEG file
