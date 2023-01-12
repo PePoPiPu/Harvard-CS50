@@ -84,5 +84,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    // Create a temporary copy of the image
+    // Loop throught each pixel and find negihbour pixels
+    
     return;
 }
