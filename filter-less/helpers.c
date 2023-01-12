@@ -1,6 +1,6 @@
 #include "helpers.h"
 #include <math.h>
-
+#include <stdlib.h>
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -65,13 +65,18 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE (*tmp)[width] = malloc (height * width * sizeof(RGBTRIPLE));
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; i < width; j ++)
+        for (int j = 0; j < width; j++)
         {
-            
+            tmp[i][j].rgbtRed = image[i][width - (j + 1)].rgbtRed;
+            tmp[i][j].rgbtGreen = image[i][width - (j + 1)].rgbtGreen;
+            tmp[i][j].rgbtBlue = image[i][width - (j + 1)].rgbtBlue;
         }
     }
+    image = tmp;
+    free(tmp);
     return;
 }
 
