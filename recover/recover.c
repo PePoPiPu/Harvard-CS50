@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     }
  // Open the memory card
     FILE *card = fopen(arv[1], "r");
-    fread ()
+    fread (buffer[i] *ptr, 512, sizeof(card), FILE *card);
  // Look for the beginning of a JPEG
  // Open a new JPEG file
  // Write 512 bytes until a new JPEG is found
