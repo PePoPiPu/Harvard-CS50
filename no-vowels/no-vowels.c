@@ -21,36 +21,36 @@ int main(int argc, char* argv[])
 
 char replace (char argv[1])
 {
-    char *word;
+
 
     for (int i = 0; i < sizeof(argv[1]); i++)
     {
-        if(word[i] == 'a')
+        if(argv[i] == 'a')
         {
-            word[i] = '6';
+            argv[i] = '6';
         }
 
-        if(word[i] == 'e')
+        if(argv[i] == 'e')
         {
-            word[i] = '3';
+            argv[i] = '3';
         }
 
-        if(word[i] == 'i')
+        if(argv[i] == 'i')
         {
-            word[i] = '1';
+            argv[i] = '1';
         }
 
-        if(word[i] == 'o')
+        if(argv[i] == 'o')
         {
-            word[i] = '0';
+            argv[i] = '0';
         }
 
-        if(word[i] == 'u')
+        if(argv[i] == 'u')
         {
-            word[i] = 'u';
+            argv[i] = 'u';
         }
 
 
     }
-    return word;
+    return argv[1];
 }
