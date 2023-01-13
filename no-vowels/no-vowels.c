@@ -20,7 +20,7 @@ int main(int argc, string argv[])
 string replace (string argv[1])
 {
     string s = get_string(argv[1]);
-    char [] = s;
+    char *word = argv[1]
 
     for (int i = 0; i < s; i++)
     {
