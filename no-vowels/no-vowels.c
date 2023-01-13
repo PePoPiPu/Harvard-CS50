@@ -19,32 +19,31 @@ int main(int argc, string argv[])
 
 string replace (string argv[1])
 {
-    string s = get_string(argv[1]);
-    char *word = argv[1]
+    char *word = argv[1];
 
-    for (int i = 0; i < s; i++)
+    for (int i = 0; i < sizeof(argv[1]); i++)
     {
-        if(s == 'a')
+        if(word == 'a')
         {
             'a' == '6';
         }
 
-        if(s == 'e')
+        if(word == 'e')
         {
             'e' == '3';
         }
 
-        if(s == 'i')
+        if(word == 'i')
         {
             'i' == '1';
         }
 
-        if(s == 'o')
+        if(word == 'o')
         {
             'o' == '0';
         }
 
-        if(s == 'u')
+        if(word == 'u')
         {
             'u' == 'u';
         }
