@@ -5,7 +5,7 @@
 #include <cs50.h>
 #include <stdio.h>
 // Function prototypes
-string replace (string argv[1]);
+char replace (char argv[1]);
 
 int main(int argc, string argv[])
 {
@@ -15,11 +15,11 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    
+    replace;
 
 }
 
-string replace (string argv[1])
+char replace (char argv[1])
 {
     char *word = argv[1];
 
