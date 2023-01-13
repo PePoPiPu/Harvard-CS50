@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 
 char replace (char argv[1])
 {
-    char *word[0] = argv[1];
+    string word = argv[1];
 
     for (int i = 0; i < sizeof(argv[1]); i++)
     {
