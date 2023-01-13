@@ -21,8 +21,7 @@ int main(int argc, string argv[])
 
 char replace (char argv[1])
 {
-    char word[sizeof(argv[1])] = 0;
-    char *word[sizeof(argv[1])] = argv[1];
+    char *argv[];
 
     for (int i = 0; i < sizeof(argv[1]); i++)
     {
