@@ -21,7 +21,7 @@ int main(int argc, string argv[])
 string replace (string argv[1])
 {
     string s = argv[1];
-    char arrayc [argv[]] = s;
+    char arrayc [argv] = s;
 
     for (int i = 0; i < arrayc[argv[1]]; i++)
     {
