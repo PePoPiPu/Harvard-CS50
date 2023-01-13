@@ -15,6 +15,8 @@ int main(int argc, string argv[])
         return 1;
     }
 
+    
+
 }
 
 string replace (string argv[1])
@@ -25,30 +27,30 @@ string replace (string argv[1])
     {
         if(word[i] == 'a')
         {
-            'a' == '6';
+            word[i] = '6';
         }
 
         if(word[i] == 'e')
         {
-            'e' == '3';
+            word[i] = '3';
         }
 
         if(word[i] == 'i')
         {
-            'i' == '1';
+            word[i] = '1';
         }
 
         if(word[i] == 'o')
         {
-            'o' == '0';
+            word[i] = '0';
         }
 
         if(word[i] == 'u')
         {
-            'u' == 'u';
+            word[i] = 'u';
         }
 
 
     }
-    return 1;
+    return word;
 }
