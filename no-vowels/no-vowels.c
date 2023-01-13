@@ -23,6 +23,7 @@ string replace (string argv[1])
     string s = argv[1];
     
 
+
     for (int i = 0; i < s; i++)
     {
         if(s == 'a')
