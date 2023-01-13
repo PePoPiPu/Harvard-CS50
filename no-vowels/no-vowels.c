@@ -15,7 +15,6 @@ int main(int argc, string argv[])
         return 1;
     }
 
-
 }
 
 string replace (string argv[1])
