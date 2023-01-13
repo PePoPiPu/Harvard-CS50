@@ -5,8 +5,14 @@
 
 #include <cs50.h>
 #include <stdio.h>
-
+string replace (string argv[]);
 int main(int argc, string argv[])
 {
-    
+    // Ensure proper usage
+    if (argc != 2)
+    {
+        printf("Usage: ./no-vowels word\n");
+    }
+
+    printf("%s\n", replace(string argv[]))
 }
