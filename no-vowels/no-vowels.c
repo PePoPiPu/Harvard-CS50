@@ -5,7 +5,7 @@
 #include <cs50.h>
 #include <stdio.h>
 // Function prototypes
-char replace (char argv[1]);
+char replace (char argv[i]);
 
 int main(int argc, char* argv[])
 {
@@ -19,10 +19,8 @@ int main(int argc, char* argv[])
 
 }
 
-char replace (char argv[1])
+char replace (char argv[i])
 {
-
-
     for (int i = 0; i < sizeof(argv[1]); i++)
     {
         if(argv[i] == 'a')
@@ -50,7 +48,7 @@ char replace (char argv[1])
             argv[i] = 'u';
         }
 
-
+            return argv[i];
     }
-    return argv[1];
+    return 0;
 }
