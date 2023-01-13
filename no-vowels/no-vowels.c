@@ -15,7 +15,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    replace;
+    printf("%c\n", replace(char argv[1]));
 
 }
 
