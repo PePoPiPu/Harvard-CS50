@@ -5,7 +5,7 @@
 #include <cs50.h>
 #include <stdio.h>
 // Function prototypes
-string replace (string argv[1], );
+string replace (string argv[1]);
 
 int main(int argc, string argv[])
 {
@@ -16,7 +16,9 @@ int main(int argc, string argv[])
     }
 }
 
-string replace (string)
+string replace (argv[1])
 {
+    string s = argv[1];
+    
     return 0;
 }
