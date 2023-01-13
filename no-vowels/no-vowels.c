@@ -7,7 +7,7 @@
 // Function prototypes
 char replace (char argv[1]);
 
-int main(int argc, string argv[])
+int main(int argc, char* argv[])
 {
     if (argc != 2)
     {
