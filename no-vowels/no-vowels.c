@@ -14,11 +14,43 @@ int main(int argc, string argv[])
         printf("Usage: ./no-vowels word\n");
         return 1;
     }
+
+
 }
 
-string replace (argv[1])
+string replace (string argv[1])
 {
     string s = argv[1];
-    
-    return 0;
+    char arrayc [argv[]] = s;
+
+    for (int i = 0; i < arrayc[argv[1]]; i++)
+    {
+        if(arrayc == 'a')
+        {
+            'a' == '6';
+        }
+
+        if(arrayc == 'e')
+        {
+            'e' == '3';
+        }
+
+        if(arrayc == 'i')
+        {
+            'i' == '1';
+        }
+
+        if(arrayc == 'o')
+        {
+            'o' == '0';
+        }
+
+        if(arrayc == 'u')
+        {
+            'u' == 'u';
+        }
+
+
+    }
+    return 1;
 }
