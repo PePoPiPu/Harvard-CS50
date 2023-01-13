@@ -21,31 +21,31 @@ int main(int argc, string argv[])
 string replace (string argv[1])
 {
     string s = argv[1];
-    char arrayc [argv] = s;
+    
 
-    for (int i = 0; i < arrayc[argv[1]]; i++)
+    for (int i = 0; i < s; i++)
     {
-        if(arrayc == 'a')
+        if(s == 'a')
         {
             'a' == '6';
         }
 
-        if(arrayc == 'e')
+        if(s == 'e')
         {
             'e' == '3';
         }
 
-        if(arrayc == 'i')
+        if(s == 'i')
         {
             'i' == '1';
         }
 
-        if(arrayc == 'o')
+        if(s == 'o')
         {
             'o' == '0';
         }
 
-        if(arrayc == 'u')
+        if(s == 'u')
         {
             'u' == 'u';
         }
