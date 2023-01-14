@@ -101,10 +101,11 @@ void add_items(void)
 float get_cost(string item)
 {
     float sum = 0;
+    int price = 0;
 
     for (int i = 0; i < 10; i++)
     {
-
+        if (menu[i].item == item)
     }
     return 0.0;
 }
