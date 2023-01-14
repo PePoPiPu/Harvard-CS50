@@ -24,6 +24,6 @@ int main(void)
 // TODO: Complete the Boolean function below
 bool valid(string password)
 {
-    
+    char c[100] = password;
     return false;
 }
