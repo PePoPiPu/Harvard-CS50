@@ -26,7 +26,10 @@ bool valid(string password)
 {
     for (int i = 0; i < sizeof(password); i++)
     {
-        
+        if (isupper(password[i]) || islower(password[i]) || isdigit(password[i]))
+        {
+            return true;
+        }
     }
     return false;
 }
