@@ -27,7 +27,7 @@ string replace (string argv[])
     {
         if (atoi (argv[i]) == 'a')
         {
-            argv[i] = 6;
+            argv[i] 
         }
     }
     return word;
