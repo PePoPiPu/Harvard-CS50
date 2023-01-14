@@ -10,7 +10,7 @@ int main (void)
 
     int z = add_two_ints (x, y);
 
-    printf("The sum if %i and %i is %i\n" x, y, z);
+    printf("The sum if %i and %i is %i\n", x, y, z);
 }
 
 float mult_two_floats(float a, float b)
