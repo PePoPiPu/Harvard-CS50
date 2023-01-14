@@ -107,7 +107,8 @@ float get_cost(string item)
         if (strcmp(menu[i].item, item) == 0)
         {
             prices[i] = menu[i].price;
+            sum = prices[i] + prices[i + 1];
         }
     }
-    return 0.0;
+    return sum;
 }
