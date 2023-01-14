@@ -5,7 +5,7 @@
 
 #include <cs50.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 string replace (string argv[]);
 int main(int argc, string argv[])
@@ -21,15 +21,5 @@ int main(int argc, string argv[])
 
 string replace (string argv[])
 {
-    string word = argv[1];
 
-    for (int i = 0; i < sizeof(argv[1]); i++)
-    {
-        switch (atoi(argv[i]))
-        {
-            case 'A':
-                atoi(argv[i]) = 6;
-        }
-    }
-    return word;
 }
