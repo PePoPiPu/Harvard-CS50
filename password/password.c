@@ -29,6 +29,9 @@ bool valid(string password)
 
     for (int i = 0; i < length; i++)
     {
-        
+        if (password[i] != isalpha(password[i]))
+        {
+            return true
+        }
     }
 }
