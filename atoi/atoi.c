@@ -26,4 +26,8 @@ int main(void)
 int convert(string input)
 {
     // TODO
+    if (input == int)
+    {
+        return 1;
+    }
 }
