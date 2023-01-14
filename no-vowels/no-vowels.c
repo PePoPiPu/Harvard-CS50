@@ -16,7 +16,8 @@ int main(int argc, string argv[])
         printf("Usage: ./no-vowels word\n");
     }
     string word = argv[1];
-    printf("%s\n", word);
+    string novowel = replace (word);
+    printf("%s\n", novowel);
 }
 
 string replace (string word)
@@ -25,9 +26,24 @@ string replace (string word)
 
     for (int i = 0; i < lenght; i++)
     {
-        if (word[i] == 'a')
+        if (word[i] == 'a' || word[i] == 'A')
         {
             word[i] = '6';
+        }
+
+        if (word[i] == 'e' || word[i] == 'E')
+        {
+            word[i] = '3';
+        }
+
+        if (word[i] == 'i' || word[i] == 'I')
+        {
+            word[i] = '1';
+        }
+
+        if(word[i] == 'o' || word[i] == 'O')
+        {
+            word[i] = '0';
         }
     }
     return word;
