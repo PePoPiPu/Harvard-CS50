@@ -109,11 +109,6 @@ float get_cost(string item)
             prices[i] = menu[i].price;
             sum = prices[i] + prices[i + 1];
         }
-        else
-        {
-            prices[i] = menu[i].price;
-            sum = prices[i] + prices[i + 1];
-        }
     }
     return sum;
 }
