@@ -25,9 +25,9 @@ string replace (string argv[])
 
     for (int i = 0; i < sizeof(argv[1]); i++)
     {
-        if (atoi (argv[i]) == 'a')
+        switch (argv[i])
         {
-            argv[i] 
+            case 'A'
         }
     }
     return word;
