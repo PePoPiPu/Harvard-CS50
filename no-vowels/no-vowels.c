@@ -5,6 +5,8 @@
 
 #include <cs50.h>
 #include <stdio.h>
+#include <stdlib.h>
+
 string replace (string argv[]);
 int main(int argc, string argv[])
 {
@@ -13,10 +15,20 @@ int main(int argc, string argv[])
     {
         printf("Usage: ./no-vowels word\n");
     }
-    string word = argv[];
-    printf("%s", s);
+    string word = argv[1];
+    printf("%s\n", word);
 }
 
 string replace (string argv[])
 {
+    string word = argv[1];
+
+    for (int i = 0; i < sizeof(argv[1]); i++)
+    {
+        if (atoi (argv[i]) == 'a')
+        {
+            argv[i] = 6;
+        }
+    }
+    return word;
 }
