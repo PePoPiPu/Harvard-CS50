@@ -104,6 +104,7 @@ float get_cost(string item)
     int prices [NUM_ITEMS];
     for (int i = 0; i < 10; i++)
     {
+        toupper (item);
         if (strcmp(menu[i].item, item) == 0)
         {
             prices[i] = menu[i].price;
