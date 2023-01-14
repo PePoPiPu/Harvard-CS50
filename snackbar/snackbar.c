@@ -101,7 +101,7 @@ void add_items(void)
 float get_cost(string item)
 {
     float sum = 0;
-    int prices [NUM_ITEMS];
+    float prices [NUM_ITEMS];
     for (int i = 0; i < 10; i++)
     {
         if (strcmp(menu[i].item, item) == 0)
