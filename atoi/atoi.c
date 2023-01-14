@@ -26,8 +26,10 @@ int main(void)
 int convert(string input)
 {
     // Base case
-    if (input == int)
+    if (n < 0 || (input < '0' || input < '9'))
     {
-        return 1;
+        return 0;
     }
+
+    return (10 * convert(s, n - 1) + (input - '0'));
 }
