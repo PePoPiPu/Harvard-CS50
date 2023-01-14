@@ -28,7 +28,7 @@ int main(void)
 int max(int array[], int n)
 {
     int max = array[0];
-    // 
+    // Assigns current max value to a variable and updates variable if new max is found.
     for (int i = 0; i < n; i++)
     {
         if (max < array[i])
