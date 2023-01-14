@@ -13,13 +13,13 @@ int main(int argc, string argv[])
     {
         printf("Usage: ./no-vowels word\n");
     }
-    string s = replace (argv[argc - 1]);
+    string s = replace (&argv[argc - 1]);
     printf("%s", s);
 }
 
 string replace (string argv[])
 {
-    string s = argv[argc - 1];
+    string s = &argv[argc - 1];
 
     for (int i = 0; i < sizeof(argv[argc - 1]); i++)
     {
