@@ -25,7 +25,7 @@ int main(void)
 
 int convert(string input)
 {
-    // TODO
+    // Base case
     if (input == int)
     {
         return 1;
