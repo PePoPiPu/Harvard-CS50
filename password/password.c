@@ -27,12 +27,8 @@ bool valid(string password)
 {
     int length = strlen(password);
 
-    for (int i = 0; i < length; i++)
-    {
-        if (isupper(password[i]) && islower(password[i]) && isalpha(password[i]))
-        {
-            return true;
-        }
-    }
-    return 0;
+    bool has_upper = false;
+    bool has_lower = false;
+    bool has_number = false;
+    bool has_digit = false;
 }
