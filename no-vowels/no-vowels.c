@@ -19,5 +19,13 @@ int main(int argc, string argv[])
 
 string replace (string argv[])
 {
+    string s = argv[argc - 1];
 
+    for (int i = 0; i < sizeof(argv[argc - 1]); i++)
+    {
+        if (argv[i] == 'a' || arg[i] == 'A')
+        {
+            argv[i] == '6';
+        }
+    }
 }
