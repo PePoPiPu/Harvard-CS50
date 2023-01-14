@@ -4,10 +4,9 @@ float mult_two_floats (float a, float b);
 int add_two_ints (int a, int b);
 int main (void)
 {
-    printf("Give me an integer: \n");
-    int x = get_int();
-    printf("Give me another integer: \n");
-    int y = get_int();
+    int x = get_int("Give me an integer: \n");
+
+    int y = get_int("Give me another integer \n");
 
     int z = add_two_ints (x, y);
 
