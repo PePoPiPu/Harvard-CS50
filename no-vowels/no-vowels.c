@@ -13,6 +13,8 @@ int main(int argc, string argv[])
     {
         printf("Usage: ./no-vowels word\n");
     }
-    string s = argv[];
-    printf("%s\n", string s);
+    string s = get_string(argv[]);
+    printf("%s is argv\n", s);
 }
+
+
