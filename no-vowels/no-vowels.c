@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-string replace (string word);
+string replace(string word);
 int main(int argc, string argv[])
 {
     // Ensure proper usage
@@ -16,11 +16,11 @@ int main(int argc, string argv[])
         printf("Usage: ./no-vowels word\n");
     }
     string word = argv[1];
-    string novowel = replace (word);
+    string novowel = replace(word);
     printf("%s\n", novowel);
 }
 
-string replace (string word)
+string replace(string word)
 {
     int lenght = strlen(word);
 
@@ -41,7 +41,7 @@ string replace (string word)
             word[i] = '1';
         }
 
-        if(word[i] == 'o' || word[i] == 'O')
+        if (word[i] == 'o' || word[i] == 'O')
         {
             word[i] = '0';
         }
