@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-string replace (string argv[]);
+string replace (string word);
 int main(int argc, string argv[])
 {
     // Ensure proper usage
@@ -19,7 +19,16 @@ int main(int argc, string argv[])
     printf("%s\n", word);
 }
 
-string replace (string argv[])
+string replace (string word)
 {
+    int lenght = strlen(word);
 
+    for (int i = 0; i < lenght; i++)
+    {
+        if (word[i] == 'A' || word[i] == 'a')
+        {
+            word[i] = '6';
+        }
+    }
+    return word;
 }
