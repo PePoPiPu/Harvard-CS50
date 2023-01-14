@@ -29,7 +29,7 @@ int max(int array[], int n)
 {
     for (int i = 0; i < n; i++)
     {
-        
+        if (array[i] )
     }
     return 0;
 }
