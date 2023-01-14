@@ -5,9 +5,9 @@ int add_two_ints (int a, int b);
 int main (void)
 {
     printf("Give me an integer: \n");
-    int x = GetInt();
+    int x = get_int();
     printf("Give me another integer: \n");
-    int y = GetInt();
+    int y = get_int();
 
     int z = add_two_ints (x, y);
 
