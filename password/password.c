@@ -32,10 +32,18 @@ bool valid(string password)
     bool has_number = false;
     bool has_symbol = false;
 
-    for (int i = 0; i < lenght; i++)
+    for (int i = 0; i < length; i++)
     {
         if (isupper(password[i])) has_upper = true;
         if (islower(password[i])) has_lower = true;
-        if (isdigit(passsword[i])) has_number = true;
+        if (isdigit(password[i])) has_number = true;
+        if (!isalpha(password[i])) has_symbol = true;
     }
+
+    if (!has_upper) return false;
+        if (!has_lower) return false;
+        if (!has_number) return false;
+        if (!has_symbol) return false;
+
+        return true;
 }
