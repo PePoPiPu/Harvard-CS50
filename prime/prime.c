@@ -30,5 +30,18 @@ int main(void)
 
 bool prime(int number)
 {
-    
+    bool is_prime = false;
+    int max = max;
+    int min = min;
+    for (int i = min; i <= max; i++)
+    {
+        if((i % i + 1 && i % 1 && i % 2) == 0)
+        {
+            is_prime = false;
+        }
+        else
+            is_prime = true;
+    }
+
+    return is_prime;
 }
