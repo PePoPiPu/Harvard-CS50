@@ -40,7 +40,7 @@ bool valid(string password)
         if (!isalpha(password[i])) has_symbol = true;
     }
 
-    if (!has_upper) return false;
+        if (!has_upper) return false;
         if (!has_lower) return false;
         if (!has_number) return false;
         if (!has_symbol) return false;

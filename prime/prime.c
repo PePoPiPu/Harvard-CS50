@@ -30,10 +30,5 @@ int main(void)
 
 bool prime(int number)
 {
-    // TODO
-    for (int i = 0; i < max; i++)
-    {
-
-    }
-    return false;
+    
 }
