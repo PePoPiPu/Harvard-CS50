@@ -31,7 +31,7 @@ int main(void)
 bool prime(int number)
 {
     bool is_prime = false;
-    for (int i = number; i <= max; i++)
+    for (int i = number; i <= number + 1; i++)
     {
         if((i % i + 1 && i % 1 && i % 2) == 0)
         {
