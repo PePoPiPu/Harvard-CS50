@@ -25,7 +25,7 @@ int main (int argc, char *argv[])
         n->next = NULL;
 
         n->next = list;
-        list = n; 
+        list = n;
     }
-
+    
 }
