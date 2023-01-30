@@ -17,7 +17,7 @@ int main (void)
 
     // Asking the OS for 4 new bytes
 
-    int *tmp = malloc(4 * sizeof(int));
+    int *tmp = realloc(list, 4 * sizeof(int)); 
     if (tmp == NULL)
     {
         free(list);
@@ -42,5 +42,5 @@ int main (void)
     }
 
     free(list);
-    return 0; 
+    return 0;
 }
