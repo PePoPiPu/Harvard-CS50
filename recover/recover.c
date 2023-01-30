@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
  // Look for the beginning of a JPEG (0xff, 0xd8, 0xff)
     if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
     {
+        char *c = filename;
         if ((buffer[3] & 0xf0) == 0xe0)
         {
-            char *c = filename[2];
             sprintf(filename[0], "%03i.jpg", 2);
             FILE *img = fopen(filename, "w");
             fwrite(nimg *ptr, 512, sizeof(card), FILE *jpeg);
