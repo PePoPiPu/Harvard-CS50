@@ -16,25 +16,16 @@ int main (void)
     // ...
 
     // Asking the OS for 4 new bytes
-
-    int *tmp = realloc(list, 4 * sizeof(int)); 
+    // Realloc copies the new chunk of bytes
+    int *tmp = realloc(list, 4 * sizeof(int));
     if (tmp == NULL)
     {
         free(list);
         return 1;
     }
-
-    for (int i = 0; i < 3; i++)
-    {
-        tmp[i] = list[i];
-    }
-    tmp[3] = 4;
-
-    // Freeing allocated memory
-    free(list);
-
-    // Make list point to new chunk
     list = tmp;
+
+    list[3] = 4;
 
     for (int i = 0; i < 3; i++)
     {
