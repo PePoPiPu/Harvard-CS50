@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     {
         if ((buffer[3] & 0xf0) == 0xe0)
         {
-            int filename[2];
+            char *c = filename[2];
             sprintf(filename[0], "%03i.jpg", 2);
             FILE *img = fopen(filename, "w");
             fwrite(nimg *ptr, 512, sizeof(card), FILE *jpeg);
