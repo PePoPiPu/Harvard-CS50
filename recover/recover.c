@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover IMAGE\n");
         return 1;
     }
- // Open the memory card
+y// Open the memory card
     FILE *card = fopen(argv[1], "r");
     if (!card)
     {
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 // Setting a counter to 0
     int counter = 0;
 // Start reading file
-    while(fread(buffer, sizeof(BYTE), 512, card) == 512)
+    while (fread(buffer, sizeof(BYTE), 512, card) == 512)
     {
         // Check if beginning of JPEG file
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
             // Write a new jpeg
             if (counter == 0)
             {
-                sprintf(filename,"%03i.jpg", counter);
+                sprintf(filename, "%03i.jpg", counter);
                 img = fopen(filename, "w");
                 fwrite(&buffer, sizeof(BYTE), 512, img);
                 ++counter;
@@ -60,6 +60,6 @@ int main(int argc, char *argv[])
         }
     }
     // Close file
-    fclose (card);
-    fclose (img);
+    fclose(card);
+    fclose(img);
 }
