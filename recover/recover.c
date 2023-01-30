@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+// Definition of data type BYTE
+typedef uint8_t BYTE;
 int main(int argc, char *argv[])
 {
     // Ensure proper usage
@@ -18,11 +20,11 @@ int main(int argc, char *argv[])
 // Declaring a buffer of size 512
     BYTE buffer[512];
 // Declaring filename
-    char filename [3];
+    char filename [8];
 // Setting a counter to 0
     int counter = 0;
 // Start reading file
-    while(fread(buffer, sizeof(BYTE), 512, file) == 512)
+    while(fread(buffer, sizeof(BYTE), 512, card) == 512)
     {
         // Check if beginning of JPEG file
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
@@ -31,7 +33,7 @@ int main(int argc, char *argv[])
             // Write a new jpeg
             if (counter == 0)
             {
-                sprintf(filename,"%03i.jpg", counter)
+                sprintf(filename,"%03i.jpg", counter);
                 img = fopen(filename, "w");
                 fwrite(&buffer, sizeof(BYTE), 512, img);
                 counter++;
@@ -46,5 +48,13 @@ int main(int argc, char *argv[])
                 counter++;
             }
         }
+        // If it's not the start of a new JPEG, keep writing the current one
+        else if (counter > 0)
+        {
+            fwrite(&buffer, sizeof(BYTE), 512, img);
+        }
     }
+    // Close file
+    fclose (card);
+    fclose (img);
 }
