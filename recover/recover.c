@@ -32,11 +32,19 @@ int main(int argc, char *argv[])
             if (counter == 0)
             {
                 sprintf(filename,"%03i.jpg", counter)
-                img = fopen(filename,"w");
+                img = fopen(filename, "w");
                 fwrite(&buffer, sizeof(BYTE), 512, img);
                 counter++;
             }
-            // If start of img
+            // If it's the start of a new JPEG but it's not the first image then
+            // Close image and begin writing a new image
+            else if (counter > 0)
+            {
+                fclose(img);
+                sprintf(filename, "%03i.jpg", counter);
+                img = fopen(filename, "w");
+                counter++;
+            }
         }
     }
 }
