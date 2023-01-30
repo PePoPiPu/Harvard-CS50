@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         // Check if beginning of JPEG file
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            // If it's the beginning of a JPEG, set counter to 0
+            // If it's the beginning of a JPEG and the counter is 0
             // Write a new jpeg
             if (counter == 0)
             {
