@@ -14,6 +14,10 @@ int main(int argc, char *argv[])
     }
  // Open the memory card
     FILE *card = fopen(argv[1], "r");
+    if (!card)
+    {
+        return 1;
+    }
 // Declaring NULL pointer
     FILE *img = NULL;
 
@@ -36,7 +40,7 @@ int main(int argc, char *argv[])
                 sprintf(filename,"%03i.jpg", counter);
                 img = fopen(filename, "w");
                 fwrite(&buffer, sizeof(BYTE), 512, img);
-                counter++;
+                ++counter;
             }
             // If it's the start of a new JPEG but it's not the first image then
             // Close image and begin writing a new image
@@ -45,7 +49,7 @@ int main(int argc, char *argv[])
                 fclose(img);
                 sprintf(filename, "%03i.jpg", counter);
                 img = fopen(filename, "w");
-                counter++;
+                ++counter;
             }
         }
         // If it's not the start of a new JPEG, keep writing the current one
