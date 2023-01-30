@@ -11,9 +11,13 @@ int main(int argc, char *argv[])
     }
  // Open the memory card
     FILE *card = fopen(argv[1], "r");
- // Declaring a buufer
-    char buffer[512];
-    fread (&buffer, 512, 1, card);
+// Declaring NULL pointer
+    FILE *img = NULL;
+
+// Declaring a buffer of size 512
+    BYTE buffer[512];
+
+
  // Look for the beginning of a JPEG (0xff, 0xd8, 0xff)
     if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff)
     {
