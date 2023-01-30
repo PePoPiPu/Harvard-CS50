@@ -16,6 +16,9 @@ int main(int argc, char *argv[])
 
 // Declaring a buffer of size 512
     BYTE buffer[512];
+// Declaring filename
+    char filename [3];
+
 
 
  // Look for the beginning of a JPEG (0xff, 0xd8, 0xff)
