@@ -114,6 +114,11 @@ bool check(char* word)
     int lenght = strlen(key);
     int index;
     struct node *cursor = root;
+
+    for(level = 0; level < lenght; level++)
+    {
+        index = C
+    }
     return false;
 }
 
