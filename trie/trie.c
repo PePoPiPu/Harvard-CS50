@@ -117,7 +117,12 @@ bool check(char* word)
 
     for(level = 0; level < lenght; level++)
     {
-        index = C                                  
+        index = C
+
+        if(!cursor->children[index])
+            return false;
+
+        cursor = cursor->children[index]
     }
     return false;
 }
