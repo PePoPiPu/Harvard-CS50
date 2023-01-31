@@ -117,7 +117,7 @@ bool check(char* word)
 
     for(level = 0; level < lenght; level++)
     {
-        index = C
+        index = C                                  
     }
     return false;
 }
