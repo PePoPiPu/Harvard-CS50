@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover IMAGE\n");
         return 1;
     }
-y// Open the memory card
+// Open the memory card
     FILE *card = fopen(argv[1], "r");
     if (!card)
     {
