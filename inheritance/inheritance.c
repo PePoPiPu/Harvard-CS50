@@ -66,9 +66,9 @@ person *create_family(int generations)
         p->alleles[0] = random_allele();
         p->alleles[1] = random_allele();
     }
-
     // TODO: Return newly created person
     return p;
+    free(p);
 }
 
 // Free `p` and all ancestors of `p`.
