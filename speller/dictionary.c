@@ -51,7 +51,8 @@ bool load(const char *dictionary)
         fscanf(file, "%s", word);
     }
     // Create a new node that stores a word in hash table
-
+    node *n = malloc(sizeof(node));
+    strcpy(n->word, )
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
