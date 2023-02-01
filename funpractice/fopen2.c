@@ -30,6 +30,7 @@ int main (void)
         fscanf(file, "%s", word);
         node *n = malloc(sizeof(node));
         strcpy(n->word, "%s");
+        n->next = n;
     }
     fclose(file);
 }
