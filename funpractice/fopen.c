@@ -16,10 +16,11 @@ int main (void)
     }
     // Reads words of the file one by one
 
-    for(int i = 0; i != EOF; i++)
+    for(int i = 0; i == EOF; i++)
     {
         char word[45];
         fscanf(file, "%s", word);
+        printf("%s\n", word);
     }
 }
 
