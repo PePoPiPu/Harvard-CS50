@@ -11,8 +11,9 @@ int main (void)
     }
     else
     {
-        fprintf(file, "Could open file in read mode\n");
+        printf("Could open file in read mode\n");
         fclose(file);
     }
     return 0;
 }
+
