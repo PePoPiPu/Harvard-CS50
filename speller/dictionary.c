@@ -51,6 +51,10 @@ bool load(const char *dictionary)
         fscanf(file, "%s", word);
         // Creates a new node for each word
         node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return false;
+        }
         strcpy(n->word, "%s");
         n->next = node;
     }
