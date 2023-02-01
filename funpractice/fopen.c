@@ -20,7 +20,6 @@ int main (void)
     {
         char word[45];
         fscanf(file, "%s", word);
-        printf("%s\n", word);
     }
 }
 
