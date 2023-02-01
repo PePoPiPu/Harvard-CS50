@@ -37,7 +37,7 @@ bool load(const char *dictionary)
 {
     // TODO
     // Open dictionary file
-    *dictionary = fopen(dictionary, "r");
+    FILE *file 
     // If it doesn't open, return false
     if (dictionary == NULL)
         return false;
@@ -45,14 +45,7 @@ bool load(const char *dictionary)
         return true;
 
     // Read strings from file one at a time
-    for (int i = 0; i < dictionary; i++)
-    {
-    fscanf(dictionary, "%s", word);
-        if (fscanf == EOF)
-        {
-            break;
-        }
-    }
+
 
     // Create a new node that stores a word in hash table
     node *n = malloc(sizeof(node));
