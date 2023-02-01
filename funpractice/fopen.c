@@ -5,7 +5,7 @@
 int main (void)
 {
     // Opens the file and checks for failure/success
-    FILE *file = fopen("large.txt","r");
+    FILE *file = fopen("large","r");
     if (file == NULL)
     {
         printf("Could not open file\n");
