@@ -21,5 +21,6 @@ int main (void)
         fscanf(file, "%s", word);
         printf("%s\n", word);
     }
+    fclose(file);
 }
 
