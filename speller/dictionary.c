@@ -37,7 +37,10 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    
+    // Open dictionary file
+    fopen(dictionary, "r");
+    // Read stringss from file one at a time
+    for (int i = 0; i < strlen)
     return false;
 }
 
