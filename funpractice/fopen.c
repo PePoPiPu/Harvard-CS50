@@ -4,5 +4,10 @@
 
 int main (void)
 {
-    FILE *file 
+    FILE *file = fopen("large.txt","r");
+    if (file == NULL)
+    {
+        printf("Could not open file\n");
+        return 0;
+    }
 }
