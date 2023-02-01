@@ -40,7 +40,7 @@ bool load(const char *dictionary)
     // Open dictionary file
     fopen(dictionary, "r");
     // Read stringss from file one at a time
-    fscanf(dictionary, "%s", )
+    fscanf(dictionary, "%s", node);
     return false;
 }
 
