@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 // Program that opens a file, and copies each line into a node
 // Definition of node struct
@@ -27,7 +29,7 @@ int main (void)
     {
         fscanf(file, "%s", word);
         node *n = malloc(sizeof(node));
-        strcpy
+        strcpy(n->word, "%s");
     }
     fclose(file);
 }
