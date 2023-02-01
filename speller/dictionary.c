@@ -39,12 +39,13 @@ bool load(const char *dictionary)
     // TODO
     // Open dictionary file
     FILE *dictionary = fopen("large", "r");
+    // If it doesn't open, return false
     if (dictionary != NULL)
     {
-        fprintf(dictionary, "Couldn't open dictionary\n");
+        return false;
     }
-    // Read stringss from file one at a time
-    fscanf(dictionary, "%s", node);
+    // Read strings from file one at a time
+    fscanf(dictionary, "%s", word);
     return false;
 }
 
