@@ -4,15 +4,15 @@
 
 int main (void)
 {
-    FILE *file = fopen(large,"r");
+    FILE *file = fopen("large.txt","r");
     if (file == NULL)
     {
         printf("Could not open file\n");
-        return 0;
     }
     else
     {
         fprintf(file, "Could open file in read mode\n");
         fclose(file);
     }
+    return 0;
 }
