@@ -2,6 +2,7 @@
 
 #include <ctype.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "dictionary.h"
 // Represents a node in a hash table
@@ -48,10 +49,7 @@ bool load(const char *dictionary)
 
 
     // Create a new node that stores a word in hash table
-    node *n = malloc(sizeof(node));
-    strcpy(n->word, "word");
-    n->next = NULL;
-    return false;
+
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
