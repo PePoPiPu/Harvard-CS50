@@ -4,6 +4,7 @@
 
 int main (void)
 {
+    // Opens the file and checks for failure/success
     FILE *file = fopen("large.txt","r");
     if (file == NULL)
     {
@@ -12,8 +13,9 @@ int main (void)
     else
     {
         printf("Could open file in read mode\n");
-        fclose(file);
     }
-    return 0;
+    // Reads words of the file one by one
+
+    for(int i = 0; )
 }
 
