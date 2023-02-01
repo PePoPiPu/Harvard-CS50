@@ -49,7 +49,14 @@ bool load(const char *dictionary)
     for (int i = 0; i < dictionary; i++)
     {
     fscanf(dictionary, "%s", word);
+        if (fscanf == EOF)
+        {
+            break;
+        }
     }
+
+    // Create a new node that stores a word in hash table
+
     return false;
 }
 
