@@ -18,7 +18,9 @@ int main (void)
 
     for(int i = 0; i != EOF; i++)
     {
-        fscanf(file, "%s", )
+        char word[45];
+        fscanf(file, "%s", word);
+        printf("%s\n", word);
     }
 }
 
