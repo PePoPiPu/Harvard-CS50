@@ -4,7 +4,6 @@
 #include <stdbool.h>
 
 #include "dictionary.h"
-
 // Represents a node in a hash table
 typedef struct node
 {
@@ -12,6 +11,7 @@ typedef struct node
     struct node *next;
 }
 node;
+
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
 
