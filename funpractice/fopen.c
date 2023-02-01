@@ -16,6 +16,9 @@ int main (void)
     }
     // Reads words of the file one by one
 
-    for(int i = 0; )
+    for(int i = 0; i != EOF; i++)
+    {
+        fscanf(file, "%s", )
+    }
 }
 
