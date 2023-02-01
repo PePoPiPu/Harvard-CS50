@@ -14,13 +14,12 @@ int main (void)
     {
         printf("Could open file in read mode\n");
     }
-    // Reads words of the file one by one
-
-    while(fscanf(file, "%s") != EOF)
+    // Reads words of the file one by one, prints them one by one
+    char word[45];
+    while(fscanf(file, "%s", word) != EOF)
     {
-        char word[45];
         fscanf(file, "%s", word);
-        printf("%s\n", word)
+        printf("%s\n", word);
     }
 }
 
