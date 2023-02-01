@@ -38,16 +38,18 @@ bool load(const char *dictionary)
 {
     // TODO
     // Open dictionary file
-    FILE *dictionary = fopen("large", "r");
+    FILE *file = fopen("large", "r");
     // If it doesn't open, return false
-    if (dictionary == NULL)
+    if (file == NULL)
         return false;
     else
         return true;
-
-    // Read strings from file one at a time
-
-
+    // Read strings from file one at a time, stores it in a word array
+    char word[45];
+    while(fscanf(file, "%s", word) != EOF)
+    {
+        fscanf(file, "%s", word);
+    }
     // Create a new node that stores a word in hash table
 
 }
