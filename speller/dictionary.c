@@ -41,11 +41,15 @@ bool load(const char *dictionary)
     FILE *dictionary = fopen("large", "r");
     // If it doesn't open, return false
     if (dictionary != NULL)
-    {
         return false;
-    }
+    else
+        return true;
+
     // Read strings from file one at a time
+    for (int i = 0; i < dictionary; i++)
+    {
     fscanf(dictionary, "%s", word);
+    }
     return false;
 }
 
