@@ -48,7 +48,8 @@ bool load(const char *dictionary)
     // Read strings from file one at a time
     for (int i = 0; i < dictionary; i++)
     {
-    fscanf(dictionary, "%s", word);
+    char *c = word[26]
+    fscanf(dictionary, "%s", word[i]);
     }
     return false;
 }
