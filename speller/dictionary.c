@@ -38,7 +38,8 @@ bool load(const char *dictionary)
 {
     // TODO
     // Open dictionary file
-    fopen(dictionary, "r");
+    f = fopen(dictionary, "r");
+    if (f == NULL)
     // Read stringss from file one at a time
     fscanf(dictionary, "%s", node);
     return false;
