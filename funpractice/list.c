@@ -12,7 +12,7 @@ node;
 int main (int argc, char *argv[])
 {
     // Ensure proper usage
-    if (argc != 2)
+    if (argc < 2)
     {
         printf("Usage: ./list NUMBER\n");
     }
@@ -43,6 +43,7 @@ int main (int argc, char *argv[])
     while (ptr != NULL)
     {
         printf("%i\n", ptr->number);
+        ptr = ptr->next;
     }
 
     // Free memory
