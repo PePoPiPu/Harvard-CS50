@@ -56,8 +56,9 @@ bool load(const char *dictionary)
             return false;
         }
         strcpy(n->word, "%s");
-        n->next = node;
+        n->next = NULL;
     }
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
