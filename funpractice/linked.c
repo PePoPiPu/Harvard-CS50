@@ -9,5 +9,9 @@ typedef struct node
 node;
 int main (void)
 {
-
+node *word;
+node *n = malloc(sizeof(node));
+n->word = "Hello";
+n->next = NULL;
+word = n;
 }
