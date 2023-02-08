@@ -49,11 +49,11 @@ ht_item *create_item(char *key, char *value)
 
 HashTable* create_table(int size)
 {
-    HashTable* table = malloc(sizeof(HashTable));
+    HashTable* table = (HashTable*) malloc(sizeof(HashTable));
     table->size = size;
     table->count = 0;
     // Allocates memory for the items and initializes it to 0
-    table->items = calloc(table->size, sizeof(ht_item*));
+    table->items = (ht_item **) calloc(table->size, sizeof(ht_item*));
 
     for (int i = 0; i < table->size; i++)
         table->items[i] = NULL;
