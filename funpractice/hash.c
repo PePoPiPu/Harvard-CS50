@@ -137,7 +137,7 @@ void ht_insert(HashTable* table, char* key, char* value)
         if (table->count == table->size)
         {
             //HashTable is full
-            printf("Insert Error: Hash Table is full\n")
+            printf("Insert Error: Hash Table is full\n");
             free_item(item);
             return;
         }
