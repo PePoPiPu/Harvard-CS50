@@ -1,4 +1,4 @@
-// Program that creates a single linked list
+// Prepends numbers to a linked list, using while loop to print
 
 #include <stdio.h>
 #include <cs50.h>
