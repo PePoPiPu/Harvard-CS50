@@ -50,5 +50,11 @@ HashTable* create_table(int size)
     HashTable* table = malloc(sizeof(HashTable));
     table->size = size;
     table->count = 0;
-    table->items = calloc(table->size, sizeof(ht_item*))
+    // Allocates memory for the items and initializes it to 0
+    table->items = calloc(table->size, sizeof(ht_item*));
+
+    for (int i = 0; i < table->size; i++)
+        table->items[i] = NULL;
+
+    return table;
 }
