@@ -16,7 +16,7 @@ ht_item;
 typedef struct HashTable
 {
     // Conatains an array of pointers to items
-    ht_item **items;
+    ht_item** items;
     // Retunrs size of the hash table
     int size;
     // Returns number of elements
