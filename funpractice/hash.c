@@ -42,3 +42,13 @@ ht_item *create_item(char *key, char *value)
     strcpy(item->value, value);
     return item;
 }
+
+// Function that creates the hash table
+
+HashTable* create_table(int size)
+{
+    HashTable* table = malloc(sizeof(HashTable));
+    table->size = size;
+    table->count = 0;
+    table->items = ca
+}
