@@ -11,5 +11,6 @@ node;
 
 int main (void)
 {
-
+    node *list;
+    node *n = malloc(sizeof(node));
 }
