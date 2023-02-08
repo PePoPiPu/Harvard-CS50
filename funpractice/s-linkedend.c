@@ -1,5 +1,5 @@
 // Implements a list of numbers using a linked-list
-
+// The run time for this program is O(n) since it has to go down the whole list to append a new node in it
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
