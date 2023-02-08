@@ -50,10 +50,9 @@ bool load(const char *dictionary)
         return false;
     // Read strings from file one at a time, stores it in a word array
     char word[LENGTH + 1];
+    // While reading words one by one and we don't reach EOF
     while(fscanf(file, "%s", word) != EOF)
     {
-        // Reads words one by one
-        fscanf(file, "%s", word);
         // Creates a new node for each word
         node *n = malloc(sizeof(node));
         if (n == NULL)
