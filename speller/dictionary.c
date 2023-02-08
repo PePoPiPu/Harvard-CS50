@@ -18,6 +18,10 @@ typedef struct node
 node;
 
 node *hashtable[HASHTABLE_SIZE];
+// Hash function
+
+// Initialize int that counts words in the dictionary
+int word_count = 0;
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
@@ -68,10 +72,17 @@ bool load(const char *dictionary)
 
         if (head == NULL)
         {
-            hashtable[h] =new_node;
+            hashtable[h] =n;
+            word_count++;
+        }
+        else
+        {
+            n->next = hashtable[h];
+            hashtable[h] = n;
             word_count++;
         }
     }
+    fclose(file);
     return true;
 }
 
