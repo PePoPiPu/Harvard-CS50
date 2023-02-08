@@ -49,7 +49,7 @@ bool load(const char *dictionary)
     if (file == NULL)
         return false;
     // Read strings from file one at a time, stores it in a word array
-    char word[LENGHT + 1];
+    char word[LENGTH + 1];
     while(fscanf(file, "%s", word) != EOF)
     {
         // Reads words one by one
