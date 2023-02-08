@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 // Defines the HashTable item
 typedef struct ht_item
@@ -29,6 +30,7 @@ ht_item *create_item(char *key, char *value);
 HashTable *create_table(int size);
 void free_item(ht_item *item);
 void free_table(HashTable *table);
+void print_table(HashTable *table);
 
 // Function that allocates memory and creates items
 
@@ -80,4 +82,19 @@ void free_table (HashTable *table)
 
     free(table->items);
     free(table);
+}
+
+void print_table(HashTable *table)
+{
+    printf("\nHash Table\n--------------------\n");
+
+    for (int i = 0; i < table->size; i++)
+    {
+        if (table->items[i])
+        {
+            printf("Index:%d, Key:%s, Value%s\n", i, table->items[i]->key, table->items->value);
+        }
+    }
+
+    printf("--------------------\n\n");
 }
