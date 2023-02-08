@@ -5,7 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "dictionary.h"
+
+#define HASHTABLE_SIZE 10000
 // Represents a node in a hash table
 typedef struct node
 {
@@ -13,6 +16,8 @@ typedef struct node
     struct node *next;
 }
 node;
+
+node *hashtable[HASHTABLE_SIZE];
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
