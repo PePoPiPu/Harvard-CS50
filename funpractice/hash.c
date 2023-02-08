@@ -5,6 +5,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+// Size of the Hash Table
+#define CAPACITY 50000
+
 // Defines the HashTable item
 typedef struct ht_item
 {
@@ -29,6 +32,7 @@ HashTable;
 
 ht_item *create_item(char *key, char *value);
 HashTable *create_table(int size);
+unsigned long hash_function(char* str);
 void free_item(ht_item *item);
 void free_table(HashTable *table);
 void print_table(HashTable *table);
@@ -68,6 +72,15 @@ HashTable* create_table(int size)
     return table;
 }
 
+unsigned long hash_function(char* str)
+{
+    unsigned long i = 0;
+
+    for (int j = 0; str[j]; j++)
+        i += str[j];
+
+    return i % CAPACITY;
+}
 void free_item (ht_item *item)
 {
     // Frees an item
