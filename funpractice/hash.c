@@ -1,4 +1,5 @@
 // Implementation of a hash table
+// Tutorial reference: https://www.digitalocean.com/community/tutorials/hash-table-in-c-plus-plus
 
 #include <stdio.h>
 #include <string.h>
