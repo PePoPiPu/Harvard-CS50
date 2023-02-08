@@ -61,10 +61,17 @@ bool load(const char *dictionary)
             return false;
         }
         strcpy(n->word, word);
-        n->next = NULL;
+        // Hash word to obtain hash value
+        int h = hash_number(n->word);
+        // Initialize head to point at hashtable bucket
+        node *head = hashtable[h];
+
+        if (head == NULL)
+        {
+            hashtable[h] =new_node;
+            word_count++;
+        }
     }
-    // Hash word to obtain hash value
-    // Insert node into hash table at that location
     return true;
 }
 
