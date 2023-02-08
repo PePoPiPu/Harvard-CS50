@@ -32,6 +32,9 @@ HashTable *create_table(int size);
 void free_item(ht_item *item);
 void free_table(HashTable *table);
 void print_table(HashTable *table);
+void ht_insert(HashTable* table, char* key, char* value);
+
+
 int main (void)
 {
     // NOT YET
@@ -101,4 +104,13 @@ void print_table(HashTable *table)
     }
 
     printf("--------------------\n\n");
+}
+
+void ht_insert(HashTable* table, char* key, char* value)
+{
+    // Create the item based on the {key: value} pair
+    // Compute the index based on the hash function
+    // Check if the indexis already occupied or not, by comparing the key
+        // If not occupied, insert into index
+        // Else, it's a collision, needs handling
 }
