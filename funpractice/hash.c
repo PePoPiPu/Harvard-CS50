@@ -31,7 +31,10 @@ HashTable *create_table(int size);
 void free_item(ht_item *item);
 void free_table(HashTable *table);
 void print_table(HashTable *table);
-
+int main (void)
+{
+    // NOT YET
+}
 // Function that allocates memory and creates items
 
 ht_item *create_item(char *key, char *value)
@@ -92,7 +95,7 @@ void print_table(HashTable *table)
     {
         if (table->items[i])
         {
-            printf("Index:%d, Key:%s, Value%s\n", i, table->items[i]->key, table->items->value);
+            printf("Index:%d, Key:%s, Value%s\n", i, table->items[i]->key, table->items[i]->value);
         }
     }
 
