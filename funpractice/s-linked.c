@@ -1,6 +1,8 @@
 // Program that creates a single linked list
 
 #include <stdio.h>
+#include <cs50.h>
+#include <stdlib.h>
 
 typedef struct node
 {
@@ -28,8 +30,28 @@ int main (int argc, char *argv[])
         }
         // Derreferencing n, accessing "number" field, assigning number to it
         n->number = number;
-        // Derreferencing n,
+        // Derreferencing n, accessing "next" field, assigning NULL to it
         n->next = NULL;
+        // Prepend node to list
+        n->next = list;
+        list = n;
+    }
+
+    // Print numbers
+    node *ptr = list;
+    while (ptr != NULL)
+    {
+        printf("%i\n", ptr->number);
+        ptr = ptr->next;
+    }
+
+    // Free memory
+    ptr = list;
+    while (ptr != NULL)
+    {
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
     }
 
 }
