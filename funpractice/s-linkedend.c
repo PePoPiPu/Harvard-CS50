@@ -60,4 +60,19 @@ int main (int argc, char *argv[])
             }
         }
     }
+
+    // Print numbers
+    for (node *ptr = list; ptr != NULL; ptr = ptr->next)
+    {
+        printf("%i\n", ptr->number);
+    }
+
+    // Free memory
+    node *ptr = list;
+    while (ptr != NULL)
+    {
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
+    }
 }
