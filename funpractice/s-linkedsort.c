@@ -1,5 +1,5 @@
 // Linked list that sorts itself as items are added
-// Run time of insertion is O(N)
+// Run time of insertion is O(n)
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
