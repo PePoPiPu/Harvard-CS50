@@ -13,6 +13,11 @@ node;
 
 int main (int argc, char *argv[])
 {
+    // Ensure proper usage
+    if (argc < 2)
+    {
+        printf ("Usage: ./s-linked NUMBER\n");
+    }
     // Memory for numbers
     node *list = NULL;
 
