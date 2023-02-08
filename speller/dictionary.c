@@ -18,12 +18,7 @@ typedef struct node
 node;
 
 node *hashtable[HASHTABLE_SIZE];
-// Hash function
-int hash_function(char* hash_word)
-{
-    // FUNCTION YET TO BE DEFINED
-    return 1;
-}
+
 // Initialize int that counts words in the dictionary
 int word_count = 0;
 
@@ -70,13 +65,13 @@ bool load(const char *dictionary)
         }
         strcpy(n->word, word);
         // Hash word to obtain hash value
-        int h = hash_function(n->word);
+        int h = hash(n->word);
         // Initialize head to point at hashtable bucket
         node *head = hashtable[h];
 
         if (head == NULL)
         {
-            hashtable[h] =n;
+            hashtable[h] = n;
             word_count++;
         }
         else
