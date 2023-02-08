@@ -9,14 +9,27 @@ typedef struct node
 }
 node;
 
-int main (void)
+int main (int argc, char *argv[])
 {
-    // Declaring node *list
-    node *list;
-    // Alocating memory for a node
-    node *n = malloc(sizeof(node));
-    // Assigning an int to "number"
-    n->number = 1;
-    // Assigning NULL to node's next field
-    n->next = NULL;
+    // Memory for numbers
+    node *list = NULL;
+
+    // For each command line argument
+    for (int i = 1; i < argc; i++)
+    {
+        // Convert argument to int
+        int number = atoi(argv[i]);
+
+        // Allocate node for number
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return 1;
+        }
+        // Derreferencing n, accessing "number" field, assigning number to it
+        n->number = number;
+        // Derreferencing n,
+        n->next = NULL;
+    }
+
 }
