@@ -50,5 +50,5 @@ HashTable* create_table(int size)
     HashTable* table = malloc(sizeof(HashTable));
     table->size = size;
     table->count = 0;
-    table->items = ca
+    table->items = calloc(table->size, sizeof(ht_item*))
 }
