@@ -37,6 +37,7 @@ void free_item(ht_item *item);
 void free_table(HashTable *table);
 void print_table(HashTable *table);
 void ht_insert(HashTable* table, char* key, char* value);
+void handle_collision(HashTable* table, ht_item* item);
 char* ht_search(HashTable* table, char* key); // CHECK FUNCTION!
 void print_search(HashTable* table, char* key);
 
@@ -121,6 +122,11 @@ void print_table(HashTable *table)
     printf("--------------------\n\n");
 }
 
+void handle_collision(HashTable* table, ht_item* item)
+{
+
+}
+
 void ht_insert(HashTable* table, char* key, char* value)
 {
     // Creates the item
@@ -154,13 +160,14 @@ void ht_insert(HashTable* table, char* key, char* value)
             strcpy(table->items[index] -> value, value);
             return;
         }
+        else
+        {
+            // If a collision has to be handled, a placeholder is added
+            handle_collision(table, item);
+            return;
+        }
     }
-    else
-    {
-        // If a collision has to be handled, a placeholder is added
-        handle_collision(table, item);
-        return;
-    }
+
 }
 
 char* ht_search(HashTable* table, char* key)
