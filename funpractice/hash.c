@@ -37,9 +37,9 @@ void print_table(HashTable *table);
 ht_item *create_item(char *key, char *value)
 {
     // Creates a pointer to a new HashTable item
-    ht_item *item = malloc(sizeof(ht_item));
-    item->key = malloc(strlen(key) + 1);
-    item->value = malloc(strlen(value) + 1);
+    ht_item *item = (ht_item*) malloc(sizeof(ht_item));
+    item->key = (char*) malloc(strlen(key) + 1);
+    item->value = (char*) malloc(strlen(value) + 1);
     strcpy(item->key, key);
     strcpy(item->value, value);
     return item;
