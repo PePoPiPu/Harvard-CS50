@@ -1,12 +1,7 @@
 // Implementation of a hash table
 
 #include <stdio.h>
-// Functions definitions
 
-create_item(char *key, char *value);
-create_table(int size);
-void free_item(ht_item *item);
-void free_table(HashTable *table);
 // Defines the HashTable item
 typedef struct ht_item
 {
@@ -26,3 +21,10 @@ typedef struct HashTable
     int count;
 }
 HashTable;
+
+// Functions definitions
+
+ht_item *create_item(char *key, char *value);
+HashTable *create_table(int size);
+void free_item(ht_item *item);
+void free_table(HashTable *table);
