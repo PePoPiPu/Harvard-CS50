@@ -41,7 +41,29 @@ void ht_insert(HashTable* table, char* key, char* value);
 
 int main (void)
 {
-    // NOT YET
+    // Creates the item
+    ht_item* item = create_item(key, value);
+
+    // Computes the index
+
+    int index = hash_function(key);
+
+    ht_item* current_item = table->items[index];
+
+    if (current_item == NULL)
+    {
+        if (table->count == table->size)
+        {
+            //HashTable is full
+            printf("Insert Error: Hash Table is full\n")
+            free_item(item);
+            return;
+        }
+
+        // Insert directly
+        table->items[index] = item;
+        table->count++;
+    }
 }
 // Function that allocates memory and creates items
 
