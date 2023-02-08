@@ -38,6 +38,7 @@ void free_table(HashTable *table);
 void print_table(HashTable *table);
 void ht_insert(HashTable* table, char* key, char* value);
 char* ht_search(HashTable* table, char* key); // CHECK FUNCTION!
+void print_search(HashTable* table, char* key);
 
 
 int main (void)
@@ -161,3 +162,22 @@ void ht_insert(HashTable* table, char* key, char* value)
         return;
     }
 }
+
+char* ht_search(HashTable* table, char* key)
+{
+    // Searches for the key in the HashTable
+    // Returns NULL if it doesn't exist
+    int index = hash_function(key);
+    ht_item* item = table->items[index];
+
+    // Provide only non NULL values
+    if (item != NULL)
+    {
+        if(strcmp(item->key, key) == 0)
+            return item->value;
+    }
+
+    return NULL;
+}
+
+void print_search(HashTable* table, char* key);
