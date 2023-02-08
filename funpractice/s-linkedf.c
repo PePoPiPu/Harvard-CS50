@@ -1,4 +1,5 @@
 // Prepends numbers to a linked list, using for loop to print
+// Insertion time is O(1) since it inserts at the beginning of the list
 #include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
