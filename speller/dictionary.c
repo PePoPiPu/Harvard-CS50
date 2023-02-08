@@ -57,9 +57,10 @@ bool load(const char *dictionary)
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
+            unload();
             return false;
         }
-        strcpy(n->word, "%s");
+        strcpy(n->word, word);
         n->next = NULL;
     }
     // Hash word to obtain hash value
