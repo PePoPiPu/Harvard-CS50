@@ -37,33 +37,12 @@ void free_item(ht_item *item);
 void free_table(HashTable *table);
 void print_table(HashTable *table);
 void ht_insert(HashTable* table, char* key, char* value);
+char* ht_search(HashTable* table, char* key); // CHECK FUNCTION!
 
 
 int main (void)
 {
-    // Creates the item
-    ht_item* item = create_item(key, value);
 
-    // Computes the index
-
-    int index = hash_function(key);
-
-    ht_item* current_item = table->items[index];
-
-    if (current_item == NULL)
-    {
-        if (table->count == table->size)
-        {
-            //HashTable is full
-            printf("Insert Error: Hash Table is full\n")
-            free_item(item);
-            return;
-        }
-
-        // Insert directly
-        table->items[index] = item;
-        table->count++;
-    }
 }
 // Function that allocates memory and creates items
 
@@ -143,9 +122,42 @@ void print_table(HashTable *table)
 
 void ht_insert(HashTable* table, char* key, char* value)
 {
-    // Create the item based on the {key: value} pair
-    // Compute the index based on the hash function
-    // Check if the indexis already occupied or not, by comparing the key
-        // If not occupied, insert into index
-        // Else, it's a collision, needs handling
+    // Creates the item
+    ht_item* item = create_item(key, value);
+
+    // Computes the index
+
+    int index = hash_function(key);
+
+    ht_item* current_item = table->items[index];
+
+    if (current_item == NULL)
+    {
+        if (table->count == table->size)
+        {
+            //HashTable is full
+            printf("Insert Error: Hash Table is full\n")
+            free_item(item);
+            return;
+        }
+
+        // Insert directly
+        table->items[index] = item;
+        table->count++;
+    }
+    else
+    {
+        // If {key: value} pair exists, update the value
+        if (strcmp(current_item->key, key) == 0)
+        {
+            strcpy(table->items[index] -> value, value);
+            return;
+        }
+    }
+    else
+    {
+        // If a collision has to be handled, a placeholder is added
+        handle_collision(table, item);
+        return;
+    }
 }
