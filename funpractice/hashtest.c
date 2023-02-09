@@ -4,7 +4,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct node
+{
+    char word[LENGTH + 1];
+    struct node *next;
+}
+node;
 unsigned int hash(const char *word);
+bool load(const char *dictionary);
 
 int main (int argc, char *argv[])
 {
@@ -32,4 +39,13 @@ unsigned int hash(const char *word)
         hash_value = ((sum * word[i]) % 2069) / 100;
     }
     return hash_value;
+}
+
+bool load(const char *dictionary)
+{
+    FILE *file = fopen(dictionary, "r");
+    if (file == NULL)
+        return false;
+
+    char word[LENGTH + 1];
 }
