@@ -21,11 +21,13 @@ unsigned int hash (const char *word)
    int l = strlen(word);
    int ascii = 0;
    int sum = 0;
+   int hash_value;
 
    for (int i = 0; i < l; i++)
    {
         ascii += word[i];
         sum = ascii + l;
+        hash_value = sum/100;
    }
-   return sum;
+   return hash_value;
 }
