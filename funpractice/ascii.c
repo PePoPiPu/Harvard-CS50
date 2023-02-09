@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 unsigned int ascii_values (const char *word);
 int main (int argc, char *argv[])
 {
@@ -7,8 +8,11 @@ int main (int argc, char *argv[])
     {
         printf("Usage: ./ascii WORD\n");
     }
-    int ascii = ascii_values(argv[]);
-    printf ("The ascii value is %i\n", ascii)
+    for (int i = 1; i < argc; i++)
+    {
+        int ascii = ascii_values(argv[i]);
+        printf("The ascii value is %i\n", ascii);
+    }
 }
 
 unsigned int ascii_values (const char *word)
@@ -17,7 +21,7 @@ unsigned int ascii_values (const char *word)
     int ascii = 0;
     for(int i = 0; i < l; i++)
     {
-        ascii = word;
+        ascii = atoi(word);
     }
     return ascii;
 }
