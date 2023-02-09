@@ -27,7 +27,12 @@ unsigned int hash (const char *word)
    {
         ascii += word[i];
         sum = ascii + l;
-        hash_value = sum/100 + 1;
+        hash_value = sum/100;
+
+        if (hash_value == 0)
+        {
+            hash_value = sum/100 + 1;
+        }
    }
    return hash_value;
 }
