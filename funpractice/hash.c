@@ -25,7 +25,7 @@ unsigned int hash (const char *word)
    for (int i = 0; i < l; i++)
    {
         ascii += word[i];
-        l += word[i];
+        sum = ascii + l;
    }
-   return l;
+   return sum;
 }
