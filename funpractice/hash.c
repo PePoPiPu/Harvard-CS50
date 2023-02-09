@@ -9,5 +9,5 @@ int main (int argc, char *argv[])
         printf("Usage: ./hash WORD\n")
 
     // For every commad-line argument
-    int h = hash_functioi
+    int h = hash_function
 }
