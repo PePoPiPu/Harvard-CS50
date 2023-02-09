@@ -3,8 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
-#
+#define LENGTH 45
+
 typedef struct node
 {
     char word[LENGTH + 1];
@@ -14,6 +16,8 @@ node;
 
 unsigned int hash(const char *word);
 bool load(const char *dictionary);
+
+int word_count = 0;
 
 int main (int argc, char *argv[])
 {
@@ -50,4 +54,31 @@ bool load(const char *dictionary)
         return false;
 
     char word[LENGTH + 1];
+
+    while(fscanf(file, "%s", word) != EOF)
+    {
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            return false;
+        }
+
+        strcpy(n->word, word);
+        int h = hash(n->word);
+        node *head = hashtable[h];
+
+        if (head == NULL)
+        {
+            hashtable[h] = n;
+            word_count++;
+        }
+        else
+        {
+            n->next = hashtable[h];
+            hashtable[h] = n;
+            word_count++;
+        }
+    }
+    fclose(file);
+    return true;
 }
