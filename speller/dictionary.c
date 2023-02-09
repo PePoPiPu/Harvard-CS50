@@ -38,12 +38,23 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
+    int l = strlen(word);
+    int ascii = 0;
     int sum = 0;
-    for(int j = 0; word[j] != '\0'; j++)
+    int hash_value;
+
+    for (int i = 0; i < l; i++)
     {
-        sum += word[j];
+        ascii += word[i];
+        sum = ascii + l;
+        hash_value = sum/100;
+
+        if (hash_value == 0)
+        {
+            hash_value = sum/100 + 1;
+        }
     }
-    return sum % HASHTABLE_SIZE;
+    return hash_value;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
