@@ -12,5 +12,13 @@ int main (int argc, char *argv[])
         printf("Usage: ./hashtest FILE\n");
 
     for (int i = 1; i < argc; i++)
-    {}
+    {
+        int h = hash(argv[i]);
+        printf("%i\n", h);
+    }
+}
+
+unsigned int hash(const char *word)
+{
+    
 }
