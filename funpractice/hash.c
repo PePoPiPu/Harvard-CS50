@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define HASHTABLE_SIZE 10000
 #define LENGTH 45
@@ -49,6 +50,8 @@ bool load (const char *large)
         if (new_node == NULL)
             return false;
 
-        
+        strcpy (new_node->word, word);
+        int hash_value = hash(new_node->word);
+
     }
 }
