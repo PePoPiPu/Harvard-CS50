@@ -23,7 +23,7 @@ unsigned int hash (const char *word)
 
    for (int i = 0; i < l; i++)
    {
-        hash_value = (word[i] + word[i + 1]);
+        hash_value = word[i];
    }
    return hash_value;
 }
