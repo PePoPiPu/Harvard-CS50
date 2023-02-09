@@ -29,7 +29,7 @@ unsigned int hash(const char *word)
    {
         ascii += word[i];
         sum = ascii + l;
-        hash_value = sum % 2069;
+        hash_value = ((sum * word[i]) % 2069) / 100;
    }
    return hash_value;
 }
