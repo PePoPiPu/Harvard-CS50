@@ -4,12 +4,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#
 typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
 }
 node;
+
 unsigned int hash(const char *word);
 bool load(const char *dictionary);
 
