@@ -19,12 +19,11 @@ int main (int argc, char *argv[])
 unsigned int hash (const char *word)
 {
    int l = strlen(word);
-   int pos = 0;
-   int sum = 0;
+   int hash_value = 0;
 
    for (int i = 0; i < l; i++)
    {
-    
+        hash_value = (word[i] + word[i + 1]);
    }
-
+   return hash_value;
 }
