@@ -1,3 +1,4 @@
+// Program that uses a hash function to print hash values
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,5 +9,5 @@ int main (int argc, char *argv[])
         printf("Usage: ./hash WORD\n")
 
     // For every commad-line argument
-    for (int argv)
+    int h = hash_functioi
 }
