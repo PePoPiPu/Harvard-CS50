@@ -52,6 +52,19 @@ bool load (const char *large)
 
         strcpy (new_node->word, word);
         int hash_value = hash(new_node->word);
+        node *head = hashtable[hash_value];
+
+        if (head == NULL)
+        {
+            hastable[hash_value] = new_node;
+            word_count++;
+        }
+        else
+        {
+            new_node->next = hashtable[hash_value];
+            hashtable[hash_value] = new_node;
+            word_count++;
+        }
 
     }
 }
