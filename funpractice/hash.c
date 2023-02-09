@@ -20,10 +20,13 @@ unsigned int hash (const char *word)
 {
    int l = strlen(word);
    int hash_value = 0;
+   int tmp = 0;
 
    for (int i = 0; i < l; i++)
    {
         hash_value = word[i];
+        tmp = hash_value;
+        
    }
    return hash_value;
 }
