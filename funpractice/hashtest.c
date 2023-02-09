@@ -27,9 +27,9 @@ unsigned int hash(const char *word)
 
    for (int i = 0; i < l; i++)
    {
-        ascii += word[i] % 599;
+        ascii += word[i];
         sum = ascii + l;
-        hash_value = sum/100;
+        hash_value = sum % 599;
 
         if (hash_value == 0)
         {
