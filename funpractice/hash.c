@@ -34,9 +34,9 @@ unsigned int hash(const char *word)
     const int m = 1e9 + 9;
     int hash_value = 0;
     int p_powe = 1;
-    for (char c : s)
+    for (int i )
     {
-        
+
     }
 }
 
