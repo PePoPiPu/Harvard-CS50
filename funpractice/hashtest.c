@@ -6,6 +6,7 @@
 #include <stdbool.h>
 
 #define LENGTH 45
+#define HASHTABLE_SIZE 10000
 
 typedef struct node
 {
@@ -13,6 +14,8 @@ typedef struct node
     struct node *next;
 }
 node;
+
+node *hashtable[HASHTABLE_SIZE];
 
 unsigned int hash(const char *word);
 bool load(const char *dictionary);
