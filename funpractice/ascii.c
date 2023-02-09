@@ -21,7 +21,7 @@ unsigned int ascii_values (const char *word)
     int ascii = 0;
     for(int i = 0; i < l; i++)
     {
-        ascii = atoi(word);
+        ascii = word[i];
     }
     return ascii;
 }
