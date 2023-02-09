@@ -1,16 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+unsigned int ascii_values (const char *word);
 int main (int argc, char *argv[])
 {
     if (argc < 2)
     {
         printf("Usage: ./ascii WORD\n");
     }
+    int ascii = ascii_values(argv[]);
+    printf ("The ascii value is %i\n", ascii)
+}
 
-    for (int i = 1; i < argc; i++)
+unsigned int ascii_values (const char *word)
+{
+    int l = strlen(word);
+    int ascii = 0;
+    for(int i = 0; i < l; i++)
     {
-        int h = atoi(argv[i]);
-        printf("The ascii value is: %i\n", h);
+        ascii = word;
     }
+    return ascii;
 }

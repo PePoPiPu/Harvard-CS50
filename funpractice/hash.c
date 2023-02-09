@@ -11,7 +11,7 @@ int main (int argc, char *argv[])
 
     for (int i = 1; i < argc; i++)
     {
-        int h = hash(argv[h ]);
+        int h = hash(argv[h]);
         printf("%i\n", h);
     }
 }
