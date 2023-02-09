@@ -20,5 +20,21 @@ int main (int argc, char *argv[])
 
 unsigned int hash(const char *word)
 {
-    
+       int l = strlen(word);
+   int ascii = 0;
+   int sum = 0;
+   int hash_value;
+
+   for (int i = 0; i < l; i++)
+   {
+        ascii += word[i] % 599;
+        sum = ascii + l;
+        hash_value = sum/100;
+
+        if (hash_value == 0)
+        {
+            hash_value = sum/100 + 1;
+        }
+   }
+   return hash_value;
 }
