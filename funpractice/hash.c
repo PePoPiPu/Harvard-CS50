@@ -30,7 +30,10 @@ int main (void)
 
 unsigned int hash(const char *word)
 {
-
+    const int p = 53;
+    const int m = 1e9 + 9;
+    int hash_value = 0;
+    
 }
 
 bool load (const char *large)
