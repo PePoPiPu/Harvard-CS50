@@ -11,7 +11,7 @@ int main (int argc, char *argv[])
 
     for (int i = 1; i < argc; i++)
     {
-        int h = hash(argv[h]);
+        int h = hash(argv[i]);
         printf("%i\n", h);
     }
 }
@@ -26,7 +26,7 @@ unsigned int hash (const char *word)
    for (int i = 0; i < l; i++)
    {
         ascii += word[i];
-        sum = ascii + l;
+        sum = ascii + (l * 500);
         hash_value = sum/100;
 
         if (hash_value == 0)
