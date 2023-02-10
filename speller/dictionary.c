@@ -125,5 +125,13 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    return false;
+    node *head = NULL;
+    node *cursor = head;
+    while (cursor != NULL)
+    {
+        node *tmp = cursor;
+        cursor = cursor->next;
+        free(tmp);
+    }
+    return true;
 }
