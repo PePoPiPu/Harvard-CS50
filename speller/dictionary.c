@@ -125,13 +125,17 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    node *head = NULL;
-    node *cursor = head;
-    while (cursor != NULL)
+    for (int i = 0; i < HASHTABLE_SIZE; i++)
     {
-        node *tmp = cursor;
-        cursor = cursor->next;
-        free(tmp);
+        node *head = hashtable[i];
+        node *cursor = head;
+
+        while(cursor != NULL)
+        {
+            node *tmp = cursor;
+            cursor = cursor->next;
+            free(tmp);
+        }
     }
     return true;
 }
