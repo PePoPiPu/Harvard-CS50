@@ -53,38 +53,3 @@ unsigned int hash(const char *word)
     return hash_value;
 }
 
-bool load(const char *dictionary)
-{
-    FILE *file = fopen(dictionary, "r");
-    if (file == NULL)
-        return false;
-
-    char word[LENGTH + 1];
-
-    while(fscanf(file, "%s", word) != EOF)
-    {
-        node *n = malloc(sizeof(node));
-        if (n == NULL)
-        {
-            return false;
-        }
-
-        strcpy(n->word, word);
-        int h = hash(n->word);
-        node *head = hashtable[h];
-
-        if (head == NULL)
-        {
-            hashtable[h] = n;
-            word_count++;
-        }
-        else
-        {
-            n->next = hashtable[h];
-            hashtable[h] = n;
-            word_count++;
-        }
-    }
-    fclose(file);
-    return true;
-}
