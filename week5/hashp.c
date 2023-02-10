@@ -11,7 +11,7 @@ int main (int argc, char *argv[])
     for (int i = 1; i < argc; i++)
     {
         int h = hash(atoi(argv[i]));
-        printf("The hash values are %i\n", h);
+        printf("The hash values for %s is %i\n", argv[i], h);
     }
 }
 
