@@ -10,8 +10,27 @@ typedef struct node
 }
 node;
 
-int main (int argc, )
+int main (int argc, char *argv[])
 {
-    node *list;
-    node *new_node = malloc(sizeof(node));
+    // Ensure proper usage
+    if (argc < 2)
+        printf("Usage: ./linklist WORD\n");
+
+    // Create a linked list
+    node *list = NULL;
+    // Dinamically allocate memory for a new node
+    for (int i = 1; i < argc; i++)
+    {
+        int number = atoi(argv[i]);
+        node *new_node = malloc(sizeof(node));
+        if (new_node == NULL)
+            return 1;
+
+        new_node->number = number;
+        new_node->next = NULL;
+
+        // Prepend node to list
+        new_node->next = list;
+        list = new_node;
+    }
 }
