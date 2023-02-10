@@ -33,4 +33,7 @@ int main (int argc, char *argv[])
         new_node->next = list;
         list = new_node;
     }
+
+    // Search through the linked list
+    
 }
