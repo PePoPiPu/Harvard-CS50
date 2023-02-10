@@ -12,5 +12,5 @@ node*
 
 int main (void)
 {
-    
+    node *list;
 }
