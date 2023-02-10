@@ -35,5 +35,4 @@ int main (int argc, char *argv[])
     }
 
     // Search through the linked list
-    node *current = head;
 }
