@@ -36,7 +36,7 @@ int main (int argc, char *argv[])
     }
     for (int i = 1; i < argc; i++)
     {
-        int h = hash(dictionary);
+        int h = hash(dictionary[i]);
         printf("%i\n", h);
     }
 }
