@@ -7,7 +7,6 @@
 
 #define LENGTH 45
 #define HASHTABLE_SIZE 10000
-#define DICTIONARY "large"
 
 typedef struct node
 {
@@ -27,16 +26,9 @@ int main (int argc, char *argv[])
 {
     if (argc < 2)
         printf("Usage: ./hashtest FILE\n");
-    char *dictionary = DICTIONARY;
-    bool loaded = load(dictionary);
-    if (!loaded)
-    {
-        printf("Could not load %s\n", dictionary);
-        return 1;
-    }
     for (int i = 1; i < argc; i++)
     {
-        int h = hash(dictionary);
+        int h = hash(argv[i]);
         printf("%i\n", h);
     }
 }
