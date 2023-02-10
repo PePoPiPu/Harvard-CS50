@@ -45,6 +45,10 @@ unsigned int hash(const char *word)
         ascii += word[i];
         sum = ascii + l;
         hash_value = ((sum * word[i]) % 2069) / 100;
+        if (hash_value == hash_value - 1)
+        {
+            hash_value + 1;
+        }
     }
     return hash_value;
 }
