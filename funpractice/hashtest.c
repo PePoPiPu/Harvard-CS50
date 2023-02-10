@@ -26,7 +26,8 @@ int main (int argc, char *argv[])
 {
     if (argc < 2)
         printf("Usage: ./hashtest FILE\n");
-        
+
+    bool loaded = load(large);
     for (int i = 1; i < argc; i++)
     {
         int h = hash(argv[i]);
