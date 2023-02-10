@@ -129,12 +129,13 @@ bool unload(void)
     {
         node *head = hashtable[i];
         node *cursor = head;
+        node *tmp = head;
 
         while(cursor != NULL)
         {
-            node *tmp = cursor;
             cursor = cursor->next;
             free(tmp);
+            tmp = cursor;
         }
     }
     return true;
