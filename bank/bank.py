@@ -1,4 +1,5 @@
 greeting = input("Greeting: ")
 greeting = greeting.lower()
-if greeting in ["Hello"]:
+greeting = greeting.startswith("Hello")
+if greeting == True:
     print("0$")
