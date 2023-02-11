@@ -1,4 +1,4 @@
-//Addition with int
+// Addition with int
 
 #include <cs50.h>
 #include <stdio.h>
