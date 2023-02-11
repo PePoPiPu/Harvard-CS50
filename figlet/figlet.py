@@ -1,4 +1,5 @@
 import sys
+from  pyfiglet import Figlet 
 
 # Ensure proper usage
 if len(sys.argv) == 3:
