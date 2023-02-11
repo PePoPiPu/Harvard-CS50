@@ -3,9 +3,10 @@ import sys, random
 figlet = Figlet()
 figlet.getFonts()
 validfont = figlet.getFonts()
+rand = random.seed()
 if len(sys.argv) == 1:
     s = input("Input: ")
-    figlet.setFont()
+    figlet.setFont(rand)
     print(figlet.renderText(s))
     sys.exit()
 elif (sys.argv[1] == "-f" or sys.argv[1] == "--font"):
