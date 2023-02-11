@@ -5,7 +5,7 @@ figlet.getFonts()
 random.seed()
 if len(sys.argv) == 3:
     figlet.setFont(font = {sys.argv[2]})
-else:
-    figlet.setFont(random.seed)
+elif len(sys.argv) < 2:
+    figlet.setFont(font = random.seed)
 s = input("Input: ")
 print(figlet.renderText(s))
