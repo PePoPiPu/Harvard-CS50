@@ -1,5 +1,6 @@
 # csv files are comma separated values. A form of very lightweight spreadsheet
 import csv
+
 file = open("phonebook.csv", "a")
 
 name = input("Name: ")
