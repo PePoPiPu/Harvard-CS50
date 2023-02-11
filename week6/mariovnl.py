@@ -6,7 +6,7 @@ def main():
 
 def get_height():
     while True:
-        
+        #Validation of input. "Try to execute unless something happens"
         try:
             n = int(input("Height: "))
             if n > 0:
