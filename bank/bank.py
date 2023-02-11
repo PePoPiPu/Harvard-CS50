@@ -2,4 +2,7 @@ s = input("Greeting: ")
 s = s.lower()
 if s in ["Hello", "hello"]:
     print("0$")
-el:
+elif s in ["H", "h"]:
+    print("20$")
+else:
+    print("100$")
