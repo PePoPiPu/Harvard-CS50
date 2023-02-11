@@ -4,6 +4,8 @@ import sys
 if len(sys.argv) == 3:
     if sys.argv[1] == ("-f", "--f"):
         print("Arguments are correct")
+    else:
+        print("Invalid usage")
 elif len(sys.argv) == 1:
     s = input("Input: ")
 else:
