@@ -7,7 +7,7 @@ if len(sys.argv) == 1:
     figlet.setFont(font = random)
     print(figlet.renderText(s))
     sys.exit()
-elif (sys.argv[1] == "-f" or sys.argv[1] == "--f"):
+elif (sys.argv[1] == "-f" or sys.argv[1] == "--font"):
     if len(sys.argv) == 3:
         s = input("Input: ")
         figlet.setFont(font = sys.argv[2])
