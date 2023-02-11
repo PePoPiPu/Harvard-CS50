@@ -1,5 +1,4 @@
 before = input("Before: ")
-print("After: ", end="")
-for c in before:
-    print(c.upper, end="")
-print()
+# There's no need to iterate through each character and convert them to uppercase. We can use the function implemented in the string data type
+after = before.upper()
+print(f"After: {after}")
