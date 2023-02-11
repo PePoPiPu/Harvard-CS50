@@ -1,6 +1,5 @@
-from cs50 import get_int
-
-x = get_int ("x: ")
-y = get_int ("y: ")
+// The input function gives back a string by default, we have to convert it to an int
+x = int (input ("x: "))
+y = int (input ("y: "))
 
 print(x + y)
