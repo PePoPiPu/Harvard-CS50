@@ -1,12 +1,10 @@
 # csv files are comma separated values. A form of very lightweight spreadsheet
 import csv
+# With the following opening of the file, do x and close it
+with open("phonebook.csv", "a") as file:
 
-file = open("phonebook.csv", "a")
+    name = input("Name: ")
+    number = input ("Number: ")
 
-name = input("Name: ")
-number = input ("NUmber: ")
-
-writer = csv.writer(file)
-writer.writerow([name, number])
-
-file.close()
+    writer = csv.writer(file)
+    writer.writerow([name, number])
