@@ -1,7 +1,7 @@
 from pyfiglet import Figlet
 import sys, random
 
-if len(sys.argv) = 1:
+if len(sys.argv) == 1:
     s = input("Input: ")
 elif (sys.argv[1] == "-f" or sys.argv[1] == "--f"):
     if len(sys.argv) == 3:
