@@ -3,16 +3,16 @@ import sys, random
 figlet = Figlet()
 figlet.getFonts()
 validfont = figlet.getFonts()
-rand = random.seed()
 if len(sys.argv) == 1:
     s = input("Input: ")
-    figlet.setFont(rand)
+    figlet.setFont(font = random.choice(validfont))
     print(figlet.renderText(s))
     sys.exit()
 elif (sys.argv[1] == "-f" or sys.argv[1] == "--font"):
     if len(sys.argv) == 3:
         if sys.argv[2] not in validfont:
             print("Invalid usage")
+            sys.exit(1)
         else:
             s = input("Input: ")
             figlet.setFont(font = sys.argv[2])
@@ -21,5 +21,3 @@ elif (sys.argv[1] == "-f" or sys.argv[1] == "--font"):
 else:
     print("Invalid usage")
     sys.exit(1)
-
-
