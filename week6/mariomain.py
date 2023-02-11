@@ -5,7 +5,7 @@ def main():
     for i in range(height):
         print("#")
 
-def height():
+def get_height():
     while True:
         n = get_int("Height: ")
         if n > 0:
