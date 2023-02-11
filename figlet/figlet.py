@@ -1,6 +1,10 @@
-import sys 
+import sys
 
 # Ensure proper usage
-if argv != ["-f", "--ff", "FONT_NAME"]:
-    print("Usage: python figlet.py FONT FONT_NAME")
+if len(sys.argv) < 2:
+    print("Invalid usage")
     sys.exit(1)
+if len(sys.argv) < 3:
+    print("Invalid usage")
+    sys.exit(1)
+
