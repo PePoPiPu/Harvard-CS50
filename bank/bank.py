@@ -1,8 +1,4 @@
-s = input("Greeting: ")
-s = s.lower()
-if s.startswith("Hello") == True:
+greeting = input("Greeting: ")
+greeting = greeting.lower()
+if greeting.startswith("Hello"):
     print("0$")
-elif s.startswith("H") == True:
-    print("20$")
-else:
-    print("100$")
