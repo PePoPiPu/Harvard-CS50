@@ -24,5 +24,5 @@ def main():
                 continue
         except EOFError:
             print("")
-            sys.exit(1)
+            sys.exit(0)
 main()
