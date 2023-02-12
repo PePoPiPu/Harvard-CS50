@@ -14,9 +14,9 @@ taq = {
 def main():
     while True:
         try:
+            orders = ["hello"]
             item = input("Item: ")
             if item in taq:
-                orders = []
                 orders.append(taq[item])
                 print(f"{orders}")
             else:
