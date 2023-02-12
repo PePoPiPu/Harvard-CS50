@@ -11,10 +11,6 @@ taq = {
 }
 
 def main():
-    try:
-        i = 0
-        for i in range(5):
-            order = input("Item: ")
-    except EOFError:
-        print("no data provided to input function")
+    while != EOFError:
+        order = input("Item: ")
 main()
