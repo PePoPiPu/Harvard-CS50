@@ -11,6 +11,7 @@ taq = {
 }
 
 def main():
-    order = input("Item: ")
-    
+    i = 0
+    for i in range(5):
+        order = input("Item: ")
 main()
