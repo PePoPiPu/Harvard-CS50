@@ -24,7 +24,8 @@ def main():
             team = [row.get("team"), rating]
             # Append into dict
             teams.append(team)
-            print(f"{teams}")
+
+        simulate_tournament(teams)
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
@@ -35,8 +36,8 @@ def main():
 
 def simulate_game(team1, team2):
     """Simulate a game. Return True if team1 wins, False otherwise."""
-    rating1 = team1["rating"]
-    rating2 = team2["rating"]
+    rating1 = team1[1]
+    rating2 = team2[1]
     probability = 1 / (1 + 10 ** ((rating2 - rating1) / 600))
     return random.random() < probability
 
@@ -57,5 +58,7 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     # TODO
+    while len(teams) > 1:
+        twin = simulate_round(teams)
 if __name__ == "__main__":
     main()
