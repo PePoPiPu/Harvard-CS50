@@ -23,7 +23,7 @@ def main():
             rating = int(row.get("rating"))
             team = [row.get("team"), rating]
             # Append into dict
-            teams.append(team[row])
+            teams.append(team)
             print(f"{teams}")
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
