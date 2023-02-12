@@ -11,5 +11,6 @@ taq = {
 }
 
 def main():
-    print(f"{list(taq)}")
+    order = input("Item: ")
+    
 main()
