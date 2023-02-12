@@ -36,8 +36,8 @@ def main():
 
 def simulate_game(team1, team2):
     """Simulate a game. Return True if team1 wins, False otherwise."""
-    rating1 = team1["rating"]
-    rating2 = team2["rating"]
+    rating1 = team1[1]
+    rating2 = team2[1]
     probability = 1 / (1 + 10 ** ((rating2 - rating1) / 600))
     return random.random() < probability
 
