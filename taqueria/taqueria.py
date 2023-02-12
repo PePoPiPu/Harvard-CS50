@@ -16,7 +16,8 @@ def main():
         try:
             item = input("Item: ")
             total = float(taq[item])
-            print(f"Total: ${total}")
+            
+            print(f"Total: ${total:.2f}")
         except EOFError:
             print("")
             sys.exit(1)
