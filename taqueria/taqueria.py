@@ -16,7 +16,7 @@ def main():
         try:
             item = input("Item: ")
             total = float(taq[item])
-            
+            list.append(total)
             print(f"Total: ${total:.2f}")
         except EOFError:
             print("")
