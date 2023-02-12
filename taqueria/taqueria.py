@@ -17,7 +17,8 @@ def main():
             item = input("Item: ")
             orders = []
             orders.insert(0, taq[item])
-            print(f"Total: ${orders}")
+            sum = sum(orders)
+            print(f"Total: ${sum}")
         except EOFError:
             print("")
             sys.exit(1)
