@@ -22,9 +22,9 @@ def main():
             # Convert team's rating to int
             rating = int(row.get("rating"))
             team = {row.get("team"), rating}
-            # Append into dict
+            # Append into list
             teams.append(team)
-    print(f"{teams}")
+    print(f"{team}")
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
