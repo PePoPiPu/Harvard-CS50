@@ -15,12 +15,8 @@ def main():
     while True:
         try:
             item = input("Item: ")
-            orders = [taq[item]]
-            if item in taq:
-                orders.append(taq[item])
-                print(f"{orders}")
-            else:
-                print("Item not in dict")
+            orders = []
+            for i 
         except EOFError:
             print("")
             sys.exit(1)
