@@ -15,9 +15,10 @@ def main():
     while True:
         try:
             item = input("Item: ")
-            orders = []
-            orders.append(taq[item])
-            print(f"Total: ${sum(orders)}")
+            if item in taq:
+                orders = []
+                orders.append(taq[item])
+                print(f"{orders}")
         except EOFError:
             print("")
             sys.exit(1)
