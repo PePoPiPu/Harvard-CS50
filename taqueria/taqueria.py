@@ -12,9 +12,10 @@ taq = {
 }
 
 def main():
-    try:
-        item = input("Item: ")
-        print(f"Total: ${taq[item]}")
-    except EOFError:
-        print("Reached EOF, exiting")
+    while True:
+        try:
+            item = input("Item: ")
+            print(f"Total: ${taq[item]}")
+        except EOFError:
+            print("Reached EOF, exiting")
 main()
