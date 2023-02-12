@@ -15,10 +15,8 @@ def main():
     while True:
         try:
             item = input("Item: ")
-            total = taq[item]
-            if item in taq:
-                sum = total + taq[item]
-            print(f"Total: ${sum}")
+            total = int(taq[item])
+            print(f"Total: ${total}")
         except EOFError:
             print("")
             sys.exit(1)
