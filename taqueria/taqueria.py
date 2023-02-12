@@ -15,7 +15,7 @@ def main():
     orders = []
     while True:
         try:
-            item = input("Item: ")
+            item = str.title(input("Item: "))
             if item in taq:
                 orders.append(taq[item])
                 total = float(sum(orders))
