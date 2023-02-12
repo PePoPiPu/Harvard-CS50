@@ -11,6 +11,5 @@ taq = {
 }
 
 def main():
-    while != EOFError:
-        order = input("Item: ")
+    order = input("Item: ")
 main()
