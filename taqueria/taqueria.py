@@ -12,11 +12,12 @@ taq = {
 }
 
 def main():
+    orders = []
     while True:
         try:
             item = input("Item: ")
-            orders = []
-            for i 
+            orders.append(taq[item])
+            print(f"Total: ${float(sum(orders))}")
         except EOFError:
             print("")
             sys.exit(1)
