@@ -14,9 +14,9 @@ With a small number of simulations, it proves incorrect
 Suppose you're charged a fee for each second of compute time your program uses.
 After how many simulations would you call the predictions "good enough"?: TODO
     After 100000. Simulations don't even reach the second of run time and results are near enough.
-10 Tournaments 0.028s
-100 Tournaments 0.030s
-1000 Tournaments 0.035s
-10000 Tournaments 0.100s
-100000 Tournaments 0.750s
-1000000 Tournaments 7.292s
+10 Tournaments 0m0.028s
+100 Tournaments 0m0.030s
+1000 Tournaments 0m0.035s
+10000 Tournaments 0m0.100s
+100000 Tournaments 0m0.750s
+1000000 Tournaments 0m7.292s
