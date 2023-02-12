@@ -28,6 +28,9 @@ def main():
         winner = simulate_tournament(teams)
         country = winner[0]["team"]
         if country in counts:
+            counts(country) 
+        else:
+            counts(country) = 1
     print(f"{country}")
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
