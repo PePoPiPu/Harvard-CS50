@@ -16,8 +16,12 @@ def main():
     while True:
         try:
             item = input("Item: ")
-            orders.append(taq[item])
-            print(f"Total: ${float(sum(orders))}")
+            if item in taq:
+                orders.append(taq[item])
+                total = float(sum(orders))
+                print(f"Total: ${total:.2f}")
+            else:
+                item = input("Item: ")
         except EOFError:
             print("")
             sys.exit(1)
