@@ -15,7 +15,7 @@ def main():
     while True:
         try:
             item = input("Item: ")
-            total = int(taq[item])
+            total = float(taq[item])
             print(f"Total: ${total}")
         except EOFError:
             print("")
