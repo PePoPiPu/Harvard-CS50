@@ -21,7 +21,7 @@ def main():
                 total = float(sum(orders))
                 print(f"Total: ${total:.2f}")
             else:
-                item = input("Item: ")
+                continue
         except EOFError:
             print("")
             sys.exit(1)
