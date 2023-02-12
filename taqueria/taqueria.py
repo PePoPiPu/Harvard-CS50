@@ -1,3 +1,4 @@
+from sys import stdin
 taq = {
     "Baja Taco": 4.00,
     "Burrito": 7.50,
@@ -11,5 +12,6 @@ taq = {
 }
 
 def main():
-    order = input("Item: ")
+    for line in stdin:
+        order = ("Input: ")
 main()
