@@ -23,7 +23,7 @@ def main():
             rating = int(row.get("rating"))
             country = [row.get("team"), rating]
             # Make team dict
-            team = [country, country]
+            team = country and row
             # Append into dict
             teams.append(team)
             print(team)
