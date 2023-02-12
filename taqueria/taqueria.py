@@ -17,6 +17,7 @@ def main():
             item = input("Item: ")
             total = taq[item]
             if item in taq:
+                order{}
             print(f"Total: ${total}")
         except EOFError:
             print("")
