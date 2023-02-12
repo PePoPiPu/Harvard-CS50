@@ -12,6 +12,9 @@ taq = {
 }
 
 def main():
-    for line in stdin:
-        order = ("Input: ")
+    try:
+        for line in stdin:
+            item = input("Item: ")
+    except EOFError:
+        ...
 main()
