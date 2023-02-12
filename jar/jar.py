@@ -23,5 +23,7 @@ def main():
 
     jar = Jar()
     print(str(jar.capacity))
+    jar.deposit(2)
+    print(str(jar))
 
 main()
