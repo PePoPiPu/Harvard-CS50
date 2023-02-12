@@ -15,9 +15,9 @@ def main():
     while True:
         try:
             item = input("Item: ")
-            total = float(taq[item])
-            list.append(total)
-            print(f"Total: ${total:.2f}")
+            orders = []
+            orders.append(taq[item])
+            print(f"Total: ${orders}")
         except EOFError:
             print("")
             sys.exit(1)
