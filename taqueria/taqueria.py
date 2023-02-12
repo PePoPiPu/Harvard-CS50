@@ -13,9 +13,8 @@ taq = {
 
 def main():
     try:
-        for line in stdin:
-            item = input("Item: ")
-            print(f"Total: ${taq[item]}")
+        item = input("Item: ")
+        print(f"Total: ${taq[item]}")
     except EOFError:
-        ...
+        print("Reached EOF, exiting")
 main()
