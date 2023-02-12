@@ -18,6 +18,6 @@ def main():
             total = taq[item]
             print(f"Total: ${total}")
         except EOFError:
-            print("\n")
+            print("")
             sys.exit(1)
 main()
