@@ -18,3 +18,10 @@ class Jar:
     @property
     def size(self):
         ...
+
+def main():
+
+    jar = Jar()
+    print(str(jar.capacity))
+
+main()
