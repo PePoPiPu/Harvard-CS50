@@ -17,8 +17,8 @@ def main():
             item = input("Item: ")
             total = taq[item]
             if item in taq:
-                order{}
-            print(f"Total: ${total}")
+                sum = total + taq[item]
+            print(f"Total: ${sum}")
         except EOFError:
             print("")
             sys.exit(1)
