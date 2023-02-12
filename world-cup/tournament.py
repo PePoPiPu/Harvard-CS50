@@ -21,7 +21,7 @@ def main():
         for row in reader:
             # Convert team's rating to int
             rating = int(row.get("rating"))
-            team = [row.get("team"), rating]
+            team = {row.get("team"), rating}
             # Append into dict
             teams.append(team)
 
@@ -30,7 +30,7 @@ def main():
 
     winner = simulate_tournament(teams)
 
-    print(f"{teams.get()}")
+    print(f"{teams}")
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
@@ -38,8 +38,8 @@ def main():
 
 def simulate_game(team1, team2):
     """Simulate a game. Return True if team1 wins, False otherwise."""
-    rating1 = team1[1]
-    rating2 = team2[1]
+    rating1 = team1["ratings"]
+    rating2 = team2["ratings"]
     probability = 1 / (1 + 10 ** ((rating2 - rating1) / 600))
     return random.random() < probability
 
