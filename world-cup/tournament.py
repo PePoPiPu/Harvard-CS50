@@ -20,9 +20,8 @@ def main():
         reader = csv.DictReader(file)
         for row in reader:
             # Convert team's rating to int
-            rows = [dict.get("team"), int(dict.get("ratings"))]
-            teams.append(rows)
-            print(teams)
+            ratings = 
+            print(row)
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
