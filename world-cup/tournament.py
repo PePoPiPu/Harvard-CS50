@@ -51,6 +51,7 @@ def simulate_round(teams):
             winners.append(teams[i])
         else:
             winners.append(teams[i + 1])
+    print(winners)
     return winners
 
 
@@ -59,8 +60,7 @@ def simulate_tournament(teams):
     # TODO
     while (len(teams) > 1):
         twinner = simulate_round(teams)
-    print("{twinner}")
-    return twinner
+
 
 if __name__ == "__main__":
     main()
