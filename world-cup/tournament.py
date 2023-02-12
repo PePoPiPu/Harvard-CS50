@@ -25,7 +25,7 @@ def main():
             # Append into dict
             teams.append(team)
 
-    simulate_round(teams)
+    winners = simulate_round(teams)
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
@@ -52,7 +52,7 @@ def simulate_round(teams):
             winners.append(teams[i])
         else:
             winners.append(teams[i + 1])
-
+    print (winners)
     return winners
 
 
