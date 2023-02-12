@@ -58,9 +58,11 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     # TODO
-    for i in range(64):
-        twin = simulate_round(teams)
-    print(f"{twin}")
-    return twin
+    round1 = simulate_round(teams)
+    round2 = simulate_round(round1)
+    round3 = simulate_round(round2)
+    round4 = simulate_round(round3)
+    print(f"{round4}")
+    return round4
 if __name__ == "__main__":
     main()
