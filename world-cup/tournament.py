@@ -21,11 +21,12 @@ def main():
         for row in reader:
             # Convert team's rating to int
             rating = int(row.get("rating"))
-            team = row.get("team")
+            country = [row.get("team"), rating]
+            # Make team dict
+            team = [country, country]
             # Append into dict
             teams.append(team)
-            teams.append(rating)
-            print(teams)
+            print(team)
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
