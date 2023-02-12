@@ -26,9 +26,9 @@ def main():
     # TODO: Simulate N tournaments and keep track of win counts
     for i in range(N):
         winner = simulate_tournament(teams)
-       # if winner[0]["team"] in counts:
-
-        print(f"{counts}")
+        country = winner[0]["team"]
+        if country in counts:
+    print(f"{country}")
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
