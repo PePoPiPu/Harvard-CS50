@@ -1,5 +1,6 @@
 class Jar:
     def __init__(self, capacity=12):
+        self.capacity = 12
         ...
 
     def __str__(self):
