@@ -21,7 +21,9 @@ def main():
         for row in reader:
             # Convert team's rating to int
             ratings = int(row.get("rating"))
-            print(ratings)
+            team = row.get("team")
+            teams.append(team)
+            print(teams)
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
