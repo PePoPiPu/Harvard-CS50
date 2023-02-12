@@ -1,4 +1,4 @@
-from sys import stdin
+import sys
 taq = {
     "Baja Taco": 4.00,
     "Burrito": 7.50,
@@ -15,7 +15,9 @@ def main():
     while True:
         try:
             item = input("Item: ")
-            print(f"Total: ${taq[item]}")
+            total = taq[item]
+            print(f"Total: ${total}")
         except EOFError:
             print("Reached EOF, exiting")
+            sys.exit(1)
 main()
