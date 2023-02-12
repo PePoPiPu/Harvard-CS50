@@ -20,7 +20,8 @@ def main():
         reader = csv.DictReader(file)
         for row in reader:
             # Convert team's rating to int
-            teams.append(row)
+            rows = [dict.keys("team"), int(dict.get("ratings"))]
+            teams.append(rows)
             print(teams)
 
     counts = {}
