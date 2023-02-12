@@ -13,3 +13,10 @@ Which predictions, if any, proved incorrect as you increased the number of simul
 
 Suppose you're charged a fee for each second of compute time your program uses.
 After how many simulations would you call the predictions "good enough"?: TODO
+After 
+10 Tournaments 0.028s
+100 Tournaments 0.030s
+1000 Tournaments 0.035s
+10000 Tournaments 0.100s
+100000 Tournaments 0.750s
+1000000 Tournaments 7.292s
