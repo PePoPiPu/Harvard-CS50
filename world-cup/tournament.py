@@ -21,12 +21,11 @@ def main():
         for team in reader:
             team["rating"] = int(team["rating"])
             teams.append(team)
+        print(teams.get())
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-    for i in range(N):
-        winner = simulate_tournament(teams)
-    print(f"{winner}")
+
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
