@@ -15,6 +15,7 @@ def main():
     try:
         for line in stdin:
             item = input("Item: ")
+            print(f"Total: ${taq[item]}")
     except EOFError:
         ...
 main()
