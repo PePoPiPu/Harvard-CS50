@@ -24,7 +24,7 @@ def main():
             team = [row.get("team"), rating]
             # Append into dict
             teams.append(team)
-
+    while N < 1000:
         simulate_tournament(teams)
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
@@ -62,7 +62,6 @@ def simulate_tournament(teams):
     round2 = simulate_round(round1)
     round3 = simulate_round(round2)
     round4 = simulate_round(round3)
-    print(f"{round4}")
     return round4
 if __name__ == "__main__":
     main()
