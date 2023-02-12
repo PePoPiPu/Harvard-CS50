@@ -19,6 +19,8 @@ def main():
                 orders = []
                 orders.append(taq[item])
                 print(f"{orders}")
+            else:
+                print("Item not in dict")
         except EOFError:
             print("")
             sys.exit(1)
