@@ -16,6 +16,7 @@ def main():
         try:
             item = input("Item: ")
             total = taq[item]
+            if item in taq:
             print(f"Total: ${total}")
         except EOFError:
             print("")
