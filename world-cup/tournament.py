@@ -24,8 +24,7 @@ def main():
             team = [row.get("team"), rating]
             # Append into dict
             teams.append(team)
-
-    winners = simulate_round(teams)
+    winner = simulate_tournament(teams)
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
@@ -58,10 +57,10 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     # TODO
-    for i in range(len(teams) > 1):
-        winners = simulate_round(teams)
-        print(winners)
-
+    while (len(teams) > 1):
+        twinner = simulate_round(teams)
+    print("{twinner}")
+    return twinner
 
 if __name__ == "__main__":
     main()
