@@ -16,7 +16,7 @@ def main():
         try:
             item = input("Item: ")
             orders = []
-            orders.append(taq[item])
+            orders.insert(taq[item])
             print(f"Total: ${orders}")
         except EOFError:
             print("")
