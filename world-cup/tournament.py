@@ -25,6 +25,7 @@ def main():
             # Append into dict
             teams.append(team)
 
+    simulate_round(teams)
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
