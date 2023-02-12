@@ -4,6 +4,7 @@ class Jar:
         ...
 
     def __str__(self):
+        self.cookies = n
         ...
 
     def deposit(self, n):
