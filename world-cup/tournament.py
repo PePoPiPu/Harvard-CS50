@@ -24,8 +24,9 @@ def main():
             team = [row.get("team"), rating]
             # Append into dict
             teams.append(team)
-    while N < 1000:
-        simulate_tournament(teams)
+    for i in range(N):
+        winner = simulate_tournament(teams)
+        print(f"{winner}")
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
