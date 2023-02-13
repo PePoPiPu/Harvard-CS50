@@ -5,7 +5,7 @@ import sys
 import random
 
 # Number of simulations to run
-N = 1000
+N = 100000
 
 
 def main():
@@ -64,6 +64,7 @@ def simulate_tournament(teams):
     # TODO
     while len(teams) > 1:
         teams = simulate_round(teams)
+    print(teams[0]["team"])
     return teams[0]["team"]
 
 
