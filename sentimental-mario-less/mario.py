@@ -7,14 +7,10 @@ if s > 8:
 elif s < 1:
     s = get_int("Height: ")
 
-
-for i in range(s):
+i = 0
+while i < s:
     c = 0
-    d = 0
+    i += 1
     while c < s - 1:
-        print(" ", end = "")
+        print("#", end = "")
         c += 1
-    while d < s:
-        print("#")
-        d += 1
-        break
