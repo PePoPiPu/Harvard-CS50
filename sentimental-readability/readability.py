@@ -6,7 +6,7 @@ def main():
     print(f"{text}")
 
 def count_letters():
-    s
+    letters = 0
 def count_words():
     s
 def count_sentences():
