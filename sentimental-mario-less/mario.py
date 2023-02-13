@@ -9,6 +9,8 @@ elif s < 1:
 for i in range(s):
     for j in range (s):
         print("#")
+        if j == j - 1:
+            break
 # TODO
 # for i in range s
 # print i - 1 spaces
