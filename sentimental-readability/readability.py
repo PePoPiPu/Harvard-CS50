@@ -19,7 +19,7 @@ def main():
 def count_letters(text):
     letters = 0
     for i in range(len(text)):
-        if (text[i] >= "a" and text[i] <= "z") or (text[i] >= "A" and text[i] <= "A"):
+        if (text[i] >= "a" and text[i] <= "z") or (text[i] >= "A" and text[i] <= "Z"):
             letters += 1
     return letters
 
