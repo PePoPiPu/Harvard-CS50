@@ -1,5 +1,7 @@
 # TODO
 from cs50 import get_string
+
+
 def main():
     # Prompt user for input
     text = get_string("Text: ")
@@ -16,6 +18,7 @@ def main():
 
 # Count letters
 
+
 def count_letters(text):
     letters = 0
     for i in range(len(text)):
@@ -25,6 +28,7 @@ def count_letters(text):
 
 # Count words
 
+
 def count_words(text):
     words = 0
     for i in range(len(text)):
@@ -33,6 +37,7 @@ def count_words(text):
     return words
 
 # Count sentences
+
 
 def count_sentences(text):
     sentences = 0
