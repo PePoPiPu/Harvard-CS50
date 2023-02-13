@@ -43,10 +43,12 @@ def calc_nickels(owed):
     while owed >= 5:
         nickels += 5
         owed = owed - 5
+    return nickels
 def calc_pennies(owed):
     pennies = 0
     while owed >= 1:
         pennies += 1
         owed = owed - 1
+    return pennies
 
 main()
