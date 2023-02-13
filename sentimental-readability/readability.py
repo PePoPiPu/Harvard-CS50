@@ -30,7 +30,7 @@ def count_words(text):
     for i in range(len(text)):
         if (text[i] == " "):
             words += 1
-    return words
+    return words + 1
 
 # Count sentences
 
