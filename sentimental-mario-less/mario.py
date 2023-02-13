@@ -1,14 +1,18 @@
 # TODO
 from cs50 import get_int
 
-s = get_int("Height: ")
-if s > 8:
-    s = get_int("Height: ")
-elif s < 1:
-    s = get_int("Height: ")
+while True:
+    try:
+        h = get_int("Height: ")
+        if h >= 1 and h <=8:
+            break
+    except:
+        h = get_int("Height: ")
 
-# loop for s times
-    # print 1 space for j times
-    # for j + 1 times, print 1 hash
-
-for i in range (s):
+s = 1
+for i in range (h):
+    for s in range(h-i-1):
+        print(" ", end = "")
+    for j in range(i + 1):
+        print("#", end = "")
+    print()
