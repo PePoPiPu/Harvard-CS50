@@ -9,7 +9,7 @@ def main():
         print(f"Change owed: ${owed:.2f}")
 
     quarters = calc_quarters(owed)
-    owed = round(owed, 2) - (quarters * 0.25)
+    owed = owed - (quarters * 0.25)
 
     dimes = calc_dimes(owed)
     owed = owed - (dimes * 0.10)
