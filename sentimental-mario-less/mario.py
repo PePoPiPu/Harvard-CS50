@@ -7,6 +7,8 @@ elif s < 1:
     s = get_int("Height: ")
 
 for i in range(s):
-    for j = s - 1 in range(s - 1):
+    for j in range (s - 1):
         print("#")
 # TODO
+# for i in range s
+# print s - 1 spaces
