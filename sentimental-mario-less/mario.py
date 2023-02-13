@@ -7,10 +7,12 @@ if s > 8:
 elif s < 1:
     s = get_int("Height: ")
 
-i = 0
-while i < s:
-    c = 0
-    i += 1
-    while c < s - 1:
-        print("#", end = "")
-        c += 1
+# loop for s times
+    # for j = s - 1 times, print 1 space
+    # for j + 1 times, print 1 hash
+
+for i in range (s):
+    j = s - 1
+    for i in range(j):
+        print("#")
+        j += 1
