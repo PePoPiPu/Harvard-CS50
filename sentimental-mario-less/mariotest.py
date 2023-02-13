@@ -1,8 +1,10 @@
 s = 3
+c = s - 1
 j = 0
 for i in range(s):
     for j in range(s):
-        if j < s:
+        c = s - j
+        while c > 0:
             print("#", end ="")
-            j += 1
+            c -= 1
     print()
