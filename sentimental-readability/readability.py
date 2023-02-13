@@ -3,8 +3,15 @@ from cs50 import get_string
 def main():
     # Prompt user for input
     text = get_string("Text: ")
-    print(f"{text}")
-
+    letters = count_letters(text)
+    words = count_words(text)
+    sentences = count_sentences(text)
+    float grade = (0.0588 * ((letters / words) * 100)) - (0.296 * ((sentences / words) * 100))
+    print(f"Grade {round(grade)}")
+    if grade > 16:
+        print(f"Grade 16+")
+    elif grade < 1:
+        print(f"Before Grade 1")
 
 
 # Count letters
