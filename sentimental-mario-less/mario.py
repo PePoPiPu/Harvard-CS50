@@ -8,11 +8,11 @@ elif s < 1:
     s = get_int("Height: ")
 
 # loop for s times
-    # for j = s - 1 times, print 1 space
+    # print 1 space for j times
     # for j + 1 times, print 1 hash
 
 for i in range (s):
     j = s - 1
     for i in range(j):
-        print("#")
+        print("#",end = "")
         j += 1
