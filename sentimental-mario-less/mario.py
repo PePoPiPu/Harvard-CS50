@@ -11,8 +11,5 @@ c = 0
 d = 0
 for i in range(s):
     while c < s - 1:
-        print(" ", end = "")
+        print("#", end = "")
         c += 1
-    while d < s:
-        print("#")
-        d += 1
