@@ -8,5 +8,7 @@ elif s < 1:
 
 for i in range(s):
     for j in range(s - 1):
-        print("#", end="")
+        print(" ", end="")
+    for j in range(s):
+        print("#")
 # TODO
