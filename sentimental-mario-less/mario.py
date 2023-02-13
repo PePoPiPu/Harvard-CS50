@@ -17,3 +17,4 @@ for i in range(s):
     while d < s:
         print("#")
         d += 1
+        break
