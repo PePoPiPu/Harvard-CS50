@@ -5,4 +5,7 @@ if s > 8:
     s = get_int("Height: ")
 elif s < 1:
     s = get_int("Height: ")
+
+for i in range(s):
+    print("#")
 # TODO
