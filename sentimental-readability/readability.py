@@ -6,8 +6,7 @@ def main():
     letters = count_letters(text)
     words = count_words(text)
     sentences = count_sentences(text)
-    grade = float((0.0588 * ((letters / words) * 100)) - (0.296 * ((sentences / words) * 100)))
-    print(f"Grade {round(grade)}")
+    grade = float((0.0588 * ((letters / words) * 100)) - (0.296 * ((sentences / words) * 100)) - 15.8)
     if grade > 16:
         print(f"Grade 16+")
     elif grade < 1:
