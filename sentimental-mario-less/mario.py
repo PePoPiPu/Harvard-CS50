@@ -12,6 +12,3 @@ elif s < 1:
     # for j + 1 times, print 1 hash
 
 for i in range (s):
-    for j in range(s):
-        print("#",end = "")
-        j -= 1
