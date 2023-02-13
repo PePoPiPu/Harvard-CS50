@@ -1,5 +1,8 @@
 # TODO
 from cs50 import get_float
-
-owed = get_float("Change owed: ")
-print(f"Change owed: ${owed}")
+while True:
+    try:
+        owed = get_float("Change owed: ")
+        print(f"Change owed: ${owed:.2f}")
+    except:
+        owed = get_float("Change owed: ")
