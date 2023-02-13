@@ -2,23 +2,20 @@
 from cs50 import get_float
 def main():
     owed = get_float("Change owed: ")
-    if owed > 0:
-        print(f"Change owed: ${owed:.2f}")
-    else:
+    if owed < 0:
         owed = get_float("Change owed: ")
-        print(f"Change owed: ${owed:.2f}")
 
-    quarters = calc_quarters(owed)
-    owed = round(owed, 2) - (quarters * 0.25)
+    quarters = calc_quarters(round(owed, 2))
+    owed = owed - (quarters * 0.25)
 
-    dimes = calc_dimes(owed)
-    owed = round(owed, 2) - (dimes * 0.10)
+    dimes = calc_dimes(round(owed, 2))
+    owed = owed - (dimes * 0.10)
 
-    nickels = calc_nickels(owed)
-    owed = round(owed, 2) - (nickels * 0.05)
+    nickels = calc_nickels(round(owed, 2))
+    owed = owed - (nickels * 0.05)
 
-    pennies = calc_pennies (owed)
-    owed = round(owed, 2) - (pennies * 0.01)
+    pennies = calc_pennies (round(owed, 2))
+    owed = owed - (pennies * 0.01)
 
     # Sum coins
     coins = quarters + dimes + nickels + pennies
