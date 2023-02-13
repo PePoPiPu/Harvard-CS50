@@ -10,7 +10,7 @@ def main():
 
     quarters = calc_quarters(owed)
     owed = owed - (quarters * 0.25)
-
+    round(owed, 2)
     dimes = calc_dimes(owed)
     owed = owed - (dimes * 0.10)
 
