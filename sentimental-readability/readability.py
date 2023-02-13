@@ -11,6 +11,8 @@ def main():
         print(f"Grade 16+")
     elif grade < 1:
         print(f"Before Grade 1")
+    else:
+        print(f"Grade {round(grade)}")
 
 # Count letters
 
