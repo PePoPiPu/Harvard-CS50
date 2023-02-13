@@ -9,16 +9,16 @@ def main():
         print(f"Change owed: ${owed:.2f}")
 
     quarters = calc_quarters(owed)
-    owed = owed - quarters * 25
+    owed = owed - quarters * 0.25
 
     dimes = calc_dimes(owed)
-    owed = owed - dimes * 10
+    owed = owed - dimes * 0.10
 
     nickels = calc_nickels(owed)
-    owed = owed - nickels * 5
+    owed = owed - nickels * 0.05
 
     pennies = calc_pennies (owed)
-    owed = owed - pennies * 1
+    owed = owed - pennies * 0.01
 
     # Sum coins
     coins = quarters + dimes + nickels + pennies
@@ -27,28 +27,28 @@ def main():
     print(f"{coins}")
 def calc_quarters(owed):
     quarters = 0
-    while owed >= 25:
+    while owed >= 0.25:
         quarters += 1
-        owed = owed - 25
+        owed = owed - 0.25
     return quarters
 
 def calc_dimes(owed):
     dimes = 0
-    while owed >= 10:
+    while owed >= 0.10:
         dimes += 1
-        owed = owed - 10
+        owed = owed - 0.10
     return dimes
 def calc_nickels(owed):
     nickels = 0
-    while owed >= 5:
+    while owed >= 0.05:
         nickels += 5
-        owed = owed - 5
+        owed = owed - 0.05
     return nickels
 def calc_pennies(owed):
     pennies = 0
-    while owed >= 1:
+    while owed >= 0.01:
         pennies += 1
-        owed = owed - 1
+        owed = owed - 0.01
     return pennies
 
 main()
