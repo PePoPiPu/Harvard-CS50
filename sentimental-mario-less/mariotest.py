@@ -1,6 +1,7 @@
 s = 3
-c = 0
-
-while c < s - 1:
-    print("#")
-    c += 1
+j = 0
+for i in range(s):
+    for j in range(s - 1):
+        print("#", end="")
+        j += 1
+    print()
