@@ -13,6 +13,6 @@ elif s < 1:
 
 for i in range (s):
     j = s - 1
-    for i in range(j):
+    for j in range(s):
         print("#",end = "")
-        j += 1
+        j -= 1
