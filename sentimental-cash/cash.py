@@ -41,7 +41,7 @@ def calc_dimes(owed):
 def calc_nickels(owed):
     nickels = 0
     while owed >= 0.05:
-        nickels += 5
+        nickels += 1
         owed = owed - 0.05
     return nickels
 def calc_pennies(owed):
