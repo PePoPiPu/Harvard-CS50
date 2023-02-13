@@ -5,10 +5,34 @@ def main():
     text = get_string("Text: ")
     print(f"{text}")
 
-def count_letters():
+
+
+# Count letters
+
+def count_letters(text):
     letters = 0
-def count_words():
-    s
-def count_sentences():
-    s
+    for i in range(len(text)):
+        if (text[i] >= "a" and text[i] <= "z") or (text[i] >= "A" and text[i] <= "A"):
+            letters += 1
+    return letters
+
+# Count words
+
+def count_words(text):
+    words = 0
+    for i in range(len(text)):
+        if (text[i] == " "):
+            words += 1
+    return words
+
+# Count sentences
+
+def count_sentences(text):
+    sentences = 0
+    for i in range(len(text)):
+        if (text[i] == "!") or (text[i] == ".") or (text[i] == "?"):
+            sentences += 1
+    return sentences
+
+
 main()
