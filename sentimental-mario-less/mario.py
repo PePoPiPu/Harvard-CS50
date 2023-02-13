@@ -9,7 +9,6 @@ while True:
     except:
         h = get_int("Height: ")
 
-s = 1
 for i in range (h):
     for s in range(h-i-1):
         print(" ", end = "")
