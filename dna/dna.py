@@ -9,16 +9,16 @@ if len(sys.argv) != 3:
     print("Usage: dna.py CSV FILE TEXT FILE")
 
     # TODO: Read database file into a variable
-with open("databases.txt", "r") as database
+with open("databases.txt", "r") as databases
 reader = csv.DictReader(database)
     # TODO: Read DNA sequence file into a variable
-with open("sequences.txt", "w") as sequence
-reader = csv.DictReader(sequence)
+with open("sequences.txt", "w") as sequences
+reader = csv.DictReader(sequences)
     # TODO: Find longest match of each STR in DNA sequence
-match = longest_match(sequence)
+match = longest_match(sequences)
     # TODO: Check database for matching profiles
 
-    
+
 
 
 def longest_match(sequence, subsequence):
