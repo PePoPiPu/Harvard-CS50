@@ -5,8 +5,8 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    if len(sys.argv) != 2:
-        print("Usage: dna.py CSV.FILE")
+    if len(sys.argv) != 3:
+        print("Usage: dna.py CSV FILE TEXT FILE")
 
     # TODO: Read database file into a variable
 
