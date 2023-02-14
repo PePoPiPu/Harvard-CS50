@@ -14,14 +14,15 @@ def main():
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
         seq = sequences.read()
-    # TODO: Find longest match of each STR in DNA sequence
     # Declaring sequence variable
     sequence = len(seq)
     # Declaring subsequence variable
     i = 0
     j = i + 4
     subsequence = seq[i:j]
-    print(f"{subsequence}")
+    # TODO: Find longest match of each STR in DNA sequence
+    match = longest_match(sequence, subsequence)
+    print(f"{match}")
     # TODO: Check database for matching profiles
 
 
