@@ -16,8 +16,9 @@ def main():
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
     # TODO: Find longest match of each STR in DNA sequence
-    match = longest_match(sequence, subsequence)
-    print(f"{match}")
+    for i in range(8):
+        match = longest_match(sequence, subsequence[i])
+        print(f"{match}")
     # TODO: Check database for matching profiles
 
 
@@ -26,7 +27,7 @@ def longest_match(sequence, subsequence):
 
     # Initialize variables
     longest_run = 0
-    subsequence_length = len(subsequence)
+    subsequence_length = len(subsequence[i])
     sequence_length = len(sequence)
 
     # Check each character in sequence for most consecutive runs of subsequence
@@ -45,7 +46,7 @@ def longest_match(sequence, subsequence):
             end = start + subsequence_length
 
             # If there is a match in the substring
-            if sequence[start:end] == subsequence:
+            if subsequence[i] in sequence[start:end]:
                 count += 1
 
             # If there is no match in the substring
