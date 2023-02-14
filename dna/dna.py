@@ -15,7 +15,7 @@ reader = csv.DictReader(database)
 with open("sequences.txt", "w") as sequence
 reader = csv.DictReader(sequence)
     # TODO: Find longest match of each STR in DNA sequence
-
+match = longest_match(sequence)
     # TODO: Check database for matching profiles
 
     return
