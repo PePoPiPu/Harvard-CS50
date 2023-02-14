@@ -47,20 +47,6 @@ def longest_match(sequence, subsequence):
             # If there is a match in the substring
             if subsequence[0] in sequence[start:end]:
                 count += 1
-            elif subsequence[1] in sequence[start:end]:
-                count += 1
-            elif subsequence[2] in sequence[start:end]:
-                count += 1
-            elif subsequence[3] in sequence[start:end]:
-                count += 1
-            elif subsequence[4] in sequence[start:end]:
-                count += 1
-            elif subsequence[5] in sequence[start:end]:
-                count += 1
-            elif subsequence[6] in sequence[start:end]:
-                count += 1
-            elif subsequence[7] in sequence[start:end]:
-                count += 1
 
             # If there is no match in the substring
             else:
