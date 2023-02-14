@@ -15,10 +15,10 @@ def main():
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
     # Declaring subsequence
-    subsequence = sequence[i:j]
+    subsequence = data_reader
     # TODO: Find longest match of each STR in DNA sequence
-    match = longest_match(sequence, subsequence)
-    print(f"{match}")
+
+    print(f"{data_reader}")
     # TODO: Check database for matching profiles
 
 
