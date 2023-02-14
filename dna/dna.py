@@ -22,12 +22,12 @@ def main():
     # TODO: Check database for matching profiles
 
 
-def longest_match(sequence, subsequence):
+def longest_match(sequence, subsequence[i]):
     """Returns length of longest run of subsequence in sequence."""
 
     # Initialize variables
     longest_run = 0
-    subsequence_length = len(subsequence[i])
+    subsequence_length = len(subsequence)
     sequence_length = len(sequence)
 
     # Check each character in sequence for most consecutive runs of subsequence
@@ -46,9 +46,8 @@ def longest_match(sequence, subsequence):
             end = start + subsequence_length
 
             # If there is a match in the substring
-            if subsequence[i] in sequence[start:end]:
+            if subsequence[i:8] in sequence[start:end]:
                 count += 1
-
             # If there is no match in the substring
             else:
                 break
