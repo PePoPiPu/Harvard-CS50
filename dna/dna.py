@@ -45,7 +45,7 @@ def longest_match(sequence, subsequence):
             end = start + subsequence_length
 
             # If there is a match in the substring
-            if subsequence[0] in sequence[start:end]:
+            if sequence[start:end] in subsequence:
                 count += 1
 
             # If there is no match in the substring
