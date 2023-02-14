@@ -18,7 +18,7 @@ reader = csv.DictReader(sequence)
 match = longest_match(sequence)
     # TODO: Check database for matching profiles
 
-    return
+    
 
 
 def longest_match(sequence, subsequence):
