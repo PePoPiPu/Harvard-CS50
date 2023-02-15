@@ -15,6 +15,7 @@ def main():
         reader = csv.DictReader(csvFile)
         # Find number of columns in the csvFile
         ncol = len(next(reader)) - 1
+        nrow = len(reader)
         subsequence = reader.fieldnames[1:]
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
@@ -40,7 +41,7 @@ def main():
                 no_matchcount += 1
         if no_matchcount == ncol:
             print("Not Found.")
-
+    print(nrow)
     print("Not Found.")
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
