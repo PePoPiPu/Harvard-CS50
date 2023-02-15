@@ -12,18 +12,22 @@ def main():
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
-        for line in reader:
-            print(line)
         subsequence = reader.fieldnames[1:]
-
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
     for i in range(8):
         matches = {subsequence[i]: longest_match(sequence, subsequence[i])}
-    print(f"{reader}")
+        print(f"{matches}")
     # TODO: Check database for matching profiles
+    with open(sys.argv[1], "r") as csvFile:
+        reader = csv.DictReader(csvFile)
+        for line in reader:
+            for i in range(8):
+                if matches[i] in line:
+                    print("Found")
+
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
