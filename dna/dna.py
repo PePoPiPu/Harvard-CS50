@@ -8,7 +8,6 @@ def main():
     if len(sys.argv) != 3:
         print("Usage: dna.py data.csv sequence.txt")
     subsequence = []
-    matches = {}
     matches_list = []
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as csvFile:
@@ -21,10 +20,11 @@ def main():
     for i in range(8):
         match = {subsequence[i]: longest_match(sequence, subsequence[i])}
         matches_list.append(match)
-    print(f"{matches_list}")
+    print(f"{reader.fieldnames[0]}")
     # TODO: Check database for matching profiles
     for i in range (8):
-        if matches_list[i] in
+        if matches_list[i] in reader.fieldnames[1:]:
+            print (reader.fieldnames[0])
 
 
 def longest_match(sequence, subsequence):
