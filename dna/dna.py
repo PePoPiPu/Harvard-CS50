@@ -8,7 +8,7 @@ def main():
     if len(sys.argv) != 3:
         print("Usage: dna.py data.csv sequence.txt")
     subsequence = []
-    matches_list = []
+    match = {}
     STR = ["AGATC", "TTTTTTCT", "AATG", "TCTAG", "GATA", "TATC", "GAAA", "TCTG"]
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as csvFile:
@@ -18,16 +18,10 @@ def main():
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
-    with open(sys.argv[1], "r") as csvFile:
-        reader= csv.DictReader(csvFile)
-        for i in range(8):
-            match = {subsequence[i]: longest_match(sequence, subsequence[i])}
-            matches_list.append(match.values())
+    for i in range(8):
+        match[subsequence[i]] = longest_match(sequence, subsequence[i])
+    print(match)
     # TODO: Check database for matching profiles
-            for row in reader:
-                if row in matches_list:
-                    print("Found")
-
 
 
 def longest_match(sequence, subsequence):
