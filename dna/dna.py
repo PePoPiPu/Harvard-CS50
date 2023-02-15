@@ -39,7 +39,7 @@ def main():
                 print(name)
             else:
                 no_matchcount += 1
-        if no_matchcount == nrow - 1:
+        if no_matchcount == nrow + 1:
             print("Not Found.")
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
