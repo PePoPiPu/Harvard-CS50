@@ -22,9 +22,9 @@ def main():
     # TODO: Check database for matching profiles
         for row in open(sys.argv[1], "r"):
             if matches == reader.fieldnames[1:8]:
-                print(f"{reader.fieldnames[row]}")
+                print(f"found")
             else:
-                print("No match.")
+                continue
 
 
 def longest_match(sequence, subsequence):
