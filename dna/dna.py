@@ -25,6 +25,7 @@ def main():
     # TODO: Check database for matching profiles
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
+        no_matchcount = 0
         for row in reader:
             # Pop "name" column into variable
             name = row.pop("name")
@@ -36,9 +37,8 @@ def main():
             if row_int == match:
                 print(name)
             else:
-                no_matchcount = 0
                 no_matchcount += 1
-        if no_matchcount == ncol - 1:
+        if no_matchcount == ncol:
             print("Not Found.")
 
     print("Not Found.")
