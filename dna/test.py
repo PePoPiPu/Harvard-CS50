@@ -7,5 +7,5 @@ with open(sys.argv[1], "r") as csvFile:
 
 for i in range(8):
     for value in match.values():
-        match[i] = int(value)
-print(match)
+        int(value)
+    print(value)
