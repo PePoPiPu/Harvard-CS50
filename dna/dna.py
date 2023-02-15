@@ -26,10 +26,10 @@ def main():
         for line in reader:
             for i in range(8):
                 if next(iter(matches)) in line:
+                    print(line)
                     break
                 else:
                     continue
-        print("Found")
 
 
 def longest_match(sequence, subsequence):
