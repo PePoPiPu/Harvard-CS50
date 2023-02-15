@@ -29,7 +29,8 @@ def main():
             # Convert row values to int
         for key in row.keys():
             for values in row.values():
-                row[subsequence[i]] = int(values)
+                for i in range(8):
+                    row[i] = int(values)
             # Compare row values to match values
             if row == match:
                 print("Found")
