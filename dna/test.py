@@ -5,7 +5,7 @@ match = {"AGATC": 29, "TTTTTTCT":50, "AATG":18, "TCTAG":23, "GATA":38, "TATC":24
 with open(sys.argv[1], "r") as csvFile:
     reader = csv.DictReader(csvFile)
 
-
-for item in match:
-    match = int(item)
+for i in range(8):
+    for value in match.values():
+        match[i] = int(value)
 print(match)
