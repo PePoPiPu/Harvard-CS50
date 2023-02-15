@@ -14,7 +14,7 @@ def main():
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         # Find number of columns in the csvFile
-        ncol = len(next(reader))
+        ncol = len(next(reader)) - 1
         subsequence = reader.fieldnames[1:]
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
