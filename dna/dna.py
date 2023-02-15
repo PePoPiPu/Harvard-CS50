@@ -27,14 +27,15 @@ def main():
             # Delete first column in row
             del row["name"]
             # Convert row values to int
-        for item in row.items():
-            row[subsequence[i]] = int(item)
+        for key in row.keys():
+            for values in row.values():
+                row[subsequence[i]] = int(values)
             # Compare row values to match values
             if row == match:
                 print("Found")
             else:
                 continue
-        print(match)
+        print(row)
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
