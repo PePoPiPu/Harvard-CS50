@@ -22,7 +22,10 @@ def main():
         print(f"{matches}")
     # TODO: Check database for matching profiles
     for row in reader:
-        if matches = row
+        if matches = row:
+            print(f"{reader.fieldnames[:0]}")
+        else:
+            print("No match.")
 
 
 def longest_match(sequence, subsequence):
