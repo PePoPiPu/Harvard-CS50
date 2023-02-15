@@ -20,11 +20,8 @@ def main():
     for i in range(8):
         matches = {subsequence[i]: longest_match(sequence, subsequence[i])}
     # TODO: Check database for matching profiles
-        for row in open(sys.argv[1], "r"):
-            if matches == reader.fieldnames[1:8]:
-                print(f"found")
-            else:
-                continue
+        print(f"{matches}")
+    for i in range()
 
 
 def longest_match(sequence, subsequence):
