@@ -1,6 +1,6 @@
 import csv
 import sys
-
+from collections import defaultdict
 
 def main():
 
@@ -9,14 +9,14 @@ def main():
         print("Usage: dna.py data.csv sequence.txt")
     subsequence = []
     matches = {}
-    columns = []
+    columns = defaultdict(list)
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         subsequence = reader.fieldnames[1:]
         for row in reader:
             for (k,v) in row.items():
-                columns.append(v)
+                columns[k].append(v)
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
