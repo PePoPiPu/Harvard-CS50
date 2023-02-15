@@ -24,12 +24,13 @@ def main():
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
-            for i in range (8):
-                if row in matches_list:
-                    print("found")
-                else:
-                    continue
-    
+            if row in matches_list:
+                print("found")
+                break
+            else:
+                print("Not found.")
+                break
+
 
 
 def longest_match(sequence, subsequence):
