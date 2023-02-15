@@ -18,14 +18,15 @@ def main():
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
-    for i in range(8):
-        match = {subsequence[i]: longest_match(sequence, subsequence[i])}
-        matches_list.append(match.values())
-    for i in range(8):
-            match[i] = matches_list[i]
-    print(match)
+    with open(sys.argv[1], "r") as csvFile:
+        reader= csv.DictReader(csvFile)
+        for i in range(8):
+            match = {subsequence[i]: longest_match(sequence, subsequence[i])}
+            matches_list.append(match.values())
     # TODO: Check database for matching profiles
-
+        for row in reader:
+            if match in row:
+                print("Found")
 
 
 
