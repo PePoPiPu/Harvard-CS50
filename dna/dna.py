@@ -9,7 +9,7 @@ def main():
         print("Usage: dna.py data.csv sequence.txt")
     subsequence = []
     match = {}
-    STR = ["AGATC", "TTTTTTCT", "AATG", "TCTAG", "GATA", "TATC", "GAAA", "TCTG"]
+    str = ["AGATC", "TTTTTTCT", "AATG", "TCTAG", "GATA", "TATC", "GAAA", "TCTG"]
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
@@ -29,7 +29,9 @@ def main():
                 break
             else:
                 continue
-    print(match["AATG":"GATA"])
+
+    test = {i : match[i] for i in str}
+    print(test)
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
