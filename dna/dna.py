@@ -36,7 +36,11 @@ def main():
             if row_int == match:
                 print(name)
             else:
-                break
+                no_matchcount = 0
+                no_matchcount += 1
+        if no_matchcount == ncol - 1:
+            print("Not Found.")
+
     print("Not Found.")
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
