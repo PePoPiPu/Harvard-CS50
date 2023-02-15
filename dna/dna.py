@@ -21,20 +21,17 @@ def main():
     for i in range(8):
         match[subsequence[i]] = longest_match(sequence, subsequence[i])
     # TODO: Check database for matching profiles
-    nrow = []
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
-            for key in list(row.keys())[1:]:
-                row[key] = int(row[key])
-            nrow.append(row)
-            if nrow == match:
+            if row == match:
                 print("Found")
                 break
             else:
                 continue
 
-    print(nrow)
+    test = {i : matches[i] for i in str}
+    print(test)
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
