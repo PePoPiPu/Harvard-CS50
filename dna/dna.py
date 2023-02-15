@@ -19,13 +19,13 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
     for i in range(8):
         match = {subsequence[i]: longest_match(sequence, subsequence[i])}
-        matches_list.append(match)
+        matches_list.append(match.values())
     # TODO: Check database for matching profiles
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
             for i in range (8):
-                if matches_list.values() == row:
+                if matches_list == row:
                     print("found")
                 else:
                     continue
