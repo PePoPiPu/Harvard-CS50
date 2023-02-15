@@ -14,6 +14,7 @@ def main():
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         # Find number of columns in the csvFile
+        # counting the columns reference
         ncol = len(next(reader)) - 1
         nrow = sum(1 for row in csvFile)
         subsequence = reader.fieldnames[1:]
