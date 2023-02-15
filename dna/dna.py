@@ -25,7 +25,7 @@ def main():
         reader = csv.DictReader(csvFile)
         for row in reader:
             for i in range (8):
-                if matches_list[i] == row:
+                if matches_list.values() == row:
                     print("found")
                 else:
                     continue
