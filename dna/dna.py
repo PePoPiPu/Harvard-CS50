@@ -24,7 +24,7 @@ def main():
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
-            if row in matches_list:
+            if match in row:
                 print("found")
                 break
             else:
