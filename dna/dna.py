@@ -25,11 +25,11 @@ def main():
         reader = csv.DictReader(csvFile)
         for row in reader:
             for i in range (8):
-                if matches_list in row:
+                if row in matches_list:
                     print("found")
                 else:
                     continue
-    print (matches_list)
+    
 
 
 def longest_match(sequence, subsequence):
