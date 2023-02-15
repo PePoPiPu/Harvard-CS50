@@ -18,9 +18,9 @@ def main():
         sequence = sequences.read()
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
     for i in range(8):
-        matches = {subsequence[i]: longest_match(sequence, subsequence[i])}
-        matches = matches.keys()
-        print(f"{matches}")
+        match = {subsequence[i]: longest_match(sequence, subsequence[i])}
+        matches = match
+    print(f"{matches}")
     # TODO: Check database for matching profiles
 
 
