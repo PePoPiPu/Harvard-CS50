@@ -24,9 +24,9 @@ def main():
             match = {subsequence[i]: longest_match(sequence, subsequence[i])}
             matches_list.append(match.values())
     # TODO: Check database for matching profiles
-        for row in reader:
-            if row == match:
-                print("Found")
+            for row in reader:
+                if row == match:
+                    print("Found")
 
 
 
