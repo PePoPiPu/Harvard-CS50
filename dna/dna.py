@@ -21,7 +21,8 @@ def main():
         matches = {subsequence[i]: longest_match(sequence, subsequence[i])}
         print(f"{matches}")
     # TODO: Check database for matching profiles
-        for row in reader:
+        for i in range(len(csvFile)):
+            get_csv_column(i)
             if matches == row["name"]:
                 print(f"{reader.fieldnames[:0]}")
             else:
