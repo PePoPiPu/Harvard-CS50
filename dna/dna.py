@@ -22,7 +22,6 @@ def main():
         print(f"{matches}")
     # TODO: Check database for matching profiles
         for i in range(len(csvFile)):
-            get_csv_column(i)
             if matches == row["name"]:
                 print(f"{reader.fieldnames[:0]}")
             else:
