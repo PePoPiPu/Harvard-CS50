@@ -26,7 +26,9 @@ def main():
         for row in reader:
             for i in range (8):
                 if matches_list[i] == row:
-                    break
+                    print("found")
+                else:
+                    continue
     print (matches_list)
 
 
