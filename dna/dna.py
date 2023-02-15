@@ -25,7 +25,7 @@ def main():
         reader = csv.DictReader(csvFile)
         for line in reader:
             for i in range(8):
-                if matches[i] in line:
+                if next(iter(matches)) in line:
                     print("Found")
 
 
