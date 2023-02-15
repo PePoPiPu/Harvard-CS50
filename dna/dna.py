@@ -22,7 +22,7 @@ def main():
     # TODO: Check database for matching profiles
 
 
-def longest_match(sequence, subsequence[i]):
+def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
 
     # Initialize variables
