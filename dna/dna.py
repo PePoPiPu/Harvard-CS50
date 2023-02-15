@@ -19,11 +19,10 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
     for i in range(8):
         matches = {subsequence[i]: longest_match(sequence, subsequence[i])}
-        print(f"{reader.fieldnames[0]}")
     # TODO: Check database for matching profiles
-        for i in range(len(reader)):
+        for row in open(sys.argv[1], "r"):
             if matches == reader.fieldnames[1:8]:
-                print(f"{reader.fieldnames[0]}")
+                print(f"{reader.fieldnames[row]}")
             else:
                 print("No match.")
 
