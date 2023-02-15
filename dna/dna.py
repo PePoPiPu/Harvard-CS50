@@ -24,14 +24,12 @@ def main():
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
+            del row["name"]
             if row == match:
                 print("Found")
                 break
             else:
                 continue
-
-    test = {i : matches[i] for i in str}
-    print(test)
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
