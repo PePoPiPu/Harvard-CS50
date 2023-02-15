@@ -20,7 +20,7 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
     for i in range(8):
         matches = {subsequence[i]: longest_match(sequence, subsequence[i])}
-        print(f"{matches}")
+    print(f"{reader}")
     # TODO: Check database for matching profiles
 
 def longest_match(sequence, subsequence):
