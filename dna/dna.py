@@ -29,7 +29,7 @@ def main():
                 break
             else:
                 print("Not found.")
-                break
+                continue
 
 
 
