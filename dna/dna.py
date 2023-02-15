@@ -13,12 +13,14 @@ def main():
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
+        # Find number of columns in the csvFile
+        ncol = len(next(reader))
         subsequence = reader.fieldnames[1:]
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
-    for i in range(8):
+    for i in range(ncol):
         match[subsequence[i]] = longest_match(sequence, subsequence[i])
     # TODO: Check database for matching profiles
     with open(sys.argv[1], "r") as csvFile:
@@ -28,7 +30,7 @@ def main():
             name = row.pop("name")
             # Convert row values to int
             row_int = {}
-            for i in range(8):
+            for i in range(ncol):
                 row_int[subsequence[i]] = int(row[subsequence[i]])
             # Compare row values to match values
             if row_int == match:
