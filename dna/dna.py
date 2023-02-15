@@ -26,7 +26,8 @@ def main():
         for row in reader:
             for i in range (8):
                 if matches_list[i] == row:
-                    print (reader.fieldnames[0])
+                    break
+    print (matches_list)
 
 
 def longest_match(sequence, subsequence):
