@@ -20,9 +20,6 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence. Load it into dict
     for i in range(8):
         match[subsequence[i]] = longest_match(sequence, subsequence[i])
-        # Convert match values to int
-    for value in match.values():
-        match[subsequence[i]] = int(value)
     # TODO: Check database for matching profiles
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
@@ -37,7 +34,7 @@ def main():
                 print("Found")
             else:
                 continue
-        print(row)
+        print(match)
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
