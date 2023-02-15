@@ -22,9 +22,12 @@ def main():
         matches_list.append(match)
     print(f"{subsequence[1]}")
     # TODO: Check database for matching profiles
-    for i in range (8):
-        if matches_list[i] in reader.fieldnames[1:]:
-            print (reader.fieldnames[0])
+    with open(sys.argv[1], "r") as csvFile:
+        reader = csv.DictReader(csvFile)
+        for row in reader:
+            for i in range (8):
+                if matches_list[i] in row:
+                    print (reader.fieldnames[0])
 
 
 def longest_match(sequence, subsequence):
