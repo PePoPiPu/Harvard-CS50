@@ -23,7 +23,8 @@ def main():
         matches_list.append(match)
     print(f"{matches_list}")
     # TODO: Check database for matching profiles
-
+    for i in range (8):
+        if matches_list[i] in
 
 
 def longest_match(sequence, subsequence):
