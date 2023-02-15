@@ -25,7 +25,7 @@ def main():
             matches_list.append(match.values())
     # TODO: Check database for matching profiles
             for row in reader:
-                if match.values() in row:
+                if row in matches_list:
                     print("Found")
 
 
