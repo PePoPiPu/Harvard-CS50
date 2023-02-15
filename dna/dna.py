@@ -27,8 +27,8 @@ def main():
             # Delete first column in row
             del row["name"]
             # Convert row values to int
-        for value in row.values():
-            row[subsequence[i]] = int(value)
+        for item in row.items():
+            row[subsequence[i]] = int(item)
             # Compare row values to match values
             if row == match:
                 print("Found")
