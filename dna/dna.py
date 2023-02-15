@@ -22,7 +22,7 @@ def main():
         print(f"{matches}")
     # TODO: Check database for matching profiles
     for name in reader:
-        if matches = row:
+        if matches == name[subsequence[i]]:
             print(f"{reader.fieldnames[:0]}")
         else:
             print("No match.")
