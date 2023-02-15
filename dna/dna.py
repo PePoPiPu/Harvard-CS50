@@ -35,7 +35,7 @@ def main():
             # Compare row values to match values
             if row_int == match:
                 print(name)
-            
+                called = 
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
