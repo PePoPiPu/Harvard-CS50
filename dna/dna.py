@@ -22,15 +22,16 @@ def main():
         match[subsequence[i]] = longest_match(sequence, subsequence[i])
     # TODO: Check database for matching profiles
     with open(sys.argv[1], "r") as csvFile:
-        reader = csv.DictReader(csvFile)
+        reader = csv.reader(csvFile)
+        header = next(reader)
+        rows = [header] + [[row[0], int(row[1])] for row in reader if row]
+        for row in rows:
+            print(row)
         for row in reader:
             # Delete first column in row
             del row["name"]
             # Convert row values to int
-        for key in row.keys():
-            for values in row.values():
-                for i in range(8):
-                    row[i] = int(values)
+
             # Compare row values to match values
             if row == match:
                 print("Found")
