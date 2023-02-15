@@ -16,7 +16,7 @@ def main():
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
-    # TODO: Find longest match of each STR in DNA sequence
+    # TODO: Find longest match of each STR in DNA sequence. Load it into dict
     for i in range(8):
         matches = {subsequence[i]: longest_match(sequence, subsequence[i])}
         print(f"{matches}")
