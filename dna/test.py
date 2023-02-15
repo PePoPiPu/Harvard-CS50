@@ -6,9 +6,9 @@ with open(sys.argv[1], "r") as csvFile:
     reader = csv.DictReader(csvFile)
     for row in reader:
         del row["name"]
-    if row == match:
+    if row.values() == match.values():
         print("Equal")
     else:
         print("Different")
-print(row)
-print(match)
+print(int(row.values()))
+print(int(match.values()))
