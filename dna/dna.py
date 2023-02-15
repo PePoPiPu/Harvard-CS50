@@ -29,6 +29,7 @@ def main():
                 break
             else:
                 continue
+    print(match["AATG":"GATA"])
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
