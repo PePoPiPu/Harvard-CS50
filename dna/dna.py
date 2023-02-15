@@ -9,6 +9,7 @@ def main():
         print("Usage: dna.py data.csv sequence.txt")
     subsequence = []
     matches = {}
+    matches_list = []
     # TODO: Read database file into a variable
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
