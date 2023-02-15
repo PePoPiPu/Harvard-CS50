@@ -16,7 +16,7 @@ def main():
         subsequence = reader.fieldnames[1:]
         for row in reader:
             for (k,v) in row.items():
-                columns[k].append(v)
+                columns.append(v)
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2], "r") as sequences:
         sequence = sequences.read()
