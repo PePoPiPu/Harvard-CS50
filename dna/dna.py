@@ -24,15 +24,15 @@ def main():
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
-            # Delete first column in row
-            del row["name"]
+            # Pop "name" column into variable
+            name = row.pop("name")
             # Convert row values to int
             row_int = {}
             for i in range(8):
                 row_int[subsequence[i]] = int(row[subsequence[i]])
             # Compare row values to match values
             if row_int == match:
-                print("Found")
+                print(name)
             else:
                 continue
 
