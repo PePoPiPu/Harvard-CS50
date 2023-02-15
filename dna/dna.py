@@ -20,13 +20,12 @@ def main():
     for i in range(8):
         match = {subsequence[i]: longest_match(sequence, subsequence[i])}
         matches_list.append(match)
-    print(f"{subsequence[1]}")
     # TODO: Check database for matching profiles
     with open(sys.argv[1], "r") as csvFile:
         reader = csv.DictReader(csvFile)
         for row in reader:
             for i in range (8):
-                if matches_list[i] in row:
+                if matches_list[i] == row:
                     print (reader.fieldnames[0])
 
 
