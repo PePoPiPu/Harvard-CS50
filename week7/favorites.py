@@ -1,15 +1,10 @@
-import csv
+from cs50 import SQL
 
-with open("favorites.csv" , "r") as file:
-    reader = csv.DictReader(file)
-    counts = {}
-    for row in reader:
-        favorite = row["language"]
-        if favorite in counts:
-            counts[favorite] += 1
-        else:
-            counts[favorite] = 1
+db = SQL("sqlite:///favorites.db")
 
-# Implementation of an anonymous function (lambda)
-for favorite in sorted(counts, key=lambda problem: counts[problem], reverse=True):
-    print(f"{favorite}: {counts[favorite]}")
+favorite = input("Favorite: ")
+
+rows = db.execute("SELECT * FROM favorites WHERE problem = 'Mario'")
+
+for row in rows:
+    print(row["Timestamp"])
