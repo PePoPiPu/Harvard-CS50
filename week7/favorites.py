@@ -13,5 +13,5 @@ with open("favorites.csv" , "r") as file:
 def get_value(language):
     return counts[language]
 # Implementation of an anonymous function (lambda)
-for favorite in sorted(counts, key=lambda language: counts[language], reverse=True):
+for favorite in sorted(counts, key=lambda problem: counts[problem], reverse=True):
     print(f"{favorite}: {counts[favorite]}")
