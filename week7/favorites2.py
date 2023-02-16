@@ -10,6 +10,6 @@ with open("favorites.csv" , "r") as file:
         else:
             counts[favorite] = 1
 
-# Implementation of an anonymous function (lambda)
-for favorite in sorted(counts, key=lambda problem: counts[problem], reverse=True):
+favorite = input("Favorite: ")
+if favorite in counts:
     print(f"{favorite}: {counts[favorite]}")
