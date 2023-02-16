@@ -10,5 +10,8 @@ with open("favorites.csv" , "r") as file:
         else:
             counts[favorite] = 1
 
-for favorite in counts:
+def get_value(language):
+    return counts[language]
+
+for favorite in sorted(counts, key=get_value, reverse=True)
     print(f"{favorite}: {counts[favorite]}")
