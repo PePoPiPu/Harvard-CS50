@@ -2,8 +2,6 @@ CREATE TABLE student(
     student_id INTEGER,
     student_name TEXT,
     PRIMARY KEY(student_id)
-    FOREIGN KEY(house_name)
-    FOREIGN KEY(head_name)
 );
 
 CREATE TABLE house (
