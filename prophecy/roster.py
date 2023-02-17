@@ -8,4 +8,8 @@ with open("students.csv", "r") as students:
     for row in reader:
         db.execute("INSERT INTO student (student_id, student_name) VALUES (?, ?)" , row[0], row[1])
         db.execute("INSERT INTO house (house_id, house_name) VALUES (?, ?)", row[2] )
+        db.execute("INSERT INTO head (head_id, head_name) VALUES (?, ?)", row[3])
         print(row[0])
+
+
+for 
