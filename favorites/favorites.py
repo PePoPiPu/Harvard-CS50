@@ -2,9 +2,10 @@ from cs50 import SQL
 
 db = SQL("sqlite:///favorites.db")
 
-show = input("Show name: ")
+try:
+    show = input("Show name: ")
+    change = db.execute("UPDATE shows SET title = ? WHERE title LIKE ?", show)
+except KeyboardInterrupt:
 
-change = db.execute("UPDATE shows SET title = ? WHERE title LIKE ?", show)
-
-for row in change:
-    print("title")
+    for row in change:
+        print(row["title"])
