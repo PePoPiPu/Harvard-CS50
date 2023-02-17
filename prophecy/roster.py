@@ -7,4 +7,5 @@ with open("students.csv", "r") as students:
     next(reader)
     for row in reader:
         db.execute("INSERT INTO student (student_id, student_name) VALUES (?, ?)" , row[0], row[1])
+        db.execute("INSERT INTO house (house_id, house_name) VALUES (?, ?)", row[2] )
         print(row[0])
