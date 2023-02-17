@@ -2,16 +2,18 @@ CREATE TABLE student(
     student_id INTEGER,
     student_name TEXT,
     PRIMARY KEY(student_id)
+    FOREIGN KEY(house_name)
+    FOREIGN KEY(head_name)
 );
 
 CREATE TABLE house (
     house_id INTEGER,
     house_name TEXT,
-    PRIMARY KEY(house_id)
+    PRIMARY KEY(house_name)
 );
 
 CREATE TABLE head (
     head_id INTEGER,
     head_name TEXT,
-    PRIMARY KEY(head_id)
+    PRIMARY KEY(head_name)
 );
