@@ -19,3 +19,6 @@ Giving me the following results:
 +--------------+
 | 0.484443     |
 +--------------+
+
+Based on these results and on the Spotify's Aura info, I'd consider that this person Aura is Blue or Yellow since it's not that energetic and doesn't have a high danceability value.
+
