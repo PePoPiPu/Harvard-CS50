@@ -1,13 +1,14 @@
 CREATE TABLE students (
     id INTEGER,
-    student_name TEXT
+    student_name TEXT,
     PRIMARY KEY(id)
 );
+
 
 CREATE TABLE houses (
     id INTEGER,
     house_name TEXT,
-    head_name TEXT
+    head_name TEXT,
     PRIMARY KEY(id)
 );
 
