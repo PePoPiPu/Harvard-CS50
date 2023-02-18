@@ -1,0 +1,21 @@
+To calculate the average danceability, energy and valence I executed the following queries:
+    SELECT AVG(danceability) FROM songs;
+    SELECT AVG(energy) FROM songs;
+    SELECT AVG(valence) FROM songs;
+
+Giving me the following results:
++-------------------+
+| AVG(danceability) |
++-------------------+
+| 0.71646           |
++-------------------+
++-------------+
+| AVG(energy) |
++-------------+
+| 0.65906     |
++-------------+
++--------------+
+| AVG(valence) |
++--------------+
+| 0.484443     |
++--------------+
