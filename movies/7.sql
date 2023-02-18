@@ -1,1 +1,1 @@
-SELECT title FROM movies WHERE id IN (SELECT rating FROM ratings WHERE id IN (SELECT id FROM movies WHERE year = '2010'));
+SELECT rating FROM ratings JOIN ratings ON ratings.movie_id = movies.id;
