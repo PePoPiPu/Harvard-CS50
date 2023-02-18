@@ -1,17 +1,19 @@
-CREATE TABLE student(
-    student_id INTEGER,
-    student_name TEXT,
-    PRIMARY KEY(student_id)
+CREATE TABLE students(
+    id INTEGER,
+    student_name TEXT
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE house (
-    house_id INTEGER,
+CREATE TABLE houses (
+    id INTEGER,
     house_name TEXT,
-    PRIMARY KEY(house_name)
+    head_name TEXT
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE head (
-    head_id INTEGER,
+CREATE TABLE assignments (
+    student_id INTEGER,
     head_name TEXT,
-    PRIMARY KEY(head_name)
-);
+    house_id INTEGER,
+    FOREIGN KEY(student_id)
+)
