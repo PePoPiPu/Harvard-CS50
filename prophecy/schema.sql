@@ -16,5 +16,6 @@ CREATE TABLE assignments (
     head_name TEXT,
     house_id INTEGER,
     FOREIGN KEY(student_id) REFERENCES students(id),
-    FOREIGN KEY (head_name) REFERENCES houses(head_name)
-)
+    FOREIGN KEY (head_name) REFERENCES houses(head_name),
+    FOREIGN KEY (house_id) REFERENCES house(id)
+);
