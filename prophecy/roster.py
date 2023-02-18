@@ -6,6 +6,6 @@ with open("students.csv", "r") as students:
     # Skip header row
     next(reader)
     for row in reader:
-        db.execute("INSERT INTO students (id, student_name) VALUES (?, ?)" , row[0], row[1])
-        db.execute("INSERT INTO houses (house_name, head_name) VALUES (?, ?)", row[2], row[3])
+        db.execute("UPDATE students (id, student_name) VALUES (?, ?)" , row[0], row[1])
+        db.execute("UPDATE houses SET house_name = '?' WHERE )
 
