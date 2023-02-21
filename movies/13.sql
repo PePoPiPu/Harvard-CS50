@@ -19,7 +19,7 @@ WHERE stars.movie_id IN
 WHERE people.name = 'Kevin Bacon'
 AND people.birth = '1958'));
 
-
+Test code
 SELECT people.name FROM people
 JOIN stars ON people.id = stars.people_id
 JOIN movies ON stars.movie_id = movies.id
@@ -28,4 +28,6 @@ WHERE stars.person_id IN
 WHERE people.name IN
 (SELECT people.id FROM people
 WHERE movies.title IN
-(SELECT movies.title FROM movies)))
+(SELECT movies.title FROM movies
+WHERE people.name = 'Kevin Bacon'
+AND people.birth = '1958')));
