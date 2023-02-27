@@ -6,7 +6,8 @@
 
             function greet()
             {
-                alert('hello,world');
+                let name = document.querySelector('#name').value;
+                alert('hello, ' + name);
             }
 
         </script>
@@ -16,7 +17,7 @@
     </head>
     <body>
         <form onsubmit="greet(); return false;">
-            <input autocomplete="off" autofocus placeholder="Name" type="text">
+            <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
             <button type="submit">Greet</button>
         </form>
     </body>
