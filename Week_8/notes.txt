@@ -1,4 +1,8 @@
 HTML, CSS, Javascript
 
 Internet
+    The early days of the Internet:
+    The internet started by connecting universities with ArpaNet
+
+    Routing decisions and routers:
     
