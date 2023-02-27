@@ -26,4 +26,8 @@ Internet
         1.2.3.4.443
 
         TCP also can allow you to take a big file and fragment it into pieces.
-        For example a fragmented field would be: 
+        A router can drop a packet of data if it's really busy. If the receiving router is missing a packet of data, it can ask the other router to
+        just resend the missing packet instead of the whole file.
+
+
+    Internet needs to be user-friendly: 
