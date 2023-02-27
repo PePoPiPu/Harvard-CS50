@@ -25,4 +25,5 @@ Internet
 
         1.2.3.4.443
 
-        TCP also 
+        TCP also can allow you to take a big file and fragment it into pieces.
+        For example a fragmented field would be: 
