@@ -64,3 +64,13 @@ HTTP: Hyper Text Transfer Protocol
     When visting example.com, the packet of data sent to the server contains the following:
     GET / HTTP/1.1
     Host: www.example.com
+    Incognito mode allows software developers to always have a clean slate in the browser.
+    In inspect mode in chrome we can use the network tab to see these packets of data and lower level details.
+
+    We can see request headers. All the lines of text sent from our computer to the server. They are key:value pairs.
+    We expect an http response:
+    
+    HTTP/1.1 200 OK (status code)
+    Content-Type: text/html
+
+    ...
