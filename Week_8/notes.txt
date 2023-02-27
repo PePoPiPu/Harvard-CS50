@@ -145,3 +145,6 @@ Frameworks:
 Libraries other people wrote.
 Classes:
 Is a collection of key value pairs that you get to invent for yourself
+
+JavaScript: an actual programming language
+    It supports conditionals
