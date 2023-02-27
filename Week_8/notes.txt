@@ -32,4 +32,23 @@ Internet
 
     Internet needs to be user-friendly:
 
-        We can convert strings to IP addresses with DNS Domain Name System. It can do it viceversa. 
+        We can convert strings to IP addresses with DNS Domain Name System. It can do it viceversa.
+        DNSs hold a kind of hash tables with keys and values with Domain Names and IP Addresses
+
+        Fully Qualified Domain Names: www.google.com
+        Domain Name: google.com
+
+HTTP: Hyper Text Transfer Protocol
+    It's a service that runs on top the internet. HTTP is the application level protocol. The internet is the "underlying plumbing".
+
+    https://www.example./
+
+    A single slash means "give me that page default". Hitting enter implies having the slash.
+
+    https://www.example.com/path
+    https://www.example.com/folder/file.html
+
+    .com is the Top Level Domain (TLD)
+    .com meant commercial.
+    CCTLD Country Code Top Level Domain .uk .es .us, etc.
+    
