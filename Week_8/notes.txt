@@ -112,3 +112,18 @@ Terminal:
         Attributes
 
     A server is a piece of software who's purpose in life is to respond to requests with responses
+
+    <!DOCTYPE html> Document type declaration. Implicit declaration that we're using the latest version of html
+
+<html lang="en"> Open html tag. lang is an Attribute that modifies the default behavior
+    <head> 
+        <title>
+            hello, title
+        </title>
+    </head>
+    <body>
+        hello, body
+    </body>
+</html> Close html tag
+
+Everything inside the html tag is an html element
