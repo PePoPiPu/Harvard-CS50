@@ -20,5 +20,9 @@ Internet
 
         80 HTTP
         443 HTTPS
-        
+        443 Is the port number. It goes after the IP address.
         ...
+
+        1.2.3.4.443
+
+        TCP also 
