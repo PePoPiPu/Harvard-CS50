@@ -116,7 +116,7 @@ Terminal:
     <!DOCTYPE html> Document type declaration. Implicit declaration that we're using the latest version of html
 
 <html lang="en"> Open html tag. lang is an Attribute that modifies the default behavior
-    <head> 
+    <head>
         <title>
             hello, title
         </title>
@@ -127,3 +127,4 @@ Terminal:
 </html> Close html tag
 
 Everything inside the html tag is an html element
+A browser reads code and converts it into data structures and reads them into memory
