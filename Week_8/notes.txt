@@ -110,3 +110,5 @@ Terminal:
     It has 2 main characteristics:
         Tags
         Attributes
+
+    A server is a piece of software who's purpose in life is to respond to requests with responses
