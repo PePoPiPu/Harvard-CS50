@@ -2,12 +2,20 @@
 
 <html lang="en">
     <head>
+        <script>
+
+            function greet()
+            {
+                alert('hello,world');
+            }
+
+        </script>
         <title>
             hello, title
         </title>
     </head>
     <body>
-        <form>
+        <form onsubmit="greet()">
             <input autocomplete="off" autofocus placeholder="Name" type="text">
             <button type="submit">Greet</button>
         </form>

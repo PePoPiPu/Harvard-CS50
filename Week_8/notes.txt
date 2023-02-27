@@ -148,4 +148,19 @@ Is a collection of key value pairs that you get to invent for yourself
 
 JavaScript: an actual programming language
     It supports conditionals
-    Its syntaxis is pretty much similar to C. 
+    Its syntaxis is pretty much similar to C.
+
+JavaScript events
+blur
+change
+click
+drag
+focus
+keyup
+load
+mousedown
+mouseover
+mouseup
+submit
+touchmove
+unload
