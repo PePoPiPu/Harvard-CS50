@@ -54,4 +54,13 @@ HTTP: Hyper Text Transfer Protocol
     Nowadays TLDs and CCTLDs usually mean where the Domain is located.
 
     WWW is the host name.
-    HTTPS is the protocol to use to access the content in that address. 
+    HTTPS is the protocol to use to access the content in that address.
+
+    https protocols:
+    GET (download)
+    POST (upload)
+
+    ...
+    When visting example.com, the packet of data sent to the server contains the following:
+    GET / HTTP/1.1
+    Host: www.example.com
