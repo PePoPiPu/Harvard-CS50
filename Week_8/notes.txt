@@ -51,4 +51,7 @@ HTTP: Hyper Text Transfer Protocol
     .com is the Top Level Domain (TLD)
     .com meant commercial.
     CCTLD Country Code Top Level Domain .uk .es .us, etc.
-    
+    Nowadays TLDs and CCTLDs usually mean where the Domain is located.
+
+    WWW is the host name.
+    HTTPS is the protocol to use to access the content in that address. 
