@@ -128,3 +128,6 @@ Terminal:
 
 Everything inside the html tag is an html element
 A browser reads code and converts it into data structures and reads them into memory
+
+CSS
+
