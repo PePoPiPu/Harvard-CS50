@@ -131,3 +131,15 @@ A browser reads code and converts it into data structures and reads them into me
 
 CSS
 
+Html has very limited support for aesthetics. CSS is another markup language.
+
+CSS have properties (key:value pairs)
+
+type selector
+class selector
+ID selector
+Attribute selector
+...
+
+Frameworks:
+Libraries other people wrote.
