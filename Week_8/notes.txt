@@ -14,4 +14,11 @@ Internet
         IP: Internet Protocol. Allow computers to know how to address information. They're protocols full of conditionals.
         IP decides that every computer of the world have a unique address. #.#.#.# Dotted decimal notation.
         The numbers uniquely identify computers around the world. Each number goes up to 255. An IP address is 32 bits in total.
-        We can have a total of 4 billion computers on the internet at once. There's a newer version of IP called IPv6 that uses 128 bits. 
+        We can have a total of 4 billion computers on the internet at once. There's a newer version of IP called IPv6 that uses 128 bits.
+
+        TCP: Transmission Control Protocol. Set of conventions to solve problems like figuring out what type of internet service is received.
+
+        80 HTTP
+        443 HTTPS
+        
+        ...
