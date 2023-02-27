@@ -5,4 +5,5 @@ Internet
     The internet started by connecting universities with ArpaNet
 
     Routing decisions and routers:
-    
+
+    Data takes routes. That's why it's called a router. 
