@@ -105,4 +105,8 @@ Terminal:
     ...
     ? is a convention to pass user input. q means query.
 
-    
+    HTML: Hyper Text MarkUp Language. It's not a programming language.
+
+    It has 2 main characteristics:
+        Tags
+        Attributes
