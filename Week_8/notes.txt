@@ -79,3 +79,4 @@ HTTP: Hyper Text Transfer Protocol
 Terminal:
 
     Curl command: Connect URL
+    Getting a response of 301 makes the browser visit the new location URL. 
