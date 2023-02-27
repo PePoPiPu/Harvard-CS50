@@ -30,4 +30,6 @@ Internet
         just resend the missing packet instead of the whole file.
 
 
-    Internet needs to be user-friendly: 
+    Internet needs to be user-friendly:
+
+        We can convert strings to IP addresses with DNS Domain Name System. It can do it viceversa. 
