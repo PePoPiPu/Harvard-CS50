@@ -40,15 +40,16 @@
 
                 // Part 2:
                 const ans = document.getElementById('freeanswer');
+                var input = document.getElementById('freeanswer')
                 const textfield = document.getElementById('submit');
-                if (ans == 'no')
+                if (input == 'no')
                 {
                     document.querySelector('#submit').addEventListener('click', function() {
                         ans.style.backgroundColor = '#77dd77';
                         answer2.innerHTML = 'Correct!';
                     });
                 }
-                else if (ans == 'yes')
+                else if (input == 'yes')
                 {
                     document.querySelector('#submit').addEventListener('click', function() {
                         ans.style.backgroundColor = '#ff6961';
