@@ -12,6 +12,7 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const sony = document.getElementById('Sony');
                 const answer1 = document.getElementById("answer1");
+                const answer2 = document.getElementById("answer2");
                 document.querySelector('#Sony').addEventListener('click', function() {
                     Sony.style.backgroundColor = '#ff6961';
                     answer1.innerHTML = 'Incorrect!';
@@ -24,28 +25,43 @@
                 const sangyang = document.getElementById('Sangyang');
                 document.querySelector('#Sangyang').addEventListener('click', function() {
                     Sangyang.style.backgroundColor = '#ff6961';
-                    answer1.innerHTML = 'Incorrect';
+                    answer1.innerHTML = 'Incorrect!';
                 });
                 const xiaomi = document.getElementById('Xiaomi');
                 document.querySelector('#Xiaomi').addEventListener('click', function() {
                     Xiaomi.style.backgroundColor = '#ff6961';
-                    answer1.innerHTML = 'Incorrect';
+                    answer1.innerHTML = 'Incorrect!';
                 });
                 const apple = document.getElementById('Apple');
                 document.querySelector('#Apple').addEventListener('click', function() {
                     Apple.style.backgroundColor = '#ff6961';
-                    answer1.innerHTML = 'Incorrect';
+                    answer1.innerHTML = 'Incorrect!';
                 });
 
                 // Part 2:
                 const ans = document.getElementById('freeanswer');
-                if (ans == 'no')
+                const textfield = document.getElementById('submit')
+                if (ans == 'yes')
                 {
                     document.querySelector('#submit').addEventListener('click', function() {
-                        document.querySelector('#freeanswer')
-                    })
+                        ans.style.backgroundColor = '#ff6961';
+                        answer2.innerHTML = 'Incorrect!';
+                    });
                 }
-
+                else if (ans == 'no')
+                {
+                    document.querySelector('#submit').addEventListener('click', function() {
+                        ans.style.backgroundColor = '#77dd77';
+                        answer2.innerHTML = 'Correct!';
+                    });
+                }
+                else
+                {
+                    document.querySelector('#submit').addEventListener('click', function() {
+                        ans.style.backgroundColor = '#ff6961';
+                        answer2.innerHTML = 'Incorrect!';
+                    });
+                }
             })
 
         </script>
@@ -79,6 +95,9 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>Is Java a type of OS?</h3>
+                <div id="answer2">
+                    <br>
+                </div>
                 <input type="text" id="freeanswer">
                 <button id="submit">Check Answer</button>
             </div>
