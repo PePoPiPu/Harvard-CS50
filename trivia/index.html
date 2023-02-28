@@ -7,6 +7,8 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
+
+            // Part 1:
             document.addEventListener('DOMContentLoaded', function() {
                 const sony = document.getElementById('Sony');
                 const answer1 = document.getElementById("answer1");
@@ -34,6 +36,14 @@
                     Apple.style.backgroundColor = '#ff6961';
                     answer1.innerHTML = 'Incorrect';
                 });
+
+                // Part 2:
+                const ans = document.getElementById('freeanswer');
+                if (ans == 'no')
+                {
+                    document.querySelector()
+                }
+
             })
 
         </script>
@@ -67,7 +77,8 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>Is Java a type of OS?</h3>
-                <input type="text">
+                <input type="text" id="freeanswer">
+                <button id="submit">Check Answer</button>
             </div>
         </div>
     </body>
