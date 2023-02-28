@@ -39,23 +39,22 @@
                 });
 
                 // Part 2:
-                var input = document.getElementById('freeanswer').value;
-                const textfield = document.getElementById('submit');
-                if (input === 'no')
-                {
-                    document.querySelector('#submit').addEventListener('click', function() {
-                        CheckAnswer.style.backgroundColor = '#77dd77';
-                        answer2.innerHTML = 'Correct!';
-                    });
-                }
-                else if (input === 'yes')
-                {
-                    document.querySelector('#submit').addEventListener('click', function() {
-                        CheckAnswer.style.backgroundColor = '#ff6961';
-                        answer2.innerHTML = 'Incorrect!';
-                    });
-                }
-            })
+                document.querySelector("submit").addEventListener('click', function() {
+                    function compare() {
+                        var inputVal = document.getElementById("freeanswer").value;
+                        const text = document.getElementById("freeanswer");
+                        var no = "no";
+                        var yes = "yes";
+                        if (inputVal === no) {
+                            text.style.backgroundColor = '#77dd77';
+                        }   else if (inputVal === yes) {
+                            text.style.backgroundColor = '#ff6961';
+                        } else {
+                            text.style.backgroundColor = '#ff6961';
+                        }
+                    }
+                });
+            });
 
         </script>
     </head>
