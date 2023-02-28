@@ -42,7 +42,8 @@
                 const textbox = document.getElementById('freeanswer');
                 var no = "no";
                 var yes = "yes";
-                var inputVal = document.getElementById('freeanswer').value;
+                const input = document.getElementById('freeanswer');
+                const inputVal = input.value; 
                 document.querySelector("#submit").addEventListener('click', function() {
                     if (inputVal === no) {
                         textbox.style.backgorundColor = '#ff6961';
