@@ -9,13 +9,16 @@
             // TODO: Add code to check answers to questions
             document.addEventListener('DOMContentLoaded', function() {
                 const sony = document.getElementById('Sony');
-                const answer1 = document.getElementById("answer");
+                const answer1 = document.getElementById("answer1");
                 document.querySelector('#Sony').addEventListener('click', function() {
                     Sony.style.backgroundColor = '#ff6961';
-                    answer.innerHTML = 'Incorrect!';
+                    answer1.innerHTML = 'Incorrect!';
                 });
+                const samsung = document.getElementById('Samsung');
+                const answer2 = document.getElementById("answer2")
                 document.querySelector('#Samsung').addEventListener('click', function() {
                     Samsung.style.backgroundColor = '#77dd77';
+                    answer2.innerHTML = 'Correct!';
                 });
                 document.querySelector('#Sangyang').addEventListener('click', function() {
                     Sangyang.style.backgroundColor = '#ff6961';
@@ -47,6 +50,7 @@
                 <button id = "Xiaomi">Xiaomi</button>
                 <button id = "Apple">Apple</button>
                 <div id="answer1"></div>
+                <div id="answer2"></div>
             </div>
             <div class ="section">
 
