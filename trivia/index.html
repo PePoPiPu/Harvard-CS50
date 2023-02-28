@@ -39,19 +39,18 @@
                 });
 
                 // Part 2:
-                const textbox = document.getElementById('freeanswer');
-                var no = "no";
-                var yes = "yes";
-                let input = document.querySelector('freeanswer');
-                document.querySelector("#submit").addEventListener('click', function() {
-                    if (input.value === no) {
-                        textbox.style.backgorundColor = '#ff6961';
+                document.querySelector("#check").addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === 'No') {
+                        input.style.backgroundColor = '#77dd77';
+                        document.querySelector('#answer2').innerHTML = 'Correct!';
                     } else {
-                        textbox.style.backgorundColor = '#ff6961';
+                        textbox.style.backgroundColor = '#ff6961';
+                        document.querySelector('#answer2').innerHTML = 'Incorrect!';
                     }
                 });
-            });
 
+            });
         </script>
     </head>
     <body>
@@ -86,8 +85,8 @@
                 <div id="answer2">
                     <br>
                 </div>
-                <input type="text" id="freeanswer">
-                <button id="submit">Check Answer</button>
+                <input type="text" id="input">
+                <button id="check">Check Answer</button>
             </div>
         </div>
     </body>
