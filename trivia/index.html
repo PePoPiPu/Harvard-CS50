@@ -11,6 +11,9 @@
                 const sony = document.querySelector('#Sony');
                 document.querySelector('#Sony').addEventListener('click', function() {
                     Sony.style.backgroundColor = '#ff6961';
+                    const text = document.createElement('p');
+                    text.textContent = 'Incorrect';
+                    sony.appendChild(text);
                 });
                 document.querySelector('#Samsung').addEventListener('click', function() {
                     Samsung.style.backgroundColor = '#77dd77';
