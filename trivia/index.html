@@ -19,14 +19,20 @@
                     Samsung.style.backgroundColor = '#77dd77';
                     answer1.innerHTML = 'Correct!';
                 });
+                const sangyang = document.getElementById('Sangyang');
                 document.querySelector('#Sangyang').addEventListener('click', function() {
                     Sangyang.style.backgroundColor = '#ff6961';
+                    answer1.innerHTML = 'Incorrect';
                 });
+                const xiaomi = document.getElementById('Xiaomi');
                 document.querySelector('#Xiaomi').addEventListener('click', function() {
                     Xiaomi.style.backgroundColor = '#ff6961';
+                    answer1.innerHTML = 'Incorrect';
                 });
+                const apple = document.getElementById('Apple');
                 document.querySelector('#Apple').addEventListener('click', function() {
                     Apple.style.backgroundColor = '#ff6961';
+                    answer1.innerHTML = 'Incorrect';
                 });
             })
 
@@ -43,7 +49,7 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>What is the name of the biggest technology company in South Korea?</h3>
-                <div id="answer1" text-align: center>
+                <div id="answer1">
                    <br>
                 </div>
                 <button id ="Sony">Sony</button>
