@@ -8,12 +8,10 @@
         <script>
             // TODO: Add code to check answers to questions
             document.addEventListener('DOMContentLoaded', function() {
-                const answer = document.querySelector('#Sony');
+                const sony = document.getElementById('Sony');
                 document.querySelector('#Sony').addEventListener('click', function() {
                     Sony.style.backgroundColor = '#ff6961';
-                    const text = document.createElement('p');
-                    text.textContent = 'Incorrect';
-                    sony.appendChild(text);
+                    sony.innerHTML += '<br>Incorrect!';
                 });
                 document.querySelector('#Samsung').addEventListener('click', function() {
                     Samsung.style.backgroundColor = '#77dd77';
