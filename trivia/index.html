@@ -39,9 +39,17 @@
                 });
 
                 // Part 2:
-                document.querySelector("#submit").addEventListener('click' function() {
-                    
-                })
+                const textbox = document.getElementById('freeanswer');
+                document.querySelector("#submit").addEventListener('click', function() {
+                    var no = "no";
+                    var yes = "yes";
+                    var inputVal = document.getElementById('freeanswer').value;
+                    if (inputVal === no) {
+                        textbox.style.backgorundColor = '#ff6961';
+                    } else {
+                        textbox.style.backgorundColor = '#ff6961';
+                    }
+                });
             });
 
         </script>
