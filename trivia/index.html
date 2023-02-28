@@ -9,9 +9,10 @@
             // TODO: Add code to check answers to questions
             document.addEventListener('DOMContentLoaded', function() {
                 const sony = document.getElementById('Sony');
+                const answer1 = document.getElementById("answer");
                 document.querySelector('#Sony').addEventListener('click', function() {
                     Sony.style.backgroundColor = '#ff6961';
-                    sony.innerHTML += '<br>Incorrect!';
+                    answer.innerHTML = 'Incorrect!';
                 });
                 document.querySelector('#Samsung').addEventListener('click', function() {
                     Samsung.style.backgroundColor = '#77dd77';
@@ -45,6 +46,7 @@
                 <button id = "Sangyang">Sangyang</button>
                 <button id = "Xiaomi">Xiaomi</button>
                 <button id = "Apple">Apple</button>
+                <div id="answer1"></div>
             </div>
             <div class ="section">
 
