@@ -9,7 +9,7 @@
 .left-box {
     float:left;
     width: 50%;
-    height: 100%;
+    height: 600px;
     padding: 60px;
     text-align: left;
     background: #0F0A0A;
@@ -22,7 +22,7 @@
     width: 50%;
     height: 600px;
     padding: 60px;
-    text-align: right;
+    text-align: center;
     background: #0F0A0A;
     color: #F5EFED;
     font-size: 30px;
