@@ -40,5 +40,13 @@
 }
 
 .container {
-    
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.row {
+    padding: 20px;
+    background: #0F0A0A;
+    color: #F5EFED;
 }
