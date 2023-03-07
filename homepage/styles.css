@@ -80,3 +80,28 @@
     height: 60%;
   }
 
+  .carousel-item a {
+    display: block;
+    width:60%;
+    height: 60%;
+  }
+
+  .carousel-control-prev {
+    color:#036;
+    margin-left: -.5rem;
+    z-index: 10;
+  }
+
+  .carousel-control-next {
+    color:#036;
+    margin-right: -.5rem;
+    z-index: 10;
+  }
+
+  .carousel-control-prev:hover {
+    color:#0084FF;
+  }
+
+  .carousel-control-next:hover {
+    color:#0084FF;
+  }
