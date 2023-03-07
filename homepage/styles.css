@@ -97,6 +97,13 @@ img {
     max-width: 100%;
 }
 
+.cheader {
+    padding: 60px;
+    text-align: center;
+    background: #0F0A0A;
+    color: #FFFFFF;
+    font-size: 30px;
+}
 .cleft-box {
     float:left;
     width: 50%;
@@ -114,6 +121,6 @@ img {
     padding: 60px;
     text-align: center;
     background: #FFFFFF;
-    color: #F5EFED;
+    color: #0F0A0A;
     font-size: 30px;
 }
