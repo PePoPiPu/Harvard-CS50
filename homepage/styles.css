@@ -70,8 +70,13 @@
     font-size: 35px;
 }
 
-.carousel-item {
-    height: 750px;
-    width: 100%;
-}
+.carousel {
+    background:#F5F5F5;
+  }
+
+
+  .carousel-item .img-fluid {
+    width:60%;
+    height: 60%;
+  }
 
