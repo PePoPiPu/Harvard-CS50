@@ -109,7 +109,7 @@ img {
     width: 50%;
     height: 600px;
     padding: 60px;
-    text-align: left;
+    text-align: center;
     background: #FFFFFF;
     color: #0F0A0A;
     font-size: 30px;
@@ -123,4 +123,12 @@ img {
     background: #FFFFFF;
     color: #0F0A0A;
     font-size: 30px;
+}
+
+.centerdiv {
+    width: 50%;
+    height: 500px;
+    padding: 60px;
+    text-align: center;
+    
 }
