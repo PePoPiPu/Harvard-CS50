@@ -79,3 +79,7 @@
     width:60%;
     height: 60%;
   }
+
+  .col-lg-6 {
+    text-align: center;
+  }
