@@ -7,8 +7,9 @@
 }
 
 .left-box {
-    width: 600px;
-    height: 600px;
+    float:left;
+    width: 50%;
+    height: 100%;
     padding: 60px;
     text-align: left;
     background: #0F0A0A;
@@ -17,8 +18,8 @@
 }
 
 .right-box {
-    float: left;
-    width: 600px;
+    float: right;
+    width: 50%;
     height: 600px;
     padding: 60px;
     text-align: right;
