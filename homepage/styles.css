@@ -5,3 +5,11 @@
     color: white;
     font-size: 30px;
 }
+
+.sub-header {
+    padding: 60px;
+    text-align: left;
+    background: #0F0A0A;
+    color: #F5EFED;
+    font-size: 30px;
+}
