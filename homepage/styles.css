@@ -6,7 +6,9 @@
     font-size: 30px;
 }
 
-.sub-header {
+.left-box {
+    width: 500px;
+    height: 500px;
     padding: 60px;
     text-align: left;
     background: #0F0A0A;
