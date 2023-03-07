@@ -17,6 +17,7 @@
 }
 
 .right-box {
+    float: left;
     width: 600px;
     height: 600px;
     padding: 60px;
