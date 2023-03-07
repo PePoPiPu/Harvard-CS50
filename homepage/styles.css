@@ -20,5 +20,8 @@
     width: 600px;
     height: 600px;
     padding: 60px;
-    text-
+    text-align: right;
+    background: #0F0A0A;
+    color: #F5EFED;
+    font-size: 30px;
 }
