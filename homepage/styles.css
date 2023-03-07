@@ -7,11 +7,18 @@
 }
 
 .left-box {
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     padding: 60px;
     text-align: left;
     background: #0F0A0A;
     color: #F5EFED;
     font-size: 30px;
+}
+
+.right-box {
+    width: 600px;
+    height: 600px;
+    padding: 60px;
+    text-
 }
