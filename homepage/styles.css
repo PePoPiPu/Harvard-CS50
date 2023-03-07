@@ -89,3 +89,31 @@
     text-decoration: none;
     color: hotpink;
 }
+
+/* Cameras CSS */
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.cleft-box {
+    float:left;
+    width: 50%;
+    height: 600px;
+    padding: 60px;
+    text-align: left;
+    background: #FFFFFF;
+    color: #0F0A0A;
+    font-size: 30px;
+}
+.cright-box {
+    float: right;
+    width: 50%;
+    height: 600px;
+    padding: 60px;
+    text-align: center;
+    background: #FFFFFF;
+    color: #F5EFED;
+    font-size: 30px;
+}
