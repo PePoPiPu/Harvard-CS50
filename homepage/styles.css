@@ -115,8 +115,8 @@ img {
 .center {
     margin: 0;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    top: 70%;
+    left: 70%;
+    -ms-transform: translate(-120%, -50%);
+    transform: translate(-120%, -50%);
 }
