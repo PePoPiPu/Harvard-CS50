@@ -94,8 +94,35 @@
 }
 
 /* Genres */
+.genres {
+    text-align: center;
+    height: 176px;
+}
+.genres img {
+    display: inline-block;
+    max-width: 600px;
+    height: 600px;
+    margin-top: 20%;
+    padding: 20px 0;
+}
 
+.hoverGenres:hover {
+    background-color: #f2f2f2;
+  }
 
+  @media (min-width: 978px) {
+    .genres-box {
+      margin-right: 0;
+      border: 1px solid #e5e5e5;
+      border-left: 0;
+      border-top: 0;
+      height: 400px;
+    }
+
+    .genres-box.last {
+      border-right: 0;
+    }
+  }
 
 /* Photography CSS */
 
