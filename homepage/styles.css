@@ -104,18 +104,6 @@
 }
 
 
-.box1 img {
-    width: 20%;
-    display: flex;
-    text-align: left;
-}
-
-.box2 img {
-    width: 37%;
-    display: flex;
-    float: right;
-    text-align: center;
-}
 
 /* Photography CSS */
 
