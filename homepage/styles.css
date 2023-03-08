@@ -109,7 +109,15 @@
 }
 
 .box1 img {
-    
+    display: flex;
+    float: left;
+    padding: 80px;
+}
+
+.box2 img {
+    display: flex;
+    float: right;
+    padding: 80px;
 }
 
 /* Photography CSS */
