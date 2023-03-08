@@ -94,16 +94,12 @@
 }
 
 /* Genres */
-.genres-img {
+.genres {
     text-align: center;
     height: 300px;
 }
-.genres-img img {
-    display: inline-block;
-    max-width: 600px;
-    height: 600px;
-    margin-top: 20%;
-    padding: 20px 0;
+.genres img {
+    object-fit: fill;
 }
 
 .hoverGenres:hover {
