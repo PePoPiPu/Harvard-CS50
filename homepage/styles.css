@@ -77,6 +77,16 @@
     }
   }
 
+/* Artists */
+.a-header {
+    padding: 70px;
+    text-align: center;
+    font-size: 50px;
+    background: white;
+    color: #0F0A0A;
+
+}
+
 /* Photography CSS */
 
 .photoheader {
