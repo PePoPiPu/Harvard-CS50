@@ -117,8 +117,7 @@ img {
 
 .left-text {
     padding: 30px;
-    text-align: left;
+    text-align: center;
     font-size: 25px;
-    display: flex;
-    justify-content: center;
+
 }
