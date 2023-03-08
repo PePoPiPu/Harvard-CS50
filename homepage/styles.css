@@ -51,7 +51,13 @@
     background: #0F0A0A;
     color: #F5EFED;
 }
-
+.grid3 >div {
+    height: 200px;
+    background: rgba(0, 0, 0, .4);
+    float: none;
+    display: inline-block;
+    background-clip: content-box;
+}
 /* Photography CSS */
 
 .photoheader {
