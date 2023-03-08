@@ -94,11 +94,11 @@
 }
 
 /* Genres */
-.genres {
+.genres-img {
     text-align: center;
-    height: 176px;
+    height: 300px;
 }
-.genres img {
+.genres-img img {
     display: inline-block;
     max-width: 600px;
     height: 600px;
