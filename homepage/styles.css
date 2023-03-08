@@ -106,18 +106,11 @@ img {
 }
 
 .container2 {
+    height: 40%;
+    width: 40%;
+    margin: 0 auto;
     padding: 30px;
     text-align: center;
     font-size: 35px;
     background: #FFFFFF;
-    display: flex;
-    justify-content: center;
-}
-
-.center {
-    margin: 0;
-    position: absolute;
-    top: 70%;
-    left: 70%;
-
 }
