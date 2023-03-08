@@ -94,12 +94,13 @@
 }
 
 /* Genres */
-.genres {
-    text-align: center;
-    height: 300px;
+.genre {
+    width: 100%;
+    height: 100%;
 }
-.genres img {
-    object-fit: fill;
+
+.genre1 img {
+    object-fit: cover;
 }
 
 .hoverGenres:hover {
