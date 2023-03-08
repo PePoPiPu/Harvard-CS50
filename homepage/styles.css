@@ -64,7 +64,19 @@
     background-color: #f2f2f2;
 }
 
+@media (min-width: 978px) {
+    .favorites-box {
+        margin-right: 0;
+        border: 1px solid #e5e5e5;
+        border-left: 0;
+        border-top: 0;
+        height: 515px;
+    }
 
+    .favorites-box.last {
+        border-right: 0;
+    }
+}
 
 /* Photography CSS */
 
