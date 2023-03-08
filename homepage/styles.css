@@ -114,3 +114,11 @@ img {
     font-size: 35px;
     background: #FFFFFF;
 }
+
+.left-text {
+    padding: 30px;
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
