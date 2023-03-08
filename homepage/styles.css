@@ -110,10 +110,12 @@ img {
     text-align: center;
     font-size: 35px;
     background: #FFFFFF;
+    display: flex;
+    justify-content: center;
 }
 
 .center {
-    margin: 0 auto;
+    margin: 0;
     position: absolute;
     top: 70%;
     left: 70%;
