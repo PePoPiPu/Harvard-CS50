@@ -1,5 +1,9 @@
 /* Navbar CSS */
-
+#welcome-h {
+    color: white;
+    padding: 80px;
+    font-size: 80px;
+}
 /* Homepage CSS */
 .overlay {
     width: 100vw;
