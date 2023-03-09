@@ -53,6 +53,7 @@
 
 .card {
     margin: 60px;
+    display: inline-block;
 }
 
 .overlay {
