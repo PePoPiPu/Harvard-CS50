@@ -15,8 +15,10 @@
 }
 
 .go-down {
+    width: 8%;
+    height: 8%;
     filter: invert(1);
-    transform: scaleX(-1);
+    transform: scaleY(-1);
 }
 
 .page-separation {
