@@ -14,6 +14,10 @@
     font-size: 55px;
 }
 
+.go-down {
+    filter: invert(1)
+}
+
 .page-separation {
     padding: 250px;
 }
