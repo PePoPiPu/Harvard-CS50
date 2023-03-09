@@ -1,5 +1,8 @@
 /* Homepage CSS */
 
+#home-bar {
+    position: fixed;
+}
 .home-wrapper {
     padding: 65px;
 }
