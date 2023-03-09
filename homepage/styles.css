@@ -1,7 +1,7 @@
 /* Universal CSS rules */
 
-body {
-    overflow: hidden;
+body::-webkit.scrollbar {
+    display none;
 }
 
 /* Homepage CSS */
