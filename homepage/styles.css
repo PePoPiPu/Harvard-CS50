@@ -1,6 +1,6 @@
 /* Navbar CSS */
-.navbar .navbar-expand-lg .navbar-light {
-    background: rhba(0,0,0,0.4);
+.navbar {
+    background: rgba(255,255,255,0.4);
 }
 /* Homepage CSS */
 .header {
