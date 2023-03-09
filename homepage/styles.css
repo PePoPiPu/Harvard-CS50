@@ -22,6 +22,21 @@
     position: relative;
     bottom: -250px;
 }
+.img-container {
+    margin: 0 auto;
+    text-align: center;
+    -webkit-animation: mover 2s infinite alternate;
+    animation: mover 2s infinite alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: transalteY(-20px); }
+}
 
 .page-separation {
     padding: 250px;
