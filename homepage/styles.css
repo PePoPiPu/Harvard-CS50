@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    filter: brightness(0.7);
+    filter: brightness(0.85);
     position: absolute;
     top: 0;
     left: 0;
