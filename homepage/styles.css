@@ -15,9 +15,9 @@
 }
 
 .page-separation {
-    padding: 500px;
+    padding: 250px;
 }
-#implementation {
+#p-container {
     margin: 0 auto;
     text-align: center;
 }
@@ -39,7 +39,7 @@
     height: 100vh;
     object-fit: cover;
     filter: brightness(0.7);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
