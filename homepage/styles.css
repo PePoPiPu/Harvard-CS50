@@ -1,8 +1,8 @@
 /* Universal CSS rules */
 
-body::-webkit.scrollbar {
-    display none;
-}
+body::-webkit-scrollbar{
+    display: none;
+  }
 
 /* Homepage CSS */
 
