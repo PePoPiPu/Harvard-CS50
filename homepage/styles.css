@@ -1,6 +1,6 @@
 /* Navbar CSS */
-.container-fluid {
-    background: transparent;
+.navbar .navbar-expand-lg .navbar-light {
+    background: rhba(0,0,0,0.4);
 }
 /* Homepage CSS */
 .header {
