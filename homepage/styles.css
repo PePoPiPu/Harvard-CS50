@@ -1,15 +1,23 @@
 /* Navbar CSS */
+
+.home-wrapper {
+    padding: 65px;
+}
 #welcome-h {
     color: white;
-    padding: 80px;
-    font-size: 80px;
+    font-size: 70px;
+}
+
+#home-p {
+    color: #f7faf8;
+    font-size: 55px;
 }
 /* Homepage CSS */
 .overlay {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    filter: brightness(0.85);
+    filter: brightness(0.7);
     position: absolute;
     top: 0;
     left: 0;
