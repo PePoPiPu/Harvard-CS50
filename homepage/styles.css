@@ -51,12 +51,13 @@
     font-size: 40px;
 }
 
-.card {
+.card-transparent {
     margin: 60px;
     display: inline-block;
     vertical-align: middle;
     width: 18rem;
     height: 10rem;
+    color: white;
 }
 
 
