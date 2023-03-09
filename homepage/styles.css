@@ -1,13 +1,15 @@
 /* Navbar CSS */
-.navbar {
-    background: rgba(255,255,255,0.4);
-}
+
 /* Homepage CSS */
 .overlay {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    filter: brightness(0.7)
+    filter: brightness(0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 /* Music CSS */
