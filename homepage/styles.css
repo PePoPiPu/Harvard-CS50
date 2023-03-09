@@ -1,3 +1,9 @@
+/* Universal CSS rules */
+
+body {
+    overflow: hidden;
+}
+
 /* Homepage CSS */
 
 .home-wrapper {
