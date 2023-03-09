@@ -3,6 +3,7 @@
 .home-wrapper {
     padding: 65px;
 }
+
 #welcome-h {
     color: white;
     font-size: 70px;
@@ -12,6 +13,26 @@
     color: #f7faf8;
     font-size: 55px;
 }
+
+.page-separation {
+    padding: 500px;
+}
+#implementation {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#home-imp {
+    color: #f7faf8;
+    font-size: 40px;
+}
+
+
+
+.card {
+    margin: 60px;
+}
+
 /* Homepage CSS */
 .overlay {
     width: 100vw;
