@@ -54,6 +54,11 @@
 .card {
     margin: 60px;
     display: inline-block;
+    vertical-align: middle;
+}
+
+.card-container {
+    margin: auto;
 }
 
 .overlay {
