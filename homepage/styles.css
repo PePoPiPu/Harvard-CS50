@@ -20,7 +20,7 @@
     filter: invert(1);
     transform: scaleY(-1);
     position: relative;
-    bottom: -250px;
+    bottom: -270px;
 }
 .img-container {
     margin: 0 auto;
