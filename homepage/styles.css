@@ -15,7 +15,8 @@
 }
 
 .go-down {
-    filter: invert(1)
+    filter: invert(1);
+    transform: scaleX(-1);
 }
 
 .page-separation {
