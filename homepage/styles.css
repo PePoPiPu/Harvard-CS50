@@ -1,4 +1,4 @@
-/* Navbar CSS */
+/* Homepage CSS */
 
 .home-wrapper {
     padding: 65px;
@@ -39,7 +39,7 @@
 }
 
 .page-separation {
-    padding: 250px;
+    padding: 450px;
 }
 #p-container {
     margin: 0 auto;
@@ -51,13 +51,10 @@
     font-size: 40px;
 }
 
-
-
 .card {
     margin: 60px;
 }
 
-/* Homepage CSS */
 .overlay {
     width: 100vw;
     height: 100vh;
