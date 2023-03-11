@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-registrants = {}
+REGISTRANTS = {}
 
 
 @app.route("/")
@@ -14,9 +14,9 @@ def index():
 def register():
     name = request.form.get("name")
     sport = request.form.get("sport")
-    registrants[name] = sport
+    REGISTRANTS[name] = sport
     return render_template("success.html")
 
 @app.route("/registrants")
 def registrants():
-    return render_template("registrants.html", registrants=registrants)
+    return render_template("registrants.html", registrants=REGISTRANTS)
