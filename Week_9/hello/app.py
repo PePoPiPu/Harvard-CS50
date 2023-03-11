@@ -5,4 +5,4 @@ app = Flask(__name__) #__name__ refers to the current file. "Turn this file into
 
 @app.route("/") #The @ is called a decorator
 def index():
-    return "hello, world"
+    render_template(index.html)
