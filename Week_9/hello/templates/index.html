@@ -6,6 +6,9 @@
         <title>Hello</title>
     </head>
     <body>
-        hello, {{ name }} <!--Jinja syntax for a placeholder-->
+        <form action="/greet" method="get">
+            <input autocomplete="off" autofocus name="name" placeholder="name" type="text">
+            <button type="submit">Greet</button>
+        </form> <!--Jinja syntax for a placeholder-->
     </body>
 </html>
