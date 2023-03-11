@@ -3,11 +3,10 @@ from flask import Flask, render_template, request
 app = Flask(__name__) #__name__ refers to the current file. "Turn this file into a Flask application"
 
 
-@app.route("/") #The @ is called a decorator
+@app.route("/", methods=["GET", "POST"]) #The @ is called a decorator
 def index():
-    return render_template("index.html")
+    if request.method == "GET":
+        return render_template("index.html")
+    elif request.method == "POST":
+        return render_template("greet.html", name=request.args.get("name", "world"))
 
-
-@app.route("/greet" method=["POST"])
-def greet():
-    return render_template("greet.html", name=request.args.get("name", "world"))
