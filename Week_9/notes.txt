@@ -1,0 +1,33 @@
+Flask
+A file path can be called a route.
+route?key=value, route?key=value&key=value
+
+GET /search?q=cats HTTP/1.1
+Host: www.google.com
+...
+
+We are going to create a server that handles the "parsing". The extraction of the url query. We are going to learn Flask and Jinja.
+
+Flask is a framework. A third party library. Works with python
+Jinja allows us to use placeholders in our webpages.
+
+In the terminal we'll use flask run instead http-server.
+We would need 2 files:
+
+app.py
+templates/file.html's
+
+The most common convention:
+
+app.py
+requirements.txt
+static/ (css files, images, javascript files, etc.)
+templates/
+
+
+from flask import Flask, rendenr_template
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
