@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <form action="/greet" method="post"> <!--Get method puts the key:value pair in the url. Post -->
+    <form action="/greet" method="post"> <!--Get method puts the key:value pair in the url. Post hides it. We have to declare the method in python.-->
         <input autocomplete="off" autofocus name="name" placeholder="name" type="text">
         <button type="submit">Greet</button>
     </form> <!--Jinja syntax for a placeholder-->
