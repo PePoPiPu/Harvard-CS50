@@ -6,3 +6,8 @@ app = Flask(__name__) #__name__ refers to the current file. "Turn this file into
 @app.route("/") #The @ is called a decorator
 def index():
     return render_template("index.html")
+
+
+@app.route("/greet")
+def greet():
+    return render_template("greet.html", name=request.args.get("name", "world"))
