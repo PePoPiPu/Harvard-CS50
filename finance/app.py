@@ -134,7 +134,7 @@ def register():
         # Hash new password
         hash = generate_password_hash(newpass, method="pbkdf2:sha256", salt_length=32)
         # Insert new HASHED password into users
-        db.execute("INSERT )
+        db.execute("INSERT INTO users (hash) VALUES(?)", hash)
         return render_template("login.html")
     # User reached route via GET
     else:
