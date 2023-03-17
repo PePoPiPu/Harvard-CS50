@@ -27,8 +27,10 @@ def index():
     if request.method == "POST":
 
         # TODO: Add the user's entry into the database
-    db.execute()
-        return redirect("/")
+    @app.route(/"register", methods=["POST"])
+    def register():
+        day = request.form.get()
+
 
     else:
 
