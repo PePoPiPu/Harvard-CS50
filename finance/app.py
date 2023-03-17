@@ -54,15 +54,20 @@ def buy():
         symbol = lookup(request.form.get("symbol"))
         if symbol == None:
             return apology("Couldn't find stock")
+        # If the number of shares is less than 1
         if int(request.form.get("shares")) < 1:
             return apology("Must provide a number of shares to buy greater than 0")
+        # Retrieving current cash amount
         cash_current = db.execute("SELECT cash FROM users")
+        # If current cash amount is greater than the total amount to buy, update cash amount
         if cash_current > (int(symbol["price"] * int(request.form.get("shares")))):
             updated_cash = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
             db.execute("UPDATE users (cash) VALUES(?)", updated_cash)
         else:
             return apology("Can't afford number of shares at current price")
         redirect ("/")
+
+    # If request method is GET
     else:
         return render_template("buy.html")
 
