@@ -24,6 +24,34 @@ nav .navbar-brand .green
 
 /* Quoted table style */
 .center {
+    border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.center thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+}
+
+.center th,
+.center td {
+    padding: 12 px 15px;
+}
+
+.center tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.center tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.center tbody tr:last-of-type {
+    border-bottom: 2px solid #009879
 }
