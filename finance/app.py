@@ -114,19 +114,16 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    usernames = db.execute("SELECT username FROM users")
-    passwords = db.execute("SELECT hash FROM users")
-    # Getting username from form
-    username = request.form.get("username")
-    # Getting password from form
-    password = request.form.get("password")
-    # Require that a user inputs a username and password
-    if not username or password not in usernames or passwords:
-        return apology("/register")
-    else:
-        hash = generate_password_hash(password, method="pbkdf2:sha256", salt_Length=32)
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-        return redirect ("/")
+    if request.method == "POST":
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            return apology("must provide username", 403)
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            return apology("must provide password", 403)
+
 
 
 
