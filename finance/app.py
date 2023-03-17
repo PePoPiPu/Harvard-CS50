@@ -117,9 +117,11 @@ def register():
     if request.method == "POST":
 
         # Ensure username was submitted
+        usernames = db.execute("SELECT username FROM users")
         if not request.form.get("username"):
             return apology("must provide username", 403)
-
+        elif request.form.get("username") in usernames:
+            return apology("username already exists", 403)
         # Ensure password was submitted
         elif not request.form.get("password"):
             return apology("must provide password", 403)
