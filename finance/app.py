@@ -110,11 +110,15 @@ def quote():
     # initialize dictionary with returned values
     """Get stock quote."""
     if request.method == "POST":
-        symbol = request.form.get("symbol")
+        if not request.form.get("symbol"):
+            return apology("Must provide symbol")
+
+        symbol = lookup(request.form.get("symbol"))
         if symbol == None:
-            return apology("Can't find that stock!")
-        else:
-            return render_template("quoted.html", symbol=symbol )
+            return apology("Couldn't find stock")
+
+        return render_template("quoted.html", symbol=symbol)
+
     else:
         return render_template("quote.html")
 
