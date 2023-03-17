@@ -56,6 +56,7 @@ def buy():
             return apology("Couldn't find stock")
         if int(request.form.get("shares")) < 1:
             return apology("Must provide a number of shares to buy greater than 0")
+        
         redirect ("/")
     else:
         return render_template("buy.html")
