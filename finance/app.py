@@ -59,7 +59,7 @@ def buy():
         cash_current = db.execute("SELECT cash FROM users")
         if cash_current > int(symbol["name"]):
             updated_cash = cash_current - int(symbol["name"])
-            db.execute("UPDATE cash FROM users)
+            db.execute("UPDATE finance SET cash )
 
         redirect ("/")
     else:
