@@ -63,6 +63,9 @@ def buy():
         if cash_current > (int(symbol["price"] * int(request.form.get("shares")))):
             updated_cash = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
             db.execute("UPDATE users (cash) VALUES(?)", updated_cash)
+            # Create new table to keep track of the purchase
+            table_name = request.form.get("symbol")
+            db.execute("CREATE TABLE VALUES (?)")
         else:
             return apology("Can't afford number of shares at current price")
         redirect ("/")
