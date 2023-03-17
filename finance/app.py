@@ -57,10 +57,11 @@ def buy():
         if int(request.form.get("shares")) < 1:
             return apology("Must provide a number of shares to buy greater than 0")
         cash_current = db.execute("SELECT cash FROM users")
-        if cash_current > int(symbol["name"]):
-            updated_cash = cash_current - int(symbol["name"])
-            db.execute("UPDATE finance SET cash )
-
+        if cash_current > (int(symbol["price"] * int(request.form.get("shares")))):
+            updated_cash = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
+            db.execute("UPDATE users (cash) VALUES(?)", updated_cash)
+        else:
+            return apology("Can't afford number of shares at current price")
         redirect ("/")
     else:
         return render_template("buy.html")
