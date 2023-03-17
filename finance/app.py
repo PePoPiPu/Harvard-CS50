@@ -65,7 +65,7 @@ def buy():
             db.execute("UPDATE users (cash) VALUES(?)", updated_cash)
             # Create new table to keep track of the purchase
             table_name = request.form.get("symbol")
-            db.execute("CREATE TABLE VALUES (?)")
+            db.execute("CREATE TABLE VALUES (?) (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, symbol TEXT NOT NULL, price NUMERIC NOT NULL, username TEXT NOT NULL, time TEXT NOT NULL);", table_name)
         else:
             return apology("Can't afford number of shares at current price")
         redirect ("/")
