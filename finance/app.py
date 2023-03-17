@@ -107,11 +107,13 @@ def logout():
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
+    # initialize dictionary with returned values
+    quote = {}
     """Get stock quote."""
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        name = lookup(symbol)
-        return render_template("quoted.html", name=name)
+        quote = lookup(symbol)
+        return render_template("quoted.html", quote.name=name)
     else:
         return render_template("quote.html")
 
