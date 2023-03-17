@@ -108,11 +108,12 @@ def logout():
 @login_required
 def quote():
     # initialize dictionary with returned values
-    quote = {"name": [], "price": [], "symbol": []}
     """Get stock quote."""
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        quote["name"] = lookup(symbol)
+        quote = {lookup(symbol)}
+        name = quote["name"]
+        
         return render_template("quoted.html", )
     else:
         return render_template("quote.html")
