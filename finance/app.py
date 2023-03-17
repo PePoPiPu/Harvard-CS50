@@ -58,7 +58,7 @@ def buy():
         if int(request.form.get("shares")) < 1:
             return apology("Must provide a number of shares to buy greater than 0")
         # Retrieving current cash amount
-        cash_current = db.execute("SELECT cash FROM users")
+        cash_current = db.execute("SELECT cash FROM users WHERE id = id" id=session["user_id"])
         # If current cash amount is greater than the total amount to buy, update cash amount
         if cash_current > (int(symbol["price"] * int(request.form.get("shares")))):
             updated_cash = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
