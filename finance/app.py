@@ -120,10 +120,11 @@ def register():
         usernames = db.execute("SELECT username FROM users")
         if not request.form.get("username"):
             return apology("must provide username", 403)
+        # If username exists, return apology and 409 code (CONFLICT)
         elif request.form.get("username") in usernames:
-            return apology("username already exists", 403)
+            return apology("username already exists", 409)
         # Ensure password was submitted
-        elif not request.form.get("password"):
+        if not request.form.get("password"):
             return apology("must provide password", 403)
 
 
