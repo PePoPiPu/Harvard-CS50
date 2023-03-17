@@ -115,7 +115,6 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-
         # Ensure username was submitted
         usernames = db.execute("SELECT username FROM users")
         if not request.form.get("username"):
