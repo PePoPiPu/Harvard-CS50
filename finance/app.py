@@ -122,7 +122,9 @@ def register():
     if not username or password not in usernames or passwords:
         return apology("TODO")
     else:
-        
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
+        return redirect (/)
+
 
 
 @app.route("/sell", methods=["GET", "POST"])
