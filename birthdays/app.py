@@ -29,13 +29,9 @@ def index():
         name = request.form.get("name")
         month = request.form.get("month")
         day = request.form.get("day")
-
-
-
+        db.execute("INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)", name, month, day)
     else:
-
         # TODO: Display the entries in the database on index.html
-
         return render_template("index.html")
 
 
