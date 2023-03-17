@@ -116,12 +116,15 @@ def register():
     """Register user"""
     usernames = db.execute("SELECT username FROM users")
     passwords = db.execute("SELECT hash FROM users")
+    # Getting username from form
     username = request.form.get("username")
+    # Getting password from form
     password = request.form.get("password")
-
+    # Require that a user inputs a username and password
     if not username or password not in usernames or passwords:
         return apology("TODO")
     else:
+        hash = generate_password_hash
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
         return redirect (/)
 
