@@ -63,7 +63,7 @@ def buy():
         # If current cash amount is greater than the total amount to buy, update cash amount
         if cash_current > (int(symbol["price"] * int(request.form.get("shares")))):
             updated_cash = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
-            db.execute("UPDATE users (cash) VALUES(?)", updated_cash)
+            db.execute("UPDATE cash FROM users WHERE id = :id", id=session["user_id"])
             # Create new table to keep track of the purchase
             table_name = request.form.get("symbol")
             db.execute("CREATE TABLE VALUES (?) (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, symbol TEXT NOT NULL, price NUMERIC NOT NULL, username TEXT NOT NULL, time TEXT NOT NULL);", table_name)
