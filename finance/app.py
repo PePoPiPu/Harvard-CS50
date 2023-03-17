@@ -54,7 +54,7 @@ def buy():
         symbol = lookup(request.form.get("symbol"))
         if symbol == None:
             return apology("Couldn't find stock")
-        if request.form.get("shares") < 1:
+        if request.form.get(int(("shares"))) < 1:
             return apology("Must provide a number of shares to buy greater than 0")
     else:
         return render_template("buy.html")
