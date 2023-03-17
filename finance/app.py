@@ -50,10 +50,11 @@ def buy():
     if request.method == "POST":
         if not request.form.get("symbol"):
             return apology("Must provide symbol")
-
         symbol = lookup(request.form.get("symbol"))
         if symbol == None:
             return apology("Couldn't find stock")
+        if request.form.get("symbol") < 1:
+            return apology("Must provide a number greater than 0")
     else:
         return render_template("buy.html")
 
