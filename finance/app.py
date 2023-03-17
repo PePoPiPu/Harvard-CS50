@@ -119,8 +119,10 @@ def register():
     username = request.form.get("username")
     password = request.form.get("password")
 
-    if not username or password 
-    return apology("TODO")
+    if not username or password not in usernames or passwords:
+        return apology("TODO")
+    else:
+        
 
 
 @app.route("/sell", methods=["GET", "POST"])
