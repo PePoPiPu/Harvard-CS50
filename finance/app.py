@@ -116,17 +116,26 @@ def register():
     """Register user"""
     if request.method == "POST":
         # Ensure username was submitted
+        newuser = request.form.get("username")
+        newpass = request.form.get("password")
         usernames = db.execute("SELECT username FROM users")
         if not request.form.get("username"):
             return apology("must provide username", 403)
         # If username exists, return apology and 409 code (CONFLICT)
-        elif request.form.get("username") in usernames:
+        elif newuser in usernames:
             return apology("username already exists", 409)
         # Ensure password was submitted
         if not request.form.get("password"):
             return apology("must provide password", 403)
-        elif request.form.get("password") != request.form.get("confirmation"):
+        elif newpass != request.form.get("confirmation"):
             return apology("password doesn't match", 409)
+        # Insert new username into users
+        db.execute("INSERT INTO users (username) VALUES(?)", newuser)
+        # Hash new password
+        hash = generate_password_hash(newpass, method="pbkdf2:sha256", salt_length=32)
+        # Insert new HASHED password into users
+        db.execute("INSERT )
+        return render_template("login.html")
     # User reached route via GET
     else:
         return render_template("register.html")
