@@ -3,7 +3,9 @@
 {% block title %}
     Quoted
 {% endblock %}
-    <h2>Stocks for quoted symbol</h2>
+
+{% block main %}
+    <h2>Stocks for {{ name }}</h2>
     <table>
         <thead>
             <tr>
@@ -16,8 +18,8 @@
             <tr>
                 <td>{{ name }}</td>
                 <td>{{ price }}</td>
-                <td>{{ symbol }}</td>
+                <td>{{ sym }}</td>
             </tr>
         </tbody>
     </table>
-{% block main %}
+{% endblock %}
