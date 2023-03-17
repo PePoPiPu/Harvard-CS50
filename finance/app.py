@@ -124,7 +124,7 @@ def register():
     if not username or password not in usernames or passwords:
         return apology("TODO")
     else:
-        hash = generate_password_hash
+        hash = generate_password_hash(password, method)
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, password)
         return redirect (/)
 
