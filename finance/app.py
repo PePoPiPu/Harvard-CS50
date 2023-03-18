@@ -65,16 +65,17 @@ def buy():
         numeric_price = int(symbol["price"])
         numeric_shares = int(request.form.get("shares"))
         numeric_total = numeric_price * numeric_shares
-        if cash_current < numeric_shares:
-            balance = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
+        if cash_current > numeric_total:
+            balance = cash_current - numeric_total
             id = int(session["user_id"])
             db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, id)
             # Get time of request
             date = request.date
             # Get value at time of purchase
-            init_value = int(request.form.get(symbol["price"]))
+            init_value = int(symbol["price"])
             # Update stocks table with purchase information
             db.execute("UPDATE stocks SET user_id = ?, shares_number = ?, time_of_purchase = ?, value_at_time_of_purchase = ?", id, int(request.form.get("shares")), date, init_value)
+        else:
             return apology("Can't afford number of shares at current price")
         return redirect ("/")
 
