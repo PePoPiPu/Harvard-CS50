@@ -5,7 +5,7 @@
 
 {% block main %}
     <h1>Stocks portfolio for {{ username }}</h1>
-        <table class="center">
+        <table class="center" style="float: left">
             <thead> Purchases
                 <tr>
                     <th>Name</th>
@@ -14,6 +14,15 @@
                     <th>Purchased Price</th>
                     <th>Current Price</th>
                     <th>Time of purchase</th>
+                    <th>Total value of holding</th>
+                </tr>
+            </thead>
+        </table>
+        <table class="center" style="float: right">
+            <thead> My balance
+                <tr>
+                    <th>Current Cash Balance</th>
+                    <th>Projected Grand Total</th>
                 </tr>
             </thead>
         </table>
