@@ -4,5 +4,17 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Stocks porfolio for {{ session }}</h1>
+    <h1>Stocks portfolio for {{ username }}</h1>
+        <table class="center">
+            <thead> Purchases
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Shares Owned</th>
+                    <th>Purchased Price</th>
+                    <th>Current Price</th>
+                    <th>Time of purchase</th>
+                </tr>
+            </thead>
+        </table>
 {% endblock %}

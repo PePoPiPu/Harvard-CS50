@@ -42,9 +42,11 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
-        return render_template("index.html")
         # Select current user's username for display
-        db.
+        row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
+        username = row[0]["username"]
+        return render_template("index.html", username=username)
+
 
 
 @app.route("/buy", methods=["GET", "POST"])
