@@ -74,7 +74,7 @@ def buy():
             # Get value at time of purchase
             init_value = int(symbol["price"])
             # Update stocks table with purchase information
-            db.execute("UPDATE stocks SET user_id = ?, shares_number = ?, time_of_purchase = ?, value_at_time_of_purchase = ?", id, int(request.form.get("shares")), date, init_value)
+            db.execute("UPDATE stocks SET user_id = ?, shares_number = ?, share_symbol= ?, time_of_purchase = ?, value_at_time_of_purchase = ?", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
         else:
             return apology("Can't afford number of shares at current price")
         return redirect ("/")
