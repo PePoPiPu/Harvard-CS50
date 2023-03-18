@@ -62,14 +62,14 @@ def buy():
         row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         cash_current = float(row[0]["cash"])
         # If current cash amount is greater than the total amount to buy, update cash amount
-        if cash_current > (int(symbol["price"] * int(request.form.get("shares")))):
+        if cash_current < (int(symbol["price"] * int(request.form.get("shares")))):
             balance = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
             id = int(session["user_id"])
             db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, id)
             # Get time of request
             date = request.date
             # Get value at time of purchase
-            init_value = request.form.get("symbol[price]")
+            init_value = int(request.form.get(symbol["price"]))
             # Update stocks table with purchase information
             db.execute("UPDATE stocks SET user_id = ?, shares_number = ?, time_of_purchase = ?, value_at_time_of_purchase = ?", id, int(request.form.get("shares")), date, init_value)
             return apology("Can't afford number of shares at current price")
