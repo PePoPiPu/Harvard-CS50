@@ -63,7 +63,8 @@ def buy():
         # If current cash amount is greater than the total amount to buy, update cash amount
         if cash_current > (int(symbol["price"] * int(request.form.get("shares")))):
             balance = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
-            db.execute("UPDATE users SET cash = VALUES(?) WHERE id = :id", balance, id=int(session["user_id"]))
+            id = int(session["user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, id)
             # Create new table to keep track of the purchase
         else:
             return apology("Can't afford number of shares at current price")
