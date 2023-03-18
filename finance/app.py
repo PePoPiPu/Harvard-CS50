@@ -43,6 +43,8 @@ def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
         return render_template("index.html")
+        # Select current user's username for display
+        db.
 
 
 @app.route("/buy", methods=["GET", "POST"])
