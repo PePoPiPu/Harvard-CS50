@@ -74,7 +74,7 @@ def buy():
             # Get value at time of purchase
             init_value = int(symbol["price"])
             # Add user id to table if it doesn't exist
-            db.execute("INSERT user_id = ? INTO stocks", id)
+            db.execute("INSERT INTO stocks (user_id) VALUES(?)", id)
             # Update stocks table with purchase information
             db.execute("UPDATE stocks SET shares_number = ?, share_symbol= ?, time_of_purchase = ?, value_at_time_of_purchase = ?", int(request.form.get("shares")), symbol["symbol"], date, init_value)
         else:
