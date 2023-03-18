@@ -73,10 +73,8 @@ def buy():
             date = request.date
             # Get value at time of purchase
             init_value = int(symbol["price"])
-            # Add user id to table if it doesn't exist
-            db.execute("INSERT INTO stocks (user_id) VALUES(?)", id)
             # Update stocks table with purchase information
-            db.execute("UPDATE stocks SET shares_number = ?, share_symbol= ?, time_of_purchase = ?, value_at_time_of_purchase = ?", int(request.form.get("shares")), symbol["symbol"], date, init_value)
+            db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
         else:
             return apology("Can't afford number of shares at current price")
         return redirect ("/")
