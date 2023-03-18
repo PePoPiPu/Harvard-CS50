@@ -70,7 +70,7 @@ def buy():
             id = int(session["user_id"])
             db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, id)
             # Get time of request
-            date = request.date
+            date = request.date(request.form.get("symbol"))
             # Get value at time of purchase
             init_value = int(symbol["price"])
             # Update stocks table with purchase information
