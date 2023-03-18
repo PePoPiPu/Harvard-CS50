@@ -66,6 +66,8 @@ def buy():
             balance = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
             id = int(session["user_id"])
             db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, id)
+            #Get time of request
+            after_request()
             # Update stocks table with purchase information
             db.execute("UPDATE stocks SET user_id = ?, shares_number = ?, time_of_purchase = ?, value_at_time_of_purchase = ?, current_value = ?", id, int(request.form.get("shares")), #Add time of purchase, #Add value at purchase, #Add current value)
         else:
