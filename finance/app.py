@@ -65,7 +65,8 @@ def buy():
             balance = cash_current - (int(symbol["price"] * int(request.form.get("shares"))))
             id = int(session["user_id"])
             db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, id)
-            # Create new table to keep track of the purchase
+            # Update stocks table with purchase information
+            db.execute("UPDATE stocks SET user_id = ?, shares_number = ?, time_of_purchase = ?, value_at_time_of_purchase = ?, current_value = ?", id, int(request.form.get("shares")))
         else:
             return apology("Can't afford number of shares at current price")
         redirect ("/")
