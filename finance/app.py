@@ -215,6 +215,10 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
+        if not request.form.get("symbol"):
+            return apology("Must provide a share symbol")
+        elif int(request.form.get("shares")) < 1:
+            return apology("Share number must be greater than 0")
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
