@@ -48,7 +48,10 @@ def index():
         # Select all columns from stocks table
         rows = db.execute("SELECT * FROM stocks")
         for row in rows:
-            look = lookup
+            look = lookup(["symbol"])
+            row = ["name"] = look["name"]
+            row = ["price"] = look["price"]
+            row = ["symbol"] = look["symbol"]
         return render_template("index.html", username=username, symbol=symbol)
 
 
