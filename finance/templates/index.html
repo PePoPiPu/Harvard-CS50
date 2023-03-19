@@ -17,23 +17,12 @@
             <tbody>
                 {% for row in rows %}
                 <tr>
-                    <th scope="row">{{ row["symbol"] }}</th>
-                    <td>{{ row["shares"] }}</td>
+                    <th scope="row">{{ row["share_symbol"] }}</th>
+                    <td>{{ row["shares_number"] }}</td>
                     <td>{{ row["price"] }}</td>
                     <td>{{ row["total"] }}</td>
                 </tr>
-                <tr>
-                    <th scope="row">{{ row["symbol"] }}</th>
-                    <td>{{ row["shares"] }}</td>
-                    <td>{{ row["price"] }}</td>
-                    <td>{{ row["total"] }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">{{ row["symbol"] }}</th>
-                    <td>{{ row["shares"] }}</td>
-                    <td>{{ row["price"] }}</td>
-                    <td>{{ row["total"] }}</td>
-                </tr>
+                {% endfor %}
             </tbody>
             </table>
             <table class="table table-hover">
@@ -46,16 +35,8 @@
                 <div style="padding: 50px"></div>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
+                        <th scope="row">{{ cash }}</th>
+                        <td>{{ sum }}</td>
                     </tr>
                 </tbody>
                 </table>
