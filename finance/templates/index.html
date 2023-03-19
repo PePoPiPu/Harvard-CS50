@@ -15,23 +15,24 @@
                 </tr>
             </thead>
             <tbody>
+                {% for row in rows %}
                 <tr>
-                    <th scope="row">{{ stock }}</th>
-                    <td></td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">{{ row["symbol"] }}</th>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ row["price"] }}</td>
+                    <td>{{ row["total"] }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">{{ owned }}</th>
-                    <td>{{ share_number }}</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <th scope="row">{{ row["symbol"] }}</th>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ row["price"] }}</td>
+                    <td>{{ row["total"] }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">{{ owned }}</th>
-                    <td>{{ share_number }}</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                    <th scope="row">{{ row["symbol"] }}</th>
+                    <td>{{ row["shares"] }}</td>
+                    <td>{{ row["price"] }}</td>
+                    <td>{{ row["total"] }}</td>
                 </tr>
             </tbody>
             </table>
