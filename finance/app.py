@@ -224,9 +224,10 @@ def sell():
         # Get current user balance
         cash = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         # Get total value of the current sale
-        rows2 : 
+        symbol = lookup(request.form.get("symbol"))
         shares = int(request.form.get("shares"))
-        updated_cash = cash + (symbol["price"] * shares)
+        sale_value = int(symbol["price"]) * shares
+        updated_cash = cash + sale_value
         # Update user's balance
         db.execute("UPDATE users SET cash = ? WHERE id = :id", updated_cash, id=session["user_id"])
         return redirect("/")
