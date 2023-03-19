@@ -46,7 +46,9 @@ def index():
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row[0]["username"]
         # Select all columns from stocks table
-        rows = db.execute("SELECT share_symbol FROM stocks")
+        rows = db.execute("SELECT * FROM stocks")
+        for row in rows:
+            look = lookup
         return render_template("index.html", username=username, symbol=symbol)
 
 
