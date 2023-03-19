@@ -47,7 +47,9 @@ def index():
         username = row[0]["username"]
         row1 = db.execute("SELECT share_symbol FROM stocks WHERE id = :id", id=session["user_id"])
         owned = row1[0]["share_symbol"]
-        return render_template("index.html", username=username, owned=owned)
+        row2 = db.execute("SELECT shares_number FROM stocks WHERE id = :id", id=session["user_id"])
+        share_number = row2[0]["shares_number"]
+        return render_template("index.html", username=username, owned=owned, share_number=share_number)
 
 
 
