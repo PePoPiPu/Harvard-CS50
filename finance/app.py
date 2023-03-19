@@ -42,10 +42,12 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
-        # Select current user's username for display
+        # Select current username
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row[0]["username"]
-        return render_template("index.html", username=username)
+        # Select all columns from stocks table
+        stocks = db.execute("SELECT * FROM stocks")
+        return render_template("index.html", username=username, stocks=stocks)
 
 
 
