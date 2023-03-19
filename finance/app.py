@@ -42,6 +42,11 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
+        # Get current balance from user
+        c_row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
+        cash = c_row[0]["cash"]
+        # Declaring sum valuable to have a total of the holdings
+        sum = cash
         # Select current username
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row[0]["username"]
@@ -51,8 +56,8 @@ def index():
             look = lookup(["symbol"])
             row = ["name"] = look["name"]
             row = ["price"] = look["price"]
-            row = ["symbol"] = look["symbol"]
-        return render_template("index.html", username=username, symbol=symbol)
+            row = ["total"] = row["price"] * row["shares"]
+        return render_template("index.html", username=username)
 
 
 
