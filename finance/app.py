@@ -229,10 +229,11 @@ def sell():
         shares = int(request.form.get("shares"))
         price = int(symbol["price"])
         sale_value = shares * price
-        updated_cash = cash - sale_value
+        updated_cash = cash + sale_value
         id = int(session["user_id"])
         # Update user's balance
-        db.execute("UPDATE users SET cash = ? WHERE id = :id", updated_cash, id)
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", updated_cash, id)
+        # Update stocks table
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
