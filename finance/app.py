@@ -217,4 +217,5 @@ def sell():
     if request.method == "POST":
         return render_template("sell.hmtl")
     else:
+        row = db.execute("SELECT shares FROM stocks")
         return render_template("sell.html")
