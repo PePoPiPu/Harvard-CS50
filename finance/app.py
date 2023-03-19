@@ -215,7 +215,7 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-        return render_template("sell.hmtl")
+        return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
         for row in rows:
