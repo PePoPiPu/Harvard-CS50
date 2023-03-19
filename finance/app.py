@@ -62,7 +62,7 @@ def index():
             # Convert values to usd
             row["price"] = usd(row["price"])
             row["total"] = usd(row["total"])
-        return render_template("index.html", rows=rows, cash=usd(cash), sum=usd(sum))
+        return render_template("index.html",username=username, rows=rows, cash=usd(cash), sum=usd(sum))
 
 
 
@@ -219,5 +219,6 @@ def sell():
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
         for row in rows:
-            
-        return render_template("sell.html")
+            look = lookup(row["share_symbol"])
+            row["name"] = look["name"]
+        return render_template("sell.html", rows=rows)
