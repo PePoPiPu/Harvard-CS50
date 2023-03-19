@@ -45,7 +45,9 @@ def index():
         # Select current user's username for display
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row[0]["username"]
-        return render_template("index.html", username=username)
+        row1 = db.execute("SELECT share_symbol FROM stocks WHERE id = :id", id=session["user_id"])
+        owned = row1[0]["share_symbol"]
+        return render_template("index.html", username=username, owned=owned)
 
 
 
