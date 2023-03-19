@@ -57,7 +57,12 @@ def index():
             row = ["name"] = look["name"]
             row = ["price"] = look["price"]
             row = ["total"] = row["price"] * row["shares"]
-        return render_template("index.html", username=username)
+
+            sum += row["total"]
+            # Convert values to usd
+            row["price"] = usd(row["price"])
+            row["total"] = usd(row["total"])
+        return render_template("index.html", rows=rows, cash=usd(cash), sum=usd(sum))
 
 
 
