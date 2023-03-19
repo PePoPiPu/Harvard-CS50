@@ -221,7 +221,10 @@ def sell():
             return apology("Must provide a number of shares to sell")
         elif int(request.form.get("shares")) < 1:
             return apology("Share number must be greater than 0")
-
+        # Get current user balance
+        cash = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
+        # Get total value of the current sale
+        symbol = db.execute("SELECT share_symbol FROM )
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
