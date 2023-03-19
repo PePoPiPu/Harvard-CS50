@@ -53,10 +53,10 @@ def index():
         # Select all columns from stocks table
         rows = db.execute("SELECT * FROM stocks")
         for row in rows:
-            look = lookup(["symbol"])
-            row = ["name"] = look["name"]
-            row = ["price"] = look["price"]
-            row = ["total"] = row["price"] * row["shares"]
+            look = lookup(row["symbol"])
+            row["name"] = look["name"]
+            row["price"] = look["price"]
+            row["total"] = row["price"] * row["shares"]
 
             sum += row["total"]
             # Convert values to usd
