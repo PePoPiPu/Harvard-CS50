@@ -47,6 +47,8 @@ def index():
         username = row[0]["username"]
         # Select all columns from stocks table
         symbol = db.execute("SELECT share_symbol FROM stocks")
+        for i in symbol:
+            stock = symbol[i]["share_symbol"]
         return render_template("index.html", username=username, symbol=symbol)
 
 
