@@ -217,10 +217,10 @@ def sell():
     if request.method == "POST":
         if not request.form.get("symbol"):
             return apology("Must provide a share symbol")
-        elif int(request.form.get("shares")) < 1:
-            return apology("Share number must be greater than 0")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
+        elif int(request.form.get("shares")) < 1:
+            return apology("Share number must be greater than 0")
 
         return redirect("/")
     else:
