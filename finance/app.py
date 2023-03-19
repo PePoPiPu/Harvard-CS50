@@ -222,12 +222,14 @@ def sell():
         elif int(request.form.get("shares")) < 1:
             return apology("Share number must be greater than 0")
         # Get current user balance
-        cash = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
+        c_row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
+        cash = float(c_row[0]["cash"])
         # Get total value of the current sale
         symbol = lookup(request.form.get("symbol"))
         shares = int(request.form.get("shares"))
-        sale_value = int(symbol["price"]) * shares
-        updated_cash = cash + sale_value
+        price = int(symbol["price"])
+        sale_value = shares * price
+        updated_cash = cash - sale_value
         # Update user's balance
         db.execute("UPDATE users SET cash = ? WHERE id = :id", updated_cash, id=session["user_id"])
         return redirect("/")
