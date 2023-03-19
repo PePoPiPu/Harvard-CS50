@@ -18,10 +18,10 @@
                 <tr>
                     {% for shares_symbol in stocks %}
                     <th scope="row">{{ stocks.share_symbol }}</th>
-                    {% endfor %}
-                    <td>{{ share_number }}</td>
+                    <td>{{ stocks.share_number }}</td>
                     <td>Otto</td>
                     <td>@mdo</td>
+                    {% endfor %}
                 </tr>
                 <tr>
                     <th scope="row">{{ owned }}</th>
