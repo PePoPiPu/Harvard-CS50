@@ -80,6 +80,8 @@ def buy():
         # If the number of shares is less than 1
         if int(request.form.get("shares")) < 1:
             return apology("Must provide a number of shares to buy greater than 0")
+        elif len(request.form.get("shares")) == 0:
+            return apology("Must provide a number of shares to sell")
         # Retrieving current cash amount
         row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         cash_current = float(row[0]["cash"])
@@ -253,9 +255,10 @@ def sell():
         if current_shares > 1:
             id = session["user_id"]
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
-        if current_shares < 1:
+        elif current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
-        
+        elif shares > old_shares:
+            return apology("You're trying to sell more shares than you have")
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
