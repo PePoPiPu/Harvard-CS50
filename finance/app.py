@@ -77,11 +77,10 @@ def buy():
         symbol = lookup(request.form.get("symbol"))
         if symbol == None:
             return apology("Couldn't find stock")
-        # If the number of shares is less than 1
-        if int(request.form.get("shares")) < 1:
-            return apology("Must provide a number of shares to buy greater than 0")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
+        elif int(request.form.get("shares")) < 1:
+            return apology("Share number must be greater than 0")
         # Retrieving current cash amount
         row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         cash_current = float(row[0]["cash"])
