@@ -88,6 +88,7 @@ def buy():
         numeric_price = int(symbol["price"])
         numeric_shares = int(request.form.get("shares"))
         numeric_total = numeric_price * numeric_shares
+        # If got enough cash and row doesn't exist, insert it
         if cash_current > numeric_total:
             balance = cash_current - numeric_total
             id = int(session["user_id"])
@@ -96,6 +97,7 @@ def buy():
             date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             # Get value at time of purchase
             init_value = int(symbol["price"])
+            if 
             # Update stocks table with purchase information
             db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
         else:
