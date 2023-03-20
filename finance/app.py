@@ -182,22 +182,27 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
+
         # Ensure username was submitted
         newuser = request.form.get("username")
         newpass = request.form.get("password")
         usernames = db.execute("SELECT username FROM users")
         if not request.form.get("username"):
             return apology("must provide username", 403)
+
         # If username exists, return apology and 409 code (CONFLICT)
         elif newuser in usernames:
             return apology("username already exists", 409)
+
         # Ensure password was submitted
         if not request.form.get("password"):
             return apology("must provide password", 403)
         elif newpass != request.form.get("confirmation"):
             return apology("password doesn't match", 409)
+
         # Hash new password
         hash = generate_password_hash(newpass, method="pbkdf2:sha256", salt_length=32)
+
         # Insert new username and hashed password into username
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", newuser, hash)
 
@@ -215,15 +220,18 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
+
         if not request.form.get("symbol"):
             return apology("Must provide a share symbol")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
         elif int(request.form.get("shares")) < 1:
             return apology("Share number must be greater than 0")
+
         # Get current user balance
         c_row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         cash = float(c_row[0]["cash"])
+
         # Get total value of the current sale
         symbol = lookup(request.form.get("symbol"))
         shares = int(request.form.get("shares"))
@@ -231,20 +239,23 @@ def sell():
         sale_value = shares * price
         updated_cash = cash + sale_value
         id = int(session["user_id"])
+
         # Update user's balance
         db.execute("UPDATE users SET cash = ? WHERE id = ?", updated_cash, id)
+
         # Update stocks table
         current_symbol = request.form.get("symbol")
         row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND ?", current_symbol, id)
         old_shares = row[0]["shares_number"]
         current_shares = shares - int(old_shares)
+
         # Substract number of shares sold to current shares if it's more than 0 and update the database
         if current_shares > 1:
             id = session["user_id"]
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
-
+        
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
