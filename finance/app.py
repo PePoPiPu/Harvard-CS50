@@ -243,7 +243,7 @@ def sell():
             current_shares = shares - int(old_shares)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares == 0:
-            db.execute("DELETE FROM stocks WHERE stock_symbol = ?", current_shares)
+            db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_shares)
 
         return redirect("/")
     else:
