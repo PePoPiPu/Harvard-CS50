@@ -234,13 +234,14 @@ def sell():
         # Update user's balance
         db.execute("UPDATE users SET cash = ? WHERE id = ?", updated_cash, id)
         # Update stocks table
-        row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND ?", symbol, id)
+        current_symbol = request.form.get("symbol")
+        row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND ?", current_symbol, id)
         old_shares = row[0]["shares_number"]
         current_shares = shares - int(old_shares)
         # Substract number of shares sold to current shares if it's more than 0 and update the database
         if current_shares > 1:
             id = session["user_id"]
-            db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, symbol)
+            db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_shares)
 
