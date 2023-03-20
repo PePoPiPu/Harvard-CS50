@@ -239,7 +239,7 @@ def sell():
             current_symbol = request.form.get("symbol")
             id = session["user_id"]
             row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND ?", current_symbol, id)
-            old_shares = row[0]["share_symbol"]
+            old_shares = row[0]["shares_number"]
             current_shares = shares - int(old_shares)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         else:
