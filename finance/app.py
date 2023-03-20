@@ -234,6 +234,12 @@ def sell():
         # Update user's balance
         db.execute("UPDATE users SET cash = ? WHERE id = ?", updated_cash, id)
         # Update stocks table
+        # Substract number of sahres sold to current shares if it's more than 0 and update the database
+
+        old_shares = db.execute("SELECT shares_number FROM stocks")
+        current_shares = int(request.form.get("shares") - int(old_shares))
+        if shares = 0:
+            db.execute("UPDATE stocks SET shares_number = ?", current_shares)
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
