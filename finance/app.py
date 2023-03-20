@@ -237,7 +237,8 @@ def sell():
         # Substract number of shares sold to current shares if it's more than 0 and update the database
         if shares > 1:
             current_symbol = request.form.get("symbol")
-            row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND id = :id", current_symbol, id=session["user_id"])
+            id = session["user_id"]
+            row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND ?", current_symbol, id)
             old_shares = row[0]["share_symbol"]
             current_shares = shares - int(old_shares)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
