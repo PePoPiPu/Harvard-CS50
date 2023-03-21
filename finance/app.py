@@ -100,7 +100,7 @@ def buy():
 
             # !!!B U G !!!
 
-            # Use logic to check if row exists!
+            # Bug should be fixed. Testing is required
             checker = db.execute("SELECT 1 FROM stocks WHERE share_symbol = ?", symbol)
             if checker == 1:
                 current_shares = ("SELECT FROM stocks shares_number WHERE share_symbol = ?", symbol)
