@@ -103,11 +103,12 @@ def buy():
             # Bug should be fixed. Testing is required
             checker = db.execute("SELECT 1 FROM stocks WHERE share_symbol = ?", symbol)
             if checker == 1:
-                current_shares = ("SELECT FROM stocks shares_number WHERE share_symbol = ?", symbol)
+                current_shares = db.execute("SELECT FROM stocks shares_number WHERE share_symbol = ?", symbol)
                 total_shares = numeric_shares + current_shares
                 db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, symbol)
 
-                # Updating transactions table 
+                # Updating transactions table
+                transaction_checker = db.execute("SELECT FROM transactions )
             else:
                 db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
 
