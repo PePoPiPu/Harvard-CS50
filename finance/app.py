@@ -97,9 +97,13 @@ def buy():
             date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             # Get value at time of purchase
             init_value = int(symbol["price"])
-            if 
-            # Update stocks table with purchase information
+
+            # !!!B U G !!!
+
+            # Use logic to check if row exists!
             db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
+
+            # !!! B U G !!!
         else:
             return apology("Can't afford number of shares at current price")
         return redirect ("/")
