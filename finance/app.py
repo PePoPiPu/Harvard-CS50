@@ -302,7 +302,7 @@ def sell():
         for row in rows:
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
-        return render_template("sell.html", rows=rows)
+        return render_template("sell.html", rows=rows) 
 
 
 
