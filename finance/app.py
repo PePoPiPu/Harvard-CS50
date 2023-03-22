@@ -107,7 +107,7 @@ def buy():
                 total_shares = numeric_shares + current_shares
                 db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, symbol)
 
-                # Updating transactions table
+                # Updating transactions table. Testing is required
                 transaction_checker = db.execute("SELECT 1 FROM transactions bought WHERE share_symbol = ? AND user_id = ?", symbol, id)
                 if transaction_checker == 1:
                     # Update transactions table
