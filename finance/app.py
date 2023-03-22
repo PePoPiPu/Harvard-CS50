@@ -272,6 +272,9 @@ def sell():
         old_shares = row[0]["shares_number"]
         current_shares = shares - int(old_shares)
 
+        # Update transactions table
+        transaction_checker = db.execute("SELECT 1 FROM transactions WHERE )
+
         # Substract number of shares sold to current shares if it's more than 0 and update the database
         if current_shares > 1:
             id = session["user_id"]
@@ -289,5 +292,4 @@ def sell():
         return render_template("sell.html", rows=rows)
 
 
-    # Update transactions table
-transaction_checker = db.execute("SELECT 1 FROM transactions WHERE )
+
