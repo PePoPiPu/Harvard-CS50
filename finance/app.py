@@ -133,6 +133,7 @@ def buy():
 def history():
     """Show history of transactions"""
     if request.method == "GET":
+        
         return render_template("history.html")
 
 
@@ -275,9 +276,10 @@ def sell():
         # Update transactions table
         transaction_checker = db.execute("SELECT 1 FROM transactions sold WHERE share_symbol = ? AND user_id = ?", symbol, id)
         if transaction_checker == 1:
-            
             # Update transactions table
-            db.execute()
+            db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, symbol)
+        else:
+            db.execute("INSERT INTO transactions (sold) VALUES ('Sold') WHERE user_id = ? AND share_symbol = ?", id, symbol)
 
         # Substract number of shares sold to current shares if it's more than 0 and update the database
         if current_shares > 1:
