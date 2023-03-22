@@ -291,7 +291,8 @@ def sell():
             db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, current_symbol)
         else:
             # Create a new row for the share symbol and user id that says "sold"
-            db.execute("INSERT INTO transactions (sold) VALUES(sold = 'sold', user_id = ?, share_symbol = ?", id, current_symbol)
+            value = "sold"
+            db.execute("INSERT INTO transactions (sold) VALUES(sold = ?, user_id = ?, share_symbol = ?",value, id, current_symbol)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
