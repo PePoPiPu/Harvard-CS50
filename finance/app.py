@@ -133,7 +133,7 @@ def buy():
 def history():
     """Show history of transactions"""
     if request.method == "GET":
-        
+        username =
         return render_template("history.html")
 
 
