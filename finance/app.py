@@ -280,17 +280,17 @@ def sell():
 
         # Update stocks table
         current_symbol = request.form.get("symbol")
-        row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", symbol, id)
+        row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
         old_shares = row[0]["shares_number"]
         current_shares = shares - int(old_shares)
 
         # Update transactions table
-        transaction_checker = db.execute("SELECT 1 FROM transactions sold WHERE share_symbol = ? AND user_id = ?", symbol, id)
+        transaction_checker = db.execute("SELECT 1 FROM transactions sold WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
         if transaction_checker == 1:
             # Update transactions table
-            db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, symbol)
+            db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, current_symbol)
         else:
-            db.execute("INSERT INTO transactions (sold) VALUES ('Sold') WHERE user_id = ? AND share_symbol = ?", id, symbol)
+            db.execute("INSERT INTO transactions (sold) VALUES ('Sold') WHERE user_id = ? AND share_symbol = ?", id, current_symbol)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
