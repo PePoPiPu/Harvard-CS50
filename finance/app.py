@@ -280,7 +280,7 @@ def sell():
 
         # Update stocks table
         current_symbol = request.form.get("symbol")
-        row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
+        row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", symbol, id)
         old_shares = row[0]["shares_number"]
         current_shares = shares - int(old_shares)
 
