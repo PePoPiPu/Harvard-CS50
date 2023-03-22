@@ -138,6 +138,10 @@ def history():
 
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row [0]["username"]
+
+        # Select all columns from transaction table
+        rows = db.execute("SELECT * FROM stocks")
+        for row in rows:
         return render_template("history.html", username=username)
 
 
