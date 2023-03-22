@@ -287,3 +287,7 @@ def sell():
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
         return render_template("sell.html", rows=rows)
+
+
+    # Update transactions table
+transaction_checker = db.execute("SELECT 1 FROM transactions WHERE )
