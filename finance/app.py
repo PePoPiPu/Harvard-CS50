@@ -140,8 +140,11 @@ def history():
         username = row [0]["username"]
 
         # Select all columns from transaction table
-        rows = db.execute("SELECT * FROM stocks")
+        rows = db.execute("SELECT * FROM stocks JOIN transactions ON transactions.user_id = stocks.user_id")
         for row in rows:
+            row["bought"]
+            row["value_at_time_of_purchase"]
+            row["time_of_purchase"]
         return render_template("history.html", username=username)
 
 

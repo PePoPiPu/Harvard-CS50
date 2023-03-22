@@ -17,10 +17,10 @@
             <tbody>
                 {% for row in rows %}
                 <tr>
-                    <th scope="row">{{ row["share_symbol"] }}</th>
-                    <td>{{ row["shares_number"] }}</td>
-                    <td>{{ row["price"] }}</td>
-                    <td>{{ row["total"] }}</td>
+                    <th scope="row">{{ row["bought"] }}</th>
+                    <td>{{ row["value_at_time_purchase"] }}</td>
+                    <td>{{ row["time_of_purchase"] }}</td>
+                    <td>{{ row["time_of_purchase"] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
