@@ -292,6 +292,7 @@ def sell():
         else:
             # Create a new row for the share symbol and user id that says "sold"
             value = "sold"
+            # Gives "foreign key mismatch" error
             db.execute("INSERT INTO transactions (sold, user_id, share_symbol) VALUES(?, ?, ?)", value, id, current_symbol)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
@@ -301,7 +302,7 @@ def sell():
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
-        for row in rows: 
+        for row in rows:
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
         return render_template("sell.html", rows=rows)
