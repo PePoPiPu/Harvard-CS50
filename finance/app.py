@@ -290,7 +290,8 @@ def sell():
             # Update transactions table
             db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, current_symbol)
         else:
-            db.execute("INSERT INTO transactions (sold) WHERE user_id = ? AND share_symbol = ? VALUES('Sold')", id, current_symbol)
+            # Create a new row for the share symbol and user id that says "sold"
+            db.execute("INSERT INTO transactions (sold) VALUES(sold = 'sold', user_id = ?, share_symbol = ?", id, current_symbol)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
@@ -302,7 +303,7 @@ def sell():
         for row in rows:
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
-        return render_template("sell.html", rows=rows) 
+        return render_template("sell.html", rows=rows)
 
 
 
