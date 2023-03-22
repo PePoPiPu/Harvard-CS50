@@ -301,7 +301,7 @@ def sell():
         return redirect("/")
     else:
         rows = db.execute("SELECT share_symbol FROM stocks")
-        for row in rows:
+        for row in rows: 
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
         return render_template("sell.html", rows=rows)
