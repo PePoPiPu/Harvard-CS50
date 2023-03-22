@@ -133,8 +133,12 @@ def buy():
 def history():
     """Show history of transactions"""
     if request.method == "GET":
-        username =
-        return render_template("history.html")
+
+        # Get current username for display
+
+        row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
+        username = row [0]["username"]
+        return render_template("history.html", username=username)
 
 
 @app.route("/login", methods=["GET", "POST"])
