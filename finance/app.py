@@ -273,7 +273,11 @@ def sell():
         current_shares = shares - int(old_shares)
 
         # Update transactions table
-        transaction_checker = db.execute("SELECT 1 FROM transactions WHERE )
+        transaction_checker = db.execute("SELECT 1 FROM transactions sold WHERE share_symbol = ? AND user_id = ?", symbol, id)
+        if transaction_checker == 1:
+            
+            # Update transactions table
+            db.execute()
 
         # Substract number of shares sold to current shares if it's more than 0 and update the database
         if current_shares > 1:
