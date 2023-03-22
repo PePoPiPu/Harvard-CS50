@@ -111,9 +111,9 @@ def buy():
                 transaction_checker = db.execute("SELECT 1 FROM transactions bought WHERE share_symbol = ? AND user_id = ?", symbol, id)
                 if transaction_checker == 1:
                     # Update transactions table
-                    db.execute("UPDATE transactions SET bought = bought WHERE id = ? AND ", id=session["user_id"])
+                    db.execute("UPDATE transactions SET bought = bought WHERE user_id = ? AND share_symbol = ?", id, symbol)
                 else:
-                    db.execute("INSERT INTO transactions (bought) VALUES ('Bought')")
+                    db.execute("INSERT INTO transactions (bought) VALUES ('Bought') WHERE user_id = ? AND share_symbol = ?", id, symbol)
 
             else:
                 db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
