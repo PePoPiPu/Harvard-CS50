@@ -291,10 +291,6 @@ def sell():
             db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, symbol)
         else:
             db.execute("INSERT INTO transactions (sold) VALUES ('Sold') WHERE user_id = ? AND share_symbol = ?", id, symbol)
-
-        # Substract number of shares sold to current shares if it's more than 0 and update the database
-        if current_shares > 1:
-            id = session["user_id"]
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         elif current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
