@@ -234,11 +234,15 @@ def register():
 
         # Check if user exists
         row = db.execute("SELECT username FROM users WHERE username = ?", newuser)
+
+        # Check if any rows are returned from the query
+        row_checker 
+
         user_check = row[0]["username"]
         if newuser == user_check:
             return apology ("Username already exists")
-        else:
-            
+        elif
+
         # Password length validation
         if len(newpass) < 8:
             return apology("Password must be 8 characters long", 403)
