@@ -116,7 +116,8 @@ def buy():
 
             # Update stocks table
             current_symbol = request.form.get("symbol")
-            checker_row = db.execute("SELECT COUNT(1) FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
+            checker_row = db.execute(
+                "SELECT COUNT(1) FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
             checker = checker_row[0]["COUNT(1)"]
             if checker == 1:
                 current_row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
@@ -124,14 +125,16 @@ def buy():
                 total_shares = numeric_shares + int(current_shares)
                 db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, current_symbol)
             else:
-                db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
+                db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(
+                    request.form.get("shares")), symbol["symbol"], date, init_value)
 
             # Insert into transactions table
-            db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, 'Purchase', '--', '--', '--', ?, ?, ?)", id, current_symbol, init_value, date, request.form.get("shares"))
+            db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, 'Purchase', '--', '--', '--', ?, ?, ?)",
+                        id, current_symbol, init_value, date, request.form.get("shares"))
 
         else:
             return apology("Can't afford number of shares at current price")
-        return redirect ("/")
+        return redirect("/")
 
     # If request method is GET
     else:
@@ -146,7 +149,7 @@ def history():
 
         # Get current username for display
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
-        username = row [0]["username"]
+        username = row[0]["username"]
 
         # Select all columns from transaction table
         rows = db.execute("SELECT * FROM transactions WHERE user_id = :id", id=session["user_id"])
@@ -244,7 +247,7 @@ def register():
             row = db.execute("SELECT username FROM users WHERE username = ?", newuser)
             user_check = row[0]["username"]
             if newuser == user_check:
-                return apology ("Username already exists")
+                return apology("Username already exists")
         else:
 
             # Password length validation
@@ -268,9 +271,6 @@ def register():
     # User reached route via GET
     else:
         return render_template("register.html")
-
-
-
 
 
 @app.route("/sell", methods=["GET", "POST"])
@@ -324,7 +324,8 @@ def sell():
         # Insert new transaction
         sale_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         check_id = session["user_id"]
-        db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?,'Sale', ?, ?, ?, '--', '--', '--')", check_id, current_symbol, sale_time, price, shares)
+        db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?,'Sale', ?, ?, ?, '--', '--', '--')",
+                    check_id, current_symbol, sale_time, price, shares)
         db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ? AND user_id = ?", current_shares, current_symbol, id)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
@@ -337,6 +338,4 @@ def sell():
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
         return render_template("sell.html", rows=rows)
-
-
 
