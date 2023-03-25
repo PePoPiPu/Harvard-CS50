@@ -108,7 +108,7 @@ def buy():
                 total_shares = numeric_shares + int(current_shares)
                 db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, current_symbol)
             else:
-                db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
+                db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?) WHERE user_id = ?", id, int(request.form.get("shares")), symbol["symbol"], date, init_value, id)
 
             # Insert into transactions table
             db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, 'Purchase', '--', '--', '--', ?, ?, ?)", id, current_symbol, init_value, date, request.form.get("shares"))
