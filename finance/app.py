@@ -219,6 +219,7 @@ def register():
         # If username exists, return apology and 409 code (CONFLICT)
         elif newuser in usernames:
             return apology("username already exists", 409)
+        elif newpass 
 
         # Ensure password was submitted
         if not request.form.get("password"):
