@@ -275,7 +275,7 @@ def sell():
         current_symbol = request.form.get("symbol")
         row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
         old_shares = row[0]["shares_number"]
-        current_shares = shares - int(old_shares)
+        current_shares = int(old_shares) - shares
 
         # Insert new transaction
         sale_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
