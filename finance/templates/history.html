@@ -9,18 +9,16 @@
         <table class="table table-hover" name="shares_bought">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Purchased Shares</th>
+                    <th scope="col">Purchased shares</th>
                     <th scope="col">Value of purchase</th>
                     <th scope="col">Date of purchase</th>
-                    <th scope="col">Time of purchase</th>
                 </tr>
             </thead>
             <tbody>
                 {% for row in rows %}
                 <tr>
-                    <th scope="row">{{ row["bought"] }}</th>
-                    <td>{{ row["value_at_time_purchase"] }}</td>
-                    <td>{{ row["time_of_purchase"] }}</td>
+                    <th scope="row">{{ row["symbol"] }}</th>
+                    <td>{{ row["purchase_value"] }}</td>
                     <td>{{ row["time_of_purchase"] }}</td>
                 </tr>
                 {% endfor %}
@@ -32,13 +30,12 @@
                         <th scope="col">Sold Shares</th>
                         <th scope="col">Value of sale</th>
                         <th scope="col">Date of sale</th>
-                        <th scope="col">Time of sale</th>
                     </tr>
                 </thead>
                 <div style="padding: 50px"></div>
                 <tbody>
                     <tr>
-                        <th scope="row">{{ cash }}</th>
+                        <th scope="row">{{ sold }}</th>
                         <td>{{ sum }}</td>
                     </tr>
                 </tbody>

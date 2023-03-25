@@ -127,16 +127,20 @@ def history():
     if request.method == "GET":
 
         # Get current username for display
-
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row [0]["username"]
 
         # Select all columns from transaction table
-        rows = db.execute("SELECT * FROM stocks JOIN transactions ON transactions.user_id = stocks.user_id")
+        rows = db.execute("SELECT * FROM transactions")
+        row = db.execute("SELECT symbol FROM transactions WHERE bought = 'bought'")
+        for row in row:
+            row["symbol"]
         for row in rows:
-            row["bought"]
-            row["value_at_time_of_purchase"]
+            row["purchase_value"]
             row["time_of_purchase"]
+            row["sold"]
+            row["sell_value"]
+            row["time_of_sale"]
         return render_template("history.html", username=username)
 
 
