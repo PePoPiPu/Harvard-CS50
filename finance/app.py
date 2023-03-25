@@ -233,7 +233,7 @@ def register():
 
         # If username exists, return apology and 409 code (CONFLICT)
         for row in rows:
-            usernames = row
+            usernames = row[row]["username"]
             if newuser in usernames:
                 return apology("username already exists", 409)
         if len(newpass) < 8:
