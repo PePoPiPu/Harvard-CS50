@@ -98,23 +98,18 @@ def buy():
             # Get value at time of purchase
             init_value = int(symbol["price"])
 
+            # Update stocks table
             current_symbol = request.form.get("symbol")
             checker = db.execute("SELECT 1 FROM stocks WHERE share_symbol = ?", current_symbol)
             if checker == 1:
                 current_shares = db.execute("SELECT FROM stocks shares_number WHERE share_symbol = ?", symbol)
                 total_shares = numeric_shares + current_shares
                 db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, symbol)
-
-                # Updating transactions table. Testing is required
-                transaction_checker = db.execute("SELECT 1 FROM transactions bought WHERE share_symbol = ? AND user_id = ?", symbol, id)
-                if transaction_checker == 1:
-                    # Update transactions table
-                    db.execute("UPDATE transactions SET bought = bought WHERE user_id = ? AND share_symbol = ?", id, symbol)
-                else:
-                    db.execute("INSERT INTO transactions (bought) VALUES ('Bought') WHERE user_id = ? AND share_symbol = ?", id, symbol)
-
             else:
                 db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
+
+            # Insert into transactions table
+            db.execute("INSERT INTO transactions (sold, user_id, symbol, bought, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES('--', ?, ?, 'bought', '--', '--', '--', ?, ?, ?)", id, current_symbol, init_value, date, request.form.get("shares"))
 
         else:
             return apology("Can't afford number of shares at current price")
