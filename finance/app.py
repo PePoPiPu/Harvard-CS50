@@ -100,7 +100,8 @@ def buy():
 
             # Update stocks table
             current_symbol = request.form.get("symbol")
-            checker = db.execute("SELECT COUNT(1) FROM stocks WHERE share_symbol = ?", current_symbol)
+            checker_row = db.execute("SELECT COUNT(1) FROM stocks WHERE share_symbol = ?", current_symbol)
+            checker = checker_row[0]["COUNT(1)"]
             if checker == 1:
                 current_shares = db.execute("SELECT FROM stocks shares_number WHERE share_symbol = ?", symbol)
                 total_shares = numeric_shares + current_shares
