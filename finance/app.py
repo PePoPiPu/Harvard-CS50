@@ -260,7 +260,7 @@ def sell():
         # Get total value of the current sale
         symbol = lookup(request.form.get("symbol"))
         shares = int(request.form.get("shares"))
-        price = usd(symbol["price"])
+        price = int(symbol["price"])
         sale_value = shares * price
         updated_cash = cash + sale_value
         id = int(session["user_id"])
