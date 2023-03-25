@@ -285,7 +285,7 @@ def sell():
         current_shares = shares - int(old_shares)
 
         # Update transactions table
-        transaction_checker = db.execute("SELECT 1 FROM transactions sold WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
+        transaction_checker = db.execute("SELECT 1 FROM transactions sold WHERE symbol = ? AND user_id = ?", current_symbol, id)
         if transaction_checker == 1:
             # Update transactions table
             db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, current_symbol)
@@ -295,8 +295,8 @@ def sell():
             value2 = "--"
             check_id = session["user_id"]
             # Gives "foreign key mismatch" error
-            db.execute("INSERT INTO transactions (sold, user_id, share_symbol, bought) VALUES(?, ?, ?, ?)", value, check_id, current_symbol, value2)
-            db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
+            db.execute("INSERT INTO transactions (sold, user_id, symbol, bought) VALUES(?, ?, ?, ?)", value, check_id, current_symbol, value2)
+            db.execute("UPDATE stocks SET shares_number = ? WHERE symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
         elif shares > old_shares:
