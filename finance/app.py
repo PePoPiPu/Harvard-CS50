@@ -132,19 +132,8 @@ def history():
 
         # Select all columns from transaction table
         rows = db.execute("SELECT * FROM transactions")
-        purchased_row = db.execute("SELECT symbol FROM transactions WHERE transaction_type = 'Purchase'")
-        sold_row = db.execute("SELECT symbol FROM transactions WHERE transaction_type = 'Sale'")
-        for row in purchased_row:
-            row["symbol"]
-        for row in sold_row:
-            row["symbol"]
         for row in rows:
-            row["purchase_value"] = usd(row["purchase_value"])
-            row["time_of_purchase"]
-            row["transaction_type"]
-            row["sell_value"] = usd(row["sell_value"])
-            row["time_of_sale"]
-            row["number_sold"]
+            row["symbol"]
         return render_template("history.html", username=username, rows=rows)
 
 

@@ -9,10 +9,9 @@
         <table class="table table-hover" name="shares_bought">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Purchased shares</th>
+                    <th scope="col">Shares</th>
                     <th scope="col">Value of purchase</th>
                     <th scope="col">Date of purchase</th>
-                    <th scope="col">Sold shares</th>
                     <th scope="col">Value of sale</th>
                     <th scope="col">Date of sale</th>
                     <th scope="col">Transaction type</th>
@@ -24,11 +23,9 @@
                     <th scope="row">{{ row["symbol"] }}</th>
                     <td>{{ row["purchase_value"] }}</td>
                     <td>{{ row["time_of_purchase"] }}</td>
-                    <td>{{ row["time_of_purchase"] }}</td>
-                    <th>{{ row["symbol"] }}</th>
-                    <th>{{ row["sell_value"] }}</th>
-                    <th>{{ row["time_of_sale"] }}</th>
-                    <th>{{ row["transaction_type"] }}</th>
+                    <td>{{ row["sell_value"] }}</td>
+                    <td>{{ row["time_of_sale"] }}</td>
+                    <td>{{ row["transaction_type"] }}</td>
 
                 </tr>
                 {% endfor %}
