@@ -233,7 +233,8 @@ def register():
             return apology("must provide username", 400)
 
         # If username exists, return apology and 409 code (CONFLICT)
-        user_check = db.execute("SELECT username FROM users WHERE username = ?", newuser)
+        row = db.execute("SELECT username FROM users WHERE username = ?", newuser)
+        user_check = row[0]["username"]
         if newuser == user_check:
             return apology ("Username already exists")
         # Password length validation
