@@ -12,6 +12,10 @@
                     <th scope="col">Purchased shares</th>
                     <th scope="col">Value of purchase</th>
                     <th scope="col">Date of purchase</th>
+                    <th scope="col">Sold shares</th>
+                    <th scope="col">Value of sale</th>
+                    <th scope="col">Date of sale</th>
+                    <th scope="col">Transaction type</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,28 +24,9 @@
                     <th scope="row">{{ row["symbol"] }}</th>
                     <td>{{ row["purchase_value"] }}</td>
                     <td>{{ row["time_of_purchase"] }}</td>
+                    <td>{{ row["time_of_purchase"] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
             </table>
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Sold Shares</th>
-                        <th scope="col">Value of sale</th>
-                        <th scope="col">Date of sale</th>
-                        <th scope="col">Number of shares sold</th>
-                        <th scope="col">Transaction type</th>
-                    </tr>
-                </thead>
-                <div style="padding: 50px"></div>
-                <tbody>
-                    <tr>
-                        <th scope="row">{{ row["symbol"] }}</th>
-                        <td>{{ row["sell_value"] }}</td>
-                        <td>{{ row["time_of_sale"] }}</td>
-                        <td>{{ row["number_sold"] }}</td>
-                    </tr>
-                </tbody>
-                </table>
 {% endblock %}

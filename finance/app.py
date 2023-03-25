@@ -141,7 +141,7 @@ def history():
         for row in rows:
             row["purchase_value"]
             row["time_of_purchase"]
-            row["sold"]
+            row["transaction_type"]
             row["sell_value"]
             row["time_of_sale"]
             row["number_sold"]
