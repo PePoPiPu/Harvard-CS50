@@ -98,9 +98,6 @@ def buy():
             # Get value at time of purchase
             init_value = int(symbol["price"])
 
-            # !!!B U G !!!
-
-            # Bug should be fixed. Testing is required
             current_symbol = request.form.get("symbol")
             checker = db.execute("SELECT 1 FROM stocks WHERE share_symbol = ?", current_symbol)
             if checker == 1:
@@ -119,7 +116,6 @@ def buy():
             else:
                 db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
 
-            # !!! B U G !!!
         else:
             return apology("Can't afford number of shares at current price")
         return redirect ("/")
