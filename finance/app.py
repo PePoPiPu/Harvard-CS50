@@ -103,7 +103,7 @@ def buy():
             checker_row = db.execute("SELECT COUNT(1) FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
             checker = checker_row[0]["COUNT(1)"]
             if checker == 1:
-                current_row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol)
+                current_row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
                 current_shares = current_row[0]["shares_number"]
                 total_shares = numeric_shares + int(current_shares)
                 db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, current_symbol)
@@ -281,14 +281,14 @@ def sell():
         sale_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         check_id = session["user_id"]
         db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?,'Sale', ?, ?, ?, '--', '--', '--')", check_id, current_symbol, sale_time, price, shares)
-        db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
+        db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ? AND user_id = ?", current_shares, current_symbol, id)
         if current_shares < 1:
-            db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
+            db.execute("DELETE FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
         elif shares > old_shares:
             return apology("You're trying to sell more shares than you have")
         return redirect("/")
     else:
-        rows = db.execute("SELECT share_symbol FROM stocks")
+        rows = db.execute("SELECT share_symbol FROM stocks WHERE user_id = :id", id=session["user_id"])
         for row in rows:
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
