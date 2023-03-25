@@ -229,7 +229,7 @@ def register():
         newpass = request.form.get("password")
         usernames = db.execute("SELECT username FROM users")
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # If username exists, return apology and 409 code (CONFLICT)
         elif newuser in usernames:
@@ -241,7 +241,7 @@ def register():
         if not request.form.get("password"):
             return apology("must provide password", 403)
         elif newpass != request.form.get("confirmation"):
-            return apology("password doesn't match", 409)
+            return apology("password doesn't match", 400)
 
         # Hash new password
         hash = generate_password_hash(newpass, method="pbkdf2:sha256", salt_length=32)
