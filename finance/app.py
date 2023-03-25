@@ -208,8 +208,12 @@ def quote():
     # initialize dictionary with returned values
     """Get stock quote."""
     if request.method == "POST":
+
+        # Input validation
         if not request.form.get("symbol"):
             return apology("Must provide symbol")
+
+        # Input validation
         symbol = lookup(request.form.get("symbol"))
         price = usd(symbol["price"])
         if symbol == None:
