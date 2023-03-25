@@ -42,14 +42,18 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     if request.method == "GET":
+
         # Get current balance from user
         c_row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         cash = c_row[0]["cash"]
+
         # Declaring sum valuable to have a total of the holdings
         sum = cash
+
         # Select current username
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row[0]["username"]
+
         # Select all columns from stocks table
         rows = db.execute("SELECT * FROM stocks WHERE user_id = :id", id=session["user_id"])
         for row in rows:
@@ -83,20 +87,25 @@ def buy():
             return apology("Must provide a number of shares to sell")
         elif int(request.form.get("shares")) < 1:
             return apology("Share number must be greater than 0")
+
         # Retrieving current cash amount
         row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         cash_current = float(row[0]["cash"])
+
         # If current cash amount is greater than the total amount to buy, update cash amount
         numeric_price = int(symbol["price"])
         numeric_shares = int(request.form.get("shares"))
         numeric_total = numeric_price * numeric_shares
+
         # If got enough cash and row doesn't exist, insert it
         if cash_current > numeric_total:
             balance = cash_current - numeric_total
             id = int(session["user_id"])
             db.execute("UPDATE users SET cash = ? WHERE id = ?", balance, id)
+
             # Get time of request
             date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
             # Get value at time of purchase
             init_value = usd(symbol["price"])
 
@@ -196,7 +205,6 @@ def quote():
     if request.method == "POST":
         if not request.form.get("symbol"):
             return apology("Must provide symbol")
-
         symbol = lookup(request.form.get("symbol"))
         if symbol == None:
             return apology("Couldn't find stock")
@@ -237,6 +245,7 @@ def register():
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", newuser, hash)
 
         return render_template("login.html")
+    
     # User reached route via GET
     else:
         return render_template("register.html")
