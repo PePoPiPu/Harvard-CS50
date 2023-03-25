@@ -30,13 +30,16 @@
                         <th scope="col">Sold Shares</th>
                         <th scope="col">Value of sale</th>
                         <th scope="col">Date of sale</th>
+                        <th scope="col">Number of shares sold</th>
                     </tr>
                 </thead>
                 <div style="padding: 50px"></div>
                 <tbody>
                     <tr>
-                        <th scope="row">{{ sold }}</th>
-                        <td>{{ sum }}</td>
+                        <th scope="row">{{ row["symbol"] }}</th>
+                        <td>{{ row["sell_value"] }}</td>
+                        <td>{{ row["time_of_sale"] }}</td>
+                        <td>{{ row["number_sold"] }}</td>
                     </tr>
                 </tbody>
                 </table>

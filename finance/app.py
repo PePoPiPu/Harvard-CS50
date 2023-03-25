@@ -132,8 +132,11 @@ def history():
 
         # Select all columns from transaction table
         rows = db.execute("SELECT * FROM transactions")
-        row = db.execute("SELECT symbol FROM transactions WHERE bought = 'bought'")
-        for row in row:
+        purchased_row = db.execute("SELECT symbol FROM transactions WHERE bought = 'bought'")
+        sold_row = db.execute("SELECT symbol FROM transactions WHERE sold = 'sold'")
+        for row in purchased_row:
+            row["symbol"]
+        for row in sold_row:
             row["symbol"]
         for row in rows:
             row["purchase_value"]
@@ -141,7 +144,8 @@ def history():
             row["sold"]
             row["sell_value"]
             row["time_of_sale"]
-        return render_template("history.html", username=username)
+            row["number_sold"]
+        return render_template("history.html", username=username, row=row)
 
 
 @app.route("/login", methods=["GET", "POST"])
