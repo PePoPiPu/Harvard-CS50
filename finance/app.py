@@ -145,7 +145,7 @@ def history():
             row["sell_value"]
             row["time_of_sale"]
             row["number_sold"]
-        return render_template("history.html", username=username, row=row)
+        return render_template("history.html", username=username, rows=rows)
 
 
 @app.route("/login", methods=["GET", "POST"])
