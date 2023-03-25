@@ -227,14 +227,16 @@ def register():
         # Ensure username was submitted
         newuser = request.form.get("username")
         newpass = request.form.get("password")
-        usernames = db.execute("SELECT username FROM users")
+        row = db.execute("SELECT username FROM users")
+        usernames = row[0]["username"]
         if not request.form.get("username"):
             return apology("must provide username", 400)
 
         # If username exists, return apology and 409 code (CONFLICT)
-        elif newuser in usernames:
-            return apology("username already exists", 409)
-        elif len(newpass) < 8:
+        for row in usernames:
+            if newuser in usernames:
+                return apology("username already exists", 409)
+        if len(newpass) < 8:
             return apology("Password must be 8 characters long", 403)
 
         # Ensure password was submitted
