@@ -232,16 +232,15 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username", 400)
 
-        # Check if user exists
-        row = db.execute("SELECT username FROM users WHERE username = ?", newuser)
-
         # Check if any rows are returned from the query
-        row_checker 
+        row_checker = ("SELECT COUNT (username) FROM users WHERE username = ?", newuser)
+        if row_checker == 1:
 
-        user_check = row[0]["username"]
-        if newuser == user_check:
-            return apology ("Username already exists")
-        elif
+            # Check if user exists
+            row = db.execute("SELECT username FROM users WHERE username = ?", newuser)
+            user_check = row[0]["username"]
+            if newuser == user_check:
+                return apology ("Username already exists")
 
         # Password length validation
         if len(newpass) < 8:
