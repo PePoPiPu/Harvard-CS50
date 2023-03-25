@@ -66,8 +66,7 @@ def index():
             # Convert values to usd
             row["price"] = usd(row["price"])
             row["total"] = usd(row["total"])
-        return render_template("index.html",username=username, rows=rows, cash=usd(cash), sum=usd(sum))
-
+        return render_template("index.html", username=username, rows=rows, cash=usd(cash), sum=usd(sum))
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -131,7 +130,7 @@ def buy():
 
             # Insert into transactions table
             db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, 'Purchase', '--', '--', '--', ?, ?, ?)",
-                        id, current_symbol, init_value, date, request.form.get("shares"))
+                       id, current_symbol, init_value, date, request.form.get("shares"))
 
         else:
             return apology("Can't afford number of shares at current price")
@@ -326,7 +325,7 @@ def sell():
         sale_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         check_id = session["user_id"]
         db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?,'Sale', ?, ?, ?, '--', '--', '--')",
-                    check_id, current_symbol, sale_time, price, shares)
+                   check_id, current_symbol, sale_time, price, shares)
         db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ? AND user_id = ?", current_shares, current_symbol, id)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
