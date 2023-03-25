@@ -281,19 +281,13 @@ def sell():
         old_shares = row[0]["shares_number"]
         current_shares = shares - int(old_shares)
 
-        # Update transactions table
-        transaction_checker = db.execute("SELECT 1 FROM transactions sold WHERE symbol = ? AND user_id = ? AND sold = 'sold'", current_symbol, id)
-        if transaction_checker == 1:
-            # Update transactions table
-            db.execute("UPDATE transactions SET sold = sold WHERE user_id=id AND share_symbol = ?", id, current_symbol)
-        else:
-            # Create a new row for the share symbol and user id that says "sold"
-            value = "sold"
-            value2 = "--"
-            sale_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-            check_id = session["user_id"]
-            db.execute("INSERT INTO transactions (sold, user_id, symbol, bought, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, ?, ?, ?, ?, ?, '--', '--', '--')", value, check_id, current_symbol, value2, sale_time, price, shares)
-            db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
+        # Insert new transaction
+        value = "sold"
+        value2 = "--"
+        sale_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+        check_id = session["user_id"]
+        db.execute("INSERT INTO transactions (sold, user_id, symbol, bought, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, ?, ?, ?, ?, ?, '--', '--', '--')", value, check_id, current_symbol, value2, sale_time, price, shares)
+        db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
         elif shares > old_shares:
