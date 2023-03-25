@@ -109,7 +109,7 @@ def buy():
                 db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
 
             # Insert into transactions table
-            db.execute("INSERT INTO transactions (sold, user_id, symbol, bought, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES('--', ?, ?, 'bought', '--', '--', '--', ?, ?, ?)", id, current_symbol, init_value, date, request.form.get("shares"))
+            db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, 'Purchase', '--', '--', '--', ?, ?, ?)", id, current_symbol, init_value, date, request.form.get("shares"))
 
         else:
             return apology("Can't afford number of shares at current price")
@@ -285,11 +285,9 @@ def sell():
         current_shares = shares - int(old_shares)
 
         # Insert new transaction
-        value = "sold"
-        value2 = "--"
         sale_time = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         check_id = session["user_id"]
-        db.execute("INSERT INTO transactions (sold, user_id, symbol, bought, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, ?, ?, ?, ?, ?, '--', '--', '--')", value, check_id, current_symbol, value2, sale_time, price, shares)
+        db.execute("INSERT INTO transactions (user_id, symbol, transaction_type, time_of_sale, sell_value, number_sold, purchase_value, time_of_purchase, number_bought) VALUES(?, ?, ?, 'Sale', ?, ?, ?, '--', '--', '--')", check_id, current_symbol, sale_time, price, shares)
         db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
