@@ -96,7 +96,7 @@ def buy():
             # Get time of request
             date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             # Get value at time of purchase
-            init_value = int(symbol["price"])
+            init_value = usd(symbol["price"])
 
             # Update stocks table
             current_symbol = request.form.get("symbol")
@@ -270,7 +270,7 @@ def sell():
         # Get total value of the current sale
         symbol = lookup(request.form.get("symbol"))
         shares = int(request.form.get("shares"))
-        price = int(symbol["price"])
+        price = usd(symbol["price"])
         sale_value = shares * price
         updated_cash = cash + sale_value
         id = int(session["user_id"])
