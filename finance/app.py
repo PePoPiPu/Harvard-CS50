@@ -227,13 +227,13 @@ def register():
         # Ensure username was submitted
         newuser = request.form.get("username")
         newpass = request.form.get("password")
-        row = db.execute("SELECT username FROM users")
-        usernames = row[0]["username"]
+        rows = db.execute("SELECT username FROM users")
         if not request.form.get("username"):
             return apology("must provide username", 400)
 
         # If username exists, return apology and 409 code (CONFLICT)
-        for row in usernames:
+        for row in rows:
+            usernames = row
             if newuser in usernames:
                 return apology("username already exists", 409)
         if len(newpass) < 8:
