@@ -103,10 +103,10 @@ def buy():
             checker_row = db.execute("SELECT COUNT(1) FROM stocks WHERE share_symbol = ?", current_symbol)
             checker = checker_row[0]["COUNT(1)"]
             if checker == 1:
-                current_row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ?", symbol)
+                current_row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ?", current_symbol)
                 current_shares = current_row[0]["shares_number"]
                 total_shares = numeric_shares + int(current_shares)
-                db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, symbol)
+                db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", total_shares, current_symbol)
             else:
                 db.execute("INSERT INTO stocks (user_id, shares_number, share_symbol, time_of_purchase, value_at_time_of_purchase) VALUES(?, ?, ?, ?, ?)", id, int(request.form.get("shares")), symbol["symbol"], date, init_value)
 
