@@ -81,12 +81,14 @@ def buy():
         symbol = lookup(request.form.get("symbol"))
         if symbol == None:
             return apology("Couldn't find stock")
-        elif type(int(request.form.get("shares"))) == str:
-            return apology("Input must be a number")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
-        elif int(request.form.get("shares")) < 1:
-            return apology("Share number must be greater than 0")
+        try:
+            if int(request.form.get("shares")) < 1:
+                return apology("Share number must be greater than 0")
+        except ValueError:
+            return apology("Share number must be numeric")
+
 
         # Retrieving current cash amount
         row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
@@ -245,7 +247,7 @@ def register():
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", newuser, hash)
 
         return render_template("login.html")
-    
+
     # User reached route via GET
     else:
         return render_template("register.html")
@@ -260,15 +262,19 @@ def sell():
     """Sell shares of stock"""
     if request.method == "POST":
 
+        # Form input validation
         if not request.form.get("symbol"):
             return apology("Must provide a share symbol")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
         elif type(int(request.form.get("shares"))) == str:
             return apology("Input must be a number")
-        elif int(request.form.get("shares")) < 1:
-            return apology("Share number must be greater than 0")
-
+        try:
+            if int(request.form.get("shares")) < 1:
+                return apology("Share number must be greater than 0")
+        except ValueError:
+            return apology("Share number must be numeric")
+        
         # Get current user balance
         c_row = db.execute("SELECT cash FROM users WHERE id = :id", id=session["user_id"])
         cash = float(c_row[0]["cash"])
