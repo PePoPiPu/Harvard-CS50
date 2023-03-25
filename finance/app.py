@@ -246,7 +246,7 @@ def register():
 
             # Password length validation
             if len(newpass) < 8:
-                return apology("Password must be 8 characters long", 403)
+                return apology("Password must be 8 characters long", 400)
 
             # Ensure password was submitted
             if not request.form.get("password"):
