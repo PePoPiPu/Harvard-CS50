@@ -51,7 +51,7 @@ def index():
         row = db.execute("SELECT username FROM users WHERE id = :id", id=session["user_id"])
         username = row[0]["username"]
         # Select all columns from stocks table
-        rows = db.execute("SELECT * FROM stocks")
+        rows = db.execute("SELECT * FROM stocks WHERE id = :id", id=session["user_id"])
         for row in rows:
             look = lookup(row["share_symbol"])
             row["name"] = look["name"]
@@ -133,7 +133,7 @@ def history():
         username = row [0]["username"]
 
         # Select all columns from transaction table
-        rows = db.execute("SELECT * FROM transactions")
+        rows = db.execute("SELECT * FROM transactions WHERE id =:id", id=session["user_id"])
         for row in rows:
             row["symbol"]
         return render_template("history.html", username=username, rows=rows)
