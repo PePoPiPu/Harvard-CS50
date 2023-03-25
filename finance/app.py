@@ -212,12 +212,10 @@ def quote():
         # Input validation
         if not request.form.get("symbol"):
             return apology("Must provide symbol")
-
-        # Input validation
         symbol = lookup(request.form.get("symbol"))
-        price = usd(symbol["price"])
         if symbol == None:
             return apology("Couldn't find stock")
+        price = usd(symbol["price"])
         return render_template("quoted.html", symbol=symbol, price=price)
 
     else:
