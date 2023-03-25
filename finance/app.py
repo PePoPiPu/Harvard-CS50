@@ -79,6 +79,7 @@ def buy():
             return apology("Couldn't find stock")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
+
         elif isinstance(request.form.get("shares")) == True:
             return apology("Input must be a number")
         elif int(request.form.get("shares")) < 1:
