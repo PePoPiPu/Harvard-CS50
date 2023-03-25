@@ -132,8 +132,8 @@ def history():
 
         # Select all columns from transaction table
         rows = db.execute("SELECT * FROM transactions")
-        purchased_row = db.execute("SELECT symbol FROM transactions WHERE bought = 'bought'")
-        sold_row = db.execute("SELECT symbol FROM transactions WHERE sold = 'sold'")
+        purchased_row = db.execute("SELECT symbol FROM transactions WHERE transaction_type = 'Purchase'")
+        sold_row = db.execute("SELECT symbol FROM transactions WHERE transaction_type = 'Sale'")
         for row in purchased_row:
             row["symbol"]
         for row in sold_row:
