@@ -232,11 +232,13 @@ def register():
         if not request.form.get("username"):
             return apology("must provide username", 400)
 
-        # If username exists, return apology and 409 code (CONFLICT)
+        # Check if user exists
         row = db.execute("SELECT username FROM users WHERE username = ?", newuser)
         user_check = row[0]["username"]
         if newuser == user_check:
             return apology ("Username already exists")
+        else:
+            
         # Password length validation
         if len(newpass) < 8:
             return apology("Password must be 8 characters long", 403)
