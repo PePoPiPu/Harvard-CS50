@@ -295,7 +295,6 @@ def sell():
             value = "sold"
             value2 = "--"
             check_id = session["user_id"]
-            # Gives "foreign key mismatch" error
             db.execute("INSERT INTO transactions (sold, user_id, symbol, bought) VALUES(?, ?, ?, ?)", value, check_id, current_symbol, value2)
             db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
