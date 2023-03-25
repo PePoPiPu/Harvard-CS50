@@ -6,7 +6,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
-
+import re
 from helpers import apology, login_required, lookup, usd
 
 # Configure application
@@ -219,7 +219,8 @@ def register():
         # If username exists, return apology and 409 code (CONFLICT)
         elif newuser in usernames:
             return apology("username already exists", 409)
-        elif newpass 
+        elif len(newpass) < 8:
+            return apology("Password must be 8 characters long", 403)
 
         # Ensure password was submitted
         if not request.form.get("password"):
