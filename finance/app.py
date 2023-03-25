@@ -241,24 +241,25 @@ def register():
             user_check = row[0]["username"]
             if newuser == user_check:
                 return apology ("Username already exists")
+        else:
 
-        # Password length validation
-        if len(newpass) < 8:
-            return apology("Password must be 8 characters long", 403)
+            # Password length validation
+            if len(newpass) < 8:
+                return apology("Password must be 8 characters long", 403)
 
-        # Ensure password was submitted
-        if not request.form.get("password"):
-            return apology("must provide password", 400)
-        elif newpass != request.form.get("confirmation"):
-            return apology("password doesn't match", 400)
+            # Ensure password was submitted
+            if not request.form.get("password"):
+                return apology("must provide password", 400)
+            elif newpass != request.form.get("confirmation"):
+                return apology("password doesn't match", 400)
 
-        # Hash new password
-        hash = generate_password_hash(newpass, method="pbkdf2:sha256", salt_length=32)
+            # Hash new password
+            hash = generate_password_hash(newpass, method="pbkdf2:sha256", salt_length=32)
 
-        # Insert new username and hashed password into username
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", newuser, hash)
+            # Insert new username and hashed password into username
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", newuser, hash)
 
-        return render_template("login.html")
+            return render_template("login.html")
 
     # User reached route via GET
     else:
