@@ -101,7 +101,8 @@ def buy():
             # !!!B U G !!!
 
             # Bug should be fixed. Testing is required
-            checker = db.execute("SELECT 1 FROM stocks WHERE share_symbol = ?", symbol)
+            current_symbol = request.form.get("symbol")
+            checker = db.execute("SELECT 1 FROM stocks WHERE share_symbol = ?", current_symbol)
             if checker == 1:
                 current_shares = db.execute("SELECT FROM stocks shares_number WHERE share_symbol = ?", symbol)
                 total_shares = numeric_shares + current_shares
@@ -296,7 +297,7 @@ def sell():
             check_id = session["user_id"]
             # Gives "foreign key mismatch" error
             db.execute("INSERT INTO transactions (sold, user_id, symbol, bought) VALUES(?, ?, ?, ?)", value, check_id, current_symbol, value2)
-            db.execute("UPDATE stocks SET shares_number = ? WHERE symbol = ?", current_shares, current_symbol)
+            db.execute("UPDATE stocks SET shares_number = ? WHERE share_symbol = ?", current_shares, current_symbol)
         if current_shares < 1:
             db.execute("DELETE FROM stocks WHERE share_symbol = ?", current_symbol)
         elif shares > old_shares:
