@@ -139,10 +139,10 @@ def history():
         for row in sold_row:
             row["symbol"]
         for row in rows:
-            row["purchase_value"]
+            row["purchase_value"] = usd(row["purchase_value"])
             row["time_of_purchase"]
             row["transaction_type"]
-            row["sell_value"]
+            row["sell_value"] = usd(row["sell_value"])
             row["time_of_sale"]
             row["number_sold"]
         return render_template("history.html", username=username, rows=rows)
