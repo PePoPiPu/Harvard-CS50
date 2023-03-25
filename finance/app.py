@@ -293,13 +293,18 @@ def sell():
         updated_cash = cash + sale_value
         id = int(session["user_id"])
 
-        # Update user's balance
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", updated_cash, id)
-
-        # Update stocks table
+        # Declaring variables to work with them later
         current_symbol = request.form.get("symbol")
         row = db.execute("SELECT shares_number FROM stocks WHERE share_symbol = ? AND user_id = ?", current_symbol, id)
         old_shares = row[0]["shares_number"]
+
+        # Share input validation
+        if shares > old_shares:
+            return apology("You're trying to sell more shares than you have")
+        # Update user's balance
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", updated_cash, id)
+
+        # Get new number of shares
         current_shares = int(old_shares) - shares
 
         # Insert new transaction
