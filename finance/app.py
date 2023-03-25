@@ -77,10 +77,10 @@ def buy():
         symbol = lookup(request.form.get("symbol"))
         if symbol == None:
             return apology("Couldn't find stock")
+        elif type(int(request.form.get("shares"))) == str:
+            return apology("Input must be a number")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
-        elif type(request.form.get("shares")) == 'str':
-            return apology("Input must be a number")
         elif int(request.form.get("shares")) < 1:
             return apology("Share number must be greater than 0")
         # Retrieving current cash amount
@@ -255,6 +255,8 @@ def sell():
             return apology("Must provide a share symbol")
         elif len(request.form.get("shares")) == 0:
             return apology("Must provide a number of shares to sell")
+        elif type(int(request.form.get("shares"))) == str:
+            return apology("Input must be a number")
         elif int(request.form.get("shares")) < 1:
             return apology("Share number must be greater than 0")
 
