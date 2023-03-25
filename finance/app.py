@@ -233,8 +233,9 @@ def register():
             return apology("must provide username", 400)
 
         # Check if any rows are returned from the query
-        row_checker = ("SELECT COUNT (username) FROM users WHERE username = ?", newuser)
-        if row_checker == 1:
+        checker_row = ("SELECT COUNT (username) FROM users WHERE username = ?", newuser)
+        checker = checker_row[0]["COUNT"]
+        if checker == 1:
 
             # Check if user exists
             row = db.execute("SELECT username FROM users WHERE username = ?", newuser)
