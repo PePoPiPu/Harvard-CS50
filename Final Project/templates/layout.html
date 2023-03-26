@@ -10,7 +10,7 @@
                 <!-- Add a favicon-->
 
 
-                <title>C$50 Finance: {% block title %}{% endblock %}</title>
+                <title>PSP: {% block title %}{% endblock %}</title>
     </head>
 
     <body>
@@ -40,7 +40,7 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -71,11 +71,6 @@
                     </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
-                    >Disabled</a
-                    >
-                </li>
                 </ul>
                 <!-- Left links -->
             </div>
@@ -84,5 +79,9 @@
             <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
+
+        <main class="container-fluid py-5 text-center">
+            {% block main %}{% endblock %}
+        </main>
     </body>
 </html>
