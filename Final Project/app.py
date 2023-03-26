@@ -27,5 +27,7 @@ def after_request(response):
     return response
 
 @app.route("/")
+@login_required
 def index():
-    return render_template("index.html")
+    if request.method == "GET":
+        return render_template("index.html")
