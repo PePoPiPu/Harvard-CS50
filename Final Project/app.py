@@ -31,3 +31,18 @@ def after_request(response):
 def index():
     if request.method == "GET":
         return render_template("index.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """ Log user in """
+
+    # Forget any user_id
+    session.clear()
+
+    # User reached route via POST
+    if request.method == "POST":
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            
