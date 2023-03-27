@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     const username = document.getElementById("username")
     const usernameError = document.querySelector("#username + span.error")
+    const password = document.getElementById("password")
+    const passwordError = document.querySelector("#password + span.error2)
 
     username.addEventListener("input", (event) => {
         // Checking if the form fields are valid
@@ -16,8 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    password.addEventListener("input", (event) => {
+
+        if (password.validity.valid) {
+
+            passwordError.textContent = "";
+            passwordError.className = "error"
+        }
+    })
+
     form.addEventListener("submit", (event) => {
         if (!username.validity.valid) {
+            showError();
+            event.preventDefault();
+        }
+
+        if (!password.validity.valid) {
             showError();
             event.preventDefault();
         }
@@ -29,5 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
             usernameError.textContent = "Username required."
         }
         usernameError.className = "error active";
+
+        else if {
+        
+        }
     }
 });
