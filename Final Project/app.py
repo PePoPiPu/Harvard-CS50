@@ -108,14 +108,14 @@ def register():
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         if len(rows) != 1:
 
-            # Password length validation
-            if len(password) < 8:
-                error = "Password has to be at least 8 characters long"
-                return render_template("register.html", error=error)
-
             # Ensure password was submitted
             if not request.form.get("password"):
                 error = "Must input a password"
+                return render_template("register.html", error=error)
+
+            # Password length validation
+            if len(password) < 8:
+                error = "Password has to be at least 8 characters long"
                 return render_template("register.html", error=error)
 
             elif password != request.form.get("confirmation"):
