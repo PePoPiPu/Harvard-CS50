@@ -5,7 +5,7 @@ from cs50 import SQL
 from flask import Flask, render_template, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
-from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError, BadRequest
+from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import login_required
@@ -33,7 +33,7 @@ def page_not_found(error):
     return render_template("page_not_found.html"), 404
 
 # Error handler for bad request (400)
-@app.errorhandler()
+@app.errorhandler(werkzeug.exceptions.BadRequest)
 def handle_bad_request(e):
     return render_template("bad_request.hmtl"), 404
 @app.route("/")
