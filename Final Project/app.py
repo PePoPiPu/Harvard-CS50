@@ -67,7 +67,7 @@ def login():
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return ("Bad Request"), 400
+            return ("heheBad Request"), 400
 
         # Remember what user was logged in
         session["user_id"] = rows[0]["id"]
@@ -110,13 +110,13 @@ def register():
 
             # Password length validation
             if len(password) < 8:
-                return ("Bad Request"), 400
+                return ("Password has to be at least 8 characters long"), 400
 
             # Ensure password was submitted
             if not request.form.get("password"):
-                return ("Bad Request"), 400
+                return ("Must input a password"), 400
             elif password != request.form.get("confirmation"):
-                return ("Bad Request"), 400
+                return ("Password doesn't match confirmation"), 400
 
             # Hash new password
             hash = generate_password_hash(password, method="pbkdf2:sha256", salt_length=32)
@@ -131,7 +131,7 @@ def register():
             row = db.execute("SELECT username FROM users WHERE username = ?", username)
             user_check = row[0]["username"]
             if username == user_check:
-                return ("Bad Request"), 400
+                return ("Hello i'm a bad request"), 400
 
     # Reached route via GET
     else:
