@@ -66,7 +66,7 @@ def login():
             error = "Invalid credentials"
             return render_template("login.html", error=error)
         else:
-            flash("You were succesfully logged in")
+            
             # Remember what user was logged in
             session["user_id"] = rows[0]["id"]
             return redirect("/")
