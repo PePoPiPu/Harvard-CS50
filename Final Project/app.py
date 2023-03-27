@@ -30,12 +30,12 @@ def after_request(response):
 # Error handler for 404
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template("page_not_found.html"), 404
+    return ("Page Not Found"), 404
 
 # Error handler for bad request (400)
 @app.errorhandler(400)
 def handle_bad_request(e):
-    return render_template("bad_request.hmtl"), 400
+    return ("Bad Request"), 400
 
 # Index
 @app.route("/")
