@@ -108,9 +108,32 @@ def register():
         # Check if any rows are returned from the query
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
         if len(rows) != 1:
-            return handle_bad_request(400)
+
+            # Password length validation
+            if len(password) < 8:
+                return handle_bad_request(400)
+
+            # Ensure password was submitted
+            if not request.form.get("password"):
+                return handle_bad_request(400)
+            elif password != request.form.get("confirmation"):
+                return handle_bad_request(400)
+
+            # Hash new password
+            hash = generate_password_hash(password, method="pbkdf2:sha256", salt_length=32)
+
+            # Insert new username and hash into users table
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+
+            return render_template("login.html")
+
         else:
+            # I think this is redundant code. if len(rows) != 1 already checks username existance
             row = db.execute("SELECT username FROM users WHERE username = ?", username)
             user_check = row[0]["username"]
             if username == user_check:
                 return handle_bad_request(400)
+
+    # Reached route via GET
+    else:
+        return render_template("register.html")
