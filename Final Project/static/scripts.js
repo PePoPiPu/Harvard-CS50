@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", => {
-
+    alert("DOMContentLoaded")
     // Getting the form, the username input box and the span element
     // into which I'm placing the error message
     const form = document.querySelector("form");
