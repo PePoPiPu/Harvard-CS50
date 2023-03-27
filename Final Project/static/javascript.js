@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         usernameError.className = "error active";
 
-        else if (password.validity.valueMissing) {
+        if (password.validity.valueMissing) {
             passwordError.textContent = "Password required"
         }
         passwordError.className = "error active";
