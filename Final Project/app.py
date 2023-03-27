@@ -113,3 +113,4 @@ def register():
             row = db.execute("SELECT username FROM users WHERE username = ?", username)
             user_check = row[0]["username"]
             if username == user_check:
+                return handle_bad_request(400)
