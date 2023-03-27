@@ -34,4 +34,4 @@ document.addEventListener("DOMContentLoaded", => {
         }
         usernameError.className = "error active";
     }
-})
+});
