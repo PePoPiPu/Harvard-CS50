@@ -1,12 +1,10 @@
-document.addEventListener("DOMContentLoaded", => {
-    alert("DOMContentLoaded")
     // Getting the form, the username input box and the span element
     // into which I'm placing the error message
     const form = document.querySelector("form");
     const username = document.getElementById("username")
     const usernameError = document.querySelector("#username + span.error")
 
-    email.addEventListener("input", (event) => {
+    username.addEventListener("input", (event) => {
         // Checking if the form fields are valid
         // Each time a user inputs something
 
@@ -29,9 +27,8 @@ document.addEventListener("DOMContentLoaded", => {
 
     function showError() {
         if (username.validity.valueMissing) {
-            // If the fiel is empty, display the following
+            // If the field is empty, display the following
             usernameError.textContent = "Username required."
         }
         usernameError.className = "error active";
     }
-});
