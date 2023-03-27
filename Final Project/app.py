@@ -84,7 +84,7 @@ def login():
 
     # User reached route via GET
     else:
-        return render_template("login.html")
+        return render_template("login.html", error=error)
 
 # Logout
 @app.route("/logout")
