@@ -90,6 +90,9 @@ def logout():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """ Register user """
+
+    # Set error variable for message flashing
+    error = None
     if request.method == "POST":
 
         # Declaring variables to work with them later
@@ -98,7 +101,8 @@ def register():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return ("Bad Request"), 400
+            error = "Must input a username"
+            return render_template("register.html", error=error)
 
         # Check if any rows are returned from the query
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
@@ -106,13 +110,17 @@ def register():
 
             # Password length validation
             if len(password) < 8:
-                return ("Password has to be at least 8 characters long"), 400
+                error = "Password has to be at least 8 characters long"
+                return render_template("register.html", error=error)
 
             # Ensure password was submitted
             if not request.form.get("password"):
-                return ("Must input a password"), 400
+                error = "Must input a password"
+                return render_template("register.html", error=error)
+
             elif password != request.form.get("confirmation"):
-                return ("Password doesn't match confirmation"), 400
+                error = "Passwords don't match!"
+                return render_template("register.html", error=error)
 
             # Hash new password
             hash = generate_password_hash(password, method="pbkdf2:sha256", salt_length=32)
