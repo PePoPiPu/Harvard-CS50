@@ -1,13 +1,17 @@
 document.addEventListener("DOMContentLoaded", => {
-    function validateForm() {
-        let x = document.forms["login"]["username"].value;
-        let y = document.forms.["login"]["username"].value;
-        if (x == "") {
-            alert("Username must be filled out");
-            return false;
+
+    // Getting the form, the username input vox and the span element
+    // into which I'm placing the error message
+    const form = document.querySelector("form");
+    const username = document.getElementById("username")
+    const usernameError = document.querySelector("#username + span.error")
+
+    email.addEventListener("input", (event) => {
+        // Checking if the form fields are valid
+        // Each time a user inputs something
+
+        if (username.validity.valid) {
+            // If there's an error message and the input is valid
         }
-        else if (y == "") {
-            alert("Password must be filled out")
-        }
-    }
+    })
 })
