@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", => {
         // Each time a user inputs something
 
         if (username.validity.valid) {
-            // If there's an error message and the input is valid
+            // Removing error message if there's an error message and the input is valid
+            usernameError.textContent
         }
     })
 })
