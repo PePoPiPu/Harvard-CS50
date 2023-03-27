@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", => {
 
-    // Getting the form, the username input vox and the span element
+    // Getting the form, the username input box and the span element
     // into which I'm placing the error message
     const form = document.querySelector("form");
     const username = document.getElementById("username")
