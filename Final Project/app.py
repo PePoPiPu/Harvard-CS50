@@ -62,7 +62,7 @@ def login():
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Ensure credentials are correct
-        if rows == None:
+        if rows is None:
             error = "Invalid credentials"
         else:
             flash("You were succesfully logged in")
