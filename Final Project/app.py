@@ -2,7 +2,7 @@ import os
 
 # Importing modules
 from cs50 import SQL
-from flask import Flask, render_template, redirect, request, session, url_for
+from flask import Flask, render_template, redirect, request, session, url_for, flash
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
@@ -70,11 +70,11 @@ def login():
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Ensure credentials are correct
-        if request.form["username"] != rows[0]["username"] or 
-
-
-        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return ("heheBad Request"), 400
+        if request.form.get("username") != rows[0]["username"] or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+            error = "Invalid credentials"
+        else:
+            flash("You were succesfully logged in")
+            return redirect("/")
 
         # Remember what user was logged in
         session["user_id"] = rows[0]["id"]
