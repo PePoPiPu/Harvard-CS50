@@ -33,9 +33,11 @@ def page_not_found(error):
     return render_template("page_not_found.html"), 404
 
 # Error handler for bad request (400)
-@app.errorhandler(exception )
+@app.errorhandler(400)
 def handle_bad_request(e):
-    return render_template("bad_request.hmtl"), 404
+    return render_template("bad_request.hmtl"), 400
+
+# Index
 @app.route("/")
 @login_required
 def index():
