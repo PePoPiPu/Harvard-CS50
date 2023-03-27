@@ -60,9 +60,9 @@ def login():
 
         # Query database for a username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
-
+        count = db.execute("SELECT COUNT)
         # Ensure credentials are correct
-        if rows is None:
+        if rows[0]["username"] is None:
             error = "Invalid credentials"
             return render_template("login.html", error=error)
         else:
