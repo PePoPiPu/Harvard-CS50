@@ -1,16 +1,11 @@
-.overlay {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    filter: brightness(0.7);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
+/* General CSS */
 body {
     background-color: #6494AA;
+}
+
+#nav-right {
+    text-align: right;
+    float: right;   
 }
 
 /* Login CSS */
