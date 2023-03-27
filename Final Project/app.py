@@ -66,10 +66,11 @@ def login():
             error = "Invalid credentials"
             return render_template("login.html", error=error)
         else:
-            
+            validation = None
             # Remember what user was logged in
             session["user_id"] = rows[0]["id"]
-            return redirect("/")
+            validation = "You're logged in!"
+            return render_template("index.html", validation=validation)
 
     # User reached route via GET
     else:

@@ -5,4 +5,9 @@ Home
 {% endblock %}
 
 {% block main %}
+<div class="mb3">
+    {% if validation %}
+    <p class=flash-validation><strong>Success!</strong> {{ validation }}
+    {% endif %}
+</div>
 {% endblock %}
