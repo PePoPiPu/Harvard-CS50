@@ -58,14 +58,6 @@ def login():
     # User reached route via POST
     if request.method == "POST":
 
-        # Ensure username was submitted
-        if not request.form.get("username"):
-            return ("Bad Request"), 400
-
-        #Ensure password was submitted
-        if not request.form.get("password"):
-            return ("Bad Request"), 400
-
         # Query database for a username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 

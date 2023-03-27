@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showError() {
         if (username.validity.valueMissing) {
             // If the fiel is empty, display the following
-            usernameError.textContent = "Username required."
+            usernameError.textContent = "Username required"
         }
         usernameError.className = "error active";
 
