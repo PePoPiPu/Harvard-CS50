@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = document.getElementById("username")
     const usernameError = document.querySelector("#username + span.error")
     const password = document.getElementById("password")
-    const passwordError = document.querySelector("#password + span.error2)
+    const passwordError = document.querySelector("#password + span.error2")
 
     username.addEventListener("input", (event) => {
         // Checking if the form fields are valid
@@ -46,8 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         usernameError.className = "error active";
 
-        else if {
-        
+        else if (password.validity.valueMissing) {
+            passwordError.textContent = "Password required"
         }
+        passwordError.className = "error active";
     }
 });
