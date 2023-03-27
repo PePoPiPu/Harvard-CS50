@@ -12,7 +12,8 @@ Login
             <div style="padding:10px"></div>
             <form name="login" action="/login" method="post" novalidate>
                 <div class="mb-3">
-                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text" required>
+                    <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-3">
                     <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
