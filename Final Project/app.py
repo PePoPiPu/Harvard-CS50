@@ -88,5 +88,28 @@ def logout():
     # Forget any user_id
     session.clear()
 
-    # 
+    # Redirect user to login form
+    return redirect("/")
 
+# Register
+@app.route("/register")
+def register():
+    """ Register user """
+    if request.method == "POST":
+
+        # Declaring variables to work with them later
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            return handle_bad_request(400)
+
+        # Check if any rows are returned from the query
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        if len(rows) != 1:
+            return handle_bad_request(400)
+        else:
+            row = db.execute("SELECT username FROM users WHERE username = ?", username)
+            user_check = row[0]["username"]
+            if username == user_check:
