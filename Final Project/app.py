@@ -33,7 +33,7 @@ def page_not_found(error):
     return render_template("page_not_found.html"), 404
 
 # Error handler for bad request (400)
-@app.errorhandler(werkzeug.exceptions.BadRequest)
+@app.errorhandler(exception )
 def handle_bad_request(e):
     return render_template("bad_request.hmtl"), 404
 @app.route("/")
