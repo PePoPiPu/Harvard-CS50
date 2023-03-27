@@ -8,3 +8,9 @@
     left: 0;
     z-index: -1;
 }
+
+/* Login CSS */
+
+.card-w-75 {
+    margin: 0 auto;
+}
