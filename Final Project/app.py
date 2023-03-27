@@ -26,6 +26,10 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+# Creating an error handler function for 404 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("page_not_found.html"), 404
 @app.route("/")
 @login_required
 def index():
@@ -45,4 +49,4 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            
+
