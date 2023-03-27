@@ -64,6 +64,7 @@ def login():
         # Ensure credentials are correct
         if rows is None:
             error = "Invalid credentials"
+            return render_template("login.html", error=error)
         else:
             flash("You were succesfully logged in")
             return redirect("/")
@@ -76,7 +77,7 @@ def login():
 
     # User reached route via GET
     else:
-        return render_template("login.html", error=error)
+        return render_template("login.html")
 
 # Logout
 @app.route("/logout")
