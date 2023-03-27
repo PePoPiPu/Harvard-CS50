@@ -27,6 +27,10 @@ body {
 
 /* Form error messages styling */
 
+input[type="username"] {
+    box-sizing: border-box;
+}
+
 .error {
     width: 300px;
     padding: 0;
