@@ -36,7 +36,6 @@ def page_not_found(error):
 @app.errorhandler(400)
 def handle_bad_request(e):
     return ("Bad Request"), 400
-
 # Index
 @app.route("/")
 @login_required
@@ -57,18 +56,18 @@ def login():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return handle_bad_request(400)
+            return ("Bad Request"), 400
 
         #Ensure password was submitted
         if not request.form.get("password"):
-            return handle_bad_request(400)
+            return ("Bad Request"), 400
 
         # Query database for a username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return handle_bad_request(400)
+            return ("Bad Request"), 400
 
         # Remember what user was logged in
         session["user_id"] = rows[0]["id"]
@@ -103,7 +102,7 @@ def register():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return handle_bad_request(400)
+            return ("Bad Request"), 400
 
         # Check if any rows are returned from the query
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
@@ -111,13 +110,13 @@ def register():
 
             # Password length validation
             if len(password) < 8:
-                return handle_bad_request(400)
+                return ("Bad Request"), 400
 
             # Ensure password was submitted
             if not request.form.get("password"):
-                return handle_bad_request(400)
+                return ("Bad Request"), 400
             elif password != request.form.get("confirmation"):
-                return handle_bad_request(400)
+                return ("Bad Request"), 400
 
             # Hash new password
             hash = generate_password_hash(password, method="pbkdf2:sha256", salt_length=32)
@@ -132,7 +131,7 @@ def register():
             row = db.execute("SELECT username FROM users WHERE username = ?", username)
             user_check = row[0]["username"]
             if username == user_check:
-                return handle_bad_request(400)
+                return ("Bad Request"), 400
 
     # Reached route via GET
     else:
