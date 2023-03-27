@@ -32,5 +32,6 @@ document.addEventListener("DOMContentLoaded", => {
             // If the fiel is empty, display the following
             usernameError.textContent = "Username required."
         }
+        usernameError.className = "error active";
     }
 })
