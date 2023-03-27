@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const usernameError = document.querySelector("#username + span.error")
     const password = document.getElementById("password")
     const passwordError = document.querySelector("#password + span.error2")
+    const confirmation = document.getElementById("confirmation")
+    const confirmationError = document.querySelector("#confirmation + span.error3")
 
     username.addEventListener("input", (event) => {
         // Checking if the form fields are valid
@@ -27,6 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
+    confirmation.addEventListener("input", (event) => {
+
+        if (confirmation.validity.valid) {
+
+            confirmationError.textContent = "";
+            confirmationError.className = "error"
+        }
+    })
+
+
     form.addEventListener("submit", (event) => {
         if (!username.validity.valid) {
             showError();
@@ -34,6 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!password.validity.valid) {
+            showError();
+            event.preventDefault();
+        }
+        if (!confirmation.validity.valid) {
             showError();
             event.preventDefault();
         }
@@ -48,6 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (password.validity.valueMissing) {
             passwordError.textContent = "Password required"
+        }
+        confirmationError.className = "error active";
+        if (confirmation.validity.valueMissing) {
+            confirmationError.textContent = "Confirm your password"
         }
         passwordError.className = "error active";
     }

@@ -13,12 +13,15 @@ Login
             <form name="register" action="/register" method="post" novalidate>
                 <div class="mb-3">
                     <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+                    <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-3">
                     <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                    <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-3">
                     <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Confrim your password" type="password">
+                    <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb3">
                     {% if error %}
