@@ -5,9 +5,10 @@ from cs50 import SQL
 from flask import Flask, render_template, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
-from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
+from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError, BadRequest
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from helpers import login_required
 # Configuring the app
 app = Flask(__name__)
 
@@ -26,10 +27,15 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-# Creating an error handler function for 404 
+# Error handler for 404
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("page_not_found.html"), 404
+
+# Error handler for bad request (400)
+@app.errorhandler()
+def handle_bad_request(e):
+    return render_template("bad_request.hmtl"), 404
 @app.route("/")
 @login_required
 def index():
