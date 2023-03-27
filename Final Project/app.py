@@ -67,13 +67,9 @@ def login():
             return render_template("login.html", error=error)
         else:
             flash("You were succesfully logged in")
+            # Remember what user was logged in
+            session["user_id"] = rows[0]["id"]
             return redirect("/")
-
-        # Remember what user was logged in
-        session["user_id"] = rows[0]["id"]
-
-        # Redirect user to homepage
-        return redirect("/")
 
     # User reached route via GET
     else:
