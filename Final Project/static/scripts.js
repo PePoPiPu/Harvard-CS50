@@ -12,7 +12,25 @@ document.addEventListener("DOMContentLoaded", => {
 
         if (username.validity.valid) {
             // Removing error message if there's an error message and the input is valid
-            usernameError.textContent
+            usernameError.textContent = "";
+            usernameError.className = "error"
+        } else {
+            // If there's still and error, show the correct error
+            showError();
         }
-    })
+    });
+
+    form.addEventListener("submit", (event) => {
+        if (!username.validity.valid) {
+            showError();
+            event.preventDefault();
+        }
+    });
+
+    function showError() {
+        if (username.validity.valueMissing) {
+            // If the fiel is empty, display the following
+            usernameError.textContent = "Username required."
+        }
+    }
 })
