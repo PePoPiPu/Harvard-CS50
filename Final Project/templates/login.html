@@ -9,6 +9,9 @@ Login
     <div class="card shadow-lg p-3 mb-5 bg-white rounded">
         <div class="card-body">
             <h5 class="card-title">Login to your account</h5>
+            {% if error %}
+                <p class=error><strong>Error:</strong> {{ error }}
+            {% endif %}
             <div style="padding:10px"></div>
             <form name="login" action="/login" method="post" novalidate>
                 <div class="mb-3">

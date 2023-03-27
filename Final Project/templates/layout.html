@@ -72,6 +72,17 @@
         </nav>
         <!-- Navbar -->
 
+        <!-- Flashing message -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
         <main class="container-fluid py-5 text-center">
             {% block main %}{% endblock %}
         </main>
