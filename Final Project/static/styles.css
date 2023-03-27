@@ -11,8 +11,12 @@
 
 /* Login CSS */
 
-.card {
-    margin: 0 auto;
-    position: absolute:
+.container {
+    position: relative;
 }
 
+.card {
+    margin: 0 auto;
+  position: absolute;
+  top: 50%;
+}
