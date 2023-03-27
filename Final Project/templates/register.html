@@ -20,6 +20,11 @@ Login
                 <div class="mb-3">
                     <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Confrim your password" type="password">
                 </div>
+                <div class="mb3">
+                    {% if error %}
+                    <p class=flash-error><strong>Error:</strong> {{ error }}
+                    {% endif %}
+                </div>
                 <button class="btn btn-primary" type=submit>Register</button>
             </form>
         </div>
