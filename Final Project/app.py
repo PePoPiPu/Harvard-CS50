@@ -2,7 +2,7 @@ import os
 
 # Importing modules
 from cs50 import SQL
-from flask import Flask, render_template, redirect, render_template, request, session
+from flask import Flask, render_template, redirect, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
@@ -36,6 +36,7 @@ def page_not_found(error):
 @app.errorhandler(400)
 def handle_bad_request(e):
     return ("Bad Request"), 400
+
 # Index
 @app.route("/")
 @login_required
@@ -50,6 +51,9 @@ def login():
 
     # Forget any user_id
     session.clear()
+
+    # Set error variable for message flashing
+    error = None
 
     # User reached route via POST
     if request.method == "POST":
