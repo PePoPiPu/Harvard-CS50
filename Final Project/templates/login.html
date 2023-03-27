@@ -24,6 +24,11 @@ Login
                     <p class=flash-error><strong>Error:</strong> {{ error }}
                     {% endif %}
                 </div>
+                <div class="mb3">
+                    {% if validation %}
+                    <p class=flash-validation><strong>Good!:</strong> {{ validation }}
+                    {% endif %}
+                </div>
                 <button class="btn btn-primary" type=submit>Login</button>
             </form>
         </div>

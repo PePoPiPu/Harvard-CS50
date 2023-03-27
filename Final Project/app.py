@@ -129,7 +129,8 @@ def register():
             # Insert new username and hash into users table
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
 
-            return render_template("login.html")
+            validation = ("You were registered successfully")
+            return render_template("login.html", validation=validation)
 
         else:
             # I think this is redundant code. if len(rows) != 1 already checks username existance
