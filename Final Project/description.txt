@@ -27,4 +27,11 @@ The idea is an interactive and dynamic calendar implemented maybe with javascrip
 with the different staff profiles.
 
 The program should add correlations automatically like:
-Staff experience in the company and 
+Staff experience in the company and the difficulty of each counter. Each counter's difficulty is going to be decided on it's number.
+e.g counter number 2 has more difficulty than counter number 5. It has more currencies and more clients.
+
+Example:
+Let's say StaffMember1, an experienced staff member goes on sick leave and tells that to the company the day prior to his shift.
+When removed from the shift calendar, the program should automatically assign StaffMember2 to the counter StaffMember1 had been
+originally assigned to. And the place of StaffMember2 should be replaced with StaffMember3. If the operational threshold is still
+over nominal amounts there should be no alert. If the "shuffle" of staff members provokes a counter being empty, 
