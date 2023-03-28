@@ -1,0 +1,8 @@
+Login and Register:
+
+Login and register pages have been already designed on the front-end, requiring a major visual overhaul in the ending versions of the app.
+Login and register logic has been implemented with python, jinja, flask and SQL.
+Form validation and image flashing has been implemented with Flask and Python.
+More extensive client side validation is required with cybersecurity measures to improve overall security.
+
+Index
