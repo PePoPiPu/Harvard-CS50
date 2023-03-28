@@ -5,4 +5,11 @@ Login and register logic has been implemented with python, jinja, flask and SQL.
 Form validation and image flashing has been implemented with Flask and Python.
 More extensive client side validation is required with cybersecurity measures to improve overall security.
 
-Index
+Index:
+Not yet implemented.
+The index should show a dashboard of sorts. Ideas include:
+Alerts that show automatic changes in the shift organization of the staff. This alerts should come with an approval option and edit option.
+Total number of active staff separated by shifts and day , e.g Morning shift: 16 active Second shift: 8 active, etc.
+    This should show if the active staff is under the current operation threshold. e.g if the minimum amount of workers needed in the second
+    shift is 13, show a strong alert if the active number is before that. Maybe offer options of staff in their rest days in order to get
+    them for an extra shift.
