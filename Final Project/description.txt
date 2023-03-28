@@ -34,4 +34,4 @@ Example:
 Let's say StaffMember1, an experienced staff member goes on sick leave and tells that to the company the day prior to his shift.
 When removed from the shift calendar, the program should automatically assign StaffMember2 to the counter StaffMember1 had been
 originally assigned to. And the place of StaffMember2 should be replaced with StaffMember3. If the operational threshold is still
-over nominal amounts there should be no alert. If the "shuffle" of staff members provokes a counter being empty, 
+over nominal amounts there should be no alert. If the "shuffle" of staff members provokes a counter being empty, an alert should be shown
