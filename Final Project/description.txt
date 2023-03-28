@@ -13,3 +13,5 @@ Total number of active staff separated by shifts and day , e.g Morning shift: 16
     This should show if the active staff is under the current operation threshold. e.g if the minimum amount of workers needed in the second
     shift is 13, show a strong alert if the active number is before that. Maybe offer options of staff in their rest days in order to get
     them for an extra shift.
+Add a dashboard for new staff, options to see where they are at their training and an option to edit their training plan.
+(SHOULD ADD A NEW STAFF TAB FOR ALL OF THIS INFORMATION TOO)
