@@ -15,3 +15,9 @@ Total number of active staff separated by shifts and day , e.g Morning shift: 16
     them for an extra shift.
 Add a dashboard for new staff, options to see where they are at their training and an option to edit their training plan.
 (SHOULD ADD A NEW STAFF TAB FOR ALL OF THIS INFORMATION TOO)
+
+About:
+Not yet implemented.
+Normal html webpage that has summarized information about the project. Shouldn't include instructions as the current aim is to have
+a a user-friendly app as possible
+
