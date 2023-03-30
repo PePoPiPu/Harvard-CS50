@@ -19,7 +19,7 @@ Session(app)
 
 # Configure CS50 library to use SQLite database
 db = SQL("sqlite:///psp.db")
-
+ 
 @app.after_request
 def after_request(response):
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
