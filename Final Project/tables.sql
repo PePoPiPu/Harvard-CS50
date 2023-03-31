@@ -6,7 +6,7 @@ CREATE TABLE staff (
     shift TEXT NOT NULL
 );
 
-CREATE TABLE counter (
+CREATE TABLE counters (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     counter_name TEXT NOT NULL,
     selling_point TEXT NOT NULL,
