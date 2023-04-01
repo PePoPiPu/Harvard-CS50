@@ -10,8 +10,8 @@ CREATE TABLE counters (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     counter_name TEXT NOT NULL,
     selling_point TEXT NOT NULL,
-    level TEXT NOT NULL,
-    type TEXT NOT NULL,
+    position TEXT NOT NULL,
+    position_experience TEXT NOT NULL,
     morning_service_hours TEXT NOT NULL,
     late_service_hours TEXT NOT NULL,
     night_service_hours TEXT NOT NULL
