@@ -42,6 +42,7 @@ def handle_bad_request(e):
 @login_required
 def index():
     if request.method == "GET":
+        
         return render_template("index.html")
 
 # Login
@@ -146,3 +147,5 @@ def register():
 @app.route("/staff", methods=["GET", "POST"])
 @login_required
 def staff():
+    if request.method == "GET":
+        return render_template("staff.html")
