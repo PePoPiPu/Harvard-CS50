@@ -42,7 +42,7 @@ def handle_bad_request(e):
 @login_required
 def index():
     if request.method == "GET":
-        date = db.execute("SELECT date FROM schedule WHERE shift = "Morning shift")
+        date = db.execute("SELECT date FROM schedule WHERE shift = 'Morning shift'")
         return render_template("index.html")
 
 # Login
