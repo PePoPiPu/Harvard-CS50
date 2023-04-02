@@ -44,8 +44,9 @@ def handle_bad_request(e):
 def index():
     if request.method == "GET":
         today = date.today()
-        
-        return render_template("index.html", today)
+        dt = datetime.now()
+        weekday = dt.strftime(dt)
+        return render_template("index.html", today=today, weekday=weekday)
 
 # Login
 @app.route("/login", methods=["GET", "POST"])
