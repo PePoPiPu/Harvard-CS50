@@ -7,7 +7,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-from datetime import date
+from datetime import date, datetime
 
 from helpers import login_required
 # Configuring the app
@@ -44,6 +44,7 @@ def handle_bad_request(e):
 def index():
     if request.method == "GET":
         today = date.today()
+        
         return render_template("index.html", today)
 
 # Login
