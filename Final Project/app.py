@@ -7,6 +7,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import date
 
 from helpers import login_required
 # Configuring the app
@@ -42,8 +43,8 @@ def handle_bad_request(e):
 @login_required
 def index():
     if request.method == "GET":
-        date = db.execute("SELECT date FROM schedule WHERE shift = 'Morning shift'")
-        return render_template("index.html")
+        today = date.today()
+        return render_template("index.html", today)
 
 # Login
 @app.route("/login", methods=["GET", "POST"])
