@@ -43,10 +43,13 @@ def handle_bad_request(e):
 @login_required
 def index():
     if request.method == "GET":
+        # Getting current date time and day name
         today = date.today()
         dt = datetime.now()
-        # Bug
         weekday = dt.strftime("%A")
+
+        # Quering data from database for display
+        rows = db.execute
         return render_template("index.html", today=today, weekday=weekday)
 
 # Login

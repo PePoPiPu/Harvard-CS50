@@ -25,6 +25,15 @@ Home
                         <th scope="col">Shift</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <th scope="row">{{ row ["counter_name"]}}</th>
+                        <th scope="row">{{ row ["name"]}}</th>
+                        <th scope="row">{{ row ["shift"]}}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>
