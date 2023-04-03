@@ -26,7 +26,9 @@ CREATE TABLE schedule (
     FOREIGN KEY (active_counters)
     REFERENCES counters (id),
     FOREIGN KEY (active_staff)
-    REFERENCES staff (id)
+    REFERENCES staff (id),
+    FOREIGN KEY (shift)
+    REFERENCES staff (shift)
 );
 
 
