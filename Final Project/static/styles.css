@@ -84,8 +84,9 @@ input [type="text"] {
 
 .card-2 {
     overflow: auto;
+    display: inline-block;
 }
 
-#card-1 {
+.container-index {
     float: left;
 }
