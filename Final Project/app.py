@@ -50,7 +50,7 @@ def index():
 
         # Quering data from database for display
         rows = db.execute ("SELECT * FROM schedule JOIN counters ON schedule.active_counters = counters.id JOIN staff ON schedule.active_staff = staff.id")
-        return render_template("index.html", today=today, weekday=weekday)
+        return render_template("index.html", today=today, weekday=weekday, rows=rows)
 
 # Login
 @app.route("/login", methods=["GET", "POST"])
