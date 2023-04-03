@@ -199,7 +199,7 @@ export const themeSettings = (mode) => {
     export const useMode = () => {
         const [mode, setMode] = useState("dark");
 
-    export const useMemo = (
+    const useMemo = (
         () => ({
             toggleColorMode:
             setMode((prev) => (prev === "light" ? "dark" : "light")),
