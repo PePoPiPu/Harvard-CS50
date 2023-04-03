@@ -50,12 +50,10 @@ def index():
 
         #Getting tomorrow's date time and weekday
         tomorrow = today + timedelta(days=1)
-        dt2 = datetime.now() + timedelta(days=1)
-        tomorrow_weekday = dt2.strftime("%A")
 
         # Quering data from database for display
         rows = db.execute ("SELECT * FROM schedule JOIN counters ON schedule.active_counters = counters.id JOIN staff ON schedule.active_staff = staff.id")
-        return render_template("index.html", today=today, weekday=weekday, rows=rows, tomorrow=tomorrow, tomorrow_weekday=tomorrow_weekday)
+        return render_template("index.html", today=today, weekday=weekday, rows=rows, tomorrow=tomorrow)
 
 # Login
 @app.route("/login", methods=["GET", "POST"])
