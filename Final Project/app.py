@@ -7,7 +7,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 from helpers import login_required
 # Configuring the app
@@ -43,14 +43,19 @@ def handle_bad_request(e):
 @login_required
 def index():
     if request.method == "GET":
-        # Getting current date time and day name
+        # Getting current date time and weekday
         today = date.today()
         dt = datetime.now()
         weekday = dt.strftime("%A")
 
+        #Getting tomorrow's date time and weekday
+        tomorrow = today + timedelta(days=1)
+        dt2 = dt + timedelta(days=1)
+        tomorrow_weekday = dt2.strftime("%A")
+
         # Quering data from database for display
         rows = db.execute ("SELECT * FROM schedule JOIN counters ON schedule.active_counters = counters.id JOIN staff ON schedule.active_staff = staff.id")
-        return render_template("index.html", today=today, weekday=weekday, rows=rows)
+        return render_template("index.html", today=today, weekday=weekday, rows=rows, tomorrow=tomorrow, tomorrow_weekday=tomorrow_weekday)
 
 # Login
 @app.route("/login", methods=["GET", "POST"])
