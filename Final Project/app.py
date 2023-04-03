@@ -46,7 +46,7 @@ def index():
         today = date.today()
         dt = datetime.now()
         # Bug
-        weekday = dt.strftime(dt)
+        weekday = dt.strftime("%A")
         return render_template("index.html", today=today, weekday=weekday)
 
 # Login
