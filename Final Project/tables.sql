@@ -23,9 +23,9 @@ CREATE TABLE schedule (
     shift TEXT NOT NULL,
     date TEXT NOT NULL,
     weekday TEXT NOT NULL,
-    FOREIGN KEY (active_counters),
+    FOREIGN KEY (active_counters)
     REFERENCES counters (id),
-    FOREIGN KEY (active_staff),
+    FOREIGN KEY (active_staff)
     REFERENCES staff (id)
 );
 
