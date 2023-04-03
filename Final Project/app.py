@@ -158,4 +158,7 @@ def register():
 @login_required
 def staff():
     if request.method == "GET":
-        return render_template("staff.html")
+
+        # Quering database for display
+        rows = db.execute("SELECT * FROM staff")
+        return render_template("staff.html", rows=rows)
