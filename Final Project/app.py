@@ -50,7 +50,7 @@ def index():
 
         #Getting tomorrow's date time and weekday
         tomorrow = today + timedelta(days=1)
-        dt2 = dt + timedelta(days=1)
+        dt2 = datetime.now() + timedelta(days=1)
         tomorrow_weekday = dt2.strftime("%A")
 
         # Quering data from database for display
