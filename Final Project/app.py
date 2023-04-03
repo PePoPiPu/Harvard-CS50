@@ -45,6 +45,7 @@ def index():
     if request.method == "GET":
         today = date.today()
         dt = datetime.now()
+        # Bug
         weekday = dt.strftime(dt)
         return render_template("index.html", today=today, weekday=weekday)
 
