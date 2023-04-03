@@ -79,3 +79,13 @@ input [type="text"] {
     border-radius: 5px 5px 5px 5px;
     padding: 0.3em;
 }
+
+/* Index CSS */
+
+.card-2 {
+    overflow: auto;
+}
+
+#card-1 {
+    float: left;
+}
