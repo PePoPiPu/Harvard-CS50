@@ -85,6 +85,13 @@ input [type="text"] {
 .card-2 {
     overflow: auto;
     display: inline-block;
+    position: relative;
+}
+
+.card-3 {
+    overflow: auto;
+    display: inline-block;
+    position: relative;
 }
 
 .container-index {
