@@ -6,7 +6,7 @@ export const tokens = (mode) => ({
     ...(mode === 'dark'
         ? {
             grey: {
-                100: "#141414"
+                100: "#141414",
                 200: "#292929",
                 300: "#3d3d3d",
                 400: "#525252",
@@ -17,7 +17,7 @@ export const tokens = (mode) => ({
                 900: "#e0e0e0",
             },
             primary: {
-                100: "#040509"
+                100: "#040509",
                 200: "#080b12",
                 300: "#0c101b",
                 400: "#101624",
@@ -28,7 +28,7 @@ export const tokens = (mode) => ({
                 900: "#d0d1d5",
             },
             greenAccent: {
-                100: "#0f2922"
+                100: "#0f2922",
                 200: "#1e5245",
                 300: "#2e7c67",
                 400: "#3da58a",
@@ -39,7 +39,7 @@ export const tokens = (mode) => ({
                 900: "#dbf5ee",
             },
             redAccent: {
-                100: "#2c100f"
+                100: "#2c100f",
                 200: "#58201e",
                 300: "#832f2c",
                 400: "#af3f3b",
@@ -50,7 +50,7 @@ export const tokens = (mode) => ({
                 900: "#f8dcdb",
             },
             blueAccent: {
-                100: "#151632"
+                100: "#151632",
                 200: "#2a2d64",
                 300: "#3e4396",
                 400: "#535ac8",
@@ -63,7 +63,7 @@ export const tokens = (mode) => ({
         }
         : {
             grey: {
-                100: "#141414"
+                100: "#141414",
                 200: "#292929",
                 300: "#3d3d3d",
                 400: "#525252",
@@ -74,7 +74,7 @@ export const tokens = (mode) => ({
                 900: "#e0e0e0",
             },
             primary: {
-                100: "#040509"
+                100: "#040509",
                 200: "#080b12",
                 300: "#0c101b",
                 400: "#f2f0f0",
@@ -85,7 +85,7 @@ export const tokens = (mode) => ({
                 900: "#d0d1d5",
             },
             greenAccent: {
-                100: "#0f2922"
+                100: "#0f2922",
                 200: "#1e5245",
                 300: "#2e7c67",
                 400: "#3da58a",
@@ -96,7 +96,7 @@ export const tokens = (mode) => ({
                 900: "#dbf5ee",
             },
             redAccent: {
-                100: "#2c100f"
+                100: "#2c100f",
                 200: "#58201e",
                 300: "#832f2c",
                 400: "#af3f3b",
@@ -107,7 +107,7 @@ export const tokens = (mode) => ({
                 900: "#f8dcdb",
             },
             blueAccent: {
-                100: "#151632"
+                100: "#151632",
                 200: "#2a2d64",
                 300: "#3e4396",
                 400: "#535ac8",
@@ -136,7 +136,7 @@ export const themeSettings = (mode) => {
                     main: colors.greenAccent[500],
                 },
                 neutral: {
-                    dark.colors.grey[700],
+                    dark: colors.grey[700],
                     main: colors.grey[500],
                     light: colors.grey[100],
                 },
@@ -151,7 +151,7 @@ export const themeSettings = (mode) => {
                     main: colors.greenAccent[500],
                 },
                 neutral: {
-                    dark.colors.grey[700],
+                    dark: colors.grey[700],
                     main: colors.grey[500],
                     light: colors.grey[100],
                 },
@@ -166,23 +166,23 @@ export const themeSettings = (mode) => {
             h1: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 40,
-            }
+            },
             h2: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 32,
-            }
+            },
             h3: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 24,
-            }
+            },
             h4: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 20,
-            }
+            },
             h5: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 16,
-            }
+            },
             h6: {
                 fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
                 fontSize: 14,
