@@ -37,31 +37,30 @@ Home
             </table>
         </div>
     </div>
-</div>
-
-<div class="container-index-2" id="card-2">
-    <div class="card-3 shadow-lg p-3 mb-5 bg-white rounded">
-        <div class="card-body-2">
-            <!-- I should probably add a dynamic table here -->
-            <h5><b>Active 1st shift staff for Tomorrow ({{ tomorrow }}):</b></h5>
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Active Counters</th>
-                        <th scope="col">Active Staff</th>
-                        <th scope="col">Shift</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for row in rows %}
-                    <tr>
-                        <th scope="row">{{ row ["counter_name"]}}</th>
-                        <th scope="row">{{ row ["name"]}}</th>
-                        <th scope="row">{{ row ["shift"]}}</th>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+    <div class="container-index-2" id="card-2">
+        <div class="card-3 shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-body-2">
+                <!-- I should probably add a dynamic table here -->
+                <h5><b>Active 1st shift staff for Tomorrow ({{ tomorrow }}):</b></h5>
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Active Counters</th>
+                            <th scope="col">Active Staff</th>
+                            <th scope="col">Shift</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                        <tr>
+                            <th scope="row">{{ row ["counter_name"]}}</th>
+                            <th scope="row">{{ row ["name"]}}</th>
+                            <th scope="row">{{ row ["shift"]}}</th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
