@@ -49,7 +49,7 @@ def index():
         weekday = dt.strftime("%A")
 
         # Quering data from database for display
-        rows = db.execute
+        rows = db.execute ("SELECT * FROM schedule JOIN counters ON schedule.active_counters = counters.id JOIN staff ON schedule.active_staff = staff.id")
         return render_template("index.html", today=today, weekday=weekday)
 
 # Login

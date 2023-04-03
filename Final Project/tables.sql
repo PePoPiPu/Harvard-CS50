@@ -31,3 +31,5 @@ CREATE TABLE schedule (
 
 
 INSERT INTO counter (id, counter_name, selling_point, level, morning_service_hours, late_service_hours, night_service_hours) VALUES (1, "V02", "IBERIA", "max", "6:30-14:30", "14:30-22:30", "22:30-6:30");
+
+SELECT * FROM schedule JOIN counters ON schedule.active_counters = counters.id JOIN staff ON schedule.active_staff = staff.id;
