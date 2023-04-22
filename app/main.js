@@ -25,8 +25,13 @@ function animate() {
 }
 
 if ( WebGL.isWebGLAvailable() ) {
-    animate();
+
+	// Initiate function or other initializations here
+	animate();
+
 } else {
-    const warning = WebGl.getWebGLErrorMessage();
-    document.getElementByUd( 'container' ).appendChild( warning );
+
+	const warning = WebGL.getWebGLErrorMessage();
+	document.getElementById( 'container' ).appendChild( warning );
+
 }
