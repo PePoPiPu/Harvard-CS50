@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import "../css/Note.css";
-import Note from "./Notes";
+import Note from "./Note";
 
 function Notes() {
     return (
