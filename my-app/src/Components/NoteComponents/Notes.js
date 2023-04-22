@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import "../css/Note.css";
 import Note from "./Note";
+import CreateNote from "./CreateNote";
 
 // states
 const [notes, setNotes] = useState([]);
@@ -11,7 +12,7 @@ function Notes() {
         <div className="notes">
             <Note />
             <Note />
-            <Note />
+            <CreateNote />
         </div>
     );
 }

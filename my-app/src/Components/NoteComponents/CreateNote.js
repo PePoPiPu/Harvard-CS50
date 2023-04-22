@@ -15,3 +15,5 @@ function CreateNote () {
         </div>
     );
 }
+
+export default CreateNote;
