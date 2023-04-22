@@ -3,11 +3,11 @@ import "../css/Note.css";
 import Note from "./Note";
 import CreateNote from "./CreateNote";
 
-// states
-const [notes, setNotes] = useState([]);
-const [inputText, setInputText] = useState("")
-
 function Notes() {
+    // states
+    const [notes, setNotes] = useState([]);
+    const [inputText, setInputText] = useState("")
+    
     return (
         <div className="notes">
             <Note />
