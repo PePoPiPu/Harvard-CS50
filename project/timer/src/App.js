@@ -1,7 +1,7 @@
 import React from "react";
 import Clock from "./components/Clock";
 
-function App() => {
+function App() {
   return (
     <div>
       <Clock />

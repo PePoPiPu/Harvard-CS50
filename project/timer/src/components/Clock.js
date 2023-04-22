@@ -1,11 +1,11 @@
 import React from "react";
 
-function setTimer() => {
+function Clock() {
     return (
-        <div className="setTimer">
-        
+        <div className="clock">
+
         </div>
     )
 }
 
-export default clock;
+export default Clock;
