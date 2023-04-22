@@ -1,8 +1,10 @@
 import React from "react";
 
-function clock() => {
+function setTimer() => {
     return (
+        <div className="setTimer">
         
+        </div>
     )
 }
 
