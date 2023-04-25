@@ -1,10 +1,8 @@
 import './App.css';
-import { FiberContainer } from './FiberContainer';
+import Scene  from './Scene';
 
 function App() {
-  return <div className="App">
-      <FiberContainer />
-    </div>
+  return <Scene />
 }
 
 export default App;
