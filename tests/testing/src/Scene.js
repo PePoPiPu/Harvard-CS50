@@ -1,7 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
 
-function Scene () {
+export const Scene = () => {
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
     camera.position.z = 1;
 
@@ -25,4 +25,3 @@ function Scene () {
         renderer.render( scene, camera )
     };
 }
-export default Scene;
