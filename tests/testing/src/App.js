@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Scene from './Scene';
+import FiberContainer from'./FiberContainer'
 
 function App() {
   return (
-    <Canvas>
-      <Scene />
-    </Canvas>
+    <div className="App">
+      <FiberContainer />
+    </div>
   );
 }
 
