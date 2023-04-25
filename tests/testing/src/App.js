@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import FiberContainer from'./FiberContainer'
+import { FiberContainer } from'./FiberContainer'
 
 function App() {
   return (
