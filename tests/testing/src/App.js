@@ -1,8 +1,9 @@
 import './App.css';
 import { Canvas } from '@react-three/fiber';
+import Index from'./Scene';
 
 function App() {
-  return <Scene />
+  return <Index />
 }
 
 export default App;
