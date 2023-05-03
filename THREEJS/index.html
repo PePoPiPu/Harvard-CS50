@@ -24,7 +24,7 @@
 
             document.body.appendChild(renderer.domElement);
 
-            
+            // Adjust renderer size and camera aspect ratio when window size is changed
             window.addEventListener('resize', () => {
                 renderer.setSize(window.innerWidth, window.innerHeight);
                 camera.aspect = window.innerWidth / window.innerHeight;
