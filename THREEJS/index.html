@@ -34,9 +34,11 @@
             })
 
 
-            var geometry = new THREE.SphereGeometry(1, 10, 10);
+            var geometry = new THREE.BoxGeometry(1, 1, 1);
             var material = new THREE.MeshLambertMaterial({color: 0xFFCC00});
             var mesh = new THREE.Mesh( geometry, material );
+
+            mesh.position.x = 2
 
             scene.add(mesh);
 
@@ -44,7 +46,12 @@
             light.position.set(10, 0, 25);
             scene.add(light);
 
-            renderer.render(scene, camera);
+            var render = function () {
+                requestAnimationFrame(render);
+                renderer.render(scene, camera);
+            }
+
+            render();
 
         </script>
     </body>
