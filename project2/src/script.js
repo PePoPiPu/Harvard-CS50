@@ -180,10 +180,11 @@ function generateGalaxy() {
       const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
       const t = distanceFromCenter / (armCount * armLength); // Value from 0 to 1 along the arms
 
-      const hotColor = new THREE.Color(params.centerColor); // Get the center color from the GUI
-      const coldColor = new THREE.Color(params.baseColor); // Get the base color from the GUI
+      const baseColor = new THREE.Color(params.baseColor); // Get the base color from the GUI
+      const centerColor = new THREE.Color(params.centerColor); // Get the center color from the GUI
 
-      const color = new THREE.Color().lerpColors(coldColor, hotColor, Math.pow(t, 0.5)); // Gradient between base and center colors
+      const color = baseColor.clone(); // Initialize color as the base color
+      color.lerp(centerColor, t); // Interpolate between the base and center colors based on distance
 
       const index = (armIndex * starCountPerArm + i) * 3;
 
