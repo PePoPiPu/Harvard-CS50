@@ -18,7 +18,7 @@ const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
 const particlesGeometry = new THREE.BufferGeometry;
 const particlesCount = 5000;
 
-const posArray = new float32Array(particlesCount * 3);
+const posArray = new Float32Array(particlesCount * 3);
 // xyz, xyz, xyz, xyz
 
 for(let i = 0; i < particlesCount * 3; i++) {
