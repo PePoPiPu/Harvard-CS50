@@ -170,7 +170,7 @@ var material = new THREE.ShaderMaterial({
     wireframe: true
   });
 
-const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({color: 'red'}), material)
+const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial(), material)
 scene.add(spiralGalaxy)
 
 // Lights
