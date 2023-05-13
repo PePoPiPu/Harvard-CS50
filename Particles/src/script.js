@@ -15,13 +15,13 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
 
-const particlesGeometry = new THREE.BufferGeometry:
+const particlesGeometry = new THREE.BufferGeometry;
 const particlesCount = 5000;
 
-const posArray = new float32Array(particles * 3);
+const posArray = new float32Array(particlesCount * 3);
 // xyz, xyz, xyz, xyz
 
-for(let i = 0; i < particlesCount * 3; i++;) {
+for(let i = 0; i < particlesCount * 3; i++) {
     posArray[i] * Math.random()
 }
 
@@ -35,7 +35,8 @@ const material = new THREE.PointsMaterial({
 
 // Mesh
 const sphere = new THREE.Points(geometry,material)
-scene.add(sphere)
+const particlesMesh = new THREE.Points(particlesGeometry, material)
+scene.add(sphere, particlesMesh)
 
 // Lights
 
