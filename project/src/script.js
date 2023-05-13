@@ -16,7 +16,7 @@ const scene = new THREE.Scene()
 const normalRandom = (mean, std) => {
     let n = 0
 
-    for(let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 12; i++) {
         n += Math.random()
     }
 
@@ -35,7 +35,7 @@ for (let i = 0; i < 10000; i++) {
 
     // Change this for arms
     geometry.vertices.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos.(phi),
+        distance * Math.sin(theta) * Math.cos(phi),
         distance * Math.sin(theta) * Math.sin(phi),
         distance * Math.cos(theta) / 10
     ))
