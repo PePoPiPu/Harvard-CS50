@@ -23,8 +23,8 @@ const normalRandom = (mean, std) => {
     return (n - 6) * std + mean
 }
 
-// Creating a tube
-const geometry = new THREE.BufferGeometry
+// Geometry
+const points = []
 const galaxySize = 1000
 
 // Temp avariables to assign new values inside loop
@@ -48,8 +48,14 @@ for (let i = 0; i < 1000; i++) {
     distance = norm * galaxySize;
 
     // Generate spiral arms
-    geometry.vertice
+    points.push(new THREE.Vector3(
+        distance * Math.sin(theta) * Math.cos(phi),
+        distance * Math.sin(theta) * Math.sin(phi),
+        distance * Math.cos(theta)
+    ));
 }
+
+let geometry = new THREE.BufferGeometry().setFromPoints(points)
 
 const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xffffff }))
 scene.add(spiralGalaxy)
