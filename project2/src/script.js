@@ -50,7 +50,10 @@ for (let armIndex = 0; armIndex < armCount; armIndex++) {
     const y = Math.random() * 4; // Small random displacement in the y-axis
     const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
 
-    const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
+    const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+    const t = distanceFromCenter / (armCount * armLength); // Value from 0 to 1 along the arms
+
+    const color = new THREE.Color().setHSL(0.1 + t * 0.9, 1, 0.5 - t * 0.8); // Orange to blue gradient
 
     const index = (armIndex * starCountPerArm + i) * 3;
 
