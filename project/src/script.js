@@ -142,31 +142,32 @@ let geometry = new THREE.BufferGeometry().setFromPoints(points)
 var material =  new THREE.ShaderMaterial({
     uniforms: {
         color1: {
-            value: new THREE.Color("red")
+          value: new THREE.Color("red")
         },
         color2: {
-            value: new THREE.Color("purple")
+          value: new THREE.Color("purple")
         }
-    },
-    vertexShader: `
+      },
+      vertexShader: `
         varying vec2 vUv;
 
-        void main () {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+        void main() {
+          vUv = uv;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
         }
-    `,
-    fragmentShader: `
+      `,
+      fragmentShader: `
         uniform vec3 color1;
         uniform vec3 color2;
 
         varying vec2 vUv;
 
         void main() {
-            gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+
+          gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
         }
-    `
-})
+      `
+});
 
 const spiralGalaxy = new THREE.Points(geometry, material)
 scene.add(spiralGalaxy)
