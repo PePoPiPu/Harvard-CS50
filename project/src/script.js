@@ -139,7 +139,7 @@ let geometry = new THREE.BufferGeometry().setFromPoints(points)
 // const loadedTexture = new THREE.PointsMaterial({ map:texture })
 
 // Creating a shader
-const material =  new THREE.ShaderMaterial({
+var material =  new THREE.ShaderMaterial({
     uniforms: {
         color1: {
             value: new THREE.Color("red")
@@ -153,11 +153,11 @@ const material =  new THREE.ShaderMaterial({
 
         void main () {
             vUv = uv;
-            gl_Position = projectionMatrix * modalViewMatrix * vec4(position, 1.0);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
         }
     `,
     fragmentShader: `
-        unifrom vec3 color1;
+        uniform vec3 color1;
         uniform vec3 color2;
 
         varying vec2 vUv;
