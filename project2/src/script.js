@@ -186,8 +186,8 @@ function generateGalaxy() {
       const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
       const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
 
-      const hotColor = new THREE.Color(params.baseColor); // Base color from the GUI
-      const coldColor = new THREE.Color(params.centerColor); // Center color from the GUI
+      const baseColor = new THREE.Color(params.baseColor); // Base color from the GUI
+      const centerColor = new THREE.Color(params.centerColor); // Center color from the GUI
 
       const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
 
