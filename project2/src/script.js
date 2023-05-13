@@ -142,6 +142,7 @@ const params = {
 gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
 gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
 gui.addColor(params, 'baseColor').onChange(updateGalaxy);
+gui.addColor(params, 'centerColor').onChange(updateGalaxy); // Add control for center color
 
 // Function to update the galaxy based on the GUI parameters
 function updateGalaxy() {
