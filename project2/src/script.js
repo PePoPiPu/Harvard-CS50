@@ -2,131 +2,92 @@ import './styles.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-// Debug
-
-
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
 
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
+// Camera
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+camera.position.z = 5
 
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+// Renderer
+const renderer = new THREE.WebGLRenderer({ canvas: canvas })
+renderer.setSize(window.innerWidth, window.innerHeight)
 
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement)
 
-const geometry = new THREE.BufferGeometry();
-const positions = [];
-const colors = [];
-const angles = [];
+// Geometry
+const galaxySize = 1000
+const points = []
 
-geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-geometry.setAttribute('angle', new THREE.Float32BufferAttribute(angles, 1));
+for (let i = 0; i < 10000; i++) {
+  const angle = Math.random() * Math.PI * 2
+  const distance = Math.random() * galaxySize
+  const height = Math.random() * 2 - 1
 
-// Vertex shader
+  const x = Math.cos(angle) * distance
+  const y = height * galaxySize
+  const z = Math.sin(angle) * distance
+
+  points.push(new THREE.Vector3(x, y, z))
+}
+
+const geometry = new THREE.BufferGeometry().setFromPoints(points)
+
+// Colors
+const colors = []
+const color1 = new THREE.Color(0x8000ff) // Starting color
+const color2 = new THREE.Color(0x00ff00) // Ending color
+
+for (let i = 0; i < points.length; i++) {
+  const t = i / points.length
+  const color = new THREE.Color().lerpColors(color1, color2, t)
+  colors.push(color.r, color.g, color.b)
+}
+
+geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3))
+
+// Material
 const vertexShader = `
-  attribute vec3 color;
-  attribute float angle;
   varying vec3 vColor;
 
   void main() {
     vColor = color;
-    float c = cos(angle);
-    float s = sin(angle);
-    mat3 rotationMatrix = mat3(
-      c, -s, 0,
-      s, c, 0,
-      0, 0, 1
-    );
-    vec3 transformedPosition = position * rotationMatrix;
-    gl_PointSize = 2.0; // Adjust the size of the particles
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(transformedPosition, 1.0);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }
-`;
+`
 
-// Fragment shader
 const fragmentShader = `
   varying vec3 vColor;
 
   void main() {
     gl_FragColor = vec4(vColor, 1.0);
-    gl_FragColor.a = length(gl_PointCoord - vec2(0.5)) * 2.0; // Create a fading effect towards the edges of the particles
   }
-`;
+`
 
 const material = new THREE.ShaderMaterial({
-  vertexShader: vertexShader,
-  fragmentShader: fragmentShader,
-  blending: THREE.AdditiveBlending, // Set the blending mode to achieve the galaxy effect
-  depthTest: false,
-  transparent: true
-});
-
-const points = new THREE.Points(geometry, material);
-scene.add(points);
-
-
-// Sizes
-
-const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight
-}
-
-//Camera
-
-// Base camera
-const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 5000)
-camera.position.x = 0
-camera.position.y = 1000
-camera.position.z = 1700
-scene.add(camera)
-
-// Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
-controls.autoRotate = true
-controls.autoRotateSpeed = 5.0
-
-// Renderer
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
+  vertexShader,
+  fragmentShader,
+  vertexColors: true,
 })
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-// Setting background color as an "spacey" color
-renderer.setClearColor(new THREE.Color('#01010d'), 1)
 
-// Animate
-const clock = new THREE.Clock()
-const tick = () =>
-{
-    const elapsedTime = clock.getElapsedTime()
+// Mesh
+const galaxy = new THREE.Points(geometry, material)
+scene.add(galaxy)
 
-    // Update Orbital Controls
-    controls.update()
+// Animation loop
+function animate() {
+  requestAnimationFrame(animate)
 
-    // Render
-    renderer.render(scene, camera)
+  // Rotate the galaxy
+  galaxy.rotation.y += 0.001
 
-    // Update Spiral position
-    geometry.attributes.position.needsUpdate = true;
-    geometry.attributes.angle.needsUpdate = true;
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
+  // Render the scene
+  renderer.render(scene, camera)
 }
 
-tick()
+// Start the animation loop
+animate()
