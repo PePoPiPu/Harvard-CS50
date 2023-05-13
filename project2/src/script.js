@@ -124,3 +124,76 @@ function animate() {
 
 // Start the animation loop
 animate();
+
+
+// Create a GUI object
+const gui = new dat.GUI();
+
+// Parameters
+const params = {
+  galaxySize: 100,
+  armCount: 6,
+  baseColor: '#ff6600'
+};
+
+// Add controls to the GUI
+gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
+gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
+gui.addColor(params, 'baseColor').onChange(updateGalaxy);
+
+// Function to update the galaxy based on the GUI parameters
+function updateGalaxy() {
+  armCount = params.armCount;
+  armLength = params.galaxySize;
+
+  generateGalaxy();
+}
+
+// Function to generate the galaxy
+function generateGalaxy() {
+  // Clear existing galaxy
+  galaxy.geometry.dispose();
+  galaxy.material.dispose();
+  scene.remove(galaxy);
+
+  // Generate new galaxy
+  const newGeometry = new THREE.BufferGeometry();
+  const newPositions = new Float32Array(armCount * starCountPerArm * 3);
+  const newColors = new Float32Array(armCount * starCountPerArm * 3);
+
+  for (let armIndex = 0; armIndex < armCount; armIndex++) {
+    const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+    for (let i = 0; i < starCountPerArm; i++) {
+      const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+      const radius = (i / starCountPerArm) * armLength;
+      const spread = Math.random() * armSpread;
+
+      const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+      const y = Math.random() * 4; // Small random displacement in the y-axis
+      const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+      const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+      const t = distanceFromCenter / (armCount * armLength); // Value from 0 to 1 along the arms
+
+      const color = new THREE.Color().setHSL(0.6 + t * 0.4, 1, 0.5 - t * 0.4); // Orange to blue gradient
+
+      const index = (armIndex * starCountPerArm + i) * 3;
+
+      newPositions[index] = x;
+      newPositions[index + 1] = y;
+      newPositions[index + 2] = z;
+
+      newColors[index] = color.r;
+      newColors[index + 1] = color.g;
+      newColors[index + 2] = color.b;
+    }
+  }
+
+  newGeometry.setAttribute('position', new THREE.BufferAttribute(newPositions, 3));
+  newGeometry.setAttribute('color', new THREE.BufferAttribute(newColors, 3));
+
+  galaxy.geometry = newGeometry;
+  galaxy.material = material;
+  scene.add(galaxy);
+}
