@@ -130,7 +130,8 @@ for (let i = 0; i < 1000; i++) {
 }
 
 // Geometry
-let geometry = new THREE.BufferGeometry().setFromPoints(points)
+var geometry = new THREE.BufferGeometry().setFromPoints(points)
+
 
 // Loading a custom texture
 // const texture = new
