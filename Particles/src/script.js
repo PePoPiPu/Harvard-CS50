@@ -36,9 +36,13 @@ const material = new THREE.PointsMaterial({
     size: 0.005
 })
 
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.005
+})
+
 // Mesh
 const sphere = new THREE.Points(geometry,material)
-const particlesMesh = new THREE.Points(particlesGeometry, material)
+const particlesMesh = new THREE.Points(particlesGeometry, material, particlesMaterial)
 scene.add(sphere, particlesMesh)
 
 // Lights
