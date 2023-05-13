@@ -25,7 +25,7 @@ for(let i = 0; i < particlesCount * 3; i++) {
     posArray[i] * Math.random()
 }
 
-particlesGeoemtry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
 // Materials
 
