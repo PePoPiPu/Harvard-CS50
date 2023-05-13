@@ -136,78 +136,10 @@ var geometry = new THREE.BufferGeometry().setFromPoints(points)
 // Loading a custom texture
 const texture = new
 THREE.TextureLoader().load('./star.png')
-// Creating a shader
-var material = new THREE.ShaderMaterial({
-  uniforms: {
-    color1: {
-      value: new THREE.Color("red")
-    },
-    color2: {
-      value: new THREE.Color("purple")
-    }
-  },
-  vertexShader: `
-    varying vec2 vUv;
+const loadedTexture = new THREE.PointsMaterial({ map:texture })
 
-    void main() {
-      vUv = uv;
-      gl_PointSize = 100.;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  fragmentShader: `
-    uniform vec3 color1;
-    uniform vec3 color2;
-
-    varying vec2 vUv;
-
-    void main() {
-      // Use the vertical position (vUv.y) to interpolate between the two colors
-      vec3 color = mix(color1, color2, vUv.y);
-
-      gl_FragColor = vec4(color, 1.0);
-    }
-  `
-});
-
-const spiralGalaxy = new THREE.Points(geometry, material);
-scene.add(spiralGalaxy);// Creating a shader
-var material = new THREE.ShaderMaterial({
-  uniforms: {
-    color1: {
-      value: new THREE.Color("red")
-    },
-    color2: {
-      value: new THREE.Color("purple")
-    }
-  },
-  vertexShader: `
-    varying vec2 vUv;
-
-    void main() {
-      vUv = uv;
-      gl_PointSize = 100.;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `,
-  fragmentShader: `
-    uniform vec3 color1;
-    uniform vec3 color2;
-
-    varying vec2 vUv;
-
-    void main() {
-      // Use the vertical position (vUv.y) to interpolate between the two colors
-      vec3 color = mix(color1, color2, vUv.y);
-
-      gl_FragColor = vec4(color, 1.0);
-    }
-  `
-});
-
-const spiralGalaxy = new THREE.Points(geometry, material);
-scene.add(spiralGalaxy);
-
+const spiralGalaxy = new THREE.Points(geometry, loadedTexture)
+scene.add(spiralGalaxy)
 
 // Lights
 
