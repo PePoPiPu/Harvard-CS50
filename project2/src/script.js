@@ -130,6 +130,7 @@ animate();
 // Create a GUI object
 const gui = new dat.GUI();
 
+
 // Parameters
 const params = {
   galaxySize: 100,
