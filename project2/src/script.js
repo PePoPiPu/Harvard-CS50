@@ -41,13 +41,13 @@ const armRotationSpeed = 0.001; // Rotation speed of the arms
 const starCountPerArm = 1500; // Number of stars in each arm
 
 // Material
-const material = new THREE.PointsMaterial({
+let material = new THREE.PointsMaterial({
   size: 0.05, // Size of each star
   vertexColors: true, // Enable vertex colors
 });
 
 // Geometry
-const geometry = new THREE.BufferGeometry();
+let geometry = new THREE.BufferGeometry();
 let positions = new Float32Array(armCount * starCountPerArm * 3);
 let colors = new Float32Array(armCount * starCountPerArm * 3);
 
@@ -74,26 +74,30 @@ function generateStars() {
       const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (orange)
       const coldColor = new THREE.Color('rgb(100, 150, 255)'); // Cold far color (blue)
 
-      const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
+const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
 
-      const index = (armIndex * starCountPerArm + i) * 3;
+const index = (armIndex * starCountPerArm + i) * 3;
 
-      positions[index] = x;
-      positions[index + 1] = y;
-      positions[index + 2] = z;
+positions[index] = x;
+positions[index + 1] = y;
+positions[index + 2] = z;
 
-      colors[index] = color.r;
-      colors[index + 1] = color.g;
-      colors[index + 2] = color.b;
-    }
-  }
+colors[index] = color.r;
+colors[index + 1] = color.g;
+colors[index + 2] = color.b;
+}
+}
 
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-  galaxy.geometry = geometry;
-  galaxy.material = material;
-  scene.add(galaxy);
+const material = new THREE.PointsMaterial({
+  size: 0.05, // Size of each star
+  vertexColors: true, // Enable vertex colors
+});
+
+const galaxy = new THREE.Points(geometry, material);
+scene.add(galaxy);
 }
 
 // Call the generateStars function to generate the initial stars
@@ -133,7 +137,6 @@ animate();
 // Create a GUI object
 const gui = new dat.GUI();
 
-
 // Parameters
 const params = {
   galaxySize: 100,
@@ -152,33 +155,6 @@ function updateGalaxy() {
   armLength = params.galaxySize;
 
   generateStars();
-}
-
-// Function to generate the stars
-function generateStars() {
-  // Clear existing stars
-  geometry.dispose();
-  galaxy.geometry.dispose();
-  galaxy.material.dispose();
-  scene.remove(galaxy);
-
-  // Generate new stars
-  geometry = new THREE.BufferGeometry();
-  positions = new Float32Array(armCount * starCountPerArm * 3);
-  colors = new Float32Array(armCount * starCountPerArm * 3);
-
-  // Code for generating stars...
-
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-  material = new THREE.PointsMaterial({
-    size: 0.05, // Size of each star
-    vertexColors: true, // Enable vertex colors
-  });
-
-  galaxy = new THREE.Points(geometry, material);
-  scene.add(galaxy);
 }
 
 // Append GUI to the DOM
