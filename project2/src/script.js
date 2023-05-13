@@ -9,8 +9,8 @@ const canvas = document.querySelector('canvas.webgl');
 const scene = new THREE.Scene();
 
 // Camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-camera.position.z = 30;
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.set(0, 10, 30);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -20,9 +20,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
-const galaxySize = 10; // Controls the size of the galaxy
 const armCount = 4; // Number of arms in the galaxy
 const starCount = 10000; // Total number of stars in the galaxy
+const armLength = 20; // Length of each arm
+const armSpread = 10; // Spread of the arms
 
 // Material
 const material = new THREE.PointsMaterial({
@@ -41,16 +42,12 @@ for (let i = 0; i < starCount; i++) {
   const armAngle = (armIndex / armCount) * Math.PI * 2;
 
   const angle = armAngle + Math.random() * Math.PI / 4 - Math.PI / 8; // Randomize the angle within a small range
-  const radius = Math.sqrt(Math.random()) * galaxySize;
-  const height = Math.random() * 0.2;
+  const radius = Math.random() * armLength;
+  const height = Math.random() * 0.1;
 
-  const armRotation = armAngle * galaxySize * 0.1; // Controls the curvature of the arm
-
-  const spiralRadius = radius + armRotation; // Add arm rotation to the radius
-
-  const x = Math.cos(angle) * spiralRadius;
-  const y = height * galaxySize;
-  const z = Math.sin(angle) * spiralRadius;
+  const x = Math.cos(angle) * (armSpread + radius);
+  const y = height * armSpread;
+  const z = Math.sin(angle) * (armSpread + radius);
 
   const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
 
