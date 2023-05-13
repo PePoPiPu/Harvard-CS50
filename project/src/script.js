@@ -30,7 +30,7 @@ const galaxySize = 1000
 // Temp avariables to assign new values inside loop
 var norm, theta, phi, thetaVar, distance;
 
-//Generate particles for spiral galaxy
+// First arm
 for (let i = 0; i < 1000; i++) {
     // Norm increments from 0 to 1
     norm = i / 1000;
@@ -38,11 +38,11 @@ for (let i = 0; i < 1000; i++) {
     // Random variation to theta [-0.5, 0.5]
     thetaVar = THREE.Math.randFloatSpread(0.5);
 
-    // Theta gros from 0 to Math.PI (+ random variation)
-    theta = norm * Math.PI + thetaVar;
+    // Theta goes from 0 to Math.PI (+ random variation)
+    theta = (norm * 4) + thetaVar;
 
     // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.1);
+    phi = THREE.Math.randFloatSpread(0.2);
 
     // Distance grows from 0 to galaxySize
     distance = norm * galaxySize;
@@ -52,6 +52,30 @@ for (let i = 0; i < 1000; i++) {
         distance * Math.sin(theta) * Math.cos(phi),
         distance * Math.sin(theta) * Math.sin(phi),
         distance * Math.cos(theta)
+    ));
+}
+
+for (let i = 0; i < 1000; i++) {
+    // Norm increments from 0 to 1
+    norm = i / 1000;
+
+    // Random variation to theta [-0.5, 0.5]
+    thetaVar = THREE.Math.randFloatSpread(0.5);
+
+    // Theta goes from 0 to Math.PI (+ random variation)
+    theta = (norm * 4) + thetaVar;
+
+    // Phi stays close to 0 to create galaxy ecliptic plane
+    phi = THREE.Math.randFloatSpread(0.2);
+
+    // Distance grows from 0 to galaxySize
+    distance = norm * galaxySize;
+
+    // Generate spiral arms
+    points.push(new THREE.Vector3(
+        distance * Math.sin(theta) * Math.cos(phi) * 0.6,
+        distance * Math.sin(theta) * Math.sin(phi) * 0.6,
+        distance * Math.cos(theta) * 0.6
     ));
 }
 
