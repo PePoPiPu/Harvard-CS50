@@ -12,45 +12,56 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// Creating a path for the tube
+// Random function with normal distribution
+const normalRandom = (mean, std) => {
+    let n = 0
 
-class CustomSinCurve extends THREE.Curve {
-    constructor( scale = 1 ) {
-        super();
-        this.scale = scale;
+    for(let i = 1; i < 12; i++) {
+        n += Math.random()
     }
 
-    getPoint( t, optionalTarget = new THREE.Vector3() ) {
-        const tx = t * 3 - 0.1;
-        const ty = Math.sin( 2 * Math.PI * t/3 );
-        const tz = 0;
-
-        return optionalTarget.set( tx, ty, tz ).multiplyScalar(this.scale);
-    }
+    return (n - 6) * std + mean
 }
-const path = new CustomSinCurve( 10 );
+
 // Creating a tube
-const geometry = new THREE.TubeGeometry( path, 120, 1, 16, false);
+const geometry = new THREE.Geometry();
+const galaxySize = 1000;
 
-const particlesGeometry = new THREE.BufferGeometry;
-const particlesCount = 5000;
-const posArray = new Float32Array(particlesCount * 3);
+// Generate particles for spiral galaxy
+for (let i = 0; i < 10000; i++) {
+    var theta = THREE.Math.radnFloatSpread(360)
+    var phi = THREE.Math.randFloatSpread(360)
+    const distance = THREE.Math.rdanFloatSpread(galaxySize)
 
-particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    // Change this for arms
+    geometry.vertices.push(new THREE.Vector3(
+        distance * Math.sin(theta) * Math.cos.(phi),
+        distance * Math.sin(theta) * Math.sin(phi),
+        distance * Math.cos(theta) / 10
+    ))
+}
 
-// Materials
-const material = new THREE.PointsMaterial({
-    size: 0.0025
-})
+const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMAterial({ color: 0xffffff }))
+scene.add(spiralGalaxy)
+// const particlesGeometry = new THREE.BufferGeometry;
+// const particlesCount = 5000;
+// const posArray = new Float32Array(particlesCount * 3);
 
-const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.0025
-})
+// particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
-// Mesh
-const sphere = new THREE.Points(geometry,material)
-const particlesMesh = new THREE.Points(particlesGeometry, material, particlesMaterial)
-scene.add(sphere, particlesMesh)
+// // Materials
+// const material = new THREE.PointsMaterial({
+//     size: 0.0025
+// })
+
+// const particlesMaterial = new THREE.PointsMaterial({
+//     size: 0.0025
+// })
+
+// // Mesh
+// const sphere = new THREE.Points(geometry,material)
+// const particlesMesh = new THREE.Points(particlesGeometry, material, particlesMaterial)
+// scene.add(sphere, particlesMesh)
 
 // Lights
 
@@ -111,7 +122,7 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
-    // sphere.rotation.y = .5 * elapsedTime
+    sphere.rotation.y = .5 * elapsedTime
 
     // Update Orbital Controls
     controls.update()
