@@ -85,7 +85,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 // Setting background color as an "spacey" color
-renderer.setClearColor(new THREE.Color('#011029'), 1)
+renderer.setClearColor(new THREE.Color('#01010d'), 1)
 
 // Animate
 const clock = new THREE.Clock()
