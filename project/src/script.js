@@ -25,7 +25,7 @@ class CustomSinCurve extends THREE.Curve {
         const ty = Math.sin( 2 * Math.PI * t );
         const tz = 0;
 
-        return optonTarget.set( tx, ty, tz ).multiplyScalar(this.scale);
+        return optionalTarget.set( tx, ty, tz ).multiplyScalar(this.scale);
     }
 }
 const path = new CustomSinCurve( 10 );
@@ -88,7 +88,7 @@ window.addEventListener('resize', () =>
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
 camera.position.y = 0
-camera.position.z = 2
+camera.position.z = 35
 scene.add(camera)
 
 // Controls
