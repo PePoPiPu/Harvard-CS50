@@ -33,6 +33,7 @@ function handleWindowResize() {
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
+
 // Galaxy Parameters
 let armCount = 6; // Number of arms in the galaxy
 let armLength = 100; // Length of each arm
