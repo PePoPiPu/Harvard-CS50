@@ -21,7 +21,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
 const armCount = 6; // Number of arms in the galaxy
-const armLength = 20; // Length of each arm
+const armLength = 10; // Length of each arm
 const armSpread = 10; // Spread of the arms
 const armRotationSpeed = 0.001; // Rotation speed of the arms
 
@@ -82,3 +82,4 @@ function animate() {
 
 // Start the animation loop
 animate();
+
