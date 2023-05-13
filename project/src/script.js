@@ -49,12 +49,13 @@ for (let i = 0; i < 1000; i++) {
 
     // Generate spiral arms
     points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi),
-        distance * Math.sin(theta) * Math.sin(phi),
-        distance * Math.cos(theta)
+        distance * Math.sin(theta) * Math.cos(phi) * 1,
+        distance * Math.sin(theta) * Math.sin(phi) * 1,
+        distance * Math.cos(theta) * 1
     ));
 }
 
+// Second Spiral
 for (let i = 0; i < 1000; i++) {
     // Norm increments from 0 to 1
     norm = i / 1000;
@@ -79,6 +80,55 @@ for (let i = 0; i < 1000; i++) {
     ));
 }
 
+// Second Spiral
+for (let i = 0; i < 1000; i++) {
+    // Norm increments from 0 to 1
+    norm = i / 1000;
+
+    // Random variation to theta [-0.5, 0.5]
+    thetaVar = THREE.Math.randFloatSpread(0.5);
+
+    // Theta goes from 0 to Math.PI (+ random variation)
+    theta = (norm * 4) + thetaVar;
+
+    // Phi stays close to 0 to create galaxy ecliptic plane
+    phi = THREE.Math.randFloatSpread(0.2);
+
+    // Distance grows from 0 to galaxySize
+    distance = norm * galaxySize;
+
+    // Generate spiral arms
+    points.push(new THREE.Vector3(
+        distance * Math.sin(theta) * Math.cos(phi) * -0.5,
+        distance * Math.sin(theta) * Math.sin(phi) * -0.5,
+        distance * Math.cos(theta) * -0.5
+    ));
+}
+
+// Second Spiral
+for (let i = 0; i < 1000; i++) {
+    // Norm increments from 0 to 1
+    norm = i / 1000;
+
+    // Random variation to theta [-0.5, 0.5]
+    thetaVar = THREE.Math.randFloatSpread(0.5);
+
+    // Theta goes from 0 to Math.PI (+ random variation)
+    theta = (norm * 4) + thetaVar;
+
+    // Phi stays close to 0 to create galaxy ecliptic plane
+    phi = THREE.Math.randFloatSpread(0.2);
+
+    // Distance grows from 0 to galaxySize
+    distance = norm * galaxySize;
+
+    // Generate spiral arms
+    points.push(new THREE.Vector3(
+        distance * Math.sin(theta) * Math.cos(phi) * 0.5,
+        distance * Math.sin(theta) * Math.sin(phi) * 0.5,
+        distance * Math.cos(theta) * 0.5
+    ));
+}
 let geometry = new THREE.BufferGeometry().setFromPoints(points)
 
 const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xffffff }))
@@ -120,7 +170,7 @@ window.addEventListener('resize', () =>
 const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 5000)
 camera.position.x = 0
 camera.position.y = 1000
-camera.position.z = 1500
+camera.position.z = 1700
 scene.add(camera)
 
 // Controls
