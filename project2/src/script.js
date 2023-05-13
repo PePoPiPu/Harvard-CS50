@@ -135,7 +135,8 @@ const gui = new dat.GUI();
 const params = {
   galaxySize: 100,
   armCount: 6,
-  baseColor: '#ff6600'
+  baseColor: '#ff6600',
+  centerColor: '#ffaa00'
 };
 
 // Add controls to the GUI
