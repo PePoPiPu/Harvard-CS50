@@ -139,36 +139,45 @@ let geometry = new THREE.BufferGeometry().setFromPoints(points)
 // const loadedTexture = new THREE.PointsMaterial({ map:texture })
 
 // Creating a shader
-var material =  new THREE.ShaderMaterial({
+var material = new THREE.ShaderMaterial({
     uniforms: {
-        color1: {
-          value: new THREE.Color("red")
-        },
-        color2: {
-          value: new THREE.Color("purple")
-        }
+      color1: {
+        value: new THREE.Color("red")
       },
-      vertexShader: `
-        varying vec2 vUv;
+      color2: {
+        value: new THREE.Color("purple")
+      },
+      bboxMin: {
+        value: geometry.boundingBox.min
+      },
+      bboxMax: {
+        value: geometry.boundingBox.max
+      }
+    },
+    vertexShader: `
+      uniform vec3 bboxMin;
+      uniform vec3 bboxMax;
 
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform vec3 color1;
-        uniform vec3 color2;
+      varying vec2 vUv;
 
-        varying vec2 vUv;
+      void main() {
+        vUv.y = (position.y - bboxMin.y) / (bboxMax.y - bboxMin.y);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+      }
+    `,
+    fragmentShader: `
+      uniform vec3 color1;
+      uniform vec3 color2;
 
-        void main() {
+      varying vec2 vUv;
 
-          gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
-        }
-      `
-});
+      void main() {
 
+        gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+      }
+    `,
+    wireframe: true
+  });
 const spiralGalaxy = new THREE.Points(geometry, material)
 scene.add(spiralGalaxy)
 
