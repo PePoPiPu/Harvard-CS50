@@ -145,10 +145,14 @@ gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
 gui.addColor(params, 'baseColor').onChange(updateGalaxy);
 gui.addColor(params, 'centerColor').onChange(updateGalaxy); // Add control for center color
 
+let baseColor = new THREE.Color(params.baseColor); // Initialize the base color
+
 // Function to update the galaxy based on the GUI parameters
 function updateGalaxy() {
   armCount = params.armCount;
   armLength = params.galaxySize;
+
+  baseColor.set(params.baseColor); // Update the base color
 
   generateGalaxy();
 }
