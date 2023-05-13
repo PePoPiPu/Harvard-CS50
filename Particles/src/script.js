@@ -98,6 +98,19 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.setClearColor(new THREE.Color('#21282a'), 1)
+
+// Mouse
+
+document.addEventListener('mouseMove', animateParticles)
+
+let mouseX = 0
+let mouseY = 0
+
+function animateParticles(event) {
+    mouseY = event.clientY
+    mouseX = event.clientX
+}
 
 /**
  * Animate
@@ -112,6 +125,7 @@ const tick = () =>
 
     // Update objects
     sphere.rotation.y = .5 * elapsedTime
+    particlesMesh.rotation.y = mouseY * (elapsedTime)
 
     // Update Orbital Controls
     // controls.update()
