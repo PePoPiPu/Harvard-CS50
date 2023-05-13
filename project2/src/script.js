@@ -34,8 +34,8 @@ function handleWindowResize() {
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
-const armCount = 6; // Number of arms in the galaxy
-const armLength = 100; // Length of each arm
+let armCount = 6; // Number of arms in the galaxy
+let armLength = 100; // Length of each arm
 const armSpread = 10; // Spread of the arms
 const armRotationSpeed = 0.001; // Rotation speed of the arms
 const starCountPerArm = 1500; // Number of stars in each arm
@@ -48,48 +48,53 @@ const material = new THREE.PointsMaterial({
 
 // Geometry
 const geometry = new THREE.BufferGeometry();
-const positions = new Float32Array(armCount * starCountPerArm * 3);
-const colors = new Float32Array(armCount * starCountPerArm * 3);
+let positions = new Float32Array(armCount * starCountPerArm * 3);
+let colors = new Float32Array(armCount * starCountPerArm * 3);
 
 // Generate the stars
-for (let armIndex = 0; armIndex < armCount; armIndex++) {
-  const baseAngle = (armIndex / armCount) * Math.PI * 2;
+function generateStars() {
+  positions = new Float32Array(armCount * starCountPerArm * 3);
+  colors = new Float32Array(armCount * starCountPerArm * 3);
 
-  for (let i = 0; i < starCountPerArm; i++) {
-    const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
-    const radius = (i / starCountPerArm) * armLength;
-    const spread = Math.random() * armSpread;
+  for (let armIndex = 0; armIndex < armCount; armIndex++) {
+    const baseAngle = (armIndex / armCount) * Math.PI * 2;
 
-    const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
-    const y = Math.random() * 4; // Small random displacement in the y-axis
-    const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+    for (let i = 0; i < starCountPerArm; i++) {
+      const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+      const radius = (i / starCountPerArm) * armLength;
+      const spread = Math.random() * armSpread;
 
-    const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
-    const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
+      const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+      const y = Math.random() * 4; // Small random displacement in the y-axis
+      const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
 
-    const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (orange)
-    const coldColor = new THREE.Color('rgb(100, 150, 255)'); // Cold far color (blue)
+      const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+      const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
 
-    const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
+      const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (orange)
+      const coldColor = new THREE.Color('rgb(100, 150, 255)'); // Cold far color (blue)
 
-    const index = (armIndex * starCountPerArm + i) * 3;
+      const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
 
-    positions[index] = x;
-    positions[index + 1] = y;
-    positions[index + 2] = z;
+      const index = (armIndex * starCountPerArm + i) * 3;
 
-    colors[index] = color.r;
-    colors[index + 1] = color.g;
-    colors[index + 2] = color.b;
+      positions[index] = x;
+      positions[index + 1] = y;
+      positions[index + 2] = z;
+
+      colors[index] = color.r;
+      colors[index + 1] = color.g;
+      colors[index + 2] = color.b;
+    }
   }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+  galaxy.geometry = geometry;
+  galaxy.material = material;
+  scene.add(galaxy);
 }
-
-geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-// Points
-const galaxy = new THREE.Points(geometry, material);
-scene.add(galaxy);
 
 // Create a render pass to render the scene
 const renderPass = new RenderPass(scene, camera);
