@@ -44,9 +44,13 @@ for (let i = 0; i < starCount; i++) {
   const radius = Math.sqrt(Math.random()) * galaxySize;
   const height = Math.random() * 0.2;
 
-  const x = Math.cos(angle) * radius;
+  const armRotation = armAngle * galaxySize * 0.1; // Controls the curvature of the arm
+
+  const spiralRadius = radius + armRotation; // Add arm rotation to the radius
+
+  const x = Math.cos(angle) * spiralRadius;
   const y = height * galaxySize;
-  const z = Math.sin(angle) * radius;
+  const z = Math.sin(angle) * spiralRadius;
 
   const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
 
@@ -79,4 +83,3 @@ function animate() {
 
 // Start the animation loop
 animate();
-
