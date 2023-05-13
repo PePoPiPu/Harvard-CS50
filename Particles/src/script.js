@@ -15,6 +15,11 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
 
+const particlesGeometry = new THREE.BufferGeometry:
+const particlesCount = 5000;
+
+const posArray = 
+
 // Materials
 
 const material = new THREE.PointsMaterial({
