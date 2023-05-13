@@ -19,54 +19,60 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
-// Geometry
+// Galaxy Parameters
 const galaxySize = 1000;
-const points = [];
-
-const numPoints = 10000;
+const numStars = 1000;
 const spiralTurns = 10;
 const spiralHeight = 2;
-const spiralRadius = 10;
+const minSize = 0.01;
+const maxSize = 0.05;
 
-for (let i = 0; i < numPoints; i++) {
-  const t = i / numPoints;
+// Colors
+const colorStart = new THREE.Color(0x8000ff); // Starting color
+const colorEnd = new THREE.Color(0x00ff00); // Ending color
+
+// Geometry
+const geometry = new THREE.BufferGeometry();
+const positions = new Float32Array(numStars * 3);
+const colors = new Float32Array(numStars * 3);
+const sizes = new Float32Array(numStars);
+
+for (let i = 0; i < numStars; i++) {
+  const t = i / numStars;
   const angle = spiralTurns * 2 * Math.PI * t;
   const height = (t * 2 - 1) * spiralHeight;
-  const radius = spiralRadius * t;
+  const radius = Math.random() * galaxySize;
 
   const x = Math.cos(angle) * radius;
   const y = height * galaxySize;
   const z = Math.sin(angle) * radius;
 
-  points.push(new THREE.Vector3(x, y, z));
+  positions[i * 3] = x;
+  positions[i * 3 + 1] = y;
+  positions[i * 3 + 2] = z;
+
+  const color = new THREE.Color().lerpColors(colorStart, colorEnd, t);
+  colors[i * 3] = color.r;
+  colors[i * 3 + 1] = color.g;
+  colors[i * 3 + 2] = color.b;
+
+  sizes[i] = Math.random() * (maxSize - minSize) + minSize;
 }
 
-const textureLoader = new THREE.TextureLoader();
-const starTexture = textureLoader.load('star.png');
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-const geometry = new THREE.BufferGeometry().setFromPoints(points);
+// Material
 const material = new THREE.PointsMaterial({
-  size: 0.1,
-  map: starTexture,
   vertexColors: true,
+  sizeAttenuation: true,
+  size: 1,
   transparent: true,
-  blending: THREE.AdditiveBlending,
+  alphaTest: 0.5,
 });
 
-// Colors
-const colors = [];
-const colorStart = new THREE.Color(0x8000ff); // Starting color
-const colorEnd = new THREE.Color(0x00ff00); // Ending color
-
-for (let i = 0; i < points.length; i++) {
-  const t = i / points.length;
-  const color = new THREE.Color().lerpColors(colorStart, colorEnd, t);
-  colors.push(color);
-}
-
-geometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(colors.flatMap(color => color.toArray())), 3));
-
-// Mesh
+// Points
 const galaxy = new THREE.Points(geometry, material);
 scene.add(galaxy);
 
