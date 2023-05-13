@@ -33,11 +33,11 @@ particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3
 // Materials
 
 const material = new THREE.PointsMaterial({
-    size: 0.003
+    size: 0.0025
 })
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.003
+    size: 0.0025
 })
 
 // Mesh
