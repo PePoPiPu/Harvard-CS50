@@ -96,12 +96,11 @@ function generateStars() {
   scene.add(galaxy);
 }
 
+// Call the generateStars function to generate the initial stars
+generateStars();
+
 // Create a render pass to render the scene
 const renderPass = new RenderPass(scene, camera);
-
-// Add event listener for window resize
-window.addEventListener('resize', handleWindowResize);
-
 
 // Create a bloom pass with desired parameters
 const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
@@ -130,7 +129,6 @@ function animate() {
 
 // Start the animation loop
 animate();
-
 
 // Create a GUI object
 const gui = new dat.GUI();
