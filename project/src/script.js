@@ -88,8 +88,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.setClearColor(new THREE.Color('#011029'), 1)
 
 // Animate
-const clock = clock.getElapsedTime()
-
+const clock = new THREE.Clock()
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
