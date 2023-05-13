@@ -9,12 +9,17 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
 camera.position.z = 5
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas })
 renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000); // Set clear color to black
+camera.aspect = window.innerWidth / window.innerHeight;
+camera.updateProjectionMatrix();
 
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement)
@@ -77,6 +82,7 @@ const material = new THREE.ShaderMaterial({
 // Mesh
 const galaxy = new THREE.Points(geometry, material)
 scene.add(galaxy)
+galaxy.position.set(0, 0, 0);
 
 // Animation loop
 function animate() {
