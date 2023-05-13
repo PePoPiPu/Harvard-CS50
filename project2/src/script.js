@@ -143,9 +143,10 @@ const params = {
 gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
 gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
 gui.addColor(params, 'baseColor').onChange(updateGalaxy);
-gui.addColor(params, 'centerColor').onChange(updateGalaxy); // Add control for center color
+gui.addColor(params, 'centerColor').onChange(updateGalaxy);
 
 let baseColor = new THREE.Color(params.baseColor); // Initialize the base color
+let centerColor = new THREE.Color(params.centerColor); // Initialize the base color
 
 // Function to update the galaxy based on the GUI parameters
 function updateGalaxy() {
@@ -153,6 +154,7 @@ function updateGalaxy() {
   armLength = params.galaxySize;
 
   baseColor.set(params.baseColor); // Update the base color
+  centerColor.set(params.centerColor); // Update the center color
 
   generateGalaxy();
 }
@@ -182,13 +184,12 @@ function generateGalaxy() {
       const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
 
       const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
-      const t = distanceFromCenter / (armCount * armLength); // Value from 0 to 1 along the arms
+      const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
 
-      const baseColor = new THREE.Color(params.baseColor); // Get the base color from the GUI
-      const centerColor = new THREE.Color(params.centerColor); // Get the center color from the GUI
+      const hotColor = new THREE.Color(params.baseColor); // Base color from the GUI
+      const coldColor = new THREE.Color(params.centerColor); // Center color from the GUI
 
-      const color = baseColor.clone(); // Initialize color as the base color
-      color.lerp(centerColor, t); // Interpolate between the base and center colors based on distance
+      const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
 
       const index = (armIndex * starCountPerArm + i) * 3;
 
