@@ -102,7 +102,7 @@ renderer.setClearColor(new THREE.Color('#21282a'), 1)
 
 // Mouse
 
-document.addEventListener('mouseMove', animateParticles)
+document.addEventListener('mousemove', animateParticles)
 
 let mouseX = 0
 let mouseY = 0
@@ -125,7 +125,7 @@ const tick = () =>
 
     // Update objects
     sphere.rotation.y = .5 * elapsedTime
-    particlesMesh.rotation.y = mouseY * (elapsedTime)
+    particlesMesh.rotation.x = -mouseY * (elapsedTime * 0.00008)
 
     // Update Orbital Controls
     // controls.update()
