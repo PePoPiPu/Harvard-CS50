@@ -146,22 +146,13 @@ var material = new THREE.ShaderMaterial({
       },
       color2: {
         value: new THREE.Color("purple")
-      },
-      bboxMin: {
-        value: geometry.boundingBox.min
-      },
-      bboxMax: {
-        value: geometry.boundingBox.max
       }
     },
     vertexShader: `
-      uniform vec3 bboxMin;
-      uniform vec3 bboxMax;
-
       varying vec2 vUv;
 
       void main() {
-        vUv.y = (position.y - bboxMin.y) / (bboxMax.y - bboxMin.y);
+        vUv = uv;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
       }
     `,
