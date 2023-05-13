@@ -24,8 +24,8 @@ const galaxySize = 1000;
 const numStars = 10000;
 const armCount = 4;
 const armRotationSpeed = 0.002;
-const armLength = 0.5;
-const armThickness = 0.2;
+const armLength = 10;
+const armThickness = 0.1;
 
 // Colors
 const colorStart = new THREE.Color(0x8000ff); // Starting color
@@ -40,7 +40,7 @@ const sizes = new Float32Array(numStars);
 for (let i = 0; i < numStars; i++) {
   const t = i / numStars;
   const armAngle = (armCount * 2 * Math.PI * t) + (armRotationSpeed * t);
-  const radius = Math.random() * galaxySize;
+  const radius = Math.sqrt(Math.random()) * galaxySize;
 
   const x = Math.cos(armAngle) * radius;
   const y = Math.sin(armAngle) * radius * armThickness;
@@ -55,7 +55,7 @@ for (let i = 0; i < numStars; i++) {
   colors[i * 3 + 1] = color.g;
   colors[i * 3 + 2] = color.b;
 
-  sizes[i] = 0.5;
+  sizes[i] = 1;
 }
 
 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
@@ -88,3 +88,4 @@ function animate() {
 
 // Start the animation loop
 animate();
+
