@@ -145,8 +145,8 @@ gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
 gui.addColor(params, 'baseColor').onChange(updateGalaxy);
 gui.addColor(params, 'centerColor').onChange(updateGalaxy);
 
-let baseColor = new THREE.Color(params.baseColor); // Initialize the base color
-let centerColor = new THREE.Color(params.centerColor); // Initialize the center color
+const baseColor = new THREE.Color(params.baseColor); // Initialize the base color
+const centerColor = new THREE.Color(params.centerColor); // Initialize the center color
 
 // Function to update the galaxy based on the GUI parameters
 function updateGalaxy() {
