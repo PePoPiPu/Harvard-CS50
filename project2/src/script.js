@@ -11,183 +11,6 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// Random function with normal distribution
-const normalRandom = (mean, std) => {
-    let n = 0
-
-    for (let i = 1; i <= 12; i++) {
-        n += Math.random()
-    }
-
-    return (n - 6) * std + mean
-}
-
-// Geometry
-const points = []
-const galaxySize = 1000
-
-// Temp avariables to assign new values inside loop
-var norm, theta, phi, thetaVar, distance;
-
-// First arm
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * 1,
-        distance * Math.sin(theta) * Math.sin(phi) * 1,
-        distance * Math.cos(theta) * 1
-    ));
-}
-
-// Second Spiral
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * -1,
-        distance * Math.sin(theta) * Math.sin(phi) * -1,
-        distance * Math.cos(theta) * -1
-    ));
-}
-
-// Second Spiral
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * -0.5,
-        distance * Math.sin(theta) * Math.sin(phi) * -0.5,
-        distance * Math.cos(theta) * -0.5
-    ));
-}
-
-// Second Spiral
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * 0.5,
-        distance * Math.sin(theta) * Math.sin(phi) * 0.5,
-        distance * Math.cos(theta) * 0.5
-    ));
-}
-
-// Geometry
-var geometry = new THREE.BufferGeometry().setFromPoints(points)
-
-
-// Loading a custom texture
-// const texture = new
-// THREE.TextureLoader().load('./star.png')
-// const loadedTexture = new THREE.PointsMaterial({ map:texture })
-
-// Creating a shader
-var material = new THREE.ShaderMaterial({
-    uniforms: {
-      color1: {
-        value: new THREE.Color("red")
-      },
-      color2: {
-        value: new THREE.Color("purple")
-      }
-    },
-    vertexShader: `
-      varying vec2 vUv;
-
-      void main() {
-        vUv = uv;
-        gl_PointSize = 100.;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
-      }
-    `,
-    fragmentShader: `
-      uniform vec3 color1;
-      uniform vec3 color2;
-
-      varying vec2 vUv;
-
-      void main() {
-
-        gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
-      }
-    `
-  });
-
-const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial(), material)
-scene.add(spiralGalaxy)
-
-// Lights
-
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
-scene.add(pointLight)
-
-// Sizes
-
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
 window.addEventListener('resize', () =>
 {
     // Update sizes
@@ -202,6 +25,65 @@ window.addEventListener('resize', () =>
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
+
+const geometry = new THREE.BufferGeometry();
+const positions = [];
+const colors = [];
+const angles = [];
+
+geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+geometry.setAttribute('angle', new THREE.Float32BufferAttribute(angles, 1));
+
+// Vertex shader
+const vertexShader = `
+  attribute vec3 color;
+  attribute float angle;
+  varying vec3 vColor;
+
+  void main() {
+    vColor = color;
+    float c = cos(angle);
+    float s = sin(angle);
+    mat3 rotationMatrix = mat3(
+      c, -s, 0,
+      s, c, 0,
+      0, 0, 1
+    );
+    vec3 transformedPosition = position * rotationMatrix;
+    gl_PointSize = 2.0; // Adjust the size of the particles
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(transformedPosition, 1.0);
+  }
+`;
+
+// Fragment shader
+const fragmentShader = `
+  varying vec3 vColor;
+
+  void main() {
+    gl_FragColor = vec4(vColor, 1.0);
+    gl_FragColor.a = length(gl_PointCoord - vec2(0.5)) * 2.0; // Create a fading effect towards the edges of the particles
+  }
+`;
+
+const material = new THREE.ShaderMaterial({
+  vertexShader: vertexShader,
+  fragmentShader: fragmentShader,
+  blending: THREE.AdditiveBlending, // Set the blending mode to achieve the galaxy effect
+  depthTest: false,
+  transparent: true
+});
+
+const points = new THREE.Points(geometry, material);
+scene.add(points);
+
+
+// Sizes
+
+const sizes = {
+  width: window.innerWidth,
+  height: window.innerHeight
+}
 
 //Camera
 
@@ -238,6 +120,10 @@ const tick = () =>
 
     // Render
     renderer.render(scene, camera)
+
+    // Update Spiral position
+    geometry.attributes.position.needsUpdate = true;
+    geometry.attributes.angle.needsUpdate = true;
 
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
