@@ -24,12 +24,12 @@ const normalRandom = (mean, std) => {
 }
 
 // Creating a tube
-const geometry = new THREE.Geometry();
-const galaxySize = 1000;
+const geometry = new THREE.BufferGeometry
+const galaxySize = 1000
 
 // Generate particles for spiral galaxy
 for (let i = 0; i < 10000; i++) {
-    var theta = THREE.Math.radnFloatSpread(360)
+    var theta = THREE.Math.randFloatSpread(360)
     var phi = THREE.Math.randFloatSpread(360)
     const distance = THREE.Math.randFloatSpread(galaxySize)
 
