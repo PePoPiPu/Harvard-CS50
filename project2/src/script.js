@@ -9,8 +9,8 @@ const canvas = document.querySelector('canvas.webgl');
 const scene = new THREE.Scene();
 
 // Camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0, 10, 30);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+camera.position.set(0, 500, 1000);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -20,11 +20,11 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
-const armCount = 10; // Number of arms in the galaxy
-const armLength = 50; // Length of each arm
+const armCount = 6; // Number of arms in the galaxy
+const armLength = 500; // Length of each arm
 const armSpread = 10; // Spread of the arms
 const armRotationSpeed = 0.001; // Rotation speed of the arms
-const starCountPerArm = 200; // Number of stars in each arm
+const starCountPerArm = 500; // Number of stars in each arm
 
 // Material
 const material = new THREE.PointsMaterial({
@@ -42,8 +42,8 @@ for (let armIndex = 0; armIndex < armCount; armIndex++) {
   const baseAngle = (armIndex / armCount) * Math.PI * 2;
 
   for (let i = 0; i < starCountPerArm; i++) {
-    const angle = baseAngle + Math.random() * Math.PI * 2;
-    const radius = Math.random() * armLength;
+    const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+    const radius = (i / starCountPerArm) * armLength;
     const spread = Math.random() * armSpread;
 
     const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
