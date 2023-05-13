@@ -155,7 +155,7 @@ const material =  new THREE.ShaderMaterial({
             vUv = uv;
             gl_Position = projectionMatrix * modalViewMatrix * vec4(position, 1.0);
         }
-    `
+    `,
     fragmentShader: `
         unifrom vec3 color1;
         uniform vec3 color2;
