@@ -56,7 +56,7 @@ for (let armIndex = 0; armIndex < armCount; armIndex++) {
     const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (bright white orange)
     const coldColor = new THREE.Color('rgb(100, 150, 255)'); // Cold far color (blue)
 
-    const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
+    const color = new THREE.Color().lerpColors(coldColor, hotColor, t); // Gradient between cold and hot colors
 
     const index = (armIndex * starCountPerArm + i) * 3;
 
