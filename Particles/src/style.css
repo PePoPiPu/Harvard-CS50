@@ -36,3 +36,13 @@ body
     padding-top: 3em;
     position: relative;
 }
+
+.content:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid white;
+    transform: scaleX(1);
+}
