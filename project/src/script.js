@@ -139,8 +139,8 @@ let geometry = new THREE.BufferGeometry().setFromPoints(points)
 // const loadedTexture = new THREE.PointsMaterial({ map:texture })
 
 // Creating a shader
- 
-const spiralGalaxy = new THREE.Points(geometry, material)
+
+const spiralGalaxy = new THREE.Points(geometry)
 scene.add(spiralGalaxy)
 
 // Lights
