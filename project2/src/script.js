@@ -23,7 +23,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const galaxySize = 1000;
 const numStars = 1000;
 const spiralTurns = 10;
-const spiralHeight = 2;
+const spiralHeight = 0.2;
 const minSize = 0.01;
 const maxSize = 0.05;
 
