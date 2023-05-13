@@ -12,8 +12,19 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-//Objects
-const geometry = new THREE.TubeGeometry( .7, .2, 16, 100);
+// Creating a path for the tube
+
+class CustomSinCurve extends THREE.Curve {
+    constructor( scale = 1 ) {
+        super();
+        this.scale = scale;
+    }
+
+    getPoint()
+}
+
+// Creating a tube
+const geometry = new THREE.TubeGeometry( path, 120, 1, 16, false);
 
 const particlesGeometry = new THREE.BufferGeometry;
 const particlesCount = 5000;
