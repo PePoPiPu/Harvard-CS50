@@ -23,6 +23,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const galaxySize = 10; // Controls the size of the galaxy
 const armCount = 4; // Number of arms in the galaxy
 const starCount = 10000; // Total number of stars in the galaxy
+const armRotationSpeed = 0.005; // Controls the rotation speed of the arms
 
 // Material
 const material = new THREE.PointsMaterial({
@@ -39,8 +40,9 @@ const colors = new Float32Array(starCount * 3);
 for (let i = 0; i < starCount; i++) {
   const armIndex = Math.floor(i / (starCount / armCount));
   const armAngle = (armIndex / armCount) * Math.PI * 2;
+  const armRotation = armAngle + (i % (starCount / armCount)) * armRotationSpeed;
 
-  const angle = armAngle + Math.random() * Math.PI / 4 - Math.PI / 8; // Randomize the angle within a small range
+  const angle = armRotation;
   const radius = Math.sqrt(Math.random()) * galaxySize;
   const height = Math.random() * 0.2;
 
@@ -70,8 +72,8 @@ scene.add(galaxy);
 function animate() {
   requestAnimationFrame(animate);
 
-  // Rotate the galaxy
-  galaxy.rotation.y += 0.001;
+  // Rotate the arms
+  galaxy.rotation.y += armRotationSpeed;
 
   // Render the scene
   renderer.render(scene, camera);
@@ -79,3 +81,4 @@ function animate() {
 
 // Start the animation loop
 animate();
+
