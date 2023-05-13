@@ -41,24 +41,30 @@ for (let i = 0; i < numPoints; i++) {
   points.push(new THREE.Vector3(x, y, z));
 }
 
+const textureLoader = new THREE.TextureLoader();
+const starTexture = textureLoader.load('star.png');
+
 const geometry = new THREE.BufferGeometry().setFromPoints(points);
+const material = new THREE.PointsMaterial({
+  size: 0.1,
+  map: starTexture,
+  vertexColors: true,
+  transparent: true,
+  blending: THREE.AdditiveBlending,
+});
 
 // Colors
 const colors = [];
-
 const colorStart = new THREE.Color(0x8000ff); // Starting color
 const colorEnd = new THREE.Color(0x00ff00); // Ending color
 
 for (let i = 0; i < points.length; i++) {
   const t = i / points.length;
   const color = new THREE.Color().lerpColors(colorStart, colorEnd, t);
-  colors.push(color.r, color.g, color.b);
+  colors.push(color);
 }
 
-geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-
-// Material
-const material = new THREE.PointsMaterial({ vertexColors: true });
+geometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(colors.flatMap(color => color.toArray())), 3));
 
 // Mesh
 const galaxy = new THREE.Points(geometry, material);
