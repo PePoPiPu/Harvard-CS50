@@ -10,7 +10,7 @@ const scene = new THREE.Scene();
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-camera.position.z = 1500;
+camera.position.z = 30;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -20,56 +20,48 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
-const galaxySize = 1000;
-const numStars = 10000;
-const armCount = 4;
-const armRotationSpeed = 0.002;
-const armLength = 10;
-const armThickness = 0.1;
+const galaxySize = 10; // Controls the size of the galaxy
+const armCount = 4; // Number of arms in the galaxy
+const starCount = 10000; // Total number of stars in the galaxy
 
-// Colors
-const colorStart = new THREE.Color(0x8000ff); // Starting color
-const colorEnd = new THREE.Color(0x00ff00); // Ending color
+// Material
+const material = new THREE.PointsMaterial({
+  size: 0.05, // Size of each star
+  vertexColors: true, // Enable vertex colors
+});
 
 // Geometry
 const geometry = new THREE.BufferGeometry();
-const positions = new Float32Array(numStars * 3);
-const colors = new Float32Array(numStars * 3);
-const sizes = new Float32Array(numStars);
+const positions = new Float32Array(starCount * 3);
+const colors = new Float32Array(starCount * 3);
 
-for (let i = 0; i < numStars; i++) {
-  const t = i / numStars;
-  const armAngle = (armCount * 2 * Math.PI * t) + (armRotationSpeed * t);
+// Generate the stars
+for (let i = 0; i < starCount; i++) {
+  const armIndex = i % armCount;
+  const armAngle = (armIndex / armCount) * Math.PI * 2;
+  const armLength = Math.random() * galaxySize;
+
+  const angle = armAngle + armLength;
   const radius = Math.sqrt(Math.random()) * galaxySize;
+  const height = Math.random() * 0.2;
 
-  const x = Math.cos(armAngle) * radius;
-  const y = Math.sin(armAngle) * radius * armThickness;
-  const z = (t - 0.5) * armLength;
+  const x = Math.cos(angle) * radius;
+  const y = height * galaxySize;
+  const z = Math.sin(angle) * radius;
+
+  const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
 
   positions[i * 3] = x;
   positions[i * 3 + 1] = y;
   positions[i * 3 + 2] = z;
 
-  const color = new THREE.Color().lerpColors(colorStart, colorEnd, t);
   colors[i * 3] = color.r;
   colors[i * 3 + 1] = color.g;
   colors[i * 3 + 2] = color.b;
-
-  sizes[i] = 1;
 }
 
 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-// Material
-const material = new THREE.PointsMaterial({
-  vertexColors: true,
-  sizeAttenuation: true,
-  size: 1,
-  transparent: true,
-  alphaTest: 0.5,
-});
 
 // Points
 const galaxy = new THREE.Points(geometry, material);
@@ -79,8 +71,8 @@ scene.add(galaxy);
 function animate() {
   requestAnimationFrame(animate);
 
-  // Rotate the arms
-  galaxy.rotation.z += armRotationSpeed;
+  // Rotate the galaxy
+  galaxy.rotation.y += 0.001;
 
   // Render the scene
   renderer.render(scene, camera);
@@ -88,4 +80,3 @@ function animate() {
 
 // Start the animation loop
 animate();
-
