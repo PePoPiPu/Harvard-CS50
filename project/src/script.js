@@ -27,18 +27,28 @@ const normalRandom = (mean, std) => {
 const geometry = new THREE.BufferGeometry
 const galaxySize = 1000
 
-// Generate particles for spiral galaxy
-for (let i = 0; i < 10000; i++) {
-    var theta = THREE.Math.randFloatSpread(360)
-    var phi = THREE.Math.randFloatSpread(360)
-    const distance = THREE.Math.randFloatSpread(galaxySize)
+// Temp avariables to assign new values inside loop
+var norm, theta, phi, thetaVar, distance;
 
-    // Change this for arms
-    geometry.vertices.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi),
-        distance * Math.sin(theta) * Math.sin(phi),
-        distance * Math.cos(theta) / 10
-    ))
+//Generate particles for spiral galaxy
+for (let i = 0; i < 1000; i++) {
+    // Norm increments from 0 to 1
+    norm = i / 1000;
+
+    // Random variation to theta [-0.5, 0.5]
+    thetaVar = THREE.Math.randFloatSpread(0.5);
+
+    // Theta gros from 0 to Math.PI (+ random variation)
+    theta = norm * Math.PI + thetaVar;
+
+    // Phi stays close to 0 to create galaxy ecliptic plane
+    phi = THREE.Math.randFloatSpread(0.1);
+
+    // Distance grows from 0 to galaxySize
+    distance = norm * galaxySize;
+
+    // Generate spiral arms
+    geometry.vertice
 }
 
 const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xffffff }))
