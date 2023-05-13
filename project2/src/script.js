@@ -20,10 +20,11 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
-const armCount = 6; // Number of arms in the galaxy
-const armLength = 10; // Length of each arm
+const armCount = 10; // Number of arms in the galaxy
+const armLength = 50; // Length of each arm
 const armSpread = 10; // Spread of the arms
 const armRotationSpeed = 0.001; // Rotation speed of the arms
+const starCountPerArm = 200; // Number of stars in each arm
 
 // Material
 const material = new THREE.PointsMaterial({
@@ -33,24 +34,25 @@ const material = new THREE.PointsMaterial({
 
 // Geometry
 const geometry = new THREE.BufferGeometry();
-const positions = new Float32Array(armCount * armLength * 3);
-const colors = new Float32Array(armCount * armLength * 3);
+const positions = new Float32Array(armCount * starCountPerArm * 3);
+const colors = new Float32Array(armCount * starCountPerArm * 3);
 
 // Generate the stars
 for (let armIndex = 0; armIndex < armCount; armIndex++) {
   const baseAngle = (armIndex / armCount) * Math.PI * 2;
 
-  for (let i = 0; i < armLength; i++) {
-    const angle = baseAngle + i * 0.1;
-    const radius = i / armLength * armSpread;
+  for (let i = 0; i < starCountPerArm; i++) {
+    const angle = baseAngle + Math.random() * Math.PI * 2;
+    const radius = Math.random() * armLength;
+    const spread = Math.random() * armSpread;
 
-    const x = Math.cos(angle) * radius;
+    const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
     const y = 0; // Keep the y value constant to make it flat
-    const z = Math.sin(angle) * radius;
+    const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
 
     const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
 
-    const index = (armIndex * armLength + i) * 3;
+    const index = (armIndex * starCountPerArm + i) * 3;
 
     positions[index] = x;
     positions[index + 1] = y;
@@ -82,4 +84,3 @@ function animate() {
 
 // Start the animation loop
 animate();
-
