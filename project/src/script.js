@@ -31,7 +31,7 @@ const galaxySize = 1000;
 for (let i = 0; i < 10000; i++) {
     var theta = THREE.Math.radnFloatSpread(360)
     var phi = THREE.Math.randFloatSpread(360)
-    const distance = THREE.Math.rdanFloatSpread(galaxySize)
+    const distance = THREE.Math.randFloatSpread(galaxySize)
 
     // Change this for arms
     geometry.vertices.push(new THREE.Vector3(
@@ -41,7 +41,7 @@ for (let i = 0; i < 10000; i++) {
     ))
 }
 
-const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMAterial({ color: 0xffffff }))
+const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xffffff }))
 scene.add(spiralGalaxy)
 // const particlesGeometry = new THREE.BufferGeometry;
 // const particlesCount = 5000;
