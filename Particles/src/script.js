@@ -33,11 +33,11 @@ particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3
 // Materials
 
 const material = new THREE.PointsMaterial({
-    size: 0.005
+    size: 0.003
 })
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.005
+    size: 0.003
 })
 
 // Mesh
@@ -125,7 +125,12 @@ const tick = () =>
 
     // Update objects
     sphere.rotation.y = .5 * elapsedTime
-    particlesMesh.rotation.x = -mouseY * (elapsedTime * 0.00008)
+    particlesMesh.rotation.y = -.1 * elapsedTime
+
+    if(mouseX > 0) {
+        particlesMesh.rotation.x = -mouseY * (elapsedTime * 0.00008)
+        particlesMesh.rotation.y = mouseX * (elapsedTime * 0.00008)
+    }
 
     // Update Orbital Controls
     // controls.update()
