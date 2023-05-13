@@ -112,10 +112,10 @@ window.addEventListener('resize', () =>
 //Camera
 
 // Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 5000)
 camera.position.x = 0
 camera.position.y = 0
-camera.position.z = 35
+camera.position.z = 100
 scene.add(camera)
 
 // Controls
@@ -137,8 +137,8 @@ const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
 
-    // Update objects
-    sphere.rotation.y = .5 * elapsedTime
+    // // Update objects
+    // sphere.rotation.y = .5 * elapsedTime
 
     // Update Orbital Controls
     controls.update()
