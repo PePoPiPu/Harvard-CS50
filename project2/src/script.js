@@ -21,9 +21,11 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
 const galaxySize = 1000;
-const numStars = 1000;
-const spiralTurns = 10;
-const spiralHeight = 0.2;
+const numStars = 10000;
+const spiralTurns = 5;
+const armCount = 4;
+const armSpread = Math.PI / 2;
+const spiralHeight = 0.1;
 const minSize = 0.01;
 const maxSize = 0.05;
 
@@ -40,12 +42,13 @@ const sizes = new Float32Array(numStars);
 for (let i = 0; i < numStars; i++) {
   const t = i / numStars;
   const angle = spiralTurns * 2 * Math.PI * t;
+  const armAngle = (armCount * angle) + (Math.PI * 2 * Math.floor(t * armCount));
   const height = (t * 2 - 1) * spiralHeight;
   const radius = Math.random() * galaxySize;
 
-  const x = Math.cos(angle) * radius;
+  const x = Math.cos(armAngle) * radius;
   const y = height * galaxySize;
-  const z = Math.sin(angle) * radius;
+  const z = Math.sin(armAngle) * radius;
 
   positions[i * 3] = x;
   positions[i * 3 + 1] = y;
