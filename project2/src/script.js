@@ -20,10 +20,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
-const armCount = 4; // Number of arms in the galaxy
-const starCount = 10000; // Total number of stars in the galaxy
+const armCount = 6; // Number of arms in the galaxy
 const armLength = 20; // Length of each arm
 const armSpread = 10; // Spread of the arms
+const armRotationSpeed = 0.001; // Rotation speed of the arms
 
 // Material
 const material = new THREE.PointsMaterial({
@@ -33,31 +33,33 @@ const material = new THREE.PointsMaterial({
 
 // Geometry
 const geometry = new THREE.BufferGeometry();
-const positions = new Float32Array(starCount * 3);
-const colors = new Float32Array(starCount * 3);
+const positions = new Float32Array(armCount * armLength * 3);
+const colors = new Float32Array(armCount * armLength * 3);
 
 // Generate the stars
-for (let i = 0; i < starCount; i++) {
-  const armIndex = Math.floor(i / (starCount / armCount));
-  const armAngle = (armIndex / armCount) * Math.PI * 2;
+for (let armIndex = 0; armIndex < armCount; armIndex++) {
+  const baseAngle = (armIndex / armCount) * Math.PI * 2;
 
-  const angle = armAngle + Math.random() * Math.PI / 4 - Math.PI / 8; // Randomize the angle within a small range
-  const radius = Math.random() * armLength;
-  const height = Math.random() * 0.1;
+  for (let i = 0; i < armLength; i++) {
+    const angle = baseAngle + i * 0.1;
+    const radius = i / armLength * armSpread;
 
-  const x = Math.cos(angle) * (armSpread + radius);
-  const y = height * armSpread;
-  const z = Math.sin(angle) * (armSpread + radius);
+    const x = Math.cos(angle) * radius;
+    const y = 0; // Keep the y value constant to make it flat
+    const z = Math.sin(angle) * radius;
 
-  const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
+    const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
 
-  positions[i * 3] = x;
-  positions[i * 3 + 1] = y;
-  positions[i * 3 + 2] = z;
+    const index = (armIndex * armLength + i) * 3;
 
-  colors[i * 3] = color.r;
-  colors[i * 3 + 1] = color.g;
-  colors[i * 3 + 2] = color.b;
+    positions[index] = x;
+    positions[index + 1] = y;
+    positions[index + 2] = z;
+
+    colors[index] = color.r;
+    colors[index + 1] = color.g;
+    colors[index + 2] = color.b;
+  }
 }
 
 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
@@ -71,8 +73,8 @@ scene.add(galaxy);
 function animate() {
   requestAnimationFrame(animate);
 
-  // Rotate the galaxy
-  galaxy.rotation.y += 0.001;
+  // Rotate the arms
+  galaxy.rotation.y += armRotationSpeed;
 
   // Render the scene
   renderer.render(scene, camera);
