@@ -73,9 +73,9 @@ for (let i = 0; i < 1000; i++) {
 
     // Generate spiral arms
     points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * 0.6,
-        distance * Math.sin(theta) * Math.sin(phi) * 0.6,
-        distance * Math.cos(theta) * 0.6
+        distance * Math.sin(theta) * Math.cos(phi) * -1,
+        distance * Math.sin(theta) * Math.sin(phi) * -1,
+        distance * Math.cos(theta) * -1
     ));
 }
 
