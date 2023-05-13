@@ -46,3 +46,21 @@ body
     border-bottom: 1px solid white;
     transform: scaleX(1);
 }
+
+h1 {
+    font-size: 4rem;
+    width: 50vw;
+    line-height: 97%;
+    text-align: right;
+}
+
+h1, p {
+    flex-basis: 0;
+    flex-grow: 1;
+    clip-path: polygon(0 0 , 100% 0, 100% 0, 0 0);
+}
+
+p {
+    font-size: 1.3rem;
+    width: 40vw;
+}
