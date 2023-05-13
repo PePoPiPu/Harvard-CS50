@@ -20,9 +20,15 @@ class CustomSinCurve extends THREE.Curve {
         this.scale = scale;
     }
 
-    getPoint()
-}
+    getPoint( t, optionalTarget = new THREE.Vector3() ) {
+        const tx = t * 3 - 1.5;
+        const ty = Math.sin( 2 * Math.PI * t );
+        const tz = 0;
 
+        return optonTarget.set( tx, ty, tz ).multiplyScalar(this.scale);
+    }
+}
+const path = new CustomSinCurve( 10 );
 // Creating a tube
 const geometry = new THREE.TubeGeometry( path, 120, 1, 16, false);
 
