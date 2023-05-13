@@ -10,7 +10,7 @@ const scene = new THREE.Scene();
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-camera.position.set(0, 10, 30);
+camera.position.set(0, 70, 200);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -21,7 +21,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // Galaxy Parameters
 const armCount = 6; // Number of arms in the galaxy
-const armLength = 500; // Length of each arm
+const armLength = 100; // Length of each arm
 const armSpread = 10; // Spread of the arms
 const armRotationSpeed = 0.001; // Rotation speed of the arms
 const starCountPerArm = 1500; // Number of stars in each arm
