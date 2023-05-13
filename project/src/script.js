@@ -129,12 +129,16 @@ for (let i = 0; i < 1000; i++) {
         distance * Math.cos(theta) * 0.5
     ));
 }
+
+// Geometry
 let geometry = new THREE.BufferGeometry().setFromPoints(points)
 
 // Loading a custom texture
 const texture = new
 THREE.TextureLoader().load('./star.png')
 const loadedTexture = new THREE.PointsMaterial({ map:texture })
+const shaders =  new THREE.ShaderMaterial()
+
 const spiralGalaxy = new THREE.Points(geometry, loadedTexture)
 scene.add(spiralGalaxy)
 
