@@ -41,70 +41,62 @@ const armRotationSpeed = 0.001; // Rotation speed of the arms
 const starCountPerArm = 1500; // Number of stars in each arm
 
 // Material
-let material = new THREE.PointsMaterial({
-  size: 0.05, // Size of each star
-  vertexColors: true, // Enable vertex colors
-});
-
-// Geometry
-let geometry = new THREE.BufferGeometry();
-let positions = new Float32Array(armCount * starCountPerArm * 3);
-let colors = new Float32Array(armCount * starCountPerArm * 3);
-
-// Generate the stars
-function generateStars() {
-  positions = new Float32Array(armCount * starCountPerArm * 3);
-  colors = new Float32Array(armCount * starCountPerArm * 3);
-
-  for (let armIndex = 0; armIndex < armCount; armIndex++) {
-    const baseAngle = (armIndex / armCount) * Math.PI * 2;
-
-    for (let i = 0; i < starCountPerArm; i++) {
-      const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
-      const radius = (i / starCountPerArm) * armLength;
-      const spread = Math.random() * armSpread;
-
-      const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
-      const y = Math.random() * 4; // Small random displacement in the y-axis
-      const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
-
-      const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
-      const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
-
-      const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (orange)
-      const coldColor = new THREE.Color('rgb(100, 150, 255)'); // Cold far color (blue)
-
-const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
-
-const index = (armIndex * starCountPerArm + i) * 3;
-
-positions[index] = x;
-positions[index + 1] = y;
-positions[index + 2] = z;
-
-colors[index] = color.r;
-colors[index + 1] = color.g;
-colors[index + 2] = color.b;
-}
-}
-
-geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
 const material = new THREE.PointsMaterial({
   size: 0.05, // Size of each star
   vertexColors: true, // Enable vertex colors
 });
 
-const galaxy = new THREE.Points(geometry, material);
-scene.add(galaxy);
+// Geometry
+const geometry = new THREE.BufferGeometry();
+let positions = new Float32Array(armCount * starCountPerArm * 3);
+let colors = new Float32Array(armCount * starCountPerArm * 3);
+
+// Generate the stars
+for (let armIndex = 0; armIndex < armCount; armIndex++) {
+  const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+  for (let i = 0; i < starCountPerArm; i++) {
+    const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+    const radius = (i / starCountPerArm) * armLength;
+    const spread = Math.random() * armSpread;
+
+    const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+    const y = Math.random() * 4; // Small random displacement in the y-axis
+    const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+    const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+    const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
+
+    const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (orange)
+    const coldColor = new THREE.Color('rgb(100, 150, 255)'); // Cold far color (blue)
+
+    const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between hot and cold colors
+
+    const index = (armIndex * starCountPerArm + i) * 3;
+
+    positions[index] = x;
+    positions[index + 1] = y;
+    positions[index + 2] = z;
+
+    colors[index] = color.r;
+    colors[index + 1] = color.g;
+    colors[index + 2] = color.b;
+  }
 }
 
-// Call the generateStars function to generate the initial stars
-generateStars();
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+// Points
+const galaxy = new THREE.Points(geometry, material);
+scene.add(galaxy);
 
 // Create a render pass to render the scene
 const renderPass = new RenderPass(scene, camera);
+
+// Add event listener for window resize
+window.addEventListener('resize', handleWindowResize);
+
 
 // Create a bloom pass with desired parameters
 const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
@@ -134,8 +126,10 @@ function animate() {
 // Start the animation loop
 animate();
 
+
 // Create a GUI object
 const gui = new dat.GUI();
+
 
 // Parameters
 const params = {
@@ -154,7 +148,56 @@ function updateGalaxy() {
   armCount = params.armCount;
   armLength = params.galaxySize;
 
-  generateStars();
+  generateGalaxy();
+}
+
+// Function to generate the galaxy
+function generateGalaxy() {
+  // Clear existing galaxy
+  galaxy.geometry.dispose();
+  galaxy.material.dispose();
+  scene.remove(galaxy);
+
+  // Generate new galaxy
+  const newGeometry = new THREE.BufferGeometry();
+  const newPositions = new Float32Array(armCount * starCountPerArm * 3);
+  const newColors = new Float32Array(armCount * starCountPerArm * 3);
+
+  for (let armIndex = 0; armIndex < armCount; armIndex++) {
+    const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+    for (let i = 0; i < starCountPerArm; i++) {
+      const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+      const radius = (i / starCountPerArm) * armLength;
+      const spread = Math.random() * armSpread;
+
+      const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+      const y = Math.random() * 4; // Small random displacement in the y-axis
+      const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+      const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+      const t = distanceFromCenter / (armCount * armLength); // Value from 0 to 1 along the arms
+
+      const color = new THREE.Color().setHSL(0.6 + t * 0.4, 1, 0.5 - t * 0.4); // Orange to blue gradient
+
+      const index = (armIndex * starCountPerArm + i) * 3;
+
+      newPositions[index] = x;
+      newPositions[index + 1] = y;
+      newPositions[index + 2] = z;
+
+      newColors[index] = color.r;
+      newColors[index + 1] = color.g;
+      newColors[index + 2] = color.b;
+    }
+  }
+
+  newGeometry.setAttribute('position', new THREE.BufferAttribute(newPositions, 3));
+  newGeometry.setAttribute('color', new THREE.BufferAttribute(newColors, 3));
+
+  galaxy.geometry = newGeometry;
+  galaxy.material = material;
+  scene.add(galaxy);
 }
 
 // Append GUI to the DOM
