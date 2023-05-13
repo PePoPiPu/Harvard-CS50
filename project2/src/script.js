@@ -136,7 +136,7 @@ const params = {
   galaxySize: 100,
   armCount: 6,
   baseColor: '#ff6600',
-  centerColor: '#ffaa00' // New parameter for the center color
+  centerColor: '#ffaa00' 
 };
 
 // Add controls to the GUI
