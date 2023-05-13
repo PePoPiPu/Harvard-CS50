@@ -10,7 +10,7 @@ const scene = new THREE.Scene();
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-camera.position.set(0, 500, 1000);
+camera.position.set(0, 10, 30);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -24,7 +24,7 @@ const armCount = 6; // Number of arms in the galaxy
 const armLength = 500; // Length of each arm
 const armSpread = 10; // Spread of the arms
 const armRotationSpeed = 0.001; // Rotation speed of the arms
-const starCountPerArm = 500; // Number of stars in each arm
+const starCountPerArm = 1500; // Number of stars in each arm
 
 // Material
 const material = new THREE.PointsMaterial({
@@ -47,7 +47,7 @@ for (let armIndex = 0; armIndex < armCount; armIndex++) {
     const spread = Math.random() * armSpread;
 
     const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
-    const y = 0; // Keep the y value constant to make it flat
+    const y = Math.random() * 4; // Small random displacement in the y-axis
     const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
 
     const color = new THREE.Color().setHSL(angle / (Math.PI * 2), 1, 0.5); // Color based on angle
