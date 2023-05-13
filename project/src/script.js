@@ -137,9 +137,38 @@ let geometry = new THREE.BufferGeometry().setFromPoints(points)
 const texture = new
 THREE.TextureLoader().load('./star.png')
 const loadedTexture = new THREE.PointsMaterial({ map:texture })
-const shaders =  new THREE.ShaderMaterial()
 
-const spiralGalaxy = new THREE.Points(geometry, loadedTexture)
+// Creating a shader
+const material =  new THREE.ShaderMaterial({
+    uniforms: {
+        color1: {
+            value: new THREE.Color("red")
+        },
+        color2: {
+            value: new THREE.Color("purple")
+        }
+    },
+    vertexShader: `
+        varying vec2 vUv;
+
+        void main () {
+            vUv = uv;
+            gl_Position = projectionMatrix * modalViewMatrix * vec4(position, 1.0);
+        }
+    `
+    fragmentShader: `
+        unifrom vec3 color1;
+        uniform vec3 color2;
+
+        varying vec2 vUv;
+
+        void main() {
+            gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
+        }
+    `
+})
+
+const spiralGalaxy = new THREE.Points(geometry, loadedTexture, material)
 scene.add(spiralGalaxy)
 
 // Lights
