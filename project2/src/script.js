@@ -19,6 +19,16 @@ camera.position.set(0, 70, 200);
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
+// Function to handle window resize
+function handleWindowResize() {
+  // Update renderer size
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // Update camera aspect ratio
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+}
+
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -82,6 +92,10 @@ scene.add(galaxy);
 
 // Create a render pass to render the scene
 const renderPass = new RenderPass(scene, camera);
+
+// Add event listener for window resize
+window.addEventListener('resize', handleWindowResize);
+
 
 // Create a bloom pass with desired parameters
 const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
