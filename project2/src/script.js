@@ -37,11 +37,10 @@ const colors = new Float32Array(starCount * 3);
 
 // Generate the stars
 for (let i = 0; i < starCount; i++) {
-  const armIndex = i % armCount;
+  const armIndex = Math.floor(i / (starCount / armCount));
   const armAngle = (armIndex / armCount) * Math.PI * 2;
-  const armLength = Math.random() * galaxySize;
 
-  const angle = armAngle + armLength;
+  const angle = armAngle + Math.random() * Math.PI / 4 - Math.PI / 8; // Randomize the angle within a small range
   const radius = Math.sqrt(Math.random()) * galaxySize;
   const height = Math.random() * 0.2;
 
