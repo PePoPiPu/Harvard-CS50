@@ -18,7 +18,14 @@ const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
 const particlesGeometry = new THREE.BufferGeometry:
 const particlesCount = 5000;
 
-const posArray = 
+const posArray = new float32Array(particles * 3);
+// xyz, xyz, xyz, xyz
+
+for(let i = 0; i < particlesCount * 3; i++;) {
+    posArray[i] * Math.random()
+}
+
+particlesGeoemtry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
 // Materials
 
