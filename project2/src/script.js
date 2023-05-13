@@ -183,7 +183,7 @@ function generateGalaxy() {
       const hotColor = new THREE.Color(params.centerColor); // Get the center color from the GUI
       const coldColor = new THREE.Color(params.baseColor); // Get the base color from the GUI
 
-      const color = new THREE.Color().lerpColors(coldColor, hotColor, t); // Gradient between base and center colors
+      const color = new THREE.Color().lerpColors(coldColor, hotColor, Math.pow(t, 0.5)); // Gradient between base and center colors
 
       const index = (armIndex * starCountPerArm + i) * 3;
 
