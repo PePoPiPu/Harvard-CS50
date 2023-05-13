@@ -199,3 +199,9 @@ function generateGalaxy() {
   galaxy.material = material;
   scene.add(galaxy);
 }
+
+// Append GUI to the DOM
+const guiContainer = document.getElementById('gui-container');
+guiContainer.appendChild(gui.domElement);
+
+gui.listen();
