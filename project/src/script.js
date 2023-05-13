@@ -131,7 +131,10 @@ for (let i = 0; i < 1000; i++) {
 }
 let geometry = new THREE.BufferGeometry().setFromPoints(points)
 
-const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xffffff }))
+// Loading a custom texture
+const texture = new
+THREE.TextureLoader().load('./star.png')
+const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({ map:texture }))
 scene.add(spiralGalaxy)
 
 // Lights
