@@ -166,8 +166,7 @@ var material = new THREE.ShaderMaterial({
 
         gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
       }
-    `,
-    wireframe: true
+    `
   });
 
 const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial(), material)
