@@ -53,7 +53,7 @@ for (let armIndex = 0; armIndex < armCount; armIndex++) {
     const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
     const t = distanceFromCenter / (armCount * armLength); // Value from 0 to 1 along the arms
 
-    const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (bright white orange)
+    const hotColor = new THREE.Color('rgb(255, 200, 100)'); // Hot center color (orange)
     const coldColor = new THREE.Color('rgb(100, 150, 255)'); // Cold far color (blue)
 
     const color = new THREE.Color().lerpColors(coldColor, hotColor, t); // Gradient between cold and hot colors
