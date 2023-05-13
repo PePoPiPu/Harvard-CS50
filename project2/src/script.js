@@ -160,6 +160,7 @@ function generateGalaxy() {
   galaxy.material.dispose();
   scene.remove(galaxy);
 
+
   // Generate new galaxy
   const newGeometry = new THREE.BufferGeometry();
   const newPositions = new Float32Array(armCount * starCountPerArm * 3);
@@ -180,7 +181,10 @@ function generateGalaxy() {
       const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
       const t = distanceFromCenter / (armCount * armLength); // Value from 0 to 1 along the arms
 
-      const color = new THREE.Color().setHSL(0.6 + t * 0.4, 1, 0.5 - t * 0.4); // Orange to blue gradient
+      const hotColor = new THREE.Color(params.centerColor); // Get the center color from the GUI
+      const coldColor = new THREE.Color().setHSL(0.6 + t * 0.4, 1, 0.5 - t * 0.4); // Orange to blue gradient
+
+      const color = new THREE.Color().lerpColors(hotColor, coldColor, t); // Gradient between center and cold colors
 
       const index = (armIndex * starCountPerArm + i) * 3;
 
