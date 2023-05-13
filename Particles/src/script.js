@@ -17,10 +17,12 @@ const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
 
 // Materials
 
-const material = new THREE.PointsMaterial()
+const material = new THREE.PointsMaterial({
+    size: 0.005
+})
 
 // Mesh
-const sphere = new THREE.Mesh(geometry,material)
+const sphere = new THREE.Points(geometry,material)
 scene.add(sphere)
 
 // Lights
