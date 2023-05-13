@@ -59,25 +59,6 @@ let geometry = new THREE.BufferGeometry().setFromPoints(points)
 
 const spiralGalaxy = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0xffffff }))
 scene.add(spiralGalaxy)
-// const particlesGeometry = new THREE.BufferGeometry;
-// const particlesCount = 5000;
-// const posArray = new Float32Array(particlesCount * 3);
-
-// particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-// // Materials
-// const material = new THREE.PointsMaterial({
-//     size: 0.0025
-// })
-
-// const particlesMaterial = new THREE.PointsMaterial({
-//     size: 0.0025
-// })
-
-// // Mesh
-// const sphere = new THREE.Points(geometry,material)
-// const particlesMesh = new THREE.Points(particlesGeometry, material, particlesMaterial)
-// scene.add(sphere, particlesMesh)
 
 // Lights
 
@@ -114,8 +95,8 @@ window.addEventListener('resize', () =>
 // Base camera
 const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 5000)
 camera.position.x = 0
-camera.position.y = 0
-camera.position.z = 100
+camera.position.y = 1000
+camera.position.z = 1500
 scene.add(camera)
 
 // Controls
