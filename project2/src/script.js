@@ -16,17 +16,6 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 camera.position.set(300, 1500, 2000);
 
-let x;
-let y;
-let z;
-const xFinal = 0;
-const yFinal = 70;
-const zFinal = 200;
-window.addEventListener('mousedown', function() {
-  x = camera.position.x
-  y = camera.position.y
-  z = camera.position.z
-})
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -134,6 +123,7 @@ function animate() {
 
   // Update controls
   controls.update();
+
 }
 
 // Start the animation loop
