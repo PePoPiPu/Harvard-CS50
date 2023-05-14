@@ -13,6 +13,9 @@ const canvas = document.querySelector('canvas.webgl');
 // Scene
 const scene = new THREE.Scene();
 
+// Create a GUI object
+const gui = new dat.GUI();
+
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 camera.position.set(300, 1500, 2000);
@@ -138,11 +141,6 @@ function animate() {
 
 // Start the animation loop
 animate();
-
-
-// Create a GUI object
-const gui = new dat.GUI();
-
 
 // Parameters
 const params = {
