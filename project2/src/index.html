@@ -35,11 +35,8 @@
 
         // Make text disappear on click
         window.addEventListener('click', function() {
-            var textElements = document.getElementById('text')
-
-            for (var i = 0; i < textElements.length; i++) {
-                textElements[i].classList.add('fade-out');
-            }
+            var myDiv = document.getElementById('text');
+            myDiv.classList.add('fade-out');
         });
     </script>
 </body>
