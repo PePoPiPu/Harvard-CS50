@@ -42,7 +42,7 @@ function handleClick() {
   }
 }
 
-window.addEventListener('click', handleClick),{ once: true };
+window.addEventListener('click', handleClick,{ once: true });
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
