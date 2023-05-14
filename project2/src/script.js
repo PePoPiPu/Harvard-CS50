@@ -24,25 +24,25 @@ camera.position.set(300, 1500, 2000);
 // Camera animation
 let cameraAnimationCompleted = false;
 
-function animateCamera() {
-  gsap.to(camera.position, {
-    x: 0,
-    y: 70,
-    z: 200,
-    duration: 4,
-    onComplete: () => {
-      cameraAnimationCompleted = true;
-    }
-  });
-}
+// function animateCamera() {
+//   gsap.to(camera.position, {
+//     x: 0,
+//     y: 70,
+//     z: 200,
+//     duration: 4,
+//     onComplete: () => {
+//       cameraAnimationCompleted = true;
+//     }
+//   });
+// }
 
-function handleClick() {
-  if (!cameraAnimationCompleted) {
-    animateCamera();
-  }
-}
+// function handleClick() {
+//   if (!cameraAnimationCompleted) {
+//     animateCamera();
+//   }
+// }
 
-window.addEventListener('click', handleClick,{ once: true });
+// window.addEventListener('click', handleClick,{ once: true });
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
