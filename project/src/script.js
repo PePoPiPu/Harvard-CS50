@@ -115,7 +115,6 @@ for (let armIndex = 0; armIndex < armCount; armIndex++) {
 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-// Points
 const galaxy = new THREE.Points(geometry, material);
 scene.add(galaxy);
 

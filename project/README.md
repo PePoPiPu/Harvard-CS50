@@ -277,3 +277,11 @@ Let's break down how this code works into 11 steps:
 10. The inner loop continues to generate positions and colors for all stars in the current arm.
 
 11. After both loops complete, the positions and colors arrays will contain the positions and colors of all the stars in the galaxy.
+
+After the calculation and storage of the `xyz` coordinates and `rgb` values, I declared 2 new `BufferAttributes` for the geometry:
+```
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+```
+
+And with that
