@@ -35,11 +35,11 @@
 
         // Make text disappear on click
         window.addEventListener('click', function() {
-            var allElements = document.querySelector('h1', 'p');
+            var textElements = document.querySelectorAll('p, h1, span');
 
-            for (var i = 0; i < allElements.length; i++) {
-            allElements[i].classList.add('hidden');
-        }
+            for (var i = 0; i < textElements.length; i++) {
+                textElements[i].style.display = 'none';
+            }
         });
     </script>
 </body>
