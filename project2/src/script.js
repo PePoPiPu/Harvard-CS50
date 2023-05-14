@@ -238,7 +238,15 @@ function generateGalaxy() {
 }
 
 // Append GUI to the DOM
-const guiContainer = document.getElementById('gui-container');
-guiContainer.appendChild(gui.domElement);
+function setupGUI() {
+  const guiContainer = document.getElementById('gui-container');
+  if (guiContainer) {
+    guiContainer.appendChild(gui.domElement);
+  } else {
+    console.error("Unable to find 'gui-container' element.");
+  }
+}
+
+document.addEventListener('DOMContentLoaded', setupGUI);
 
 gui.listen();
