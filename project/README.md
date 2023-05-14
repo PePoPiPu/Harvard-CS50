@@ -215,7 +215,7 @@ The size of the positions and colors arrays is calculated based on the values of
 The purpose of these arrays is to store the positions and colors of the stars in the generated galaxy. Each star's position and color are calculated and stored in the respective array elements.
 
 
-Afterwards, I coded a nested loop that generates the positions and colors for the stars in the galaxy:
+## 3.3.2 Calculating star coordinates and color values:
 
 ```
 for (let armIndex = 0; armIndex < armCount; armIndex++) {
