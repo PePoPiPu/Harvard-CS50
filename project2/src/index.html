@@ -38,6 +38,10 @@
             var myDiv = document.getElementById('text');
             myDiv.classList.add('fade-out');
         }, { once: true });
+        
+        myDiv.addEventListener('animationend', function() {
+            myDiv.remove();
+        }, { once: true });
     </script>
 </body>
 </html>
