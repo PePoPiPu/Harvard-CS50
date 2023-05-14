@@ -365,3 +365,42 @@ A nice GUI appeared on the top right corner of the screen! I created a div in my
   right: 10px;
 }
 ```
+
+I created a function to update both the galaxy and the GUI display. Let's take a look first on how the updating the GUI code looks:
+(Complete code snippet for reference)
+```
+function updateGalaxy() {
+  armCount = params.armCount;
+  armLength = params.galaxySize;
+
+  baseColor.set(params.baseColor); // Update the base color
+  centerColor.set(params.centerColor); // Update the center color
+
+  generateGalaxy();
+
+  gui.__controllers.forEach((controller) => {
+    controller.updateDisplay();
+  });
+}
+```
+Let's look at this first:
+```
+    ...
+  gui.__controllers.forEach((controller) => {
+    controller.updateDisplay();
+    ...
+```
+This code iterates over all the controllers in the GUI and calls the updateDisplay() method on each controller in order to change the display as it's interacted with.
+
+Now let's look at the first part:
+```
+function updateGalaxy() {
+  armCount = params.armCount;
+  armLength = params.galaxySize;
+
+  baseColor.set(params.baseColor); // Update the base color
+  centerColor.set(params.centerColor); // Update the center color
+
+  generateGalaxy();
+```
+See that `generateGalaxy()` function? Yes, the way I thought of updating every parameter in the galaxy was to generate a new galaxy!
