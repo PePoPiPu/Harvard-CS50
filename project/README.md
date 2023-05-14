@@ -636,7 +636,7 @@ p {
   font-weight: 200;
 }
 ```
-A line is set to appear once the page loads. This achieved by hiding it with:
+A line is set to appear once the page loads. This achieved by firstly hiding it and making it appear after 0.5 seconds with:
 ```
     tl.from(content, { delay: .5, duration: 4, cssRule: {scaleX: 0}})
 ```
@@ -652,13 +652,13 @@ This line of code tells it to go from a scale of 0 in the X plane to its origina
   transform: scaleX(1);
 }
 ```
-The header and paragraphs "appear from nowhere" thanks to the use of GSAP. It animates a clip path downwards, revealing the hidden text.
+The header and paragraphs "appear from nowhere" thanks to the use of GSAP and CSSRulePlugin. It animates a clip path downwards, revealing the hidden text.
 ```
 tl.to(h1, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=3")
 tl.to(p, { duration: 4, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=2")
 ```
 The `polygon` is the shape of the clipping mask.
-After all the text appears, it prompts you to click in order to continue. This creates a fade-out animation and the consequencial zooming of the camera. The fade out is achieved with JavaScript and CSS:
+After all the text appears, it prompts you to click in order to continue. This creates a fade-out animation and the consequencial zooming of the camera. The fade out is achieved with JavaScript and CSS:\
 JavaScript:
 ```
     window.addEventListener('click', function() {
