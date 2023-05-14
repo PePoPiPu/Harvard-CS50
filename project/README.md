@@ -541,7 +541,6 @@ camera.position.set(300, 3000, 5000);
 I only wanted this animation to be executed once onclick so I declared a variable and set it to false:
 ```
 let cameraAnimationCompleted = false;
-
 ```
 Once the function was called and completed, the variable was set to true. To handle the click, I created:
 ```
@@ -571,7 +570,7 @@ For the HTML elements, I wrote the following in the html file:
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/CSSRulePlugin.min.js" integrity="sha512-zaTjCyJwbhpd8V594wpmUStv6Dy/SnmP7jR+XXnE49z2ayHkSirlNiP4XQc15Zgk+p5gXGe5ZUQYu4yRtShqkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 ```
-It's a nice text that serves as an initial presentation an view to the app. I imported the GSAP librarie and CSSRulePlugin to create a nice "appearing from nowhere animation". That was achieved with the following JavaScript code.
+It's a nice text that serves as an initial presentation an view to the app. I imported the GSAP library and CSSRulePlugin to create a nice "appearing from nowhere animation". That was achieved with the following JavaScript code.
 
 ```
     const content = CSSRulePlugin.getRule('.content:before')
