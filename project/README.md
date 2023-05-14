@@ -319,3 +319,19 @@ const composer = new EffectComposer(renderer);
 composer.addPass(renderPass);
 composer.addPass(bloomPass);
 ```
+This is how this piece of code works:
+
+1. `bloomPass` is created as an instance of `UnrealBloomPass`. It takes several parameters:
+
+    - new `THREE.Vector2(window.innerWidth, window.innerHeight)`: This defines the size of the render target for the bloom effect, based on the current window size.
+    - `1.5`: This is the strength of the bloom effect.
+    - `0.4`: This is the threshold value that determines which pixels will be considered for the bloom effect. Pixels with a brightness above this threshold will be affected.
+    - `0.85`: This is the blur radius of the bloom effect. It determines how far the bloom effect spreads.
+
+2. The code then adjusts the settings of the bloomPass object:
+
+    - `bloomPass.threshold = 0.4;`: This line sets the threshold value for the bloom effect to 0.4. You could adjust this value to control which pixels will glow based on their brightness.
+    - `bloomPass.strength = 1.7;`: This line sets the strength of the bloom effect to 1.7. You could adjust this value to control the intensity of the glow effect.
+    - `bloomPass.radius = 0.8;`: This line sets the radius of the bloom effect to 0.8. You can adjust this value to control the size of the glow effect.
+3. An `EffectComposer` object named `composer` is created, which is responsible for managing and applying post-processing effects.
+The `renderPass` and `bloomPass` are added to the composer using the `addPass` method. The `renderPass` represents the initial render of the scene, and the `bloomPass` applies the bloom effect to the rendered result.
