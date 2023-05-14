@@ -290,3 +290,32 @@ And with that, I could create a `THREE.Points()` object to render my galaxy and 
 const galaxy = new THREE.Points(geometry, material);
 scene.add(galaxy);
 ```
+
+It was time to add one more to the `animate()` function in order to animate the rotation of the galaxy:
+```
+function animate() {
+  requestAnimationFrame(animate);
+
+  galaxy.rotation.y += armRotationSpeed;
+
+  composer.render();
+
+}
+```
+Cool! Now we have a nice looking galaxy. Next thing I wanted to do was to add bloom to it so I began by importing a few more things:
+```
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+```
+These three packages would let me add bloom to my object doing the following:
+```
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+bloomPass.threshold = 0.4; // Adjust the threshold to control which pixels glow
+bloomPass.strength = 1.7; // Adjust the strength of the glow effect
+bloomPass.radius = 0.8; // Adjust the size of the glow effect
+
+const composer = new EffectComposer(renderer);
+composer.addPass(renderPass);
+composer.addPass(bloomPass);
+```
