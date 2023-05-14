@@ -114,6 +114,7 @@ function animate() {
 
 animate();
 ```
+Note that I passed a composer.render() function. This is a piece of code of the final result, that's why there's a postprocessing snippet there.
 
 Great! I saw only black of course, I had no object to be seen neither no lights to shine on it. I did encounter a problem, when resizing the window, the canvas didn't seem to adjust to that resize so I had to create a function to handle that:
 ```
