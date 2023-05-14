@@ -7,16 +7,42 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 
+document.addEventListener("DOMContentLoaded", function() {
 // Canvas
 const canvas = document.querySelector('canvas.webgl');
 
 // Scene
 const scene = new THREE.Scene();
 
+// Create a GUI object
+const gui = new dat.GUI();
+
 // Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 camera.position.set(300, 1500, 2000);
 
+// Camera animation
+let cameraAnimationCompleted = false;
+
+function animateCamera() {
+  gsap.to(camera.position, {
+    x: 0,
+    y: 70,
+    z: 200,
+    duration: 4,
+    onComplete: () => {
+      cameraAnimationCompleted = true;
+    }
+  });
+}
+
+function handleClick() {
+  if (!cameraAnimationCompleted) {
+    animateCamera();
+  }
+}
+
+window.addEventListener('click', handleClick),{ once: true };
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -112,6 +138,14 @@ const composer = new EffectComposer(renderer);
 composer.addPass(renderPass);
 composer.addPass(bloomPass);
 
+// Parameters
+const params = {
+  galaxySize: 100,
+  armCount: 6,
+  baseColor: '#6496FF',
+  centerColor: '#FFC864'
+};
+
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
@@ -129,28 +163,6 @@ function animate() {
 
 // Start the animation loop
 animate();
-
-
-// Create a GUI object
-const gui = new dat.GUI();
-
-
-// Parameters
-const params = {
-  galaxySize: 100,
-  armCount: 6,
-  baseColor: '#6496FF',
-  centerColor: '#FFC864'
-};
-
-// Add controls to the GUI
-gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
-gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
-gui.addColor(params, 'baseColor').onChange(updateGalaxy);
-gui.addColor(params, 'centerColor').onChange(updateGalaxy);
-
-const baseColor = new THREE.Color(params.baseColor); // Initialize the base color
-const centerColor = new THREE.Color(params.centerColor); // Initialize the center color
 
 // Function to update the galaxy based on the GUI parameters
 function updateGalaxy() {
@@ -220,3 +232,4 @@ const guiContainer = document.getElementById('gui-container');
 guiContainer.appendChild(gui.domElement);
 
 gui.listen();
+});
