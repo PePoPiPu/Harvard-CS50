@@ -1,214 +1,251 @@
-import './styles.css'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-
-// Debug
-
+import './styles.css';
+import * as THREE from 'three';
+import * as dat from 'dat.gui';
+import gsap from 'gsap';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 
 // Canvas
-const canvas = document.querySelector('canvas.webgl')
+const canvas = document.querySelector('canvas.webgl');
 
 // Scene
-const scene = new THREE.Scene()
+const scene = new THREE.Scene();
 
-// Random function with normal distribution
-const normalRandom = (mean, std) => {
-    let n = 0
+// Camera
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+camera.position.set(300, 3000, 5000);
 
-    for (let i = 1; i <= 12; i++) {
-        n += Math.random()
+// Camera animation
+let cameraAnimationCompleted = false;
+
+function animateCamera() {
+  gsap.to(camera.position, {
+    x: 0,
+    y: 70,
+    z: 200,
+    duration: 4,
+    onComplete: () => {
+      cameraAnimationCompleted = true;
     }
-
-    return (n - 6) * std + mean
+  });
 }
 
-// Geometry
-const points = []
-const galaxySize = 1000
-
-// Temp avariables to assign new values inside loop
-var norm, theta, phi, thetaVar, distance;
-
-// First arm
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * 1,
-        distance * Math.sin(theta) * Math.sin(phi) * 1,
-        distance * Math.cos(theta) * 1
-    ));
+function handleClick() {
+  if (!cameraAnimationCompleted) {
+    animateCamera();
+  }
 }
 
-// Second Spiral
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * -1,
-        distance * Math.sin(theta) * Math.sin(phi) * -1,
-        distance * Math.cos(theta) * -1
-    ));
-}
-
-// Second Spiral
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * -0.5,
-        distance * Math.sin(theta) * Math.sin(phi) * -0.5,
-        distance * Math.cos(theta) * -0.5
-    ));
-}
-
-// Second Spiral
-for (let i = 0; i < 1000; i++) {
-    // Norm increments from 0 to 1
-    norm = i / 1000;
-
-    // Random variation to theta [-0.5, 0.5]
-    thetaVar = THREE.Math.randFloatSpread(0.5);
-
-    // Theta goes from 0 to Math.PI (+ random variation)
-    theta = (norm * 4) + thetaVar;
-
-    // Phi stays close to 0 to create galaxy ecliptic plane
-    phi = THREE.Math.randFloatSpread(0.2);
-
-    // Distance grows from 0 to galaxySize
-    distance = norm * galaxySize;
-
-    // Generate spiral arms
-    points.push(new THREE.Vector3(
-        distance * Math.sin(theta) * Math.cos(phi) * 0.5,
-        distance * Math.sin(theta) * Math.sin(phi) * 0.5,
-        distance * Math.cos(theta) * 0.5
-    ));
-}
-
-// Geometry
-var geometry = new THREE.BufferGeometry().setFromPoints(points)
-
-
-// Loading a custom texture
-const texture = new
-THREE.TextureLoader().load('./star.png')
-const loadedTexture = new THREE.PointsMaterial({ map:texture })
-
-const spiralGalaxy = new THREE.Points(geometry, loadedTexture)
-scene.add(spiralGalaxy)
-
-// Lights
-
-const pointLight = new THREE.PointLight(0xffffff, 0.1)
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
-scene.add(pointLight)
-
-// Sizes
-
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
-window.addEventListener('resize', () =>
-{
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-})
-
-//Camera
-
-// Base camera
-const camera = new THREE.PerspectiveCamera(50, sizes.width / sizes.height, 0.1, 5000)
-camera.position.x = 0
-camera.position.y = 1000
-camera.position.z = 1700
-scene.add(camera)
-
-// Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
-controls.autoRotate = true
-controls.autoRotateSpeed = 5.0
+window.addEventListener('click', handleClick,{ once: true });
 
 // Renderer
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
-})
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-// Setting background color as an "spacey" color
-renderer.setClearColor(new THREE.Color('#01010d'), 1)
+const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-// Animate
-const clock = new THREE.Clock()
-const tick = () =>
-{
-    const elapsedTime = clock.getElapsedTime()
+// Function to handle window resize
+function handleWindowResize() {
+  // Update renderer size
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Update Orbital Controls
-    controls.update()
-
-    // Render
-    renderer.render(scene, camera)
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
+  // Update camera aspect ratio
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 }
 
-tick()
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+
+
+// Galaxy Parameters
+let armCount = 6; // Number of arms in the galaxy
+let armLength = 100; // Length of each arm
+const armSpread = 10; // Spread of the arms
+const armRotationSpeed = 0.001; // Rotation speed of the arms
+const starCountPerArm = 1500; // Number of stars in each arm
+
+// Material
+const material = new THREE.PointsMaterial({
+  size: 0.05, // Size of each star
+  vertexColors: true, // Enable vertex colors
+});
+
+// Geometry
+const geometry = new THREE.BufferGeometry();
+let positions = new Float32Array(armCount * starCountPerArm * 3);
+let colors = new Float32Array(armCount * starCountPerArm * 3);
+
+// Generate the stars
+for (let armIndex = 0; armIndex < armCount; armIndex++) {
+  const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+  for (let i = 0; i < starCountPerArm; i++) {
+    const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+    const radius = (i / starCountPerArm) * armLength;
+    const spread = Math.random() * armSpread;
+
+    const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+    const y = Math.random() * 4; // Small random displacement in the y-axis
+    const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+    const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+    const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
+
+    const baseColor = new THREE.Color('rgb(255, 200, 100)'); // base center color (orange)
+    const centerColor = new THREE.Color('rgb(100, 150, 255)'); // center far color (blue)
+
+    const color = new THREE.Color().lerpColors(baseColor, centerColor, t); // Gradient between base and center colors
+
+    const index = (armIndex * starCountPerArm + i) * 3;
+
+    positions[index] = x;
+    positions[index + 1] = y;
+    positions[index + 2] = z;
+
+    colors[index] = color.r;
+    colors[index + 1] = color.g;
+    colors[index + 2] = color.b;
+  }
+}
+
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+// Points
+const galaxy = new THREE.Points(geometry, material);
+scene.add(galaxy);
+
+// Create a render pass to render the scene
+const renderPass = new RenderPass(scene, camera);
+
+// Add event listener for window resize
+window.addEventListener('resize', handleWindowResize);
+
+
+// Create a bloom pass with desired parameters
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+bloomPass.threshold = 0.4; // Adjust the threshold to control which pixels glow
+bloomPass.strength = 1.7; // Adjust the strength of the glow effect
+bloomPass.radius = 0.8; // Adjust the size of the glow effect
+
+// Create an effect composer
+const composer = new EffectComposer(renderer);
+composer.addPass(renderPass);
+composer.addPass(bloomPass);
+
+// Animation loop
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Rotate the arms
+  galaxy.rotation.y += armRotationSpeed;
+
+  // Render the scene through the composer
+  composer.render();
+
+  // Update controls
+  controls.update();
+}
+
+// Start the animation loop
+animate();
+
+
+// Create a GUI object
+const gui = new dat.GUI();
+
+
+// Parameters
+const params = {
+  galaxySize: 100,
+  armCount: 6,
+  baseColor: '#6496FF',
+  centerColor: '#FFC864'
+};
+
+// Function to update the galaxy based on the GUI parameters
+function updateGalaxy() {
+  armCount = params.armCount;
+  armLength = params.galaxySize;
+
+  baseColor.set(params.baseColor); // Update the base color
+  centerColor.set(params.centerColor); // Update the center color
+
+  generateGalaxy();
+
+  // Update GUI controls
+  gui.__controllers.forEach((controller) => {
+    controller.updateDisplay();
+  });
+}
+
+
+
+// Add controls to the GUI
+gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
+gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
+gui.addColor(params, 'baseColor').onChange(updateGalaxy);
+gui.addColor(params, 'centerColor').onChange(updateGalaxy);
+
+const baseColor = new THREE.Color(params.baseColor); // Initialize the base color
+const centerColor = new THREE.Color(params.centerColor); // Initialize the center color
+
+// Function to generate the galaxy
+function generateGalaxy() {
+  // Clear existing galaxy
+  galaxy.geometry.dispose();
+  galaxy.material.dispose();
+  scene.remove(galaxy);
+
+  // Generate new galaxy
+  const newGeometry = new THREE.BufferGeometry();
+  const newPositions = new Float32Array(armCount * starCountPerArm * 3);
+  const newColors = new Float32Array(armCount * starCountPerArm * 3);
+
+  for (let armIndex = 0; armIndex < armCount; armIndex++) {
+    const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+    for (let i = 0; i < starCountPerArm; i++) {
+      const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+      const radius = (i / starCountPerArm) * armLength;
+      const spread = Math.random() * armSpread;
+
+      const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+      const y = Math.random() * 4; // Small random displacement in the y-axis
+      const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+      const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+      const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
+
+      const baseColor = new THREE.Color(params.baseColor); // Base color from the GUI
+      const centerColor = new THREE.Color(params.centerColor); // Center color from the GUI
+
+      const color = new THREE.Color().lerpColors(centerColor, baseColor, t); // Gradient between hot and cold colors
+
+      const index = (armIndex * starCountPerArm + i) * 3;
+
+      newPositions[index] = x;
+      newPositions[index + 1] = y;
+      newPositions[index + 2] = z;
+
+      newColors[index] = color.r;
+      newColors[index + 1] = color.g;
+      newColors[index + 2] = color.b;
+    }
+  }
+
+  newGeometry.setAttribute('position', new THREE.BufferAttribute(newPositions, 3));
+  newGeometry.setAttribute('color', new THREE.BufferAttribute(newColors, 3));
+
+  galaxy.geometry = newGeometry;
+  galaxy.material = material;
+  scene.add(galaxy);
+}
+
+// Append GUI to the DOM
+const guiContainer = document.getElementById('gui-container');
+guiContainer.appendChild(gui.domElement);
+
+// Call listen after all controls are added
+gui.listen();
