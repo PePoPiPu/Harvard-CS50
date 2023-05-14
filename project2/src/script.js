@@ -220,9 +220,9 @@ gui.listen();
 
 // Make text disappear on click
 window.addEventListener('click', function() {
-  var allElements = document.querySelectorAll('*');
+  var textElements = document.querySelectorAll('p, h1');
 
-  for (var i = 0; i , allElements.length; i++) {
-    allElements[i].style.display = 'none'
+  for (var i = 0; i < textElements.length; i++) {
+    textElements[i].style.display = 'none';
   }
 });
