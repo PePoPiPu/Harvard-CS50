@@ -21,12 +21,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/CSSRulePlugin.min.js" integrity="sha512-zaTjCyJwbhpd8V594wpmUStv6Dy/SnmP7jR+XXnE49z2ayHkSirlNiP4XQc15Zgk+p5gXGe5ZUQYu4yRtShqkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        const content = cssRulePlugin.getRule('.content:before')
+        const content = CSSRulePlugin.getRule('.content:before')
         const h1 = document.querySelector('h1')
         const p = document.querySelector('p')
         const tl = gsap.timeline()
 
         tl.from(content, { delay: .5, duration: 4, cssRule: {scaleX: 0}})
+        tl.to(h1, { duration: 2, clipPath: 'polygon(0 0, 100% 100%, 0% 100%)'})
     </script>
 </body>
 </html>
