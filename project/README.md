@@ -284,4 +284,8 @@ geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 ```
 
-And with that
+And with that, I could create a `THREE.Points()` object to render my galaxy and add it to my scene:
+```
+const galaxy = new THREE.Points(geometry, material);
+scene.add(galaxy);
+```
