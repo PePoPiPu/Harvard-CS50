@@ -140,6 +140,23 @@ const composer = new EffectComposer(renderer);
 composer.addPass(renderPass);
 composer.addPass(bloomPass);
 
+// Parameters
+const params = {
+  galaxySize: 100,
+  armCount: 6,
+  baseColor: '#6496FF',
+  centerColor: '#FFC864'
+};
+
+// Add controls to the GUI
+gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
+gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
+gui.addColor(params, 'baseColor').onChange(updateGalaxy);
+gui.addColor(params, 'centerColor').onChange(updateGalaxy);
+
+const baseColor = new THREE.Color(params.baseColor); // Initialize the base color
+const centerColor = new THREE.Color(params.centerColor); // Initialize the center color
+
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
@@ -157,23 +174,6 @@ function animate() {
 
 // Start the animation loop
 animate();
-
-// Parameters
-const params = {
-  galaxySize: 100,
-  armCount: 6,
-  baseColor: '#6496FF',
-  centerColor: '#FFC864'
-};
-
-// Add controls to the GUI
-gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
-gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
-gui.addColor(params, 'baseColor').onChange(updateGalaxy);
-gui.addColor(params, 'centerColor').onChange(updateGalaxy);
-
-const baseColor = new THREE.Color(params.baseColor); // Initialize the base color
-const centerColor = new THREE.Color(params.centerColor); // Initialize the center color
 
 // Function to update the galaxy based on the GUI parameters
 function updateGalaxy() {
