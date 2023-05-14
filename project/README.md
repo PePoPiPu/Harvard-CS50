@@ -675,11 +675,11 @@ Added CSS class:
 ```
 
 ## 4. This was my CS50 Final Project!
-This has been a journey which I hope to continue for the years to come. Thank you, CS50, for imparting us with invaluable coding knowledge and the endless opportunities that stem from adopting a programming mindset!
+This has been an incredible journey that I eagerly anticipate continuing in the years to come. Thank you, CS50, for imparting us with invaluable coding knowledge and the endless opportunities that stem from adopting a programming mindset!
 
 I would like to extend my sincerest regards to the entire CS50 staff, with a special expression of gratitude to Professor David J. Malan for his exceptional lectures.
 
 Thank you for reading this document.
 
 Alex Álvarez de Sotomayor Sugimoto,\
-CS50 Student
+CS50 Student.
