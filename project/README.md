@@ -215,7 +215,7 @@ The size of the positions and colors arrays is calculated based on the values of
 The purpose of these arrays is to store the positions and colors of the stars in the generated galaxy. Each star's position and color are calculated and stored in the respective array elements.
 
 
-## 3.3.2 Calculating star coordinates and color values:
+### 3.3.2 Calculating star coordinates and color values:
 
 ```
 for (let armIndex = 0; armIndex < armCount; armIndex++) {
@@ -284,7 +284,7 @@ After the calculation and storage of the `xyz` coordinates and `rgb` values, I d
 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 ```
-
+### 3.3.3 Rendering and animating the galaxy:
 And with that, I could create a `THREE.Points()` object to render my galaxy and add it to my scene:
 ```
 const galaxy = new THREE.Points(geometry, material);
@@ -302,7 +302,7 @@ function animate() {
 
 }
 ```
-Cool! Now we have a nice looking galaxy. Next thing I wanted to do was to add bloom to it so I began by importing a few more things:
+### 3.4 Adding a Bloom Effect
 ```
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
@@ -335,3 +335,33 @@ This is how this piece of code works:
     - `bloomPass.radius = 0.8;`: This line sets the radius of the bloom effect to 0.8. You can adjust this value to control the size of the glow effect.
 3. An `EffectComposer` object named `composer` is created, which is responsible for managing and applying post-processing effects.
 The `renderPass` and `bloomPass` are added to the composer using the `addPass` method. The `renderPass` represents the initial render of the scene, and the `bloomPass` applies the bloom effect to the rendered result.
+### 3.4 Adding a GUI for customization:
+In order for the galaxy to be customizable in the 4 parameters I was thinking, I would first have to add a way for the user to interact with the app. For that, I imported google's dat.gui:
+```
+import * as dat from 'dat.gui';
+```
+To create the GUI I simply needed to declare it:
+```
+const gui = new dat.GUI();
+```
+And then I needed to declare the parameters I wanted to customize:
+```
+const params = {
+  galaxySize: 100,
+  armCount: 6,
+  baseColor: '#6496FF',
+  centerColor: '#FFC864'
+};
+```
+A nice GUI appeared on the top right corner of the screen! I created a div in my html in order to contain the file and I did the following to my CSS stylesheet in order for it to appear in top right corner of the window:
+```
+<div id="gui-container"></div>
+```
+```
+#gui-container {
+  position: absolute;
+  z-index: 1;
+  top:10px;
+  right: 10px;
+}
+```
