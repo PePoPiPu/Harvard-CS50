@@ -84,4 +84,35 @@ Good! Now I had something to render on so I started with my main script.js file,
 import './styles.css';
 import * as THREE from 'three';
 ```
-I imported the styles sheet and the complete Three.js library. Afterwards, I started by selecting my canvas, declaring the scene and setting my main camera
+I imported the styles sheet and the complete Three.js library. Afterwards, I started by selecting my canvas, declaring the scene and setting my main camera constructor and its position:
+```
+const canvas = document.querySelector('canvas.webgl');
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+camera.position.set(0, 70, 200);
+```
+I set my camera to a FOV of 75, the aspect ratio to the window's inner Width divided by its innerHeight the camera frustrum near plane to 1 and the far plane to 10000.
+
+Then I had to render everything by creating a function and calling it:
+```
+// Animation loop
+function animate() {
+  requestAnimationFrame(animate);
+
+  composer.render();
+}
+
+animate();
+```
+
+Great! I saw only black of course, I had no object to be seen neither no lights to shine on it. I did encounter a problem, when resizing the window, the canvas didn't seem to adjust to that resize so I had to create a function to handle that:
+```
+function handleWindowResize() {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+}
+```
