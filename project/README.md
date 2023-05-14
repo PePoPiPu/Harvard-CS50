@@ -366,7 +366,16 @@ A nice GUI appeared on the top right corner of the screen! I created a div in my
 }
 ```
 
-I created a function to update both the galaxy and the GUI display. Let's take a look first on how the updating the GUI code looks:
+I created a function to update both the galaxy and the GUI display. In order to add actual mouse interactivity I had to the following:
+```
+gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
+gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
+gui.addColor(params, 'baseColor').onChange(updateGalaxy);
+gui.addColor(params, 'centerColor').onChange(updateGalaxy);
+```
+Any time any of these parameters where changed the `updateGalaxy()` function would be called.
+
+Let's take a look on how the updating the GUI code looks:
 (Complete code snippet for reference)
 ```
 function updateGalaxy() {
@@ -403,4 +412,70 @@ function updateGalaxy() {
 
   generateGalaxy();
 ```
-See that `generateGalaxy()` function? Yes, the way I thought of updating every parameter in the galaxy was to generate a new galaxy!
+See that `generateGalaxy()` function? Yes, the way I thought of updating every parameter in the galaxy was to generate a new galaxy! Let's dive in and see how that function works:
+```
+function generateGalaxy() {
+
+  galaxy.geometry.dispose();
+  galaxy.material.dispose();
+  scene.remove(galaxy);
+
+
+  const newGeometry = new THREE.BufferGeometry();
+  const newPositions = new Float32Array(armCount * starCountPerArm * 3);
+  const newColors = new Float32Array(armCount * starCountPerArm * 3);
+
+  for (let armIndex = 0; armIndex < armCount; armIndex++) {
+    const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+    for (let i = 0; i < starCountPerArm; i++) {
+      const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+      const radius = (i / starCountPerArm) * armLength;
+      const spread = Math.random() * armSpread;
+
+      const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+      const y = Math.random() * 4; // Small random displacement in the y-axis
+      const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+      const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+      const t = distanceFromCenter / armLength; 
+
+      const baseColor = new THREE.Color(params.baseColor);
+      const centerColor = new THREE.Color(params.centerColor);
+
+      const color = new THREE.Color().lerpColors(centerColor, baseColor, t);
+
+      const index = (armIndex * starCountPerArm + i) * 3;
+
+      newPositions[index] = x;
+      newPositions[index + 1] = y;
+      newPositions[index + 2] = z;
+
+      newColors[index] = color.r;
+      newColors[index + 1] = color.g;
+      newColors[index + 2] = color.b;
+    }
+  }
+
+  newGeometry.setAttribute('position', new THREE.BufferAttribute(newPositions, 3));
+  newGeometry.setAttribute('color', new THREE.BufferAttribute(newColors, 3));
+
+  galaxy.geometry = newGeometry;
+  galaxy.material = material;
+  scene.add(galaxy);
+}
+```
+
+1. It first removes the old galaxy so a new one doesn't render on top, causing obvious visual issues.
+```
+  galaxy.geometry.dispose();
+  galaxy.material.dispose();
+  scene.remove(galaxy);
+```
+2. Then it declares a new `THREE.BufferGeometry()` and 2 new `Float32Array` objects.
+```
+  const newGeometry = new THREE.BufferGeometry();
+  const newPositions = new Float32Array(armCount * starCountPerArm * 3);
+  const newColors = new Float32Array(armCount * starCountPerArm * 3);
+```
+3. After that, a new nested loop calculates every coordinate and rgb value (rgb values according to the parameters)
