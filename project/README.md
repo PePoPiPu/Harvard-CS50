@@ -47,27 +47,5 @@
 Let's start by explaining how the project started. I wanted to have a customizable galaxy (a 3 object) in a region of space. For that, I had to first create a canvas for everything to render on:
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS50 Final Project</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container" id="text">
-        <div class="content">
-            <h1>CS50<br>Final Project</h1>
-            <p>A customizable galaxy implemented through JS, Three.js, HTML and CSS.<br><br><b>Click to continue.</b></p>
-        </div>
-        <div class="clicker">
-            <p>Click to continue.</p>
-        </div>
-    </div>
-    <div id="gui-container"></div>
     <canvas class="webgl"></canvas>
 ```
