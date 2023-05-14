@@ -129,7 +129,68 @@ window.addEventListener('resize', handleWindowResize);
 I added an EventListener in order to listen for a window resize. Whenever this happened, the handleWindowResize() function would be called and update both the renderer's and camera's aspect ratio as well as the camera's projection matrix.
 
 ### 3.3 Coding the galaxy:
-Once I got everything up and running correctly, I got to the big part of the project: The actual galaxy. Through thorough testing I came up with my result and I'm going to explain how each part of the code works. Firstly, let's take a look on how the whole galaxy function looks:
+Once I got everything up and running correctly, I got to the big part of the project: The actual galaxy. Through thorough testing I came up with my result and I'm going to explain how each part of the code works. Firstly, let's take a look on how the whole galaxy function looks and then, I'll go step by step explaining each part of this code:
 ```
+let armCount = 6;
+let armLength = 100;
+const armSpread = 10;
+const armRotationSpeed = 0.001;
+const starCountPerArm = 1500;
 
+const material = new THREE.PointsMaterial({
+  size: 0.05,
+  vertexColors: true,
+});
+
+const geometry = new THREE.BufferGeometry();
+let positions = new Float32Array(armCount * starCountPerArm * 3);
+let colors = new Float32Array(armCount * starCountPerArm * 3);
+
+for (let armIndex = 0; armIndex < armCount; armIndex++) {
+  const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+  for (let i = 0; i < starCountPerArm; i++) {
+    const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+    const radius = (i / starCountPerArm) * armLength;
+    const spread = Math.random() * armSpread;
+
+    const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+    const y = Math.random() * 4; // Small random displacement in the y-axis
+    const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+    const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+    const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
+
+    const baseColor = new THREE.Color('rgb(255, 200, 100)');
+    const centerColor = new THREE.Color('rgb(100, 150, 255)');
+
+    const color = new THREE.Color().lerpColors(baseColor, centerColor, t);
+
+    const index = (armIndex * starCountPerArm + i) * 3;
+
+    positions[index] = x;
+    positions[index + 1] = y;
+    positions[index + 2] = z;
+
+    colors[index] = color.r;
+    colors[index + 1] = color.g;
+    colors[index + 2] = color.b;
+  }
+}
+
+geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+const galaxy = new THREE.Points(geometry, material);
+scene.add(galaxy);
 ```
+### 3.3.1 Setting up the parameters:
+Firstly, I had to declare the paramaters for my galaxy:
+
+```let armCount = 6;```\
+```let armLength = 100;```\
+```const armSpread = 10;```\
+```const armRotationSpeed = 0.001;```\
+```const starCountPerArm = 1500;```
+
+I delcared the armCount and armLength as ``` let ``` variables as I wanted
