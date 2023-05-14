@@ -204,4 +204,4 @@ const material = new THREE.PointsMaterial({
 
 const geometry = new THREE.BufferGeometry();
 ```
-As I wanted it to be made of stars (points) I realized I had to work with particles. That's why I created a `THREE.PointsMaterial`. Because I wanted to create a custom geometry and not a predefined one, declared a `THREE.BufferGeometry`.
+As I wanted it to be made of stars (points) I realized I had to work with particles. That's why I created a `THREE.PointsMaterial`. Because I wanted to create a custom geometry and not a predefined one, declared a `THREE.BufferGeometry`. Then, I declared 2 Float32Array objects in order to
