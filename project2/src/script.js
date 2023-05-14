@@ -8,86 +8,85 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 
 document.addEventListener("DOMContentLoaded", function() {
-// Canvas
-const canvas = document.querySelector('canvas.webgl');
+  // Canvas
+  const canvas = document.querySelector('canvas.webgl');
 
-// Scene
-const scene = new THREE.Scene();
+  // Scene
+  const scene = new THREE.Scene();
 
-// Create a GUI object
-const gui = new dat.GUI();
+  // Create a GUI object
+  const gui = new dat.GUI();
 
-// Camera
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-camera.position.set(300, 1500, 2000);
+  // Camera
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+  camera.position.set(300, 1500, 2000);
 
-// Camera animation
-let cameraAnimationCompleted = false;
+  // Camera animation
+  let cameraAnimationCompleted = false;
 
-function animateCamera() {
-  gsap.to(camera.position, {
-    x: 0,
-    y: 70,
-    z: 200,
-    duration: 4,
-    onComplete: () => {
-      cameraAnimationCompleted = true;
-    }
-  });
-}
-
-function handleClick() {
-  if (!cameraAnimationCompleted) {
-    animateCamera();
+  function animateCamera() {
+    gsap.to(camera.position, {
+      x: 0,
+      y: 70,
+      z: 200,
+      duration: 4,
+      onComplete: () => {
+        cameraAnimationCompleted = true;
+      }
+    });
   }
-}
 
-window.addEventListener('click', handleClick,{ once: true });
+  function handleClick() {
+    if (!cameraAnimationCompleted) {
+      animateCamera();
+    }
+  }
 
-// Renderer
-const renderer = new THREE.WebGLRenderer({ canvas: canvas });
-renderer.setSize(window.innerWidth, window.innerHeight);
+  window.addEventListener('click', handleClick, { once: true });
 
-// Function to handle window resize
-function handleWindowResize() {
-  // Update renderer size
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas });
   renderer.setSize(window.innerWidth, window.innerHeight);
 
-  // Update camera aspect ratio
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-}
+  // Function to handle window resize
+  function handleWindowResize() {
+    // Update renderer size
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-// Controls
-const controls = new OrbitControls(camera, renderer.domElement);
+    // Update camera aspect ratio
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  }
 
+  // Controls
+  const controls = new OrbitControls(camera, renderer.domElement);
 
-// Galaxy Parameters
-let armCount = 6; // Number of arms in the galaxy
-let armLength = 100; // Length of each arm
-const armSpread = 10; // Spread of the arms
-const armRotationSpeed = 0.001; // Rotation speed of the arms
-const starCountPerArm = 1500; // Number of stars in each arm
+  // Galaxy Parameters
+  let armCount = 6; // Number of arms in the galaxy
+  let armLength = 100; // Length of each arm
+  const armSpread = 10; // Spread of the arms
+  const armRotationSpeed = 0.001; // Rotation speed of the arms
+  const starCountPerArm = 1500; // Number of stars in each arm
 
-// Material
-const material = new THREE.PointsMaterial({
-  size: 0.05, // Size of each star
-  vertexColors: true, // Enable vertex colors
-});
+  // Material
+  const material = new THREE.PointsMaterial({
+    size: 0.05, // Size of each star
+    vertexColors: true, // Enable vertex colors
+  });
 
-// Geometry
-const geometry = new THREE.BufferGeometry();
-let positions = new Float32Array(armCount * starCountPerArm * 3);
-let colors = new Float32Array(armCount * starCountPerArm * 3);
+  // Geometry
+  const geometry = new THREE.BufferGeometry();
+  let positions = new Float32Array(armCount * starCountPerArm * 3);
+  let colors = new Float32Array(armCount * starCountPerArm * 3);
 
-// Generate the stars
-for (let armIndex = 0; armIndex < armCount; armIndex++) {
-  const baseAngle = (armIndex / armCount) * Math.PI * 2;
+  // Generate the stars
+  for (let armIndex = 0; armIndex < armCount; armIndex++) {
+    const baseAngle = (armIndex / armCount) * Math.PI * 2;
 
-  for (let i = 0; i < starCountPerArm; i++) {
-    const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
-    const radius = (i / starCountPerArm) * armLength;
-    const spread = Math.random() * armSpread;
+    for (let i = 0; i < starCountPerArm; i++) {
+      const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+      const radius = (i / starCountPerArm) * armLength;
+      const spread = Math.random() * armSpread;
 
     const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
     const y = Math.random() * 4; // Small random displacement in the y-axis
