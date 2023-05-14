@@ -335,7 +335,7 @@ This is how this piece of code works:
     - `bloomPass.radius = 0.8;`: This line sets the radius of the bloom effect to 0.8. You can adjust this value to control the size of the glow effect.
 3. An `EffectComposer` object named `composer` is created, which is responsible for managing and applying post-processing effects.
 The `renderPass` and `bloomPass` are added to the composer using the `addPass` method. The `renderPass` represents the initial render of the scene, and the `bloomPass` applies the bloom effect to the rendered result.
-### 3.4 Adding a GUI for customization:
+### 3.5 Adding a GUI for customization:
 In order for the galaxy to be customizable in the 4 parameters I was thinking, I would first have to add a way for the user to interact with the app. For that, I imported google's dat.gui:
 ```
 import * as dat from 'dat.gui';
@@ -364,6 +364,13 @@ A nice GUI appeared on the top right corner of the screen! I created a div in my
   top:10px;
   right: 10px;
 }
+```
+I appended the GUI to the gui-container div element and called the `listen()` function after all the controls were loaded.
+```
+const guiContainer = document.getElementById('gui-container');
+guiContainer.appendChild(gui.domElement);
+
+gui.listen();
 ```
 
 I created a function to update both the galaxy and the GUI display. In order to add actual mouse interactivity I had to the following:
