@@ -507,3 +507,178 @@ For that I imported the GSAP library:
 ```
 import gsap from 'gsap';
 ```
+### 3.8.1 Animating the camera on click:
+```
+let cameraAnimationCompleted = false;
+
+function animateCamera() {
+  gsap.to(camera.position, {
+    x: 0,
+    y: 70,
+    z: 200,
+    duration: 4,
+    onComplete: () => {
+      cameraAnimationCompleted = true;
+    }
+  });
+}
+
+function handleClick() {
+  if (!cameraAnimationCompleted) {
+    animateCamera();
+  }
+}
+
+window.addEventListener('click', handleClick,{ once: true });
+```
+
+I added this function to move the camera from a far away position from the galaxy to a close one. I updated the original position of the galaxy to:
+```
+camera.position.set(300, 3000, 5000);
+```
+I only wanted this animation to be executed once onclick so I declared a variable and set it to false:
+```
+let cameraAnimationCompleted = false;
+
+```
+Once the function was called and completed, the variable was set to true. To handle the click, I created:
+```
+function handleClick() {
+  if (!cameraAnimationCompleted) {
+    animateCamera();
+  }
+}
+```
+This checks if the function has been completed so it never executes again.
+
+The eventListener is set to `{ once: true }` so once it fires it never fires again. I did this because it was overriding the GUI controls.
+### 3.8.2 Adding HTML elements, animating them and fading them out on click:
+For the HTML elements, I wrote the following in the html file:
+```
+<div class="container" id="text">
+        <div class="content">
+            <h1>CS50<br>Final Project</h1>
+            <p>A customizable galaxy implemented through JS, Three.js, HTML and CSS.<br><br><b>Click to continue.</b></p>
+        </div>
+        <div class="clicker">
+            <p>Click to continue.</p>
+        </div>
+    </div>
+    <div id="gui-container"></div>
+    <canvas class="webgl"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/CSSRulePlugin.min.js" integrity="sha512-zaTjCyJwbhpd8V594wpmUStv6Dy/SnmP7jR+XXnE49z2ayHkSirlNiP4XQc15Zgk+p5gXGe5ZUQYu4yRtShqkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+```
+It's a nice text that serves as an initial presentation an view to the app. I imported the GSAP librarie and CSSRulePlugin to create a nice "appearing from nowhere animation". That was achieved with the following JavaScript code.
+
+```
+    const content = CSSRulePlugin.getRule('.content:before')
+    const h1 = document.querySelector('h1')
+    const p = document.querySelector('p')
+    const tl = gsap.timeline()
+
+    tl.from(content, { delay: .5, duration: 4, cssRule: {scaleX: 0}})
+    tl.to(h1, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=3")
+    tl.to(p, { duration: 4, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=2")
+
+    window.addEventListener('click', function() {
+        var myDiv = document.getElementById('text');
+        myDiv.classList.add('fade-out');
+    }, { once: true });
+```
+Let's look at the CSS for this too:
+```
+.container {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.content {
+  display: flex;
+  gap: 5em;
+  width: 100%;
+  padding-top: 3em;
+  position: relative;
+}
+
+.content:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid white;
+  transform: scaleX(1);
+}
+
+h1 {
+  font-size: 4rem;
+  width: 50vw;
+  line-height: 97%;
+  text-align: right;
+  font-weight: 400;
+}
+
+h1, p {
+  flex-basis: 0;
+  flex-grow: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+p {
+  font-size: 1.3rem;
+  width: 40vw;
+  font-weight: 200;
+}
+```
+A line is set to appear once the page loads. This achieved by hiding it with:
+```
+    tl.from(content, { delay: .5, duration: 4, cssRule: {scaleX: 0}})
+```
+This line of code tells it to go from a scale of 0 in the X plane to its original scale set in the CSS:
+```
+.content:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid white;
+  transform: scaleX(1);
+}
+```
+The header and paragraphs "appear from nowhere" thanks to the use of GSAP. It animates a clip path downwards, revealing the hidden text.
+```
+tl.to(h1, { duration: 2, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=3")
+tl.to(p, { duration: 4, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:'30px'}, "-=2")
+```
+The `polygon` is the shape of the clipping mask.
+After all the text appears, it prompts you to click in order to continue. This creates a fade-out animation and the consequencial zooming of the camera. The fade out is achieved with JavaScript and CSS:
+JavaScript:
+```
+    window.addEventListener('click', function() {
+        var myDiv = document.getElementById('text');
+        myDiv.classList.add('fade-out');
+    }, { once: true });
+```
+Added CSS class:
+```
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+```
+
+## 4. This was my CS50 Final Project!
+This has been a journey which I hope to continue for the years to come. Thank you, CS50, for imparting us with invaluable coding knowledge and the endless opportunities that stem from adopting a programming mindset!
+
+I would like to extend my sincerest regards to the entire CS50 staff, with a special expression of gratitude to Professor David J. Malan for his exceptional lectures.
+
+Thank you for reading this document.
+
+Alex Álvarez de Sotomayor Sugimoto,\
+CS50 Student
