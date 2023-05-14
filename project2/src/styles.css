@@ -10,7 +10,6 @@ body {
   padding: 0;
   overflow: hidden;
   height: 100vh;
-  font-family: 'Inter', sans-serif;
   color: white;
 }
 
@@ -54,6 +53,7 @@ h1 {
   width: 50vw;
   line-height: 97%;
   text-align: right;
+  font-family: 'Inter', Regular-400
 }
 
 h1, p {
