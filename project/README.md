@@ -382,6 +382,7 @@ gui.addColor(params, 'centerColor').onChange(updateGalaxy);
 ```
 Any time any of these parameters where changed the `updateGalaxy()` function would be called.
 
+### 3.6 Update Galaxy function:
 Let's take a look on how the updating the GUI code looks:
 (Complete code snippet for reference)
 ```
@@ -419,7 +420,8 @@ function updateGalaxy() {
 
   generateGalaxy();
 ```
-See that `generateGalaxy()` function? Yes, the way I thought of updating every parameter in the galaxy was to generate a new galaxy! Let's dive in and see how that function works:
+See that `generateGalaxy()` function? Yes, the way I thought of updating every parameter in the galaxy was to generate a new galaxy!
+### 3.7 Generating a new galaxy with the custom parameters:
 ```
 function generateGalaxy() {
 
@@ -497,4 +499,11 @@ function generateGalaxy() {
   galaxy.geometry = newGeometry;
   galaxy.material = material;
   scene.add(galaxy);
+```
+### 3.8 Animating the scene:
+That's almost it for the code! Afterall I already had a nice functional auto-rotating customizable galaxy. All I had to add was a camera animation and animated HTML elements to make it prettier.
+
+For that I imported the GSAP library:
+```
+import gsap from 'gsap';
 ```
