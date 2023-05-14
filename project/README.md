@@ -43,7 +43,8 @@
 ### I believe this file structure is organized and simple to understand.
 
 ## 3. Project's implementation:
-### 3.1 The basic setting:
+### 3.1 
+### 3.2 The basic setting:
 Let's start by explaining how the project started. I wanted to have a customizable galaxy (a 3 object) in a region of space. For that, I had to first create a canvas for everything to render on:
 
 ```
@@ -115,4 +116,10 @@ function handleWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 }
+
+window.addEventListener('resize', handleWindowResize);
 ```
+I added an EventListener in order to listen for a window resize. Whenever this happened, the handleWindowResize() function would be called and update both the renderer's and camera's aspect ratio as well as the camera's projection matrix.
+
+### 3.3 Coding the galaxy:
+Once I got everything up and running correctly,
