@@ -479,3 +479,15 @@ function generateGalaxy() {
   const newColors = new Float32Array(armCount * starCountPerArm * 3);
 ```
 3. After that, a new nested loop calculates every coordinate and rgb value (rgb values according to the parameters). This loop is pretty much similar to the one that created the original galaxy.
+
+4. Setting 2 new BufferAttributes:
+```
+  newGeometry.setAttribute('position', new THREE.BufferAttribute(newPositions, 3));
+  newGeometry.setAttribute('color', new THREE.BufferAttribute(newColors, 3));
+```
+5. Adding the new galaxy to the scene:
+```
+  galaxy.geometry = newGeometry;
+  galaxy.material = material;
+  scene.add(galaxy);
+```
