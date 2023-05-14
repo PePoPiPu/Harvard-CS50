@@ -21,14 +21,29 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 camera.position.set(300, 1500, 2000);
 
 // Camera animation
-window.addEventListener('click', (e) => {
+let cameraAnimationCompleted = false;
+
+function animateCamera() {
   gsap.to(camera.position, {
     x: 0,
     y: 70,
     z: 200,
-    duration: 4
+    duration: 4,
+    onComplete: () => {
+      cameraAnimationCompleted = true;
+    }
   });
-}, { once: true });
+}
+
+function handleClick() {
+  if (!cameraAnimationCompleted) {
+    animateCamera();
+  } else {
+   controls.update();
+  }
+}
+
+window.addEventListener('click', handleClick);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
@@ -227,4 +242,3 @@ const guiContainer = document.getElementById('gui-container');
 guiContainer.appendChild(gui.domElement);
 
 gui.listen();
-
