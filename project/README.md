@@ -293,7 +293,7 @@ const galaxy = new THREE.Points(geometry, material);
 scene.add(galaxy);
 ```
 
-It was time to add one more to the `animate()` function in order to animate the rotation of the galaxy:
+I then added one more piece of code to the `animate()` function in order to animate the rotation of the galaxy:
 ```
 function animate() {
   requestAnimationFrame(animate);
@@ -334,7 +334,7 @@ This is how this piece of code works:
 
     - `bloomPass.threshold = 0.4;`: This line sets the threshold value for the bloom effect to 0.4. You could adjust this value to control which pixels will glow based on their brightness.
     - `bloomPass.strength = 1.7;`: This line sets the strength of the bloom effect to 1.7. You could adjust this value to control the intensity of the glow effect.
-    - `bloomPass.radius = 0.8;`: This line sets the radius of the bloom effect to 0.8. You can adjust this value to control the size of the glow effect.
+    - `bloomPass.radius = 0.8;`: This line sets the radius of the bloom effect to 0.8. You could adjust this value to control the size of the glow effect.
 3. An `EffectComposer` object named `composer` is created, which is responsible for managing and applying post-processing effects.
 The `renderPass` and `bloomPass` are added to the composer using the `addPass` method. The `renderPass` represents the initial render of the scene, and the `bloomPass` applies the bloom effect to the rendered result.
 ### 3.5 Adding a GUI for customization:
@@ -355,7 +355,7 @@ const params = {
   centerColor: '#FFC864'
 };
 ```
-A nice GUI appeared on the top right corner of the screen! I created a div in my html in order to contain the file and I did the following to my CSS stylesheet in order for it to appear in top right corner of the window:
+A nice GUI appeared on the top right corner of the screen! I created a div in my html in order to contain the GUI and I did the following to my CSS stylesheet in order for it to appear in the top right corner of the window:
 ```
 <div id="gui-container"></div>
 ```
