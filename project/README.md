@@ -187,10 +187,21 @@ scene.add(galaxy);
 ### 3.3.1 Setting up the parameters:
 Firstly, I had to declare the paramaters for my galaxy:
 
-```let armCount = 6;```\
-```let armLength = 100;```\
-```const armSpread = 10;```\
-```const armRotationSpeed = 0.001;```\
-```const starCountPerArm = 1500;```
+let armCount = 6;
+let armLength = 100;
+const armSpread = 10;
+const armRotationSpeed = 0.001;
+const starCountPerArm = 1500;
 
-I declared the armCount and armLength as ``` let ``` variables as I wanted
+I declared the armCount and armLength as ``` let ``` variables as I wanted them to customizable and thus, variable. Then, I declared the armSpread, armRotationSpeed and starCountPerArm as `const` as I wanted these to be fix values.
+
+Then, I created the material for it:
+```
+const material = new THREE.PointsMaterial({
+  size: 0.05,
+  vertexColors: true,
+});
+
+const geometry = new THREE.BufferGeometry();
+```
+As I wanted it to be made of stars (points) I realized I had to work with particles. That's why I created a `THREE.PointsMaterial`. Because I wanted to create a custom geometry and not a predefined one, declared a `THREE.BufferGeometry`.
