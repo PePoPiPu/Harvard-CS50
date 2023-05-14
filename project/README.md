@@ -49,3 +49,39 @@ Let's start by explaining how the project started. I wanted to have a customizab
 ```
     <canvas class="webgl"></canvas>
 ```
+I used the following CSS settings for the html document and its body:
+```
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+```
+
+And the following settings for the canvas so it could be properly positioned:
+```
+.webgl {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+```
+
+Good! Now I had something to render on so I started with my main script.js file, starting with the imports:
+```
+import './styles.css';
+import * as THREE from 'three';
+```
+I imported the styles sheet and the complete Three.js library. Afterwards, I started by selecting my canvas, declaring the scene and setting my main camera
