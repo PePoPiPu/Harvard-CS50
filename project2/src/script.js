@@ -7,6 +7,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 
+document.addEventListener("DOMContentLoaded", function() {
 // Canvas
 const canvas = document.querySelector('canvas.webgl');
 
@@ -242,3 +243,4 @@ const guiContainer = document.getElementById('gui-container');
 guiContainer.appendChild(gui.domElement);
 
 gui.listen();
+});
