@@ -438,7 +438,7 @@ function generateGalaxy() {
       const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
 
       const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
-      const t = distanceFromCenter / armLength; 
+      const t = distanceFromCenter / armLength;
 
       const baseColor = new THREE.Color(params.baseColor);
       const centerColor = new THREE.Color(params.centerColor);
@@ -478,4 +478,4 @@ function generateGalaxy() {
   const newPositions = new Float32Array(armCount * starCountPerArm * 3);
   const newColors = new Float32Array(armCount * starCountPerArm * 3);
 ```
-3. After that, a new nested loop calculates every coordinate and rgb value (rgb values according to the parameters)
+3. After that, a new nested loop calculates every coordinate and rgb value (rgb values according to the parameters). This loop is pretty much similar to the one that created the original galaxy.
