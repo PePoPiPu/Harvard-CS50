@@ -217,9 +217,3 @@ const guiContainer = document.getElementById('gui-container');
 guiContainer.appendChild(gui.domElement);
 
 gui.listen();
-
-// Make text disappear on click
-window.addEventListener('click', function() {
-  var textElement = document.getElementById('text');
-  textElement.classList.add('hidden');
-});
