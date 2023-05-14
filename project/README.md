@@ -212,3 +212,40 @@ let colors = new Float32Array(armCount * starCountPerArm * 3);
 The size of the positions and colors arrays is calculated based on the values of armCount and starCountPerArm variables. The size is determined by multiplying these two variables by 3, indicating that each element in the array represents a three-dimensional coordinate or color value (x, y, z or r, g, b).
 
 The purpose of these arrays is to store the positions and colors of the stars in the generated galaxy. Each star's position and color are calculated and stored in the respective array elements.
+
+
+Afterwards, I coded a nested loop that generates the positions and colors for the stars in the galaxy:
+
+```
+for (let armIndex = 0; armIndex < armCount; armIndex++) {
+  const baseAngle = (armIndex / armCount) * Math.PI * 2;
+
+  for (let i = 0; i < starCountPerArm; i++) {
+    const angle = baseAngle + (i / starCountPerArm) * Math.PI * 2;
+    const radius = (i / starCountPerArm) * armLength;
+    const spread = Math.random() * armSpread;
+
+    const x = Math.cos(angle) * radius + Math.random() * spread - spread / 2;
+    const y = Math.random() * 4; // Small random displacement in the y-axis
+    const z = Math.sin(angle) * radius + Math.random() * spread - spread / 2;
+
+    const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2 + z ** 2);
+    const t = distanceFromCenter / armLength; // Value from 0 to 1 based on distance from the center
+
+    const baseColor = new THREE.Color('rgb(255, 200, 100)');
+    const centerColor = new THREE.Color('rgb(100, 150, 255)');
+
+    const color = new THREE.Color().lerpColors(baseColor, centerColor, t);
+
+    const index = (armIndex * starCountPerArm + i) * 3;
+
+    positions[index] = x;
+    positions[index + 1] = y;
+    positions[index + 2] = z;
+
+    colors[index] = color.r;
+    colors[index + 1] = color.g;
+    colors[index + 2] = color.b;
+  }
+}
+```
