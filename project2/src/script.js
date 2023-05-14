@@ -39,9 +39,7 @@ function animateCamera() {
 function handleClick() {
   if (!cameraAnimationCompleted) {
     animateCamera();
-  } else {
-   controls.update();
-  }
+  } 
 }
 
 window.addEventListener('click', handleClick);
