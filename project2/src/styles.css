@@ -31,13 +31,6 @@ body {
   place-content: center;
 }
 
-.clicker {
-  display: flex;
-  gap: 5em;
-  width: 100%;
-  padding-top: 3em;
-  position: relative;
-}
 .content {
   display: flex;
   gap: 5em;
