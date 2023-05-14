@@ -207,12 +207,12 @@ const material = new THREE.PointsMaterial({
 
 const geometry = new THREE.BufferGeometry();
 ```
-As I wanted it to be made of stars (points) I realized I had to work with particles. That's why I created a `THREE.PointsMaterial`. Because I wanted to create a custom geometry and not a predefined one, declared a `THREE.BufferGeometry`. Then, I declared 2 Float32Array objects:
+As I wanted it to be made of stars (points) I realized I had to work with particles. That's why I created a `THREE.PointsMaterial`. Since I wanted to create a custom geometry and not a predefined one, declared a `THREE.BufferGeometry`. Then, I declared 2 Float32Array objects:
 ```
 let positions = new Float32Array(armCount * starCountPerArm * 3);
 let colors = new Float32Array(armCount * starCountPerArm * 3);
 ```
-The size of the positions and colors arrays is calculated based on the values of armCount and starCountPerArm variables. The size is determined by multiplying these two variables by 3, indicating that each element in the array represents a three-dimensional coordinate or color value (x, y, z or r, g, b).
+The size of the coordinates and color values arrays is calculated based on the values of armCount and starCountPerArm variables. The size is determined by multiplying these two variables by 3, indicating that each element in the array represents a three-dimensional coordinate or a color value (x, y, z or r, g, b).
 
 The purpose of these arrays is to store the positions and colors of the stars in the generated galaxy. Each star's position and color are calculated and stored in the respective array elements.
 
