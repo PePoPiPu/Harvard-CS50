@@ -12,11 +12,11 @@
 ### 1.1 App characteristics:
  This pocket galaxy has a set of characteristics that have been implemented either through JavaScript, GSAP, CSSRulePlugin, gui.dat or through the use of Three.js postprocessing features. This characteristics are:
 1. An animated introductory view of the app using a combination of JavaScript, GSAP and CSSRulePlugin.
-2. An animated transition from the introductory view to the close-up view of the galaxy has been implemented with a combination of JavaScript, GSAP and Three.js camera coordinates.
+2. An animated transition from the introductory view to the close-up view of the galaxy that has been implemented with a combination of JavaScript, GSAP and Three.js camera coordinates.
 3. A bloom effect implemented with postprocessing features from Three.js
 4. A simple interactive GUI implemented with gui.dat.
 5. Full galaxy customization through the use of several functions implemented with JavaScript.
- How these characteristics where implemented plus their functionality and code will be explained further down this document.
+ How these characteristics were implemented plus their functionality and code will be explained further down this document.
 
 ## 2. Project's file structure:
 ```
@@ -37,14 +37,15 @@
 │   ├── package.json
 │   ├── README.md
 ```
-### The most important files we're going to see in this project are:
+ The most important files we're going to see in this project are:
 1. The src folder containing our main code including the script, the stylesheet and the html file.
 2. The static folder containing a 10px by 10px png file for our custom star texture.
-### I believe this file structure is organized and simple to understand.
+
+I believe this file structure is organized and simple to understand.
 
 ## 3. Project's implementation:
 ### 3.1 Installation of packages
-Through the design for this project and the required research for it, I came to know the packages I needed. In order for this, I had to execute several commands to install them. When testing, I installed through my terminal the Node.Js runtime environment. These are the packages I installed.
+Through the design process for this project and the required research for it, I came to know the packages I needed. In order for this, I had to execute several commands to install them. I installed through my bash terminal the Node.Js runtime environment while in the testing and learning stages. These are the main packages I installed.
 ```
 project@ /workspaces/119201937/project
 ├── dat.gui@0.7.9
@@ -52,7 +53,7 @@ project@ /workspaces/119201937/project
 ├── three@0.126.1
 ```
 ### 3.2 The basic setting:
-Let's start by explaining how the project started. I wanted to have a customizable galaxy (a 3 object) in a region of space. For that, I had to first create a canvas for everything to render on:
+Let's start by explaining how the project started: I wanted to have a customizable galaxy (a 3D object) in a region of space. For that, I had to first create a canvas for everything to render on:
 
 ```
     <canvas class="webgl"></canvas>
