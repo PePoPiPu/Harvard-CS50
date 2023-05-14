@@ -193,4 +193,4 @@ Firstly, I had to declare the paramaters for my galaxy:
 ```const armRotationSpeed = 0.001;```\
 ```const starCountPerArm = 1500;```
 
-I delcared the armCount and armLength as ``` let ``` variables as I wanted
+I declared the armCount and armLength as ``` let ``` variables as I wanted
