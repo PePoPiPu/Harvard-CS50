@@ -17,6 +17,15 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 camera.position.set(300, 1500, 2000);
 
+// Camera animation
+window.addEventListener('mousedown', function() {
+  gsap.to(camera.position, {
+    x: 0,
+    y: 70,
+    z: 200,
+    duration: 4
+  })
+})
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
