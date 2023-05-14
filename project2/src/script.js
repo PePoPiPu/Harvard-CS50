@@ -39,7 +39,7 @@ function animateCamera() {
 function handleClick() {
   if (!cameraAnimationCompleted) {
     animateCamera();
-  } 
+  }
 }
 
 window.addEventListener('click', handleClick);
@@ -145,15 +145,6 @@ const params = {
   baseColor: '#6496FF',
   centerColor: '#FFC864'
 };
-
-// Add controls to the GUI
-gui.add(params, 'galaxySize', 10, 200).onChange(updateGalaxy);
-gui.add(params, 'armCount', 1, 12).step(1).onChange(updateGalaxy);
-gui.addColor(params, 'baseColor').onChange(updateGalaxy);
-gui.addColor(params, 'centerColor').onChange(updateGalaxy);
-
-const baseColor = new THREE.Color(params.baseColor); // Initialize the base color
-const centerColor = new THREE.Color(params.centerColor); // Initialize the center color
 
 // Animation loop
 function animate() {
