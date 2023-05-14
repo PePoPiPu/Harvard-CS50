@@ -18,14 +18,14 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 camera.position.set(300, 1500, 2000);
 
 // Camera animation
-window.addEventListener('mousedown', function() {
+window.addEventListener('click', (e) => {
   gsap.to(camera.position, {
     x: 0,
     y: 70,
     z: 200,
     duration: 4
   });
-});
+}, { once: true });
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
