@@ -18,4 +18,26 @@
 5. Full galaxy customization through the use of several functions implemented with JavaScript.
 ### How these characteristic where implemented and their functionality and code will be explained further down this document.
 
-## 2. Project's file structure
+## 2. Project's file structure:
+```
+├── project
+│   ├── bundler
+│   │   ├── webpack.common.js
+│   │   ├── webpack.dev.js
+│   │   ├── webpack.prod.js
+│   ├── node_modules
+│   │   ├── contains all the modules
+│   ├── src
+│   │   ├── index.html
+│   │   ├── script.js
+│   │   ├── styles.css
+│   ├── static
+│   │   ├── star.png
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── README.md
+```
+### The most important files we're going to see in this project are:
+1. The src folder containing our main code including the script, the stylesheet and the html file.
+2. The static folder containing a 10px by 10px png file for our custom star texture.
+### I believe this file structure is organized and simple to understand.
