@@ -24,8 +24,8 @@ window.addEventListener('mousedown', function() {
     y: 70,
     z: 200,
     duration: 4
-  })
-})
+  });
+});
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas });
