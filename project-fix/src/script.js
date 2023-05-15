@@ -66,7 +66,7 @@ let armCount = 6; // Number of arms in the galaxy
 let armLength = 100; // Length of each arm
 const armSpread = 10; // Spread of the arms
 const armRotationSpeed = 0.001; // Rotation speed of the arms
-const starCountPerArm = 1500; // Number of stars in each arm
+const starCountPerArm = 15000; // Number of stars in each arm
 
 // Material
 const material = new THREE.PointsMaterial({
