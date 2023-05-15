@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl');
@@ -120,7 +121,7 @@ scene.add(galaxy);
 // Create a render pass to render the scene
 const renderPass = new RenderPass(scene, camera);
 
-// Create a bloom pass 
+// Create a bloom pass
 const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
 bloomPass.threshold = 0.4; // Adjust the threshold to control which pixels glow
 bloomPass.strength = 1.7; // Adjust the strength of the glow effect
